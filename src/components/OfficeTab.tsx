@@ -559,18 +559,4 @@ function getDefaultTask(name: string): string {
   return t[name] || "";
 }
 
-function getDefaultActions(): LiveAction[] {
-  const now = new Date();
-  const fmt = (min: number) => {
-    const d = new Date(now.getTime() - min * 60000);
-    return `${d.getHours() % 12 || 12}:${String(d.getMinutes()).padStart(2, "0")} ${d.getHours() >= 12 ? "PM" : "AM"}`;
-  };
-  return [
-    { id: "1", agent: "Dwight", agentEmoji: "🔍", action: "Running morning research sweep", time: fmt(5), color: "#a855f7" },
-    { id: "2", agent: "George", agentEmoji: "🦾", action: "Morning standup completed", time: fmt(15), color: "#6366f1" },
-    { id: "3", agent: "Kelly", agentEmoji: "🐦", action: "Drafting tweet batch #1", time: fmt(30), color: "#ec4899" },
-    { id: "4", agent: "Rachel", agentEmoji: "💼", action: "Drafting LinkedIn posts", time: fmt(35), color: "#3b82f6" },
-    { id: "5", agent: "John", agentEmoji: "📈", action: "Reviewing market conditions", time: fmt(45), color: "#10b981" },
-    { id: "6", agent: "George", agentEmoji: "🦾", action: "Deployed Mission Control update", time: fmt(60), color: "#6366f1" },
-  ];
-}
+// Live actions now loaded from /data/live-actions.json
