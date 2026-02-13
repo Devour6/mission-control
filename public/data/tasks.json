@@ -1,0 +1,13 @@
+[
+  {"id": "seed-t1", "title": "Watch Riyazz AI video", "description": "", "assignee": "Brandon", "dueDate": "2026-02-13", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"},
+  {"id": "seed-t2", "title": "Create IG for Borrowed Light", "description": "", "assignee": "Brandon", "dueDate": "2026-02-15", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"},
+  {"id": "seed-t3", "title": "Create TikTok for Borrowed Light", "description": "", "assignee": "Brandon", "dueDate": "2026-02-15", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"},
+  {"id": "seed-t4", "title": "Create YouTube for Borrowed Light", "description": "", "assignee": "Brandon", "dueDate": "2026-02-15", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"},
+  {"id": "seed-t5", "title": "Create 3 shorts for Glass", "description": "", "assignee": "Brandon", "dueDate": "2026-02-16", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"},
+  {"id": "seed-t6", "title": "Create 3 shorts for Before It Goes", "description": "", "assignee": "Brandon", "dueDate": "2026-02-16", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"},
+  {"id": "seed-t7", "title": "Create lyric video for Glass", "description": "", "assignee": "Brandon", "dueDate": "2026-02-16", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"},
+  {"id": "seed-t8", "title": "Create lyric video for Before It Goes", "description": "", "assignee": "Brandon", "dueDate": "2026-02-16", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"},
+  {"id": "seed-t9", "title": "Release Borrowed Light EP", "description": "", "assignee": "Brandon", "dueDate": "2026-02-16", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"},
+  {"id": "seed-t10", "title": "Daily Autonomous Work - Feb 13", "description": "", "assignee": "George", "dueDate": "2026-02-13", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"},
+  {"id": "seed-t11", "title": "Weekly Validator Income Report setup", "description": "", "assignee": "George", "dueDate": "2026-02-17", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"}
+]

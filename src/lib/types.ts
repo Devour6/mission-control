@@ -6,6 +6,7 @@ export interface MemoryEntry {
   id: string;
   content: string;
   createdAt: string;
+  tags?: string[];
 }
 
 export interface Task {
@@ -16,6 +17,7 @@ export interface Task {
   dueDate: string;
   status: TaskStatus;
   createdAt: string;
+  _source?: "seed" | "local";
 }
 
 export interface CalendarEvent {
@@ -24,4 +26,8 @@ export interface CalendarEvent {
   date: string;
   type: EventType;
   description: string;
+  startTime?: string;
+  endTime?: string;
+  assignee?: string;
+  _source?: "seed" | "local";
 }
