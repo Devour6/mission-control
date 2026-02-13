@@ -3,13 +3,13 @@
 import { useState, useEffect } from "react";
 import { TeamData, StandupEntry } from "@/lib/types";
 
-interface AgentSprite {
+interface AgentInfo {
   name: string;
   emoji: string;
-  color: string;
+  bodyColor: string;
+  eyeColor: string;
   status: "active" | "coming_soon";
   task?: string;
-  position: "desk" | "meeting" | "water" | "coffee" | "break";
 }
 
 interface LiveAction {
@@ -21,59 +21,85 @@ interface LiveAction {
   color: string;
 }
 
-const LIVE_ACTIONS_KEY = "mc_office_actions";
-
-// Pixel-art inspired sprite using CSS
-function Sprite({ color, emoji, name, active, size = "md" }: { color: string; emoji: string; name: string; active: boolean; size?: "sm" | "md" }) {
-  const s = size === "sm" ? "w-8 h-8" : "w-10 h-10";
-  const textSize = size === "sm" ? "text-xs" : "text-sm";
+// Pixel character - looks like the reference image sprites
+function PixelCharacter({ bodyColor, eyeColor, name, active, size = 32 }: {
+  bodyColor: string; eyeColor: string; name: string; active: boolean; size?: number;
+}) {
+  const s = size;
+  const opacity = active ? 1 : 0.3;
   return (
-    <div className="flex flex-col items-center gap-0.5">
-      <div className="relative">
-        <div className={`${s} rounded-md ${active ? color : "bg-[#2e3345]"} flex items-center justify-center shadow-lg border-2 ${active ? "border-white/20" : "border-[#1a1d27]"}`}
-          style={{ imageRendering: "pixelated" }}>
-          <span className={textSize}>{emoji}</span>
-        </div>
-        {active && (
-          <div className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-400 border border-[#0a0c10]" />
-        )}
-      </div>
-      <span className={`${size === "sm" ? "text-[8px]" : "text-[10px]"} font-bold ${active ? "text-white" : "text-[#8b8fa3]"}`} style={{ color: active ? color.includes("bg-") ? undefined : color : undefined }}>
-        {name}
-      </span>
+    <div className="flex flex-col items-center" style={{ opacity }}>
+      <svg width={s} height={s} viewBox="0 0 16 16" style={{ imageRendering: "pixelated" }}>
+        {/* Head */}
+        <rect x="4" y="0" width="8" height="7" fill={bodyColor} />
+        {/* Eyes */}
+        <rect x="5" y="2" width="2" height="2" fill={eyeColor} />
+        <rect x="9" y="2" width="2" height="2" fill={eyeColor} />
+        {/* Pupils */}
+        <rect x="6" y="3" width="1" height="1" fill="#111" />
+        <rect x="10" y="3" width="1" height="1" fill="#111" />
+        {/* Body */}
+        <rect x="3" y="7" width="10" height="5" fill={bodyColor} />
+        {/* Arms */}
+        <rect x="1" y="7" width="2" height="4" fill={bodyColor} />
+        <rect x="13" y="7" width="2" height="4" fill={bodyColor} />
+        {/* Legs */}
+        <rect x="4" y="12" width="3" height="4" fill={bodyColor} />
+        <rect x="9" y="12" width="3" height="4" fill={bodyColor} />
+        {/* Feet */}
+        <rect x="3" y="14" width="4" height="2" fill={active ? "#555" : "#333"} />
+        <rect x="9" y="14" width="4" height="2" fill={active ? "#555" : "#333"} />
+      </svg>
+      <span className="text-[9px] font-bold mt-0.5" style={{ color: active ? bodyColor : "#555" }}>{name}</span>
+      {active && (
+        <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-0.5" />
+      )}
     </div>
   );
 }
 
-function Monitor({ occupied }: { occupied?: boolean }) {
+function Monitor() {
   return (
     <div className="flex flex-col items-center">
-      <div className={`w-12 h-8 rounded-sm border-2 ${occupied ? "border-blue-500/60 bg-blue-500/20" : "border-[#2e3345] bg-[#0a0c10]"}`}>
-        {occupied && <div className="w-full h-full bg-blue-500/10 animate-pulse" />}
+      <div className="w-14 h-10 rounded-sm border-2 border-blue-500/50 bg-blue-500/15 relative overflow-hidden">
+        <div className="absolute inset-0.5 bg-gradient-to-b from-blue-400/10 to-blue-600/5" />
+        {/* Screen content lines */}
+        <div className="absolute top-1.5 left-1.5 right-1.5 space-y-1">
+          <div className="h-[2px] bg-blue-400/30 w-3/4" />
+          <div className="h-[2px] bg-blue-400/20 w-1/2" />
+          <div className="h-[2px] bg-blue-400/30 w-2/3" />
+        </div>
       </div>
-      <div className="w-8 h-1 bg-[#2e3345] rounded-b" />
-      <div className="w-10 h-1 bg-[#2e3345] rounded-b" />
+      <div className="w-4 h-1.5 bg-[#3a3d4a]" />
+      <div className="w-8 h-1 bg-[#3a3d4a] rounded-b" />
     </div>
   );
 }
 
-function Desk({ agent, showMonitor = true }: { agent?: AgentSprite; showMonitor?: boolean }) {
-  const active = agent?.status === "active";
+function DeskUnit({ agent, flipped }: { agent: AgentInfo; flipped?: boolean }) {
+  const active = agent.status === "active";
   return (
     <div className="flex flex-col items-center gap-1">
-      {agent && (
-        <Sprite
-          color={agent.color}
-          emoji={agent.emoji}
-          name={agent.name}
-          active={active ?? false}
-        />
+      {/* Character at desk */}
+      {!flipped && (
+        <PixelCharacter bodyColor={agent.bodyColor} eyeColor={agent.eyeColor} name={agent.name} active={active} />
       )}
-      {showMonitor && <Monitor occupied={active} />}
+      {/* Monitor */}
+      {active ? <Monitor /> : (
+        <div className="flex flex-col items-center">
+          <div className="w-14 h-10 rounded-sm border-2 border-[#2e3345] bg-[#0a0c10]" />
+          <div className="w-4 h-1.5 bg-[#2a2d3a]" />
+          <div className="w-8 h-1 bg-[#2a2d3a] rounded-b" />
+        </div>
+      )}
+      {flipped && (
+        <PixelCharacter bodyColor={agent.bodyColor} eyeColor={agent.eyeColor} name={agent.name} active={active} />
+      )}
       {/* Desk surface */}
-      <div className={`w-20 h-3 rounded ${active ? "bg-[#3a3d4a]" : "bg-[#2a2d3a]"}`} />
-      {agent?.task && active && (
-        <div className="text-[8px] text-[#8b8fa3] max-w-20 truncate text-center mt-0.5" title={agent.task}>
+      <div className={`w-20 h-2.5 rounded ${active ? "bg-[#4a4d5a]" : "bg-[#2a2d3a]"}`} />
+      {/* Task bubble */}
+      {agent.task && active && (
+        <div className="text-[8px] text-[#8b8fa3] max-w-20 truncate text-center" title={agent.task}>
           💭 {agent.task}
         </div>
       )}
@@ -81,10 +107,20 @@ function Desk({ agent, showMonitor = true }: { agent?: AgentSprite; showMonitor?
   );
 }
 
+function isStandupActive(): boolean {
+  const now = new Date();
+  const h = now.getHours();
+  const m = now.getMinutes();
+  const t = h * 60 + m;
+  // Active during standup windows (15 min each): 7:45-8:00, 12:00-12:15, 17:30-17:45
+  return (t >= 465 && t < 480) || (t >= 720 && t < 735) || (t >= 1050 && t < 1065);
+}
+
 export default function OfficeTab() {
   const [team, setTeam] = useState<TeamData | null>(null);
   const [standups, setStandups] = useState<StandupEntry[]>([]);
   const [liveActions, setLiveActions] = useState<LiveAction[]>([]);
+  const [standupActive, setStandupActive] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -96,33 +132,33 @@ export default function OfficeTab() {
       setStandups(s);
     }).catch(() => {});
 
-    // Load live actions from localStorage or seed
-    try {
-      const stored = localStorage.getItem(LIVE_ACTIONS_KEY);
-      if (stored) setLiveActions(JSON.parse(stored));
-    } catch { /* empty */ }
+    setStandupActive(isStandupActive());
+    const interval = setInterval(() => setStandupActive(isStandupActive()), 30000);
 
-    // If no stored actions, use defaults
-    setLiveActions((prev) => prev.length > 0 ? prev : getDefaultActions());
+    setLiveActions(getDefaultActions());
     setMounted(true);
+    return () => clearInterval(interval);
   }, []);
 
   if (!mounted || !team) return null;
 
-  const agents: AgentSprite[] = [
-    { name: "Brandon", emoji: "👑", color: "bg-amber-500", status: "active", task: "Directing operations", position: "desk" },
-    { name: "George", emoji: "🦾", color: "bg-indigo-500", status: "active", task: "Managing the team", position: "desk" },
-    ...Object.values(team.org.divisions).flatMap((div) =>
-      div.members.map((m) => ({
+  // Build agent list (NO Brandon - just the AI team)
+  const agents: AgentInfo[] = [
+    { name: "George", emoji: "🦾", bodyColor: "#6366f1", eyeColor: "#a5b4fc", status: "active", task: "Managing the team" },
+  ];
+  Object.values(team.org.divisions).forEach((div) => {
+    div.members.forEach((m) => {
+      const colors = getColors(m.name);
+      agents.push({
         name: m.name,
         emoji: m.emoji,
-        color: getColor(m.name),
+        bodyColor: colors.body,
+        eyeColor: colors.eye,
         status: m.status as "active" | "coming_soon",
         task: m.currentTask || getDefaultTask(m.name),
-        position: "desk" as const,
-      }))
-    ),
-  ];
+      });
+    });
+  });
 
   const activeAgents = agents.filter((a) => a.status === "active");
   const lastStandup = standups.length > 0 ? standups[standups.length - 1] : null;
@@ -133,7 +169,7 @@ export default function OfficeTab() {
       <div className="flex-1">
         <div className="mb-4">
           <h2 className="text-2xl font-bold">🏢 The Office</h2>
-          <p className="text-sm text-[#8b8fa3] mt-1">{activeAgents.length} agents online</p>
+          <p className="text-sm text-[#8b8fa3] mt-1">{activeAgents.length} agents online{standupActive ? " · 🟢 Standup in progress" : ""}</p>
         </div>
 
         <div className="bg-[#0a0c10] border border-[#2e3345] rounded-2xl overflow-hidden relative"
@@ -148,70 +184,73 @@ export default function OfficeTab() {
             ))}
           </div>
 
-          <div className="p-6 relative z-10">
-            {/* Row 1: Brandon's office (left) + empty desks + George's office (right) */}
-            <div className="flex justify-between items-start mb-10">
-              <div className="bg-[#141620]/80 border border-[#2e3345] rounded-lg p-4">
-                <div className="text-[8px] text-amber-400/60 uppercase tracking-widest mb-2">Director</div>
-                <Desk agent={agents[0]} />
-              </div>
-
-              {/* Middle desks row 1 */}
-              <div className="flex gap-8">
-                {agents.slice(2, 4).map((a) => (
-                  <Desk key={a.name} agent={a} />
-                ))}
-              </div>
-
-              <div className="bg-[#141620]/80 border border-indigo-500/20 rounded-lg p-4">
+          <div className="p-8 relative z-10">
+            {/* Row 1: George's office + top row desks */}
+            <div className="flex items-start gap-6 mb-12">
+              {/* George's corner office */}
+              <div className="bg-[#141620]/80 border border-indigo-500/20 rounded-lg p-4 shrink-0">
                 <div className="text-[8px] text-indigo-400/60 uppercase tracking-widest mb-2">Chief of Staff</div>
-                <Desk agent={agents[1]} />
+                <DeskUnit agent={agents[0]} />
+              </div>
+
+              {/* Top row desks */}
+              <div className="flex gap-10 ml-8">
+                {agents.slice(1, 4).map((a) => (
+                  <DeskUnit key={a.name} agent={a} />
+                ))}
               </div>
             </div>
 
-            {/* Row 2: More desks */}
-            <div className="flex justify-center gap-8 mb-10">
+            {/* Row 2: Bottom row desks */}
+            <div className="flex gap-10 ml-32 mb-12">
               {agents.slice(4).map((a) => (
-                <Desk key={a.name} agent={a} />
+                <DeskUnit key={a.name} agent={a} />
               ))}
             </div>
 
-            {/* Meeting Table (center) */}
-            <div className="flex justify-center mb-8">
+            {/* Meeting Table */}
+            <div className="flex justify-center mb-10">
               <div className="relative">
-                {/* Agents around the table */}
-                <div className="flex justify-center gap-3 mb-2">
-                  {activeAgents.slice(0, Math.ceil(activeAgents.length / 2)).map((a) => (
-                    <Sprite key={a.name} color={a.color} emoji={a.emoji} name={a.name} active size="sm" />
-                  ))}
-                </div>
-
-                {/* The table itself */}
-                <div className="bg-[#3a3d4a] rounded-[50%] border-2 border-[#4a4d5a] px-16 py-6 shadow-xl flex flex-col items-center">
-                  <span className="text-[10px] text-[#8b8fa3] uppercase tracking-wider">Meeting Table</span>
-                  <span className="text-[8px] text-[#6b6f83] mt-0.5">
-                    {lastStandup ? `Last: ${lastStandup.type} standup` : "Standups: 7:45a · 12p · 5:30p"}
-                  </span>
-                </div>
-
-                {/* Bottom row of agents */}
-                <div className="flex justify-center gap-3 mt-2">
-                  {activeAgents.slice(Math.ceil(activeAgents.length / 2)).map((a) => (
-                    <Sprite key={a.name} color={a.color} emoji={a.emoji} name={a.name} active size="sm" />
-                  ))}
-                </div>
+                {standupActive ? (
+                  <>
+                    {/* Agents gathered around table during standup */}
+                    <div className="flex justify-center gap-4 mb-2">
+                      {activeAgents.slice(0, Math.ceil(activeAgents.length / 2)).map((a) => (
+                        <PixelCharacter key={a.name} bodyColor={a.bodyColor} eyeColor={a.eyeColor} name={a.name} active size={24} />
+                      ))}
+                    </div>
+                    <div className="bg-[#3a3d4a] rounded-[50%] border-2 border-[#5a5d6a] px-20 py-5 shadow-xl flex flex-col items-center">
+                      <span className="text-[10px] text-white font-semibold uppercase tracking-wider">🟢 Standup Active</span>
+                    </div>
+                    <div className="flex justify-center gap-4 mt-2">
+                      {activeAgents.slice(Math.ceil(activeAgents.length / 2)).map((a) => (
+                        <PixelCharacter key={a.name} bodyColor={a.bodyColor} eyeColor={a.eyeColor} name={a.name} active size={24} />
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    {/* Empty meeting table when no standup */}
+                    <div className="bg-[#2a2d3a] rounded-[50%] border-2 border-[#3a3d4a] px-20 py-5 shadow-lg flex flex-col items-center">
+                      <span className="text-[10px] text-[#8b8fa3] uppercase tracking-wider">Meeting Table</span>
+                      <span className="text-[8px] text-[#555] mt-0.5">
+                        Next: {getNextStandup()}
+                      </span>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
 
             {/* Bottom: Communal areas */}
-            <div className="flex justify-between items-end">
+            <div className="flex justify-between items-end px-4">
               {/* Water Station */}
               <div className="flex flex-col items-center">
-                <div className="w-8 h-16 bg-gradient-to-b from-cyan-400/40 to-cyan-400/10 rounded-t-lg border border-cyan-400/30 flex flex-col items-center justify-end pb-1">
-                  <div className="w-4 h-2 bg-cyan-400/40 rounded" />
+                <div className="w-8 h-14 rounded-t-md bg-gradient-to-b from-cyan-400/30 to-cyan-400/5 border border-cyan-400/20 flex items-end justify-center pb-1">
+                  <div className="w-3 h-1.5 bg-cyan-400/30 rounded-sm" />
                 </div>
-                <div className="w-10 h-2 bg-[#2e3345] rounded-b" />
-                <span className="text-[8px] text-cyan-400/60 mt-1">💧 Water</span>
+                <div className="w-10 h-1.5 bg-[#2e3345] rounded-b" />
+                <span className="text-[8px] text-cyan-400/50 mt-1">💧 Water</span>
               </div>
 
               {/* Coffee Station */}
@@ -219,18 +258,18 @@ export default function OfficeTab() {
                 <div className="w-10 h-8 bg-[#3a2a1a] rounded border border-[#5a4a3a] flex items-center justify-center">
                   <span className="text-sm">☕</span>
                 </div>
-                <div className="w-12 h-2 bg-[#2e3345] rounded-b" />
-                <span className="text-[8px] text-amber-400/60 mt-1">☕ Coffee</span>
+                <div className="w-12 h-1.5 bg-[#2e3345] rounded-b" />
+                <span className="text-[8px] text-amber-400/50 mt-1">☕ Coffee</span>
               </div>
 
               {/* Break Room */}
-              <div className="bg-[#141620]/80 border border-[#2e3345] rounded-lg p-3 flex flex-col items-center">
+              <div className="bg-[#141620]/60 border border-[#2e3345] rounded-lg px-4 py-3 flex flex-col items-center">
                 <span className="text-lg">🍿</span>
                 <span className="text-[8px] text-[#8b8fa3] mt-1">Break Room</span>
                 <div className="flex gap-1 mt-1">
-                  <div className="w-3 h-3 rounded bg-red-500/20 text-[6px] flex items-center justify-center">🍕</div>
-                  <div className="w-3 h-3 rounded bg-amber-500/20 text-[6px] flex items-center justify-center">🍪</div>
-                  <div className="w-3 h-3 rounded bg-green-500/20 text-[6px] flex items-center justify-center">🍎</div>
+                  <span className="text-[8px]">🍕</span>
+                  <span className="text-[8px]">🍪</span>
+                  <span className="text-[8px]">🍎</span>
                 </div>
               </div>
             </div>
@@ -241,7 +280,7 @@ export default function OfficeTab() {
         <div className="flex items-center gap-6 mt-3 text-xs text-[#8b8fa3] justify-center">
           <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-emerald-400" /> Online</span>
           <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-[#2e3345]" /> Coming Soon</span>
-          <span>Standups: 7:45 AM · 12:00 PM · 5:30 PM</span>
+          <span>Standups: 7:45a · 12p · 5:30p</span>
         </div>
       </div>
 
@@ -283,28 +322,39 @@ export default function OfficeTab() {
   );
 }
 
-function getColor(name: string): string {
-  const colors: Record<string, string> = {
-    Dwight: "bg-purple-500",
-    Kelly: "bg-pink-500",
-    Rachel: "bg-blue-400",
-    John: "bg-emerald-500",
-    Ross: "bg-orange-500",
-    Pam: "bg-rose-400",
+function getColors(name: string): { body: string; eye: string } {
+  const map: Record<string, { body: string; eye: string }> = {
+    Dwight: { body: "#a855f7", eye: "#e9d5ff" },
+    Kelly: { body: "#ec4899", eye: "#fce7f3" },
+    Rachel: { body: "#3b82f6", eye: "#bfdbfe" },
+    John: { body: "#10b981", eye: "#a7f3d0" },
+    Ross: { body: "#f97316", eye: "#fed7aa" },
+    Pam: { body: "#f43f5e", eye: "#fecdd3" },
   };
-  return colors[name] || "bg-gray-500";
+  return map[name] || { body: "#6b7280", eye: "#d1d5db" };
 }
 
 function getDefaultTask(name: string): string {
   const tasks: Record<string, string> = {
     Dwight: "Research sweep",
     Kelly: "Drafting tweets",
-    Rachel: "LinkedIn content",
+    Rachel: "LinkedIn drafts",
     John: "Market analysis",
     Ross: "Code review",
     Pam: "Calendar mgmt",
   };
   return tasks[name] || "";
+}
+
+function getNextStandup(): string {
+  const now = new Date();
+  const h = now.getHours();
+  const m = now.getMinutes();
+  const t = h * 60 + m;
+  if (t < 465) return "7:45 AM";
+  if (t < 720) return "12:00 PM";
+  if (t < 1050) return "5:30 PM";
+  return "7:45 AM tomorrow";
 }
 
 function getDefaultActions(): LiveAction[] {
@@ -317,7 +367,7 @@ function getDefaultActions(): LiveAction[] {
     { id: "1", agent: "Dwight", agentEmoji: "🔍", action: "Running morning research sweep", time: fmt(5), color: "#a855f7" },
     { id: "2", agent: "George", agentEmoji: "🦾", action: "Morning standup completed", time: fmt(15), color: "#6366f1" },
     { id: "3", agent: "Kelly", agentEmoji: "🐦", action: "Drafting tweet batch #1", time: fmt(30), color: "#ec4899" },
-    { id: "4", agent: "Rachel", agentEmoji: "💼", action: "Drafting LinkedIn posts", time: fmt(35), color: "#60a5fa" },
+    { id: "4", agent: "Rachel", agentEmoji: "💼", action: "Drafting LinkedIn posts", time: fmt(35), color: "#3b82f6" },
     { id: "5", agent: "John", agentEmoji: "📈", action: "Reviewing market conditions", time: fmt(45), color: "#10b981" },
     { id: "6", agent: "George", agentEmoji: "🦾", action: "Deployed Mission Control V2", time: fmt(60), color: "#6366f1" },
   ];
