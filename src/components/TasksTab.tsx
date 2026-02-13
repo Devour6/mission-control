@@ -155,7 +155,7 @@ export default function TasksTab() {
       {timeView === "board" ? (
         /* Kanban Board */
         <DragDropContext onDragEnd={onDragEnd}>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {columns.map((col) => (
               <div key={col.id}>
                 <h3 className="text-sm font-semibold text-[#8b8fa3] mb-3 uppercase tracking-wider">
@@ -210,7 +210,7 @@ export default function TasksTab() {
               <button onClick={() => setSelectedTask(null)} className="text-[#8b8fa3] hover:text-white text-lg leading-none">✕</button>
             </div>
             {selectedTask.description && <p className="text-sm text-[#c4c7d4]">{selectedTask.description}</p>}
-            <div className="grid grid-cols-2 gap-3 text-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
               <div><span className="text-[#8b8fa3] text-xs uppercase tracking-wider">Assignee</span><p className={`mt-1 font-medium ${selectedTask.assignee === "Brandon" ? "text-indigo-400" : "text-cyan-400"}`}>{selectedTask.assignee}</p></div>
               <div><span className="text-[#8b8fa3] text-xs uppercase tracking-wider">Status</span><p className="mt-1 font-medium capitalize">{selectedTask.status === "inProgress" ? "In Progress" : selectedTask.status === "todo" ? "To Do" : "Completed"}</p></div>
               <div><span className="text-[#8b8fa3] text-xs uppercase tracking-wider">Due Date</span><p className="mt-1">{selectedTask.dueDate || "—"}</p></div>

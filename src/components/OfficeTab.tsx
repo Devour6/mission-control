@@ -473,29 +473,32 @@ export default function OfficeTab() {
   const activeCount = agents.filter(a => a.status === "active").length;
 
   return (
-    <div className="flex gap-4 max-w-7xl mx-auto">
+    <div className="flex flex-col lg:flex-row gap-4 max-w-7xl mx-auto">
       <div className="flex-1 min-w-0">
         <div className="mb-3">
-          <h2 className="text-2xl font-bold">🏢 The Office</h2>
-          <p className="text-sm text-[#8b8fa3] mt-1">{activeCount} agents online{standupActive ? " · 🟢 Standup in progress" : ""}</p>
+          <h2 className="text-xl md:text-2xl font-bold">🏢 The Office</h2>
+          <p className="text-xs md:text-sm text-[#8b8fa3] mt-1">{activeCount} agents online{standupActive ? " · 🟢 Standup in progress" : ""}</p>
         </div>
 
-        <div className="bg-[#0a0c10] border border-[#2e3345] rounded-xl overflow-hidden relative"
-          style={{ width: OFFICE_W * CELL, height: OFFICE_H * CELL, backgroundImage: "repeating-conic-gradient(#111318 0% 25%, #0d0f14 0% 50%)", backgroundSize: "24px 24px" }}>
-          <OfficeFurniture />
-          {agents.map(a => <PixelSprite key={a.name} agent={a} />)}
+        {/* Scrollable office canvas on mobile */}
+        <div className="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
+          <div className="bg-[#0a0c10] border border-[#2e3345] rounded-xl overflow-hidden relative"
+            style={{ width: OFFICE_W * CELL, height: OFFICE_H * CELL, minWidth: OFFICE_W * CELL, backgroundImage: "repeating-conic-gradient(#111318 0% 25%, #0d0f14 0% 50%)", backgroundSize: "24px 24px" }}>
+            <OfficeFurniture />
+            {agents.map(a => <PixelSprite key={a.name} agent={a} />)}
+          </div>
         </div>
 
-        <div className="flex items-center gap-5 mt-2 text-[10px] text-[#8b8fa3] justify-center">
+        <div className="flex items-center gap-3 md:gap-5 mt-2 text-[9px] md:text-[10px] text-[#8b8fa3] justify-center flex-wrap">
           <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-emerald-400" /> Online</span>
           <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-[#2e3345]" /> Coming Soon</span>
           <span>Standups: 7:45a · 12p · 5:30p</span>
         </div>
       </div>
 
-      {/* Live Actions */}
-      <div className="w-64 shrink-0">
-        <div className="bg-[#1a1d27] border border-[#2e3345] rounded-xl overflow-hidden sticky top-8">
+      {/* Live Actions — side on desktop, below on mobile */}
+      <div className="w-full lg:w-64 shrink-0">
+        <div className="bg-[#1a1d27] border border-[#2e3345] rounded-xl overflow-hidden lg:sticky lg:top-8">
           <div className="px-3 py-2.5 border-b border-[#2e3345] flex items-center gap-2">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
@@ -503,7 +506,7 @@ export default function OfficeTab() {
             </span>
             <h3 className="text-xs font-semibold text-[#e4e6ed]">Live Actions</h3>
           </div>
-          <div className="max-h-[500px] overflow-y-auto">
+          <div className="max-h-[300px] lg:max-h-[500px] overflow-y-auto">
             {liveActions.length === 0 ? (
               <div className="p-3 text-center text-xs text-[#8b8fa3]">No recent activity</div>
             ) : (
