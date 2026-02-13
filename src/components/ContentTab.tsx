@@ -7,11 +7,19 @@ import { getItem, setItem } from "@/lib/storage";
 
 const ACTIONS_KEY = "mc_content_actions";
 
+interface DraftAction {
+  status: "approved" | "denied";
+  at: string;
+  feedback?: string;
+}
+
 export default function ContentTab() {
   const [data, setData] = useState<ContentData>({ drafts: [], posted: [] });
-  const [actions, setActions] = useState<Record<string, { status: "approved" | "denied"; at: string }>>({});
+  const [actions, setActions] = useState<Record<string, DraftAction>>({});
   const [view, setView] = useState<"drafts" | "posted">("drafts");
   const [mounted, setMounted] = useState(false);
+  const [denyingId, setDenyingId] = useState<string | null>(null);
+  const [denyFeedback, setDenyFeedback] = useState("");
 
   useEffect(() => {
     setActions(getItem(ACTIONS_KEY, {}));
@@ -28,10 +36,12 @@ export default function ContentTab() {
   const pendingDrafts = drafts.filter((d) => d.status === "pending");
   const resolvedDrafts = drafts.filter((d) => d.status !== "pending");
 
-  const handleAction = (id: string, status: "approved" | "denied") => {
-    const next = { ...actions, [id]: { status, at: new Date().toISOString() } };
+  const handleAction = (id: string, status: "approved" | "denied", feedback?: string) => {
+    const next = { ...actions, [id]: { status, at: new Date().toISOString(), ...(feedback ? { feedback } : {}) } };
     setActions(next);
     setItem(ACTIONS_KEY, next);
+    setDenyingId(null);
+    setDenyFeedback("");
   };
 
   const platformIcon = (p: string) => p === "x" ? "𝕏" : "in";
@@ -77,9 +87,28 @@ export default function ContentTab() {
                       <p className="text-sm text-[#e4e6ed] whitespace-pre-wrap mb-2 bg-[#242836] rounded-lg p-3">{d.text}</p>
                       {(d.rationale || d.angle) && <p className="text-xs text-[#8b8fa3] italic mb-3">💡 {d.rationale || d.angle}</p>}
                       {d.source && <p className="text-[10px] text-[#8b8fa3] mb-3">📎 Source: {d.source}</p>}
-                      <div className="flex gap-2">
-                        <button onClick={() => handleAction(d.id, "approved")} className="px-4 py-1.5 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 rounded-lg text-xs font-medium transition-colors">✓ Approve</button>
-                        <button onClick={() => handleAction(d.id, "denied")} className="px-4 py-1.5 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg text-xs font-medium transition-colors">✕ Deny</button>
+                      <div className="space-y-2">
+                        <div className="flex gap-2">
+                          <button onClick={() => handleAction(d.id, "approved")} className="px-4 py-1.5 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 rounded-lg text-xs font-medium transition-colors">✓ Approve</button>
+                          <button onClick={() => { setDenyingId(denyingId === d.id ? null : d.id); setDenyFeedback(""); }} className="px-4 py-1.5 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg text-xs font-medium transition-colors">✕ Deny</button>
+                        </div>
+                        {denyingId === d.id && (
+                          <div className="flex gap-2">
+                            <input
+                              type="text"
+                              value={denyFeedback}
+                              onChange={(e) => setDenyFeedback(e.target.value)}
+                              onKeyDown={(e) => { if (e.key === "Enter" && denyFeedback.trim()) handleAction(d.id, "denied", denyFeedback.trim()); }}
+                              placeholder="Why? (helps Kelly/Rachel improve)"
+                              className="flex-1 bg-[#242836] border border-red-500/30 rounded-lg px-3 py-1.5 text-xs text-[#e4e6ed] placeholder-[#8b8fa3] focus:outline-none focus:border-red-500/60"
+                              autoFocus
+                            />
+                            <button
+                              onClick={() => { if (denyFeedback.trim()) handleAction(d.id, "denied", denyFeedback.trim()); }}
+                              className="px-3 py-1.5 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg text-xs font-medium transition-colors"
+                            >Send</button>
+                          </div>
+                        )}
                       </div>
                     </div>
                   ))}
@@ -96,11 +125,14 @@ export default function ContentTab() {
                             <span className={`text-xs font-bold ${platformColor(d.platform)}`}>{platformIcon(d.platform)}</span>
                             <span className="text-sm truncate max-w-md">{d.text.slice(0, 80)}{d.text.length > 80 ? "…" : ""}</span>
                           </div>
-                          <div className="flex items-center gap-2">
+                          <div className="flex items-center gap-2 shrink-0">
                             <span className="text-xs text-[#8b8fa3]">{d.authorEmoji} {d.author}</span>
                             <span className={`text-[10px] px-2 py-0.5 rounded-full ${d.status === "approved" ? "bg-emerald-500/20 text-emerald-400" : "bg-red-500/20 text-red-400"}`}>{d.status}</span>
                           </div>
                         </div>
+                        {actions[d.id]?.feedback && (
+                          <p className="text-[10px] text-red-400/70 mt-1 ml-6">💬 {actions[d.id].feedback}</p>
+                        )}
                       </div>
                     ))}
                   </div>

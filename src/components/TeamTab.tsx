@@ -13,7 +13,7 @@ export default function TeamTab() {
     setMounted(true);
   }, []);
 
-  if (!mounted || !data) return null;
+  if (!mounted || !data?.org) return <div className="text-[#8b8fa3] p-8">Loading team…</div>;
 
   const { director, chiefOfStaff, divisions } = data.org;
 
@@ -63,7 +63,7 @@ export default function TeamTab() {
                 name={m.name}
                 title={m.title}
                 emoji={m.emoji}
-                status={m.status}
+                status={m.status === "coming_soon" ? "coming_soon" : "active"}
                 model={m.model}
               />
             ))}
