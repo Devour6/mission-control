@@ -1,83 +1,722 @@
 [
-  {"id":"p1","title":"Phase Weekly All-Hands","date":"2026-02-12","startTime":"12:00","endTime":"12:30","assignee":"brandon","type":"phase"},
-  {"id":"p2","title":"Exec Meeting","date":"2026-02-12","startTime":"12:30","endTime":"13:30","assignee":"brandon","type":"phase"},
-  {"id":"r1","title":"Rad Lead Call","date":"2026-02-12","startTime":"20:30","endTime":"21:00","assignee":"brandon","type":"radiants"},
-  {"id":"p3","title":"Weekly Sync","date":"2026-02-13","startTime":"08:00","endTime":"08:30","assignee":"brandon","type":"phase"},
-  {"id":"r2","title":"JUP Rally","date":"2026-02-13","startTime":"07:30","endTime":"09:00","assignee":"brandon","type":"radiants"},
-  {"id":"g1","title":"George: Autonomous Work","date":"2026-02-13","startTime":"10:00","endTime":"17:00","assignee":"george","type":"work"},
-  {"id":"r3","title":"Rad Lead","date":"2026-02-16","startTime":"08:30","endTime":"09:00","assignee":"brandon","type":"radiants"},
-  {"id":"p4","title":"Layer 33 Group Call","date":"2026-02-16","startTime":"09:00","endTime":"10:00","assignee":"brandon","type":"phase"},
-  {"id":"r4","title":"Townhall + Team Meeting","date":"2026-02-16","startTime":"10:00","endTime":"11:00","assignee":"brandon","type":"radiants"},
-  {"id":"p5","title":"Phase Stake/Delegation Weekly Planning","date":"2026-02-16","startTime":"13:30","endTime":"14:30","assignee":"brandon","type":"phase"},
-  {"id":"p6","title":"SJBD Weekly","date":"2026-02-16","startTime":"14:30","endTime":"15:00","assignee":"brandon","type":"phase"},
-  {"id":"g2","title":"George: Autonomous Work","date":"2026-02-16","startTime":"10:00","endTime":"17:00","assignee":"george","type":"work"},
-  {"id":"r5","title":"Rad Lead","date":"2026-02-17","startTime":"08:30","endTime":"09:00","assignee":"brandon","type":"radiants"},
-  {"id":"r6","title":"Rad Sessions","date":"2026-02-17","startTime":"10:00","endTime":"11:00","assignee":"brandon","type":"radiants"},
-  {"id":"p7","title":"Brandon (30 min) - Tim Garcia","date":"2026-02-17","startTime":"10:30","endTime":"11:00","assignee":"brandon","type":"phase"},
-  {"id":"p8","title":"Phase Delegation Standup","date":"2026-02-17","startTime":"14:00","endTime":"14:30","assignee":"brandon","type":"phase"},
-  {"id":"g3","title":"George: Autonomous Work","date":"2026-02-17","startTime":"10:00","endTime":"17:00","assignee":"george","type":"work"},
-  {"id":"p9","title":"S3B x Devour Weekly Sync","date":"2026-02-18","startTime":"08:00","endTime":"08:30","assignee":"brandon","type":"phase"},
-  {"id":"p10","title":"Antigravity AI Weekly","date":"2026-02-18","startTime":"11:30","endTime":"12:30","assignee":"brandon","type":"phase"},
-  {"id":"p11","title":"Phase Delegation Standup","date":"2026-02-18","startTime":"14:00","endTime":"14:30","assignee":"brandon","type":"phase"},
-  {"id":"g4","title":"George: Autonomous Work","date":"2026-02-18","startTime":"10:00","endTime":"17:00","assignee":"george","type":"work"},
-  {"id":"p12","title":"Phase Weekly All-Hands","date":"2026-02-19","startTime":"12:00","endTime":"12:30","assignee":"brandon","type":"phase"},
-  {"id":"p13","title":"Exec Meeting","date":"2026-02-19","startTime":"12:30","endTime":"13:30","assignee":"brandon","type":"phase"},
-  {"id":"g5","title":"George: Autonomous Work","date":"2026-02-19","startTime":"10:00","endTime":"17:00","assignee":"george","type":"work"},
-  {"id":"r7","title":"Rad Lead Call","date":"2026-02-19","startTime":"20:30","endTime":"21:00","assignee":"brandon","type":"radiants"},
-  {"id":"p14","title":"Weekly Sync","date":"2026-02-20","startTime":"08:00","endTime":"08:30","assignee":"brandon","type":"phase"},
-  {"id":"g6","title":"George: Autonomous Work","date":"2026-02-20","startTime":"10:00","endTime":"17:00","assignee":"george","type":"work"},
-  {"id":"r8","title":"Rad Lead","date":"2026-02-23","startTime":"08:30","endTime":"09:00","assignee":"brandon","type":"radiants"},
-  {"id":"p15","title":"Solflare Live #29 @phase_ @DEVOUR_","date":"2026-02-23","startTime":"08:55","endTime":"09:55","assignee":"brandon","type":"phase"},
-  {"id":"p16","title":"Layer 33 Group Call","date":"2026-02-23","startTime":"09:00","endTime":"10:00","assignee":"brandon","type":"phase"},
-  {"id":"r9","title":"Townhall + Team Meeting","date":"2026-02-23","startTime":"10:00","endTime":"11:00","assignee":"brandon","type":"radiants"},
-  {"id":"p17","title":"Phase Stake/Delegation Weekly Planning","date":"2026-02-23","startTime":"13:30","endTime":"14:30","assignee":"brandon","type":"phase"},
-  {"id":"p18","title":"SJBD Weekly","date":"2026-02-23","startTime":"14:30","endTime":"15:00","assignee":"brandon","type":"phase"},
-  {"id":"g7","title":"George: Autonomous Work","date":"2026-02-23","startTime":"10:00","endTime":"17:00","assignee":"george","type":"work"},
-  {"id":"r10","title":"Rad Lead","date":"2026-02-24","startTime":"08:30","endTime":"09:00","assignee":"brandon","type":"radiants"},
-  {"id":"r11","title":"Rad Sessions","date":"2026-02-24","startTime":"10:00","endTime":"11:00","assignee":"brandon","type":"radiants"},
-  {"id":"p19","title":"Phase Delegation Standup","date":"2026-02-24","startTime":"14:00","endTime":"14:30","assignee":"brandon","type":"phase"},
-  {"id":"g8","title":"George: Autonomous Work","date":"2026-02-24","startTime":"10:00","endTime":"17:00","assignee":"george","type":"work"},
-  {"id":"per1","title":"Ortho Appt","date":"2026-02-25","startTime":"13:30","endTime":"14:30","assignee":"brandon","type":"personal"},
-  {"id":"p20","title":"S3B x Devour Weekly Sync","date":"2026-02-25","startTime":"08:00","endTime":"08:30","assignee":"brandon","type":"phase"},
-  {"id":"p21","title":"Netrunner App Feedback","date":"2026-02-25","startTime":"10:00","endTime":"11:00","assignee":"brandon","type":"phase"},
-  {"id":"p22","title":"Antigravity AI Weekly","date":"2026-02-25","startTime":"11:30","endTime":"12:30","assignee":"brandon","type":"phase"},
-  {"id":"p23","title":"Phase Delegation Standup","date":"2026-02-25","startTime":"14:00","endTime":"14:30","assignee":"brandon","type":"phase"},
-  {"id":"g9","title":"George: Autonomous Work","date":"2026-02-25","startTime":"10:00","endTime":"17:00","assignee":"george","type":"work"},
-  {"id":"p24","title":"Solana Validator Community Call","date":"2026-02-26","startTime":"11:00","endTime":"12:00","assignee":"brandon","type":"phase"},
-  {"id":"p25","title":"Phase Weekly All-Hands","date":"2026-02-26","startTime":"12:00","endTime":"12:30","assignee":"brandon","type":"phase"},
-  {"id":"p26","title":"Exec Meeting","date":"2026-02-26","startTime":"12:30","endTime":"13:30","assignee":"brandon","type":"phase"},
-  {"id":"r12","title":"Rad Lead Call","date":"2026-02-26","startTime":"20:30","endTime":"21:00","assignee":"brandon","type":"radiants"},
-  {"id":"g10","title":"George: Autonomous Work","date":"2026-02-26","startTime":"10:00","endTime":"17:00","assignee":"george","type":"work"},
-  {"id":"p27","title":"Weekly Sync","date":"2026-02-27","startTime":"08:00","endTime":"08:30","assignee":"brandon","type":"phase"},
-  {"id":"g11","title":"George: Autonomous Work","date":"2026-02-27","startTime":"10:00","endTime":"17:00","assignee":"george","type":"work"},
-  {"id":"r13","title":"Rad Lead","date":"2026-03-02","startTime":"08:30","endTime":"09:00","assignee":"brandon","type":"radiants"},
-  {"id":"p28","title":"Layer 33 Group Call","date":"2026-03-02","startTime":"09:00","endTime":"10:00","assignee":"brandon","type":"phase"},
-  {"id":"r14","title":"Townhall + Team Meeting","date":"2026-03-02","startTime":"10:00","endTime":"11:00","assignee":"brandon","type":"radiants"},
-  {"id":"per2","title":"Eye Appointment","date":"2026-03-02","startTime":"14:00","endTime":"15:00","assignee":"brandon","type":"personal"},
-  {"id":"per3","title":"Komashko Appt","date":"2026-03-02","startTime":"16:45","endTime":"17:45","assignee":"brandon","type":"personal"},
-  {"id":"p29","title":"Phase Stake/Delegation Weekly Planning","date":"2026-03-02","startTime":"13:30","endTime":"14:30","assignee":"brandon","type":"phase"},
-  {"id":"p30","title":"SJBD Weekly","date":"2026-03-02","startTime":"14:30","endTime":"15:00","assignee":"brandon","type":"phase"},
-  {"id":"g12","title":"George: Autonomous Work","date":"2026-03-02","startTime":"10:00","endTime":"17:00","assignee":"george","type":"work"},
-  {"id":"r15","title":"Rad Lead","date":"2026-03-03","startTime":"08:30","endTime":"09:00","assignee":"brandon","type":"radiants"},
-  {"id":"r16","title":"Rad Sessions","date":"2026-03-03","startTime":"10:00","endTime":"11:00","assignee":"brandon","type":"radiants"},
-  {"id":"p31","title":"Phase Delegation Standup","date":"2026-03-03","startTime":"14:00","endTime":"14:30","assignee":"brandon","type":"phase"},
-  {"id":"g13","title":"George: Autonomous Work","date":"2026-03-03","startTime":"10:00","endTime":"17:00","assignee":"george","type":"work"},
-  {"id":"per4","title":"Bella Smile Appointment","date":"2026-03-04","startTime":"09:00","endTime":"11:00","assignee":"brandon","type":"personal"},
-  {"id":"p32","title":"S3B x Devour Weekly Sync","date":"2026-03-04","startTime":"08:00","endTime":"08:30","assignee":"brandon","type":"phase"},
-  {"id":"r17","title":"Monthly DoubleZero User Call","date":"2026-03-04","startTime":"09:00","endTime":"09:45","assignee":"brandon","type":"radiants"},
-  {"id":"p33","title":"Antigravity AI Weekly","date":"2026-03-04","startTime":"11:30","endTime":"12:30","assignee":"brandon","type":"phase"},
-  {"id":"p34","title":"Phase Delegation Standup","date":"2026-03-04","startTime":"14:00","endTime":"14:30","assignee":"brandon","type":"phase"},
-  {"id":"g14","title":"George: Autonomous Work","date":"2026-03-04","startTime":"10:00","endTime":"17:00","assignee":"george","type":"work"},
-  {"id":"p35","title":"Phase Weekly All-Hands","date":"2026-03-05","startTime":"12:00","endTime":"12:30","assignee":"brandon","type":"phase"},
-  {"id":"p36","title":"Exec Meeting","date":"2026-03-05","startTime":"12:30","endTime":"13:30","assignee":"brandon","type":"phase"},
-  {"id":"r18","title":"Rad Lead Call","date":"2026-03-05","startTime":"20:30","endTime":"21:00","assignee":"brandon","type":"radiants"},
-  {"id":"g15","title":"George: Autonomous Work","date":"2026-03-05","startTime":"10:00","endTime":"17:00","assignee":"george","type":"work"},
-  {"id":"p37","title":"Weekly Sync","date":"2026-03-06","startTime":"08:00","endTime":"08:30","assignee":"brandon","type":"phase"},
-  {"id":"g16","title":"George: Autonomous Work","date":"2026-03-06","startTime":"10:00","endTime":"17:00","assignee":"george","type":"work"},
-  {"id":"r19","title":"Rad Lead","date":"2026-03-09","startTime":"09:30","endTime":"10:00","assignee":"brandon","type":"radiants"},
-  {"id":"r20","title":"Townhall + Team Meeting","date":"2026-03-09","startTime":"11:00","endTime":"12:00","assignee":"brandon","type":"radiants"},
-  {"id":"p38","title":"Layer 33 Group Call","date":"2026-03-09","startTime":"09:00","endTime":"10:00","assignee":"brandon","type":"phase"},
-  {"id":"p39","title":"Phase Stake/Delegation Weekly Planning","date":"2026-03-09","startTime":"13:30","endTime":"14:30","assignee":"brandon","type":"phase"},
-  {"id":"p40","title":"SJBD Weekly","date":"2026-03-09","startTime":"14:30","endTime":"15:00","assignee":"brandon","type":"phase"},
-  {"id":"g17","title":"George: Autonomous Work","date":"2026-03-09","startTime":"10:00","endTime":"17:00","assignee":"george","type":"work"}
+  {
+    "id": "p1",
+    "title": "Phase Weekly All-Hands",
+    "date": "2026-02-12",
+    "startTime": "12:00",
+    "endTime": "12:30",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "p2",
+    "title": "Exec Meeting",
+    "date": "2026-02-12",
+    "startTime": "12:30",
+    "endTime": "13:30",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "r1",
+    "title": "Rad Lead Call",
+    "date": "2026-02-12",
+    "startTime": "20:30",
+    "endTime": "21:00",
+    "assignee": "brandon",
+    "type": "radiants"
+  },
+  {
+    "id": "p3",
+    "title": "Weekly Sync",
+    "date": "2026-02-13",
+    "startTime": "08:00",
+    "endTime": "08:30",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "g1",
+    "title": "George: Autonomous Work",
+    "date": "2026-02-13",
+    "startTime": "10:00",
+    "endTime": "17:00",
+    "assignee": "george",
+    "type": "work"
+  },
+  {
+    "id": "r3",
+    "title": "Rad Lead",
+    "date": "2026-02-16",
+    "startTime": "08:30",
+    "endTime": "09:00",
+    "assignee": "brandon",
+    "type": "radiants"
+  },
+  {
+    "id": "p4",
+    "title": "Layer 33 Group Call",
+    "date": "2026-02-16",
+    "startTime": "09:00",
+    "endTime": "10:00",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "r4",
+    "title": "Townhall + Team Meeting",
+    "date": "2026-02-16",
+    "startTime": "10:00",
+    "endTime": "11:00",
+    "assignee": "brandon",
+    "type": "radiants"
+  },
+  {
+    "id": "p5",
+    "title": "Phase Stake/Delegation Weekly Planning",
+    "date": "2026-02-16",
+    "startTime": "13:30",
+    "endTime": "14:30",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "p6",
+    "title": "SJBD Weekly",
+    "date": "2026-02-16",
+    "startTime": "14:30",
+    "endTime": "15:00",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "g2",
+    "title": "George: Autonomous Work",
+    "date": "2026-02-16",
+    "startTime": "10:00",
+    "endTime": "17:00",
+    "assignee": "george",
+    "type": "work"
+  },
+  {
+    "id": "r5",
+    "title": "Rad Lead",
+    "date": "2026-02-17",
+    "startTime": "08:30",
+    "endTime": "09:00",
+    "assignee": "brandon",
+    "type": "radiants"
+  },
+  {
+    "id": "r6",
+    "title": "Rad Sessions",
+    "date": "2026-02-17",
+    "startTime": "10:00",
+    "endTime": "11:00",
+    "assignee": "brandon",
+    "type": "radiants"
+  },
+  {
+    "id": "p7",
+    "title": "Brandon (30 min) - Tim Garcia",
+    "date": "2026-02-17",
+    "startTime": "10:30",
+    "endTime": "11:00",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "p8",
+    "title": "Phase Delegation Standup",
+    "date": "2026-02-17",
+    "startTime": "14:00",
+    "endTime": "14:30",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "g3",
+    "title": "George: Autonomous Work",
+    "date": "2026-02-17",
+    "startTime": "10:00",
+    "endTime": "17:00",
+    "assignee": "george",
+    "type": "work"
+  },
+  {
+    "id": "p9",
+    "title": "S3B x Devour Weekly Sync",
+    "date": "2026-02-18",
+    "startTime": "08:00",
+    "endTime": "08:30",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "p10",
+    "title": "Antigravity AI Weekly",
+    "date": "2026-02-18",
+    "startTime": "11:30",
+    "endTime": "12:30",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "p11",
+    "title": "Phase Delegation Standup",
+    "date": "2026-02-18",
+    "startTime": "14:00",
+    "endTime": "14:30",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "g4",
+    "title": "George: Autonomous Work",
+    "date": "2026-02-18",
+    "startTime": "10:00",
+    "endTime": "17:00",
+    "assignee": "george",
+    "type": "work"
+  },
+  {
+    "id": "p12",
+    "title": "Phase Weekly All-Hands",
+    "date": "2026-02-19",
+    "startTime": "12:00",
+    "endTime": "12:30",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "p13",
+    "title": "Exec Meeting",
+    "date": "2026-02-19",
+    "startTime": "12:30",
+    "endTime": "13:30",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "g5",
+    "title": "George: Autonomous Work",
+    "date": "2026-02-19",
+    "startTime": "10:00",
+    "endTime": "17:00",
+    "assignee": "george",
+    "type": "work"
+  },
+  {
+    "id": "r7",
+    "title": "Rad Lead Call",
+    "date": "2026-02-19",
+    "startTime": "20:30",
+    "endTime": "21:00",
+    "assignee": "brandon",
+    "type": "radiants"
+  },
+  {
+    "id": "p14",
+    "title": "Weekly Sync",
+    "date": "2026-02-20",
+    "startTime": "08:00",
+    "endTime": "08:30",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "g6",
+    "title": "George: Autonomous Work",
+    "date": "2026-02-20",
+    "startTime": "10:00",
+    "endTime": "17:00",
+    "assignee": "george",
+    "type": "work"
+  },
+  {
+    "id": "r8",
+    "title": "Rad Lead",
+    "date": "2026-02-23",
+    "startTime": "08:30",
+    "endTime": "09:00",
+    "assignee": "brandon",
+    "type": "radiants"
+  },
+  {
+    "id": "p15",
+    "title": "Solflare Live #29 @phase_ @DEVOUR_",
+    "date": "2026-02-23",
+    "startTime": "08:55",
+    "endTime": "09:55",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "p16",
+    "title": "Layer 33 Group Call",
+    "date": "2026-02-23",
+    "startTime": "09:00",
+    "endTime": "10:00",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "r9",
+    "title": "Townhall + Team Meeting",
+    "date": "2026-02-23",
+    "startTime": "10:00",
+    "endTime": "11:00",
+    "assignee": "brandon",
+    "type": "radiants"
+  },
+  {
+    "id": "p17",
+    "title": "Phase Stake/Delegation Weekly Planning",
+    "date": "2026-02-23",
+    "startTime": "13:30",
+    "endTime": "14:30",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "p18",
+    "title": "SJBD Weekly",
+    "date": "2026-02-23",
+    "startTime": "14:30",
+    "endTime": "15:00",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "g7",
+    "title": "George: Autonomous Work",
+    "date": "2026-02-23",
+    "startTime": "10:00",
+    "endTime": "17:00",
+    "assignee": "george",
+    "type": "work"
+  },
+  {
+    "id": "r10",
+    "title": "Rad Lead",
+    "date": "2026-02-24",
+    "startTime": "08:30",
+    "endTime": "09:00",
+    "assignee": "brandon",
+    "type": "radiants"
+  },
+  {
+    "id": "r11",
+    "title": "Rad Sessions",
+    "date": "2026-02-24",
+    "startTime": "10:00",
+    "endTime": "11:00",
+    "assignee": "brandon",
+    "type": "radiants"
+  },
+  {
+    "id": "p19",
+    "title": "Phase Delegation Standup",
+    "date": "2026-02-24",
+    "startTime": "14:00",
+    "endTime": "14:30",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "g8",
+    "title": "George: Autonomous Work",
+    "date": "2026-02-24",
+    "startTime": "10:00",
+    "endTime": "17:00",
+    "assignee": "george",
+    "type": "work"
+  },
+  {
+    "id": "per1",
+    "title": "Ortho Appt",
+    "date": "2026-02-25",
+    "startTime": "13:30",
+    "endTime": "14:30",
+    "assignee": "brandon",
+    "type": "personal"
+  },
+  {
+    "id": "p20",
+    "title": "S3B x Devour Weekly Sync",
+    "date": "2026-02-25",
+    "startTime": "08:00",
+    "endTime": "08:30",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "p21",
+    "title": "Netrunner App Feedback",
+    "date": "2026-02-25",
+    "startTime": "10:00",
+    "endTime": "11:00",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "p22",
+    "title": "Antigravity AI Weekly",
+    "date": "2026-02-25",
+    "startTime": "11:30",
+    "endTime": "12:30",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "p23",
+    "title": "Phase Delegation Standup",
+    "date": "2026-02-25",
+    "startTime": "14:00",
+    "endTime": "14:30",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "g9",
+    "title": "George: Autonomous Work",
+    "date": "2026-02-25",
+    "startTime": "10:00",
+    "endTime": "17:00",
+    "assignee": "george",
+    "type": "work"
+  },
+  {
+    "id": "p24",
+    "title": "Solana Validator Community Call",
+    "date": "2026-02-26",
+    "startTime": "11:00",
+    "endTime": "12:00",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "p25",
+    "title": "Phase Weekly All-Hands",
+    "date": "2026-02-26",
+    "startTime": "12:00",
+    "endTime": "12:30",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "p26",
+    "title": "Exec Meeting",
+    "date": "2026-02-26",
+    "startTime": "12:30",
+    "endTime": "13:30",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "r12",
+    "title": "Rad Lead Call",
+    "date": "2026-02-26",
+    "startTime": "20:30",
+    "endTime": "21:00",
+    "assignee": "brandon",
+    "type": "radiants"
+  },
+  {
+    "id": "g10",
+    "title": "George: Autonomous Work",
+    "date": "2026-02-26",
+    "startTime": "10:00",
+    "endTime": "17:00",
+    "assignee": "george",
+    "type": "work"
+  },
+  {
+    "id": "p27",
+    "title": "Weekly Sync",
+    "date": "2026-02-27",
+    "startTime": "08:00",
+    "endTime": "08:30",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "g11",
+    "title": "George: Autonomous Work",
+    "date": "2026-02-27",
+    "startTime": "10:00",
+    "endTime": "17:00",
+    "assignee": "george",
+    "type": "work"
+  },
+  {
+    "id": "r13",
+    "title": "Rad Lead",
+    "date": "2026-03-02",
+    "startTime": "08:30",
+    "endTime": "09:00",
+    "assignee": "brandon",
+    "type": "radiants"
+  },
+  {
+    "id": "p28",
+    "title": "Layer 33 Group Call",
+    "date": "2026-03-02",
+    "startTime": "09:00",
+    "endTime": "10:00",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "r14",
+    "title": "Townhall + Team Meeting",
+    "date": "2026-03-02",
+    "startTime": "10:00",
+    "endTime": "11:00",
+    "assignee": "brandon",
+    "type": "radiants"
+  },
+  {
+    "id": "per2",
+    "title": "Eye Appointment",
+    "date": "2026-03-02",
+    "startTime": "14:00",
+    "endTime": "15:00",
+    "assignee": "brandon",
+    "type": "personal"
+  },
+  {
+    "id": "per3",
+    "title": "Komashko Appt",
+    "date": "2026-03-02",
+    "startTime": "16:45",
+    "endTime": "17:45",
+    "assignee": "brandon",
+    "type": "personal"
+  },
+  {
+    "id": "p29",
+    "title": "Phase Stake/Delegation Weekly Planning",
+    "date": "2026-03-02",
+    "startTime": "13:30",
+    "endTime": "14:30",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "p30",
+    "title": "SJBD Weekly",
+    "date": "2026-03-02",
+    "startTime": "14:30",
+    "endTime": "15:00",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "g12",
+    "title": "George: Autonomous Work",
+    "date": "2026-03-02",
+    "startTime": "10:00",
+    "endTime": "17:00",
+    "assignee": "george",
+    "type": "work"
+  },
+  {
+    "id": "r15",
+    "title": "Rad Lead",
+    "date": "2026-03-03",
+    "startTime": "08:30",
+    "endTime": "09:00",
+    "assignee": "brandon",
+    "type": "radiants"
+  },
+  {
+    "id": "r16",
+    "title": "Rad Sessions",
+    "date": "2026-03-03",
+    "startTime": "10:00",
+    "endTime": "11:00",
+    "assignee": "brandon",
+    "type": "radiants"
+  },
+  {
+    "id": "p31",
+    "title": "Phase Delegation Standup",
+    "date": "2026-03-03",
+    "startTime": "14:00",
+    "endTime": "14:30",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "g13",
+    "title": "George: Autonomous Work",
+    "date": "2026-03-03",
+    "startTime": "10:00",
+    "endTime": "17:00",
+    "assignee": "george",
+    "type": "work"
+  },
+  {
+    "id": "per4",
+    "title": "Bella Smile Appointment",
+    "date": "2026-03-04",
+    "startTime": "09:00",
+    "endTime": "11:00",
+    "assignee": "brandon",
+    "type": "personal"
+  },
+  {
+    "id": "p32",
+    "title": "S3B x Devour Weekly Sync",
+    "date": "2026-03-04",
+    "startTime": "08:00",
+    "endTime": "08:30",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "r17",
+    "title": "Monthly DoubleZero User Call",
+    "date": "2026-03-04",
+    "startTime": "09:00",
+    "endTime": "09:45",
+    "assignee": "brandon",
+    "type": "radiants"
+  },
+  {
+    "id": "p33",
+    "title": "Antigravity AI Weekly",
+    "date": "2026-03-04",
+    "startTime": "11:30",
+    "endTime": "12:30",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "p34",
+    "title": "Phase Delegation Standup",
+    "date": "2026-03-04",
+    "startTime": "14:00",
+    "endTime": "14:30",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "g14",
+    "title": "George: Autonomous Work",
+    "date": "2026-03-04",
+    "startTime": "10:00",
+    "endTime": "17:00",
+    "assignee": "george",
+    "type": "work"
+  },
+  {
+    "id": "p35",
+    "title": "Phase Weekly All-Hands",
+    "date": "2026-03-05",
+    "startTime": "12:00",
+    "endTime": "12:30",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "p36",
+    "title": "Exec Meeting",
+    "date": "2026-03-05",
+    "startTime": "12:30",
+    "endTime": "13:30",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "r18",
+    "title": "Rad Lead Call",
+    "date": "2026-03-05",
+    "startTime": "20:30",
+    "endTime": "21:00",
+    "assignee": "brandon",
+    "type": "radiants"
+  },
+  {
+    "id": "g15",
+    "title": "George: Autonomous Work",
+    "date": "2026-03-05",
+    "startTime": "10:00",
+    "endTime": "17:00",
+    "assignee": "george",
+    "type": "work"
+  },
+  {
+    "id": "p37",
+    "title": "Weekly Sync",
+    "date": "2026-03-06",
+    "startTime": "08:00",
+    "endTime": "08:30",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "g16",
+    "title": "George: Autonomous Work",
+    "date": "2026-03-06",
+    "startTime": "10:00",
+    "endTime": "17:00",
+    "assignee": "george",
+    "type": "work"
+  },
+  {
+    "id": "r19",
+    "title": "Rad Lead",
+    "date": "2026-03-09",
+    "startTime": "09:30",
+    "endTime": "10:00",
+    "assignee": "brandon",
+    "type": "radiants"
+  },
+  {
+    "id": "r20",
+    "title": "Townhall + Team Meeting",
+    "date": "2026-03-09",
+    "startTime": "11:00",
+    "endTime": "12:00",
+    "assignee": "brandon",
+    "type": "radiants"
+  },
+  {
+    "id": "p38",
+    "title": "Layer 33 Group Call",
+    "date": "2026-03-09",
+    "startTime": "09:00",
+    "endTime": "10:00",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "p39",
+    "title": "Phase Stake/Delegation Weekly Planning",
+    "date": "2026-03-09",
+    "startTime": "13:30",
+    "endTime": "14:30",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "p40",
+    "title": "SJBD Weekly",
+    "date": "2026-03-09",
+    "startTime": "14:30",
+    "endTime": "15:00",
+    "assignee": "brandon",
+    "type": "phase"
+  },
+  {
+    "id": "g17",
+    "title": "George: Autonomous Work",
+    "date": "2026-03-09",
+    "startTime": "10:00",
+    "endTime": "17:00",
+    "assignee": "george",
+    "type": "work"
+  }
 ]

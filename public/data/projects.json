@@ -1,1 +1,51 @@
-{"divisions": {"research": {"name": "Research Division", "lead": "Dwight", "projects": []}, "financial": {"name": "Financial Division", "lead": "John", "projects": []}, "content": {"name": "Content Division", "members": ["Kelly", "Rachel"], "projects": []}, "engineering": {"name": "Engineering Dept", "lead": "Ross", "status": "coming_soon", "projects": []}, "executive": {"name": "Executive", "members": ["Brandon", "George"], "projects": []}}}
+{
+  "divisions": {
+    "executive": {
+      "name": "Executive",
+      "members": ["Brandon", "George"],
+      "projects": [
+        {"id": "ex-1", "name": "Mission Control Dashboard", "status": "active", "description": "Central dashboard for team operations, approvals, content, and office view", "members": ["George"]},
+        {"id": "ex-2", "name": "Agent Team Buildout", "status": "active", "description": "Building and calibrating the full AI agent squad — Ross and Pam next", "members": ["George"]},
+        {"id": "ex-3", "name": "Daily Autonomous Work", "status": "active", "description": "4-5 self-ideated tasks daily across professional and personal goals", "members": ["George"]}
+      ]
+    },
+    "research": {
+      "name": "Research Division",
+      "lead": "Dwight",
+      "projects": [
+        {"id": "r-1", "name": "3x Daily Intel Sweeps", "status": "active", "description": "Morning, midday, evening research sweeps — X, crypto markets, AI news, Solana ecosystem", "members": ["Dwight"]},
+        {"id": "r-2", "name": "Competitor Monitoring", "status": "active", "description": "Tracking Phase/Netrunner/Radiants competitors for intel briefs", "members": ["Dwight"]}
+      ]
+    },
+    "financial": {
+      "name": "Financial Division",
+      "lead": "John",
+      "projects": [
+        {"id": "f-1", "name": "Portfolio Management", "status": "active", "description": "Managing Brandon's personal crypto portfolio — market analysis, trade proposals, DCA tracking", "members": ["John"]},
+        {"id": "f-2", "name": "Bear Market Accumulation", "status": "active", "description": "Executing stacking strategy toward asset targets: 20 ETH, 2 BTC, 3oz Oro, NFTs", "members": ["John"]},
+        {"id": "f-3", "name": "Validator Income Tracking", "status": "active", "description": "Weekly income reports for Ded Monkes, Gojira, Nebula, Kisetsu validators", "members": ["John", "George"]}
+      ]
+    },
+    "content": {
+      "name": "Content Division",
+      "members": ["Kelly", "Rachel"],
+      "projects": [
+        {"id": "c-1", "name": "X Voice Calibration", "status": "active", "description": "Daily tweet batches for @DEVOUR_ — heavy feedback phase to nail Brandon's voice", "members": ["Kelly"]},
+        {"id": "c-2", "name": "LinkedIn Voice Calibration", "status": "active", "description": "Daily LinkedIn draft batches — calibrating Brandon + Jeff Newman blended voice", "members": ["Rachel"]},
+        {"id": "c-3", "name": "Content Performance Tracking", "status": "active", "description": "Tracking engagement on posted content to optimize what works", "members": ["Kelly", "Rachel"]}
+      ]
+    },
+    "engineering": {
+      "name": "Engineering Dept",
+      "lead": "Ross",
+      "status": "coming_soon",
+      "projects": []
+    },
+    "personalAssistant": {
+      "name": "Personal Assistant",
+      "lead": "Pam",
+      "status": "coming_soon",
+      "projects": []
+    }
+  }
+}
