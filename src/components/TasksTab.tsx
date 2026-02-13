@@ -52,7 +52,7 @@ export default function TasksTab() {
   const [seedTasks, setSeedTasks] = useState<Task[]>([]);
   const [localTasks, setLocalTasks] = useState<Task[]>([]);
   const [filter, setFilter] = useState<"all" | Assignee>("all");
-  const [timeView, setTimeView] = useState<TimeView>("board");
+  const [timeView, setTimeView] = useState<TimeView>("daily");
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState(emptyTask);
   const [mounted, setMounted] = useState(false);
@@ -110,6 +110,11 @@ export default function TasksTab() {
 
   const filtered = tasks.filter((t) => filter === "all" || t.assignee === filter);
 
+  // Apply date filter for non-"All" views
+  const visibleTasks = timeView === "board"
+    ? filtered
+    : (() => { const r = getDateRange(timeView); return filtered.filter((t) => isInRange(t.dueDate, r.start, r.end)); })();
+
   if (!mounted) return null;
 
   return (
@@ -128,7 +133,7 @@ export default function TasksTab() {
 
       {/* Time view toggle */}
       <div className="flex gap-1 bg-[#1a1d27] border border-[#2e3345] rounded-lg p-1 mb-6 w-fit">
-        {([["board", "Board"], ["daily", "Daily"], ["weekly", "Weekly"], ["monthly", "Monthly"]] as const).map(([v, label]) => (
+        {([["daily", "Daily"], ["weekly", "Weekly"], ["monthly", "Monthly"], ["board", "All"]] as const).map(([v, label]) => (
           <button key={v} onClick={() => setTimeView(v)} className={`px-4 py-1.5 rounded-md text-xs font-medium transition-colors ${timeView === v ? "bg-indigo-500/20 text-indigo-400" : "text-[#8b8fa3] hover:text-[#e4e6ed]"}`}>
             {label}
           </button>
@@ -150,19 +155,34 @@ export default function TasksTab() {
         </div>
       )}
 
-      {timeView === "board" ? (
-        /* Kanban Board */
-        <DragDropContext onDragEnd={onDragEnd}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {columns.map((col) => (
+      {/* Date range label + progress for filtered views */}
+      {timeView !== "board" && (
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-sm font-semibold text-[#e4e6ed]">{getDateRange(timeView).label}</h3>
+          {(() => { const done = visibleTasks.filter((t) => t.status === "completed").length; return (
+            <div className="flex items-center gap-3 text-xs">
+              <span className="text-emerald-400">{done} done</span>
+              <span className="text-[#8b8fa3]">{visibleTasks.length - done} remaining</span>
+              <div className="w-24 bg-[#2e3345] rounded-full h-1.5"><div className="bg-emerald-500 h-1.5 rounded-full transition-all" style={{ width: `${visibleTasks.length > 0 ? (done / visibleTasks.length) * 100 : 0}%` }} /></div>
+            </div>
+          ); })()}
+        </div>
+      )}
+
+      {/* Kanban Board — all views */}
+      <DragDropContext onDragEnd={onDragEnd}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {columns.map((col) => {
+            const colTasks = visibleTasks.filter((t) => t.status === col.id);
+            return (
               <div key={col.id}>
                 <h3 className="text-sm font-semibold text-[#8b8fa3] mb-3 uppercase tracking-wider">
-                  {col.label} <span className="text-xs">({filtered.filter((t) => t.status === col.id).length})</span>
+                  {col.label} <span className="text-xs">({colTasks.length})</span>
                 </h3>
                 <Droppable droppableId={col.id}>
                   {(provided, snapshot) => (
                     <div ref={provided.innerRef} {...provided.droppableProps} className={`min-h-[200px] rounded-xl p-2 space-y-2 transition-colors ${snapshot.isDraggingOver ? "bg-indigo-500/5" : "bg-[#1a1d27]/50"}`}>
-                      {filtered.filter((t) => t.status === col.id).map((task, idx) => (
+                      {colTasks.map((task, idx) => (
                         <Draggable key={task.id} draggableId={task.id} index={idx}>
                           {(prov) => (
                             <div ref={prov.innerRef} {...prov.draggableProps} {...prov.dragHandleProps} onClick={() => setSelectedTask(task)} className={`bg-[#242836] border rounded-lg p-3 group cursor-pointer hover:bg-[#2a2e3e] transition-colors ${task.assignee === "Brandon" ? "border-indigo-500/30" : "border-cyan-400/30"}`}>
@@ -191,13 +211,10 @@ export default function TasksTab() {
                   )}
                 </Droppable>
               </div>
-            ))}
-          </div>
-        </DragDropContext>
-      ) : (
-        /* Time-based view (daily/weekly/monthly) */
-        <TimeBasedView tasks={filtered} view={timeView} onToggle={toggleComplete} onSelect={setSelectedTask} onDelete={deleteTask} />
-      )}
+            );
+          })}
+        </div>
+      </DragDropContext>
 
       {/* Task detail modal */}
       {selectedTask && (
@@ -217,86 +234,6 @@ export default function TasksTab() {
             <button onClick={() => setSelectedTask(null)} className="w-full mt-2 px-4 py-2 bg-[#242836] hover:bg-[#2e3345] border border-[#2e3345] rounded-lg text-sm font-medium transition-colors">Close</button>
           </div>
         </div>
-      )}
-    </div>
-  );
-}
-
-function TimeBasedView({ tasks, view, onToggle, onSelect, onDelete }: {
-  tasks: Task[];
-  view: TimeView;
-  onToggle: (id: string) => void;
-  onSelect: (t: Task) => void;
-  onDelete: (id: string) => void;
-}) {
-  const range = getDateRange(view);
-  const inRange = tasks.filter((t) => isInRange(t.dueDate, range.start, range.end));
-  const completed = inRange.filter((t) => t.status === "completed");
-  const incomplete = inRange.filter((t) => t.status !== "completed");
-
-  return (
-    <div>
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="text-lg font-semibold text-[#e4e6ed]">{range.label}</h3>
-        <div className="flex items-center gap-3 text-sm">
-          <span className="text-emerald-400">{completed.length} completed</span>
-          <span className="text-[#8b8fa3]">·</span>
-          <span className="text-[#8b8fa3]">{incomplete.length} remaining</span>
-        </div>
-      </div>
-
-      {/* Progress bar */}
-      <div className="w-full bg-[#2e3345] rounded-full h-2 mb-6">
-        <div className="bg-emerald-500 h-2 rounded-full transition-all" style={{ width: `${inRange.length > 0 ? (completed.length / inRange.length) * 100 : 0}%` }} />
-      </div>
-
-      {/* Incomplete */}
-      {incomplete.length > 0 && (
-        <div className="mb-6">
-          <h4 className="text-sm font-semibold text-[#8b8fa3] uppercase tracking-wider mb-3">Remaining ({incomplete.length})</h4>
-          <div className="space-y-2">
-            {incomplete.map((t) => (
-              <TaskRow key={t.id} task={t} onToggle={onToggle} onSelect={onSelect} onDelete={onDelete} />
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Completed */}
-      {completed.length > 0 && (
-        <div>
-          <h4 className="text-sm font-semibold text-emerald-400/60 uppercase tracking-wider mb-3">Completed ({completed.length})</h4>
-          <div className="space-y-2">
-            {completed.map((t) => (
-              <TaskRow key={t.id} task={t} onToggle={onToggle} onSelect={onSelect} onDelete={onDelete} />
-            ))}
-          </div>
-        </div>
-      )}
-
-      {inRange.length === 0 && (
-        <div className="bg-[#1a1d27] border border-[#2e3345] rounded-xl p-8 text-center text-[#8b8fa3] text-sm">
-          No tasks for this period.
-        </div>
-      )}
-    </div>
-  );
-}
-
-function TaskRow({ task, onToggle, onSelect, onDelete }: { task: Task; onToggle: (id: string) => void; onSelect: (t: Task) => void; onDelete: (id: string) => void }) {
-  return (
-    <div onClick={() => onSelect(task)} className={`bg-[#1a1d27] border rounded-lg p-3 flex items-center gap-3 cursor-pointer hover:bg-[#242836] transition-colors group ${task.assignee === "Brandon" ? "border-indigo-500/20" : "border-cyan-400/20"}`}>
-      <button onClick={(e) => { e.stopPropagation(); onToggle(task.id); }} className={`w-5 h-5 rounded border flex items-center justify-center text-xs shrink-0 transition-colors ${task.status === "completed" ? "bg-emerald-500/30 border-emerald-500 text-emerald-400" : "border-[#8b8fa3]/30 hover:border-emerald-500/50"}`}>
-        {task.status === "completed" && "✓"}
-      </button>
-      <div className="flex-1 min-w-0">
-        <h4 className={`text-sm font-medium ${task.status === "completed" ? "line-through text-[#8b8fa3]" : "text-[#e4e6ed]"}`}>{task.title}</h4>
-        {task.description && <p className="text-xs text-[#8b8fa3] truncate mt-0.5">{task.description}</p>}
-      </div>
-      <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium shrink-0 ${task.assignee === "Brandon" ? "bg-indigo-500/20 text-indigo-400" : "bg-cyan-400/20 text-cyan-400"}`}>{task.assignee}</span>
-      {task.dueDate && <span className="text-[10px] text-orange-400/80 shrink-0">📅 {task.dueDate}</span>}
-      {task._source !== "seed" && (
-        <button onClick={(e) => { e.stopPropagation(); onDelete(task.id); }} className="text-xs text-red-400/50 hover:text-red-400 opacity-0 group-hover:opacity-100 shrink-0">✕</button>
       )}
     </div>
   );
