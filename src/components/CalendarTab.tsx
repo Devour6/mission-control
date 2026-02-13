@@ -6,11 +6,18 @@ import { getItem, setItem } from "@/lib/storage";
 
 const KEY = "mc_events";
 
-const typeColors: Record<EventType, { bg: string; text: string; label: string }> = {
+const typeColors: Record<string, { bg: string; text: string; label: string }> = {
   brandon: { bg: "bg-indigo-500/20", text: "text-indigo-400", label: "Brandon" },
   george: { bg: "bg-cyan-400/20", text: "text-cyan-400", label: "George" },
   shared: { bg: "bg-purple-400/20", text: "text-purple-400", label: "Shared" },
+  phase: { bg: "bg-blue-500/20", text: "text-blue-400", label: "Phase" },
+  radiants: { bg: "bg-amber-500/20", text: "text-amber-400", label: "Radiants" },
+  personal: { bg: "bg-green-500/20", text: "text-green-400", label: "Personal" },
+  work: { bg: "bg-cyan-400/20", text: "text-cyan-400", label: "George" },
+  meeting: { bg: "bg-indigo-500/20", text: "text-indigo-400", label: "Meeting" },
 };
+
+const fallbackColor = { bg: "bg-gray-500/20", text: "text-gray-400", label: "Other" };
 
 function getDaysInMonth(year: number, month: number) {
   return new Date(year, month + 1, 0).getDate();
@@ -144,7 +151,7 @@ export default function CalendarTab() {
               </span>
               <div className="mt-1 space-y-0.5">
                 {dayEvents.slice(0, 3).map((ev) => (
-                  <div key={ev.id} className={`text-[9px] px-1 py-0.5 rounded truncate ${typeColors[ev.type].bg} ${typeColors[ev.type].text}`}>
+                  <div key={ev.id} className={`text-[9px] px-1 py-0.5 rounded truncate ${(typeColors[ev.type] || fallbackColor).bg} ${(typeColors[ev.type] || fallbackColor).text}`}>
                     {ev.startTime ? formatTime(ev.startTime) + " " : ""}{ev.title}
                   </div>
                 ))}
@@ -188,7 +195,7 @@ export default function CalendarTab() {
               <p className="text-sm text-[#8b8fa3]">No events this day.</p>
             )}
             {eventsForDay(selectedDay).map((ev) => (
-              <div key={ev.id} className={`flex justify-between items-center p-3 rounded-lg border ${typeColors[ev.type].bg} border-transparent group`}>
+              <div key={ev.id} className={`flex justify-between items-center p-3 rounded-lg border ${(typeColors[ev.type] || fallbackColor).bg} border-transparent group`}>
                 <div>
                   <div className="flex items-center gap-2">
                     {ev.startTime && (
@@ -196,7 +203,7 @@ export default function CalendarTab() {
                         {formatTime(ev.startTime)}{ev.endTime ? ` – ${formatTime(ev.endTime)}` : ""}
                       </span>
                     )}
-                    <span className={`text-sm font-medium ${typeColors[ev.type].text}`}>{ev.title}</span>
+                    <span className={`text-sm font-medium ${(typeColors[ev.type] || fallbackColor).text}`}>{ev.title}</span>
                   </div>
                   {ev.description && <p className="text-xs text-[#8b8fa3] mt-0.5">{ev.description}</p>}
                 </div>
