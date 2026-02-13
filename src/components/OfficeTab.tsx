@@ -422,7 +422,8 @@ export default function OfficeTab() {
 
             if (a.path.length === 0) {
               a.currentLocation = desiredLoc;
-              a.breakTimer = 300 + Math.floor(Math.random() * 600);
+              // Short pause at directed locations; longer idle at desk
+              a.breakTimer = desiredLoc === "desk" ? 300 + Math.floor(Math.random() * 600) : 30 + Math.floor(Math.random() * 40);
             }
           } else {
             a.walkFrame = 0;
@@ -440,15 +441,16 @@ export default function OfficeTab() {
                   a.path = buildCorridorPath(a.pos, dest, a.name);
                   a.target = dest;
                   a.currentLocation = "walking-break";
+                  a.breakTimer = 25 + Math.floor(Math.random() * 30); // 3-7 sec pause at break spot
                   a.detail = spot === "water" ? "Getting water" : "Getting coffee";
                 }
               }
             }
 
-            // Return from break
+            // Return from break — short pause then head back
             if (a.currentLocation === "walking-break" && a.path.length === 0) {
               a.breakTimer--;
-              if (a.breakTimer <= -20) {
+              if (a.breakTimer <= 0) {
                 a.path = buildCorridorPath(a.pos, a.deskPos, a.name);
                 a.target = a.deskPos;
                 a.currentLocation = "returning";
