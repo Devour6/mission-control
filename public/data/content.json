@@ -1,1 +1,41 @@
-{"drafts": [], "posted": []}
+{
+  "drafts": [
+    {
+      "id": "kelly-2026-02-13-1",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Midday Batch",
+      "date": "Feb 13, 2026 — 1:30 PM",
+      "text": "BTC and ETH ETFs hemorrhaging $500M+ in outflows this week. SOL ETFs? Inflows. The market is telling you something — you just have to listen.",
+      "angle": "Data-driven contrarian signal. Directly validates Phase thesis.",
+      "source": "SOL ETF inflows vs BTC/ETH outflows",
+      "status": "pending"
+    },
+    {
+      "id": "kelly-2026-02-13-2",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Midday Batch",
+      "date": "Feb 13, 2026 — 1:30 PM",
+      "text": "wall street is panic-selling every white-collar service stock because of AI agents. real estate, legal, insurance — all getting hammered. they're not wrong. they're just late.",
+      "angle": "Hot take on the AI scare trade. Bold 'they're just late' implies Brandon saw this coming.",
+      "source": "Reuters/CNBC AI scare trade reporting",
+      "status": "pending"
+    },
+    {
+      "id": "kelly-2026-02-13-3",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Midday Batch",
+      "date": "Feb 13, 2026 — 1:30 PM",
+      "text": "coinbase just shipped wallets that AI agents can use autonomously — hold funds, execute trades, interact with smart contracts. 21K new AI agents deployed on-chain this week alone. the crypto × AI convergence isn't coming. it's here.",
+      "angle": "Crypto × AI intersection. Specific numbers add authority. Builder perspective.",
+      "source": "Coinbase agentic wallets launch",
+      "status": "pending"
+    }
+  ],
+  "posted": []
+}

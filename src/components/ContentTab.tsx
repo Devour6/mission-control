@@ -77,7 +77,8 @@ export default function ContentTab() {
                         <span className="text-xs text-[#8b8fa3]">{d.authorEmoji} {d.author} • {d.date}</span>
                       </div>
                       <p className="text-sm text-[#e4e6ed] whitespace-pre-wrap mb-2 bg-[#242836] rounded-lg p-3">{d.text}</p>
-                      {d.rationale && <p className="text-xs text-[#8b8fa3] italic mb-3">💡 {d.rationale}</p>}
+                      {(d.rationale || d.angle) && <p className="text-xs text-[#8b8fa3] italic mb-3">💡 {d.rationale || d.angle}</p>}
+                      {d.source && <p className="text-[10px] text-[#8b8fa3] mb-3">📎 Source: {d.source}</p>}
                       <div className="flex gap-2">
                         <button onClick={() => handleAction(d.id, "approved")} className="px-4 py-1.5 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 rounded-lg text-xs font-medium transition-colors">✓ Approve</button>
                         <button onClick={() => handleAction(d.id, "denied")} className="px-4 py-1.5 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg text-xs font-medium transition-colors">✕ Deny</button>

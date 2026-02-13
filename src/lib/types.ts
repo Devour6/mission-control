@@ -88,6 +88,9 @@ export interface ContentDraft {
   date: string;
   status: "pending" | "approved" | "denied";
   rationale?: string;
+  angle?: string;
+  source?: string;
+  batch?: string;
   resolvedAt?: string;
 }
 
