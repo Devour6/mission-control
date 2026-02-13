@@ -75,7 +75,8 @@ const _OBSTACLES = OBSTACLES; // obstacles used by corridor routing logic
 
 // --- Corridor-based pathfinding ---
 // Route: current pos → nearest horizontal aisle → along aisle → nearest vertical aisle to dest → dest
-function buildCorridorPath(from: Vec, to: Vec, _agentName: string): Vec[] {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function buildCorridorPath(from: Vec, to: Vec, agentName: string): Vec[] {
   // If very close, just go direct
   if (Math.abs(from.x - to.x) + Math.abs(from.y - to.y) <= 4) {
     return buildDirect(from, to);
