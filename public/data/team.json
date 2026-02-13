@@ -21,7 +21,7 @@
       "financial": {
         "name": "Financial Division",
         "members": [
-          {"name": "John", "title": "Portfolio Strategist", "emoji": "📈", "model": "Sonnet 4", "status": "active"}
+          {"name": "John", "title": "Portfolio Strategist", "emoji": "📈", "model": "OpenAI o4-mini", "status": "active"}
         ]
       },
       "content": {

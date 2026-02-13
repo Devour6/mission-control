@@ -1,0 +1,23 @@
+[
+  {
+    "id": "standup-2026-02-13-midday",
+    "date": "Feb 13, 2026 — 12:00 PM",
+    "type": "midday",
+    "summary": "First full day of autonomous operations. All agents online and producing output. Mission Control mobile-optimized and deployed.",
+    "keyDecisions": [
+      "Switched John (Trader) to OpenAI o4-mini for better chart/data analysis",
+      "Made office visualization data-driven — positions reflect real agent activity",
+      "Live Actions feed now reads from live-actions.json instead of hardcoded data"
+    ],
+    "improvements": [
+      "Office tab was too zoomed in — reduced to fit full view at a glance",
+      "Agents were walking through each other and objects — added corridor pathfinding + collision avoidance",
+      "Agent names flipped backwards when walking left — fixed scaleX flip"
+    ],
+    "actionItems": [
+      "Monitor Kelly and Rachel's first real draft batches",
+      "Give John first trade analysis task with Dwight's intel",
+      "Build Ross (Engineering) and Pam (PA) agents"
+    ]
+  }
+]

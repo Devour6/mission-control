@@ -100,7 +100,11 @@ function PersonCard({ name, title, emoji, status, model, highlight }: {
       <div className="text-3xl mb-2">{emoji}</div>
       <h4 className="text-sm font-semibold text-[#e4e6ed]">{name}</h4>
       <p className="text-[10px] text-[#8b8fa3] mt-0.5">{title}</p>
-      {model && <p className="text-[10px] text-indigo-400/60 mt-1">{model}</p>}
+      {model && (
+        <p className="text-[10px] mt-1.5 px-2 py-0.5 rounded-full bg-[#242836] text-indigo-400/80 inline-block">
+          🤖 {model}
+        </p>
+      )}
       {status === "coming_soon" && (
         <p className="text-[10px] text-[#8b8fa3] mt-1 italic">Coming Soon</p>
       )}

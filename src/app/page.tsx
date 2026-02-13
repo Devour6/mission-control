@@ -27,7 +27,7 @@ export default function Home() {
         {tab === "tasks" && <TasksTab />}
         {tab === "approvals" && <ApprovalsTab />}
         {tab === "content" && <ContentTab />}
-        {tab === "council" && <CouncilTab />}
+        {tab === "outcomes" && <CouncilTab />}
         {tab === "projects" && <ProjectsTab />}
         {tab === "docs" && <DocsTab />}
         {tab === "calendar" && <CalendarTab />}

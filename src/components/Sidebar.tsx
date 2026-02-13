@@ -12,7 +12,7 @@ const tabs = [
   { id: "tasks", label: "Tasks", icon: "📋" },
   { id: "approvals", label: "Approvals", icon: "✅" },
   { id: "content", label: "Content", icon: "📝" },
-  { id: "council", label: "Council", icon: "🏛️" },
+  { id: "outcomes", label: "Outcomes", icon: "🏛️" },
   { id: "projects", label: "Projects", icon: "🚀" },
   { id: "docs", label: "Docs", icon: "📄" },
   { id: "calendar", label: "Calendar", icon: "📅" },
