@@ -10,7 +10,7 @@ const CalendarTab = dynamic(() => import("@/components/CalendarTab"), { ssr: fal
 const WalletTab = dynamic(() => import("@/components/WalletTab"), { ssr: false });
 
 export default function Home() {
-  const [tab, setTab] = useState("memory");
+  const [tab, setTab] = useState("tasks");
 
   return (
     <div className="flex min-h-screen">

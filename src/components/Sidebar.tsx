@@ -6,8 +6,8 @@ interface Props {
 }
 
 const tabs = [
-  { id: "memory", label: "Memory", icon: "🧠" },
   { id: "tasks", label: "Tasks", icon: "📋" },
+  { id: "memory", label: "Memory", icon: "🧠" },
   { id: "calendar", label: "Calendar", icon: "📅" },
   { id: "wallet", label: "Wallet", icon: "💰" },
 ];

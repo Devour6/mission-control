@@ -27,6 +27,7 @@ export default function TasksTab() {
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState(emptyTask);
   const [mounted, setMounted] = useState(false);
+  const [selectedTask, setSelectedTask] = useState<Task | null>(null);
   // Track status overrides for seed tasks
   const [seedOverrides, setSeedOverrides] = useState<Record<string, TaskStatus>>({});
 
@@ -135,7 +136,7 @@ export default function TasksTab() {
                     {filtered.filter((t) => t.status === col.id).map((task, idx) => (
                       <Draggable key={task.id} draggableId={task.id} index={idx}>
                         {(prov) => (
-                          <div ref={prov.innerRef} {...prov.draggableProps} {...prov.dragHandleProps} className={`bg-[#242836] border rounded-lg p-3 group ${task.assignee === "Brandon" ? "border-indigo-500/30" : "border-cyan-400/30"}`}>
+                          <div ref={prov.innerRef} {...prov.draggableProps} {...prov.dragHandleProps} onClick={() => setSelectedTask(task)} className={`bg-[#242836] border rounded-lg p-3 group cursor-pointer hover:bg-[#2a2e3e] transition-colors ${task.assignee === "Brandon" ? "border-indigo-500/30" : "border-cyan-400/30"}`}>
                             <div className="flex justify-between items-start">
                               <h4 className="text-sm font-medium">{task.title}</h4>
                               {task._source !== "seed" && (
@@ -159,6 +160,37 @@ export default function TasksTab() {
           ))}
         </div>
       </DragDropContext>
+
+      {selectedTask && (
+        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50" onClick={() => setSelectedTask(null)}>
+          <div className="bg-[#1a1d27] border border-[#2e3345] rounded-xl p-6 max-w-lg w-full mx-4 space-y-4" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-start justify-between">
+              <h3 className="text-lg font-bold">{selectedTask.title}</h3>
+              <button onClick={() => setSelectedTask(null)} className="text-[#8b8fa3] hover:text-white text-lg leading-none">✕</button>
+            </div>
+            {selectedTask.description && <p className="text-sm text-[#c4c7d4]">{selectedTask.description}</p>}
+            <div className="grid grid-cols-2 gap-3 text-sm">
+              <div>
+                <span className="text-[#8b8fa3] text-xs uppercase tracking-wider">Assignee</span>
+                <p className={`mt-1 font-medium ${selectedTask.assignee === "Brandon" ? "text-indigo-400" : "text-cyan-400"}`}>{selectedTask.assignee}</p>
+              </div>
+              <div>
+                <span className="text-[#8b8fa3] text-xs uppercase tracking-wider">Status</span>
+                <p className="mt-1 font-medium capitalize">{selectedTask.status === "inProgress" ? "In Progress" : selectedTask.status === "todo" ? "To Do" : "Completed"}</p>
+              </div>
+              <div>
+                <span className="text-[#8b8fa3] text-xs uppercase tracking-wider">Due Date</span>
+                <p className="mt-1">{selectedTask.dueDate || "—"}</p>
+              </div>
+              <div>
+                <span className="text-[#8b8fa3] text-xs uppercase tracking-wider">Created</span>
+                <p className="mt-1">{selectedTask.createdAt ? new Date(selectedTask.createdAt).toLocaleDateString() : "—"}</p>
+              </div>
+            </div>
+            <button onClick={() => setSelectedTask(null)} className="w-full mt-2 px-4 py-2 bg-[#242836] hover:bg-[#2e3345] border border-[#2e3345] rounded-lg text-sm font-medium transition-colors">Close</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
