@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { ProjectsData } from "@/lib/types";
+import { fetchData } from "@/lib/dataFetch";
 
 const divisionEmojis: Record<string, string> = {
   research: "🔍",
@@ -24,10 +25,7 @@ export default function ProjectsTab() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    fetch("/data/projects.json")
-      .then((r) => r.json())
-      .then((d: ProjectsData) => setData(d))
-      .catch(() => {});
+    fetchData<ProjectsData>("projects.json").then(setData).catch(() => {});
     setMounted(true);
   }, []);
 

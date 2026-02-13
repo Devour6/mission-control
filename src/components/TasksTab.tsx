@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Task, Assignee, TaskStatus } from "@/lib/types";
 import { getItem, setItem } from "@/lib/storage";
+import { fetchData } from "@/lib/dataFetch";
 import {
   DragDropContext,
   Droppable,
@@ -61,10 +62,7 @@ export default function TasksTab() {
   useEffect(() => {
     setLocalTasks(getItem<Task[]>(KEY, []));
     setSeedOverrides(getItem<Record<string, TaskStatus>>("mc_tasks_seed_overrides", {}));
-    fetch("/data/tasks.json")
-      .then((r) => r.json())
-      .then((data: Task[]) => setSeedTasks(data.map((t) => ({ ...t, _source: "seed" as const }))))
-      .catch(() => {});
+    fetchData<Task[]>("tasks.json").then((data) => setSeedTasks(data.map((t) => ({ ...t, _source: "seed" as const })))).catch(() => {});
     setMounted(true);
   }, []);
 

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { DocsData } from "@/lib/types";
+import { fetchData } from "@/lib/dataFetch";
 
 const typeColors: Record<string, { bg: string; text: string }> = {
   intel: { bg: "bg-amber-500/20", text: "text-amber-400" },
@@ -17,10 +18,7 @@ export default function DocsTab() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    fetch("/data/docs.json")
-      .then((r) => r.json())
-      .then((d: DocsData) => setData(d))
-      .catch(() => {});
+    fetchData<DocsData>("docs.json").then(setData).catch(() => {});
     setMounted(true);
   }, []);
 

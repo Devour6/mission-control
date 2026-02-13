@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { ContentData } from "@/lib/types";
+import { fetchData } from "@/lib/dataFetch";
 import { getItem, setItem } from "@/lib/storage";
 
 const ACTIONS_KEY = "mc_content_actions";
@@ -14,10 +15,7 @@ export default function ContentTab() {
 
   useEffect(() => {
     setActions(getItem(ACTIONS_KEY, {}));
-    fetch("/data/content.json")
-      .then((r) => r.json())
-      .then((d: ContentData) => setData(d))
-      .catch(() => {});
+    fetchData<ContentData>("content.json").then(setData).catch(() => {});
     setMounted(true);
   }, []);
 

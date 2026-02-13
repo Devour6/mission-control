@@ -2,16 +2,14 @@
 
 import { useState, useEffect } from "react";
 import { TeamData } from "@/lib/types";
+import { fetchData } from "@/lib/dataFetch";
 
 export default function TeamTab() {
   const [data, setData] = useState<TeamData | null>(null);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    fetch("/data/team.json")
-      .then((r) => r.json())
-      .then((d: TeamData) => setData(d))
-      .catch(() => {});
+    fetchData<TeamData>("team.json").then(setData).catch(() => {});
     setMounted(true);
   }, []);
 

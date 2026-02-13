@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { TeamData } from "@/lib/types";
+import { fetchData } from "@/lib/dataFetch";
 
 // --- Types ---
 interface Vec { x: number; y: number }
@@ -332,19 +333,19 @@ export default function OfficeTab() {
 
   useEffect(() => {
     Promise.all([
-      fetch("/data/team.json").then(r => r.json()),
-      fetch("/data/office-state.json").then(r => r.json()).catch(() => null),
+      fetchData<TeamData>("team.json"),
+      fetchData<OfficeStateData>("office-state.json").catch(() => null),
     ]).then(([t, s]) => { setTeam(t); setOfficeState(s); setAgents(initAgents(t, s)); });
     setStandupActive(isStandupActive());
-    fetch("/data/live-actions.json").then(r => r.json()).then(setLiveActions).catch(() => setLiveActions([]));
+    fetchData<LiveAction[]>("live-actions.json").then(setLiveActions).catch(() => setLiveActions([]));
     setMounted(true);
   }, [initAgents]);
 
   // Poll office state
   useEffect(() => {
     pollRef.current = setInterval(() => {
-      fetch("/data/office-state.json?" + Date.now()).then(r => r.json()).then((s: OfficeStateData) => setOfficeState(s)).catch(() => {});
-      fetch("/data/live-actions.json?" + Date.now()).then(r => r.json()).then(setLiveActions).catch(() => {});
+      fetchData<OfficeStateData>("office-state.json").then(s => setOfficeState(s)).catch(() => {});
+      fetchData<LiveAction[]>("live-actions.json").then(setLiveActions).catch(() => {});
     }, 15000);
     return () => { if (pollRef.current) clearInterval(pollRef.current); };
   }, []);

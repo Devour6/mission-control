@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Approval } from "@/lib/types";
+import { fetchData } from "@/lib/dataFetch";
 import { getItem, setItem } from "@/lib/storage";
 
 const SEED_KEY = "mc_approvals_actions";
@@ -13,10 +14,7 @@ export default function ApprovalsTab() {
 
   useEffect(() => {
     setActions(getItem(SEED_KEY, {}));
-    fetch("/data/approvals.json")
-      .then((r) => r.json())
-      .then((data: Approval[]) => setSeedApprovals(data))
-      .catch(() => {});
+    fetchData<Approval[]>("approvals.json").then(setSeedApprovals).catch(() => {});
     setMounted(true);
   }, []);
 

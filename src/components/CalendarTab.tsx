@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { CalendarEvent, EventType } from "@/lib/types";
 import { getItem, setItem } from "@/lib/storage";
+import { fetchData } from "@/lib/dataFetch";
 
 const KEY = "mc_events";
 
@@ -48,10 +49,7 @@ export default function CalendarTab() {
 
   useEffect(() => {
     setLocalEvents(getItem<CalendarEvent[]>(KEY, []));
-    fetch("/data/calendar.json")
-      .then((r) => r.json())
-      .then((data: CalendarEvent[]) => setSeedEvents(data.map((e) => ({ ...e, _source: "seed" as const }))))
-      .catch(() => {});
+    fetchData<CalendarEvent[]>("calendar.json").then((data) => setSeedEvents(data.map((e) => ({ ...e, _source: "seed" as const })))).catch(() => {});
     setMounted(true);
   }, []);
 

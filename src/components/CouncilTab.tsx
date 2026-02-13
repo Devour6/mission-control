@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { CouncilDecision, CouncilData } from "@/lib/types";
+import { fetchData } from "@/lib/dataFetch";
 
 interface StandupDiscussion {
   agent: string;
@@ -33,8 +34,8 @@ export default function CouncilTab() {
 
   useEffect(() => {
     Promise.all([
-      fetch("/data/council.json").then(r => r.json()).catch(() => ({ decisions: [] })),
-      fetch("/data/outcomes-standups.json").then(r => r.json()).catch(() => []),
+      fetchData<CouncilData>("council.json").catch(() => ({ decisions: [] })),
+      fetchData<StandupOutcome[]>("outcomes-standups.json").catch(() => []),
     ]).then(([council, standups]: [CouncilData, StandupOutcome[]]) => {
       setData({ decisions: council.decisions, standups });
     });

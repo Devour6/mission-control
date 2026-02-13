@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { WalletData, WalletWeeklyData, Trade } from "@/lib/types";
+import { fetchData } from "@/lib/dataFetch";
 
 const LS_KEY = "mission-control-wallet-trades";
 
@@ -28,16 +29,17 @@ export default function WalletTab() {
 
   useEffect(() => {
     Promise.all([
-      fetch("/data/wallet.json").then((r) => r.json()),
-      fetch("/data/wallet-weekly.json").then((r) => r.json()),
+      fetchData<WalletData>("wallet.json").catch(() => null),
+      fetchData<WalletWeeklyData>("wallet-weekly.json").catch(() => null),
     ]).then(([w, wk]) => {
+      if (!w) return;
       // merge localStorage trades
       const local: Trade[] = JSON.parse(localStorage.getItem(LS_KEY) || "[]");
       const seedIds = new Set((w.trades as Trade[]).map((t: Trade) => t.id));
       const merged = [...w.trades, ...local.filter((t: Trade) => !seedIds.has(t.id))];
       merged.sort((a: Trade, b: Trade) => new Date(b.date).getTime() - new Date(a.date).getTime());
       setWallet({ ...w, trades: merged });
-      setWeekly(wk);
+      if (wk) setWeekly(wk);
     });
   }, []);
 
