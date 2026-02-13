@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #0f1117;
+  --bg-secondary: #1a1d27;
+  --bg-tertiary: #242836;
+  --border: #2e3345;
+  --text-primary: #e4e6ed;
+  --text-secondary: #8b8fa3;
+  --accent-brandon: #6366f1;
+  --accent-george: #22d3ee;
+  --accent-shared: #a78bfa;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
