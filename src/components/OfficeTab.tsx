@@ -240,7 +240,7 @@ export default function OfficeTab() {
       name: "George", emoji: "🦾", bodyColor: "#6366f1", eyeColor: "#a5b4fc",
       status: "active", task: "Managing the team",
       pos: { ...gDesk }, target: { ...gDesk }, path: [], location: "desk",
-      walkFrame: 0, direction: "down", idleTimer: randomIdle(), deskPos: { ...gDesk },
+      walkFrame: 0, direction: "down", idleTimer: 60 + Math.floor(Math.random() * 200), deskPos: { ...gDesk },
     });
 
     // Division members
@@ -255,7 +255,7 @@ export default function OfficeTab() {
           task: m.currentTask || getDefaultTask(m.name),
           pos: { ...desk }, target: { ...desk }, path: [],
           location: "desk", walkFrame: 0, direction: "down",
-          idleTimer: randomIdle(), deskPos: { ...desk },
+          idleTimer: 40 + Math.floor(Math.random() * 250), deskPos: { ...desk },
         });
       });
     });
@@ -315,16 +315,19 @@ export default function OfficeTab() {
           a.walkFrame = 0;
 
           if (a.idleTimer <= 0) {
-            // Decide where to go
             if (a.location === "desk") {
-              // Go to a random destination
-              const dest = DESTINATIONS[Math.floor(Math.random() * DESTINATIONS.length)];
-              const jitter = { x: dest.x + Math.floor(Math.random() * 6) - 3, y: dest.y + Math.floor(Math.random() * 4) - 2 };
-              a.path = buildPath(a.pos, jitter);
-              a.target = { ...jitter };
-              a.location = "walking";
+              // 70% chance to just keep working, 30% chance to get up
+              if (Math.random() < 0.7) {
+                a.idleTimer = randomIdle(); // keep working
+              } else {
+                const dest = DESTINATIONS[Math.floor(Math.random() * DESTINATIONS.length)];
+                const jitter = { x: dest.x + Math.floor(Math.random() * 6) - 3, y: dest.y + Math.floor(Math.random() * 4) - 2 };
+                a.path = buildPath(a.pos, jitter);
+                a.target = { ...jitter };
+                a.location = "walking";
+              }
             } else {
-              // Go back to desk
+              // At a destination — head back to desk
               a.path = buildPath(a.pos, a.deskPos);
               a.target = { ...a.deskPos };
               a.location = "walking";
@@ -417,8 +420,9 @@ export default function OfficeTab() {
 }
 
 // --- Helpers ---
-function randomIdle() { return 30 + Math.floor(Math.random() * 60); } // 4.5-13.5s at desk
-function randomShort() { return 10 + Math.floor(Math.random() * 20); } // 1.5-4.5s at destination
+// Realistic timing: agents mostly work, rarely get up
+function randomIdle() { return 120 + Math.floor(Math.random() * 300); } // 18-63 seconds at desk (they're working!)
+function randomShort() { return 15 + Math.floor(Math.random() * 25); } // 2-6 seconds at destination (quick break)
 
 function isStandupActive(): boolean {
   const now = new Date();
