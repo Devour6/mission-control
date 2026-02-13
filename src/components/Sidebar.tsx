@@ -9,6 +9,7 @@ const tabs = [
   { id: "memory", label: "Memory", icon: "🧠" },
   { id: "tasks", label: "Tasks", icon: "📋" },
   { id: "calendar", label: "Calendar", icon: "📅" },
+  { id: "wallet", label: "Wallet", icon: "💰" },
 ];
 
 export default function Sidebar({ active, onNavigate }: Props) {

@@ -20,6 +20,39 @@ export interface Task {
   _source?: "seed" | "local";
 }
 
+// Wallet types
+export interface Trade {
+  id: string;
+  date: string;
+  action: "buy" | "sell" | "stake" | "swap";
+  tokens: string[];
+  amount: number;
+  usdValue: number;
+  notes?: string;
+}
+
+export interface WalletData {
+  address: string;
+  startDate: string;
+  startingBalance: { sol: number; usd: number };
+  monthlyTarget: number;
+  currentBalance: { sol: number; usd: number };
+  trades: Trade[];
+}
+
+export interface WeekSummary {
+  startDate: string;
+  endDate: string;
+  startValue: number;
+  endValue: number;
+  pctChange: number;
+  cumulativeReturn?: number;
+}
+
+export interface WalletWeeklyData {
+  weeks: WeekSummary[];
+}
+
 export interface CalendarEvent {
   id: string;
   title: string;

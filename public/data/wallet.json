@@ -1,0 +1,8 @@
+{
+  "address": "CCHC1C7ztDyaVZWWxXtwH7ApSCiQAbtBK1jre1AeRgkp",
+  "startDate": "2026-02-12",
+  "startingBalance": {"sol": 0.76147777, "usd": 308},
+  "monthlyTarget": 7.5,
+  "currentBalance": {"sol": 0.76147777, "usd": 308},
+  "trades": []
+}
