@@ -42,6 +42,23 @@ export default function ContentTab() {
     setItem(ACTIONS_KEY, next);
     setDenyingId(null);
     setDenyFeedback("");
+
+    // Auto-complete review tasks when all drafts from an author are reviewed
+    const draft = data.drafts.find((d) => d.id === id);
+    if (draft) {
+      const authorDrafts = data.drafts.filter((d) => d.author === draft.author);
+      const allReviewed = authorDrafts.every((d) => d.id === id || next[d.id]);
+      if (allReviewed) {
+        // Map author to their review task id pattern
+        const taskMap: Record<string, string> = { Kelly: "b-t11", Rachel: "b-t12" };
+        const taskId = taskMap[draft.author];
+        if (taskId) {
+          const overrides = getItem<Record<string, string>>("mc_tasks_seed_overrides", {});
+          overrides[taskId] = "completed";
+          setItem("mc_tasks_seed_overrides", overrides);
+        }
+      }
+    }
   };
 
   const platformIcon = (p: string) => p === "x" ? "𝕏" : "in";
