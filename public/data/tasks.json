@@ -1,13 +1,17 @@
 [
-  {"id": "seed-t1", "title": "Read and enact Shubham Saboo's X post", "description": "https://x.com/saboo_shubham_/status/2022014147450614038", "assignee": "Brandon", "dueDate": "2026-02-13", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"},
-  {"id": "seed-t2", "title": "Create IG for Borrowed Light", "description": "", "assignee": "Brandon", "dueDate": "2026-02-15", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"},
-  {"id": "seed-t3", "title": "Create TikTok for Borrowed Light", "description": "", "assignee": "Brandon", "dueDate": "2026-02-15", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"},
-  {"id": "seed-t4", "title": "Create YouTube for Borrowed Light", "description": "", "assignee": "Brandon", "dueDate": "2026-02-15", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"},
-  {"id": "seed-t5", "title": "Create 3 shorts for Glass", "description": "", "assignee": "Brandon", "dueDate": "2026-02-16", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"},
-  {"id": "seed-t6", "title": "Create 3 shorts for Before It Goes", "description": "", "assignee": "Brandon", "dueDate": "2026-02-16", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"},
-  {"id": "seed-t7", "title": "Create lyric video for Glass", "description": "", "assignee": "Brandon", "dueDate": "2026-02-16", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"},
-  {"id": "seed-t8", "title": "Create lyric video for Before It Goes", "description": "", "assignee": "Brandon", "dueDate": "2026-02-16", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"},
-  {"id": "seed-t9", "title": "Release Borrowed Light EP", "description": "", "assignee": "Brandon", "dueDate": "2026-02-16", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"},
-  {"id": "seed-t10", "title": "Daily Autonomous Work - Feb 13", "description": "", "assignee": "George", "dueDate": "2026-02-13", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"},
-  {"id": "seed-t11", "title": "Weekly Validator Income Report setup", "description": "", "assignee": "George", "dueDate": "2026-02-17", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"}
+  {"id": "b-t1", "title": "Read and enact Shubham Saboo's X post", "description": "https://x.com/saboo_shubham_/status/2022014147450614038", "assignee": "Brandon", "dueDate": "2026-02-13", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"},
+  {"id": "b-t2", "title": "Answer agent team questions + build first agent", "description": "Work with George to stand up the Research Agent", "assignee": "Brandon", "dueDate": "2026-02-13", "status": "in-progress", "createdAt": "2026-02-13T00:00:00.000Z"},
+  {"id": "b-t3", "title": "Create IG for Borrowed Light", "description": "", "assignee": "Brandon", "dueDate": "2026-02-16", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"},
+  {"id": "b-t4", "title": "Create TikTok for Borrowed Light", "description": "", "assignee": "Brandon", "dueDate": "2026-02-16", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"},
+  {"id": "b-t5", "title": "Create YouTube for Borrowed Light", "description": "", "assignee": "Brandon", "dueDate": "2026-02-16", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"},
+  {"id": "b-t6", "title": "Create 3 shorts for Glass", "description": "", "assignee": "Brandon", "dueDate": "2026-02-16", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"},
+  {"id": "b-t7", "title": "Create 3 shorts for Before It Goes", "description": "", "assignee": "Brandon", "dueDate": "2026-02-16", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"},
+  {"id": "b-t8", "title": "Create lyric video for Glass", "description": "", "assignee": "Brandon", "dueDate": "2026-02-16", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"},
+  {"id": "b-t9", "title": "Create lyric video for Before It Goes", "description": "", "assignee": "Brandon", "dueDate": "2026-02-16", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"},
+  {"id": "b-t10", "title": "Release Borrowed Light EP", "description": "", "assignee": "Brandon", "dueDate": "2026-02-16", "status": "todo", "createdAt": "2026-02-12T00:00:00.000Z"},
+  {"id": "g-t1", "title": "Build Research Agent", "description": "SOUL.md, skill file, routing logic, templates", "assignee": "George", "dueDate": "2026-02-13", "status": "in-progress", "createdAt": "2026-02-13T00:00:00.000Z"},
+  {"id": "g-t2", "title": "Study @DEVOUR_ and @mert X profiles", "description": "Analyze tone, topics, engagement patterns for X Content Agent voice guide", "assignee": "George", "dueDate": "2026-02-13", "status": "todo", "createdAt": "2026-02-13T00:00:00.000Z"},
+  {"id": "g-t3", "title": "Study Brandon + Jeff Newman LinkedIn", "description": "Voice calibration for LinkedIn Content Agent", "assignee": "George", "dueDate": "2026-02-13", "status": "todo", "createdAt": "2026-02-13T00:00:00.000Z"},
+  {"id": "g-t4", "title": "Read and plan Shubham's subagent post", "description": "Extract architecture insights for our agent team setup", "assignee": "George", "dueDate": "2026-02-13", "status": "todo", "createdAt": "2026-02-13T00:00:00.000Z"},
+  {"id": "g-t5", "title": "Mission Control fixes + deploy", "description": "Due date UI, updated tasks on the board", "assignee": "George", "dueDate": "2026-02-13", "status": "in-progress", "createdAt": "2026-02-13T00:00:00.000Z"}
 ]
