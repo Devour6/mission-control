@@ -161,7 +161,8 @@ export default function OfficeTab() {
   });
 
   const activeAgents = agents.filter((a) => a.status === "active");
-  const lastStandup = standups.length > 0 ? standups[standups.length - 1] : null;
+  // standups data available for future use
+  void standups;
 
   return (
     <div className="flex gap-4 max-w-7xl mx-auto">
