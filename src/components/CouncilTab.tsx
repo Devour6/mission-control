@@ -3,11 +3,18 @@
 import { useState, useEffect } from "react";
 import { CouncilDecision, CouncilData } from "@/lib/types";
 
+interface StandupDiscussion {
+  agent: string;
+  emoji: string;
+  said: string;
+}
+
 interface StandupOutcome {
   id: string;
   date: string;
   type: "morning" | "midday" | "evening";
   summary: string;
+  discussion: StandupDiscussion[];
   keyDecisions: string[];
   improvements: string[];
   actionItems: string[];
@@ -106,6 +113,22 @@ export default function CouncilTab() {
 
                 {expanded === s.id && (
                   <div className="px-4 md:px-5 pb-4 md:pb-5 pt-0 border-t border-[#2e3345]">
+                    {s.discussion && s.discussion.length > 0 && (
+                      <div className="mt-3">
+                        <p className="text-xs text-cyan-400/70 uppercase tracking-wider mb-2">Discussion</p>
+                        <div className="space-y-2.5">
+                          {s.discussion.map((d, i) => (
+                            <div key={i} className="flex gap-2.5 items-start">
+                              <span className="text-sm shrink-0 mt-0.5">{d.emoji}</span>
+                              <div className="min-w-0">
+                                <span className="text-xs font-semibold text-[#e4e6ed]">{d.agent}</span>
+                                <p className="text-xs md:text-sm text-[#9b9fb3] mt-0.5">{d.said}</p>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                     {s.keyDecisions.length > 0 && (
                       <div className="mt-3">
                         <p className="text-xs text-amber-400/70 uppercase tracking-wider mb-1">Key Decisions</p>
