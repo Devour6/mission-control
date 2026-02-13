@@ -145,7 +145,7 @@ export default function TasksTab() {
                             {task.description && <p className="text-xs text-[#8b8fa3] mt-1 line-clamp-2">{task.description}</p>}
                             <div className="flex items-center justify-between mt-2">
                               <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${task.assignee === "Brandon" ? "bg-indigo-500/20 text-indigo-400" : "bg-cyan-400/20 text-cyan-400"}`}>{task.assignee}</span>
-                              {task.dueDate && <span className="text-[10px] text-[#8b8fa3]">{task.dueDate}</span>}
+                              {task.dueDate && <span className="text-[10px] text-orange-400/80">📅 Due {task.dueDate}</span>}
                             </div>
                           </div>
                         )}
