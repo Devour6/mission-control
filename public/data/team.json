@@ -1,0 +1,48 @@
+{
+  "org": {
+    "director": {
+      "name": "Brandon",
+      "title": "Director",
+      "emoji": "👑"
+    },
+    "chiefOfStaff": {
+      "name": "George",
+      "title": "Chief of Staff",
+      "emoji": "🦾",
+      "reportsTo": "Brandon"
+    },
+    "divisions": {
+      "research": {
+        "name": "Research Division",
+        "members": [
+          {"name": "Dwight", "title": "Research Lead", "emoji": "🔍", "model": "Sonnet 4", "status": "active"}
+        ]
+      },
+      "financial": {
+        "name": "Financial Division",
+        "members": [
+          {"name": "John", "title": "Portfolio Strategist", "emoji": "📈", "model": "Sonnet 4", "status": "active"}
+        ]
+      },
+      "content": {
+        "name": "Content Division",
+        "members": [
+          {"name": "Kelly", "title": "X Content Lead", "emoji": "🐦", "model": "Sonnet 4", "status": "active"},
+          {"name": "Rachel", "title": "LinkedIn Content Lead", "emoji": "💼", "model": "Sonnet 4", "status": "active"}
+        ]
+      },
+      "engineering": {
+        "name": "Engineering Dept",
+        "members": [
+          {"name": "Ross", "title": "Engineering Lead", "emoji": "⚙️", "model": "Sonnet 4", "status": "coming_soon"}
+        ]
+      },
+      "personalAssistant": {
+        "name": "Personal Assistant",
+        "members": [
+          {"name": "Pam", "title": "Personal Assistant", "emoji": "📋", "model": "Sonnet 4", "status": "coming_soon"}
+        ]
+      }
+    }
+  }
+}
