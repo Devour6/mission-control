@@ -7,9 +7,16 @@ interface Props {
 
 const tabs = [
   { id: "tasks", label: "Tasks", icon: "📋" },
-  { id: "memory", label: "Memory", icon: "🧠" },
+  { id: "approvals", label: "Approvals", icon: "✅" },
+  { id: "content", label: "Content", icon: "📝" },
+  { id: "council", label: "Council", icon: "🏛️" },
+  { id: "projects", label: "Projects", icon: "🚀" },
+  { id: "docs", label: "Docs", icon: "📄" },
   { id: "calendar", label: "Calendar", icon: "📅" },
   { id: "wallet", label: "Wallet", icon: "💰" },
+  { id: "memory", label: "Memory", icon: "🧠" },
+  { id: "team", label: "Team", icon: "👥" },
+  { id: "office", label: "Office", icon: "🏢" },
 ];
 
 export default function Sidebar({ active, onNavigate }: Props) {
@@ -21,12 +28,12 @@ export default function Sidebar({ active, onNavigate }: Props) {
         </h1>
         <p className="text-xs text-[#8b8fa3] mt-1">Brandon & George</p>
       </div>
-      <nav className="flex-1 p-3 space-y-1">
+      <nav className="flex-1 p-3 space-y-0.5 overflow-y-auto">
         {tabs.map((t) => (
           <button
             key={t.id}
             onClick={() => onNavigate(t.id)}
-            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all ${
+            className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
               active === t.id
                 ? "bg-indigo-500/15 text-indigo-400"
                 : "text-[#8b8fa3] hover:bg-[#242836] hover:text-[#e4e6ed]"
@@ -38,7 +45,7 @@ export default function Sidebar({ active, onNavigate }: Props) {
         ))}
       </nav>
       <div className="p-4 border-t border-[#2e3345] text-xs text-[#8b8fa3]">
-        v1.0 • Local Storage
+        v2.0 • Local Storage
       </div>
     </aside>
   );
