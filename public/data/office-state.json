@@ -1,0 +1,10 @@
+{
+  "updatedAt": "2026-02-13T19:46:00.000Z",
+  "agents": {
+    "George": { "activity": "working", "detail": "Managing the team", "location": "desk" },
+    "Dwight": { "activity": "working", "detail": "Research sweep", "location": "desk" },
+    "Kelly":  { "activity": "working", "detail": "Drafting tweets", "location": "desk" },
+    "Rachel": { "activity": "working", "detail": "LinkedIn drafts", "location": "desk" },
+    "John":   { "activity": "working", "detail": "Market analysis", "location": "desk" }
+  }
+}
