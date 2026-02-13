@@ -80,9 +80,10 @@ export default function ContentTab() {
                 <div className="space-y-3 mb-6">
                   {pendingDrafts.map((d) => (
                     <div key={d.id} className="bg-[#1a1d27] border border-amber-500/30 rounded-xl p-5">
-                      <div className="flex items-center gap-2 mb-3">
-                        <span className={`text-sm font-bold ${platformColor(d.platform)}`}>{platformIcon(d.platform)}</span>
-                        <span className="text-xs text-[#8b8fa3]">{d.authorEmoji} {d.author} • {d.date}</span>
+                      <div className="flex items-center gap-3 mb-3">
+                        <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${d.platform === "x" ? "border-white/20 bg-white/5 text-white" : "border-blue-400/30 bg-blue-400/10 text-blue-400"}`}>{platformIcon(d.platform)} {d.platform === "x" ? "X / Twitter" : "LinkedIn"}</span>
+                        <span className="text-xs font-medium text-[#e4e6ed]">{d.authorEmoji} {d.author}</span>
+                        <span className="text-xs text-[#8b8fa3]">{d.date}</span>
                       </div>
                       <p className="text-sm text-[#e4e6ed] whitespace-pre-wrap mb-2 bg-[#242836] rounded-lg p-3">{d.text}</p>
                       {(d.rationale || d.angle) && <p className="text-xs text-[#8b8fa3] italic mb-3">💡 {d.rationale || d.angle}</p>}
