@@ -6,6 +6,7 @@ interface Props {
 }
 
 const tabs = [
+  { id: "office", label: "Office", icon: "🏢" },
   { id: "tasks", label: "Tasks", icon: "📋" },
   { id: "approvals", label: "Approvals", icon: "✅" },
   { id: "content", label: "Content", icon: "📝" },
@@ -16,7 +17,6 @@ const tabs = [
   { id: "wallet", label: "Wallet", icon: "💰" },
   { id: "memory", label: "Memory", icon: "🧠" },
   { id: "team", label: "Team", icon: "👥" },
-  { id: "office", label: "Office", icon: "🏢" },
 ];
 
 export default function Sidebar({ active, onNavigate }: Props) {

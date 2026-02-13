@@ -17,7 +17,7 @@ const TeamTab = dynamic(() => import("@/components/TeamTab"), { ssr: false });
 const OfficeTab = dynamic(() => import("@/components/OfficeTab"), { ssr: false });
 
 export default function Home() {
-  const [tab, setTab] = useState("tasks");
+  const [tab, setTab] = useState("office");
 
   return (
     <div className="flex min-h-screen">
