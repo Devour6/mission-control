@@ -130,7 +130,7 @@ function PixelSprite({ agent, scale = 1.6 }: { agent: AgentState; scale?: number
         <rect x={3 + (isWalking ? legOffset : 0)} y="15" width="4" height="2" fill="#444" />
         <rect x={9 + (isWalking ? -legOffset : 0)} y="15" width="4" height="2" fill="#444" />
       </svg>
-      {/* Name label */}
+      {/* Name label — outside the flip so it never reverses */}
       <div style={{
         textAlign: "center",
         fontSize: 9 * scale,
@@ -138,7 +138,6 @@ function PixelSprite({ agent, scale = 1.6 }: { agent: AgentState; scale?: number
         color: bodyColor,
         marginTop: -2,
         whiteSpace: "nowrap",
-        transform: `scaleX(${flip})`, // Unflip the text
       }}>
         {agent.name}
       </div>
