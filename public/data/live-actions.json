@@ -1,0 +1,11 @@
+[
+  { "id": "1", "agent": "George", "agentEmoji": "🦾", "action": "Midday standup in progress", "time": "12:00 PM", "color": "#6366f1" },
+  { "id": "2", "agent": "Dwight", "agentEmoji": "🔍", "action": "Attending midday standup", "time": "12:00 PM", "color": "#a855f7" },
+  { "id": "3", "agent": "Kelly", "agentEmoji": "🐦", "action": "Attending midday standup", "time": "12:00 PM", "color": "#ec4899" },
+  { "id": "4", "agent": "Rachel", "agentEmoji": "💼", "action": "Attending midday standup", "time": "12:00 PM", "color": "#3b82f6" },
+  { "id": "5", "agent": "John", "agentEmoji": "📈", "action": "Attending midday standup", "time": "12:00 PM", "color": "#10b981" },
+  { "id": "6", "agent": "George", "agentEmoji": "🦾", "action": "Deployed mobile-optimized Mission Control", "time": "11:50 AM", "color": "#6366f1" },
+  { "id": "7", "agent": "Dwight", "agentEmoji": "🔍", "action": "Completed morning research sweep", "time": "7:30 AM", "color": "#a855f7" },
+  { "id": "8", "agent": "George", "agentEmoji": "🦾", "action": "Morning standup completed", "time": "7:45 AM", "color": "#6366f1" },
+  { "id": "9", "agent": "George", "agentEmoji": "🦾", "action": "Morning briefing sent to Brandon", "time": "8:00 AM", "color": "#6366f1" }
+]

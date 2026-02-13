@@ -336,7 +336,7 @@ export default function OfficeTab() {
       fetch("/data/office-state.json").then(r => r.json()).catch(() => null),
     ]).then(([t, s]) => { setTeam(t); setOfficeState(s); setAgents(initAgents(t, s)); });
     setStandupActive(isStandupActive());
-    setLiveActions(getDefaultActions());
+    fetch("/data/live-actions.json").then(r => r.json()).then(setLiveActions).catch(() => setLiveActions([]));
     setMounted(true);
   }, [initAgents]);
 
@@ -344,6 +344,7 @@ export default function OfficeTab() {
   useEffect(() => {
     pollRef.current = setInterval(() => {
       fetch("/data/office-state.json?" + Date.now()).then(r => r.json()).then((s: OfficeStateData) => setOfficeState(s)).catch(() => {});
+      fetch("/data/live-actions.json?" + Date.now()).then(r => r.json()).then(setLiveActions).catch(() => {});
     }, 15000);
     return () => { if (pollRef.current) clearInterval(pollRef.current); };
   }, []);
