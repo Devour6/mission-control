@@ -34,23 +34,23 @@ interface LiveAction {
 // --- Office layout constants (grid units, 1 unit = 8px) ---
 const CELL = 12;
 const OFFICE_W = 95; // grid cells wide
-const OFFICE_H = 65;  // grid cells tall
+const OFFICE_H = 78;  // grid cells tall
 
 // Key positions in grid coords
 const DESKS: Record<string, Vec> = {
-  George:  { x: 12, y: 12 },
-  Dwight:  { x: 38, y: 12 },
-  Kelly:   { x: 58, y: 12 },
-  Rachel:  { x: 78, y: 12 },
-  John:    { x: 38, y: 32 },
-  Ross:    { x: 58, y: 32 },
-  Pam:     { x: 78, y: 32 },
+  George:  { x: 12, y: 14 },
+  Dwight:  { x: 35, y: 14 },
+  Kelly:   { x: 55, y: 14 },
+  Rachel:  { x: 75, y: 14 },
+  John:    { x: 35, y: 32 },
+  Ross:    { x: 55, y: 32 },
+  Pam:     { x: 75, y: 32 },
 };
 
-const WATER:  Vec = { x: 8,   y: 65 };
-const COFFEE: Vec = { x: 55,  y: 65 };
-const BREAK_ROOM: Vec = { x: 105, y: 65 };
-const MEETING: Vec = { x: 60, y: 50 };
+const WATER:  Vec = { x: 12,  y: 68 };
+const COFFEE: Vec = { x: 47,  y: 68 };
+const BREAK_ROOM: Vec = { x: 80, y: 68 };
+const MEETING: Vec = { x: 47, y: 50 };
 
 const DESTINATIONS = [WATER, COFFEE, BREAK_ROOM];
 
@@ -168,7 +168,7 @@ function OfficeFurniture() {
       ))}
 
       {/* George's office border */}
-      <div style={{ position: "absolute", left: (DESKS.George.x - 5) * CELL, top: (DESKS.George.y - 7) * CELL, width: 160, height: 180 }} className="border border-indigo-500/15 rounded-lg">
+      <div style={{ position: "absolute", left: (DESKS.George.x - 5) * CELL, top: (DESKS.George.y - 6) * CELL, width: 160, height: 170 }} className="border border-indigo-500/15 rounded-lg">
         <div className="text-[9px] text-indigo-400/40 uppercase tracking-widest px-3 pt-2">Chief of Staff</div>
       </div>
 
@@ -201,10 +201,10 @@ function OfficeFurniture() {
         </div>
       </div>
 
-      {/* Meeting table */}
-      <div style={{ position: "absolute", left: MEETING.x * CELL - 50, top: MEETING.y * CELL - 16 }}>
-        <div className="bg-[#2a2d3a] rounded-[50%] border-2 border-[#3a3d4a] w-24 h-12 flex items-center justify-center">
-          <span className="text-[8px] text-[#555] uppercase tracking-wider">Meeting Table</span>
+      {/* Meeting table — big enough for everyone */}
+      <div style={{ position: "absolute", left: MEETING.x * CELL - 100, top: MEETING.y * CELL - 28 }}>
+        <div className="bg-[#2a2d3a] rounded-[50%] border-2 border-[#4a4d5a] shadow-lg flex items-center justify-center" style={{ width: 200, height: 56 }}>
+          <span className="text-[10px] text-[#666] uppercase tracking-widest">Meeting Table</span>
         </div>
       </div>
 
@@ -295,8 +295,8 @@ export default function OfficeTab() {
           // Calculate a seat around the table with offset per agent
           const angle = (idx / prev.filter(x => x.status === "active").length) * Math.PI * 2;
           const meetingSpot = {
-            x: Math.round(MEETING.x + Math.cos(angle) * 6),
-            y: Math.round(MEETING.y + Math.sin(angle) * 4),
+            x: Math.round(MEETING.x + Math.cos(angle) * 10),
+            y: Math.round(MEETING.y + Math.sin(angle) * 5),
           };
           if (a.path.length === 0 || a.target.x !== meetingSpot.x || a.target.y !== meetingSpot.y) {
             a.path = buildPath(a.pos, meetingSpot);
@@ -322,7 +322,7 @@ export default function OfficeTab() {
 
           // Reached destination?
           if (a.path.length === 0) {
-            if (inStandup && Math.abs(a.pos.x - MEETING.x) < 10 && Math.abs(a.pos.y - MEETING.y) < 8) {
+            if (inStandup && Math.abs(a.pos.x - MEETING.x) < 14 && Math.abs(a.pos.y - MEETING.y) < 10) {
               a.location = "meeting";
               a.idleTimer = 999; // stay until standup ends
             } else if (a.pos.x === a.deskPos.x && a.pos.y === a.deskPos.y) {
