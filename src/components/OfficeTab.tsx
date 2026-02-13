@@ -1,15 +1,25 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { TeamData, StandupEntry } from "@/lib/types";
 
-interface AgentInfo {
+// --- Types ---
+interface Vec { x: number; y: number }
+interface AgentState {
   name: string;
   emoji: string;
   bodyColor: string;
   eyeColor: string;
   status: "active" | "coming_soon";
-  task?: string;
+  task: string;
+  pos: Vec;
+  target: Vec;
+  path: Vec[];
+  location: "desk" | "water" | "coffee" | "break" | "meeting" | "walking";
+  walkFrame: number;
+  direction: "left" | "right" | "up" | "down";
+  idleTimer: number;
+  deskPos: Vec;
 }
 
 interface LiveAction {
@@ -21,107 +31,237 @@ interface LiveAction {
   color: string;
 }
 
-// Pixel character - looks like the reference image sprites
-function PixelCharacter({ bodyColor, eyeColor, name, active, size = 32 }: {
-  bodyColor: string; eyeColor: string; name: string; active: boolean; size?: number;
-}) {
-  const s = size;
-  const opacity = active ? 1 : 0.3;
+// --- Office layout constants (grid units, 1 unit = 8px) ---
+const CELL = 8;
+const OFFICE_W = 130; // grid cells wide
+const OFFICE_H = 80;  // grid cells tall
+
+// Key positions in grid coords
+const DESKS: Record<string, Vec> = {
+  George:  { x: 12, y: 12 },
+  Dwight:  { x: 38, y: 12 },
+  Kelly:   { x: 58, y: 12 },
+  Rachel:  { x: 78, y: 12 },
+  John:    { x: 38, y: 32 },
+  Ross:    { x: 58, y: 32 },
+  Pam:     { x: 78, y: 32 },
+};
+
+const WATER:  Vec = { x: 8,   y: 65 };
+const COFFEE: Vec = { x: 55,  y: 65 };
+const BREAK_ROOM: Vec = { x: 105, y: 65 };
+const MEETING: Vec = { x: 60, y: 50 };
+
+const DESTINATIONS = [WATER, COFFEE, BREAK_ROOM];
+
+// --- Pathfinding (simple waypoint-based) ---
+function buildPath(from: Vec, to: Vec): Vec[] {
+  const path: Vec[] = [];
+  // Walk horizontally first, then vertically (simple L-path)
+  const midX = to.x;
+  const midY = from.y;
+
+  // Horizontal segment
+  const dx = midX > from.x ? 1 : -1;
+  let cx = from.x;
+  while (cx !== midX) {
+    cx += dx;
+    path.push({ x: cx, y: from.y });
+  }
+
+  // Vertical segment
+  const dy = to.y > midY ? 1 : -1;
+  let cy = midY;
+  while (cy !== to.y) {
+    cy += dy;
+    path.push({ x: to.x, y: cy });
+  }
+
+  return path;
+}
+
+function getDirection(from: Vec, to: Vec): "left" | "right" | "up" | "down" {
+  const dx = to.x - from.x;
+  const dy = to.y - from.y;
+  if (Math.abs(dx) > Math.abs(dy)) return dx > 0 ? "right" : "left";
+  return dy > 0 ? "down" : "up";
+}
+
+// --- Pixel Character with walk animation ---
+function PixelSprite({ agent, scale = 1 }: { agent: AgentState; scale?: number }) {
+  const { bodyColor, eyeColor, walkFrame, direction, status } = agent;
+  if (status === "coming_soon") return null;
+
+  const isWalking = agent.path.length > 0;
+  // Leg offsets for walk animation
+  const legOffset = isWalking ? (walkFrame % 2 === 0 ? 1 : -1) : 0;
+  const flip = direction === "left" ? -1 : 1;
+
+  const s = 24 * scale;
+
   return (
-    <div className="flex flex-col items-center" style={{ opacity }}>
-      <svg width={s} height={s} viewBox="0 0 16 16" style={{ imageRendering: "pixelated" }}>
+    <div style={{
+      position: "absolute",
+      left: agent.pos.x * CELL - s / 2,
+      top: agent.pos.y * CELL - s,
+      transition: "left 150ms linear, top 150ms linear",
+      zIndex: Math.floor(agent.pos.y),
+    }}>
+      <svg width={s} height={s} viewBox="0 0 16 18" style={{ imageRendering: "pixelated", transform: `scaleX(${flip})` }}>
         {/* Head */}
-        <rect x="4" y="0" width="8" height="7" fill={bodyColor} />
+        <rect x="4" y="0" width="8" height="6" rx="1" fill={bodyColor} />
         {/* Eyes */}
         <rect x="5" y="2" width="2" height="2" fill={eyeColor} />
         <rect x="9" y="2" width="2" height="2" fill={eyeColor} />
-        {/* Pupils */}
         <rect x="6" y="3" width="1" height="1" fill="#111" />
         <rect x="10" y="3" width="1" height="1" fill="#111" />
         {/* Body */}
-        <rect x="3" y="7" width="10" height="5" fill={bodyColor} />
+        <rect x="3" y="6" width="10" height="5" fill={bodyColor} />
         {/* Arms */}
-        <rect x="1" y="7" width="2" height="4" fill={bodyColor} />
-        <rect x="13" y="7" width="2" height="4" fill={bodyColor} />
-        {/* Legs */}
-        <rect x="4" y="12" width="3" height="4" fill={bodyColor} />
-        <rect x="9" y="12" width="3" height="4" fill={bodyColor} />
+        <rect x="1" y="6" width="2" height="4" fill={bodyColor} opacity={isWalking ? (walkFrame % 2 === 0 ? 0.8 : 1) : 1} />
+        <rect x="13" y="6" width="2" height="4" fill={bodyColor} opacity={isWalking ? (walkFrame % 2 === 0 ? 1 : 0.8) : 1} />
+        {/* Left leg */}
+        <rect x="4" y="11" width="3" height={isWalking ? "5" : "4"} fill={bodyColor}
+          transform={isWalking ? `translate(${legOffset}, 0)` : ""} />
+        {/* Right leg */}
+        <rect x="9" y="11" width="3" height={isWalking ? "5" : "4"} fill={bodyColor}
+          transform={isWalking ? `translate(${-legOffset}, 0)` : ""} />
         {/* Feet */}
-        <rect x="3" y="14" width="4" height="2" fill={active ? "#555" : "#333"} />
-        <rect x="9" y="14" width="4" height="2" fill={active ? "#555" : "#333"} />
+        <rect x={3 + (isWalking ? legOffset : 0)} y="15" width="4" height="2" fill="#444" />
+        <rect x={9 + (isWalking ? -legOffset : 0)} y="15" width="4" height="2" fill="#444" />
       </svg>
-      <span className="text-[9px] font-bold mt-0.5" style={{ color: active ? bodyColor : "#555" }}>{name}</span>
-      {active && (
-        <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-0.5" />
-      )}
+      {/* Name label */}
+      <div style={{
+        textAlign: "center",
+        fontSize: 8 * scale,
+        fontWeight: 700,
+        color: bodyColor,
+        marginTop: -2,
+        whiteSpace: "nowrap",
+        transform: `scaleX(${flip})`, // Unflip the text
+      }}>
+        {agent.name}
+      </div>
     </div>
   );
 }
 
-function Monitor() {
+// --- Static office furniture ---
+function OfficeFurniture() {
   return (
-    <div className="flex flex-col items-center">
-      <div className="w-14 h-10 rounded-sm border-2 border-blue-500/50 bg-blue-500/15 relative overflow-hidden">
-        <div className="absolute inset-0.5 bg-gradient-to-b from-blue-400/10 to-blue-600/5" />
-        {/* Screen content lines */}
-        <div className="absolute top-1.5 left-1.5 right-1.5 space-y-1">
-          <div className="h-[2px] bg-blue-400/30 w-3/4" />
-          <div className="h-[2px] bg-blue-400/20 w-1/2" />
-          <div className="h-[2px] bg-blue-400/30 w-2/3" />
+    <>
+      {/* Desks with monitors */}
+      {Object.entries(DESKS).map(([name, pos]) => (
+        <div key={name} style={{ position: "absolute", left: pos.x * CELL - 28, top: pos.y * CELL - 8 }}>
+          {/* Monitor */}
+          <div className="w-14 h-9 rounded-sm border-2 border-blue-500/40 bg-blue-500/10 mx-auto relative">
+            <div className="absolute top-1 left-1.5 right-1.5 space-y-0.5">
+              <div className="h-[1px] bg-blue-400/30 w-3/4" />
+              <div className="h-[1px] bg-blue-400/20 w-1/2" />
+              <div className="h-[1px] bg-blue-400/20 w-2/3" />
+            </div>
+          </div>
+          <div className="w-3 h-1.5 bg-[#3a3d4a] mx-auto" />
+          <div className="w-7 h-1 bg-[#3a3d4a] mx-auto" />
+          {/* Desk surface */}
+          <div className="w-16 h-2 bg-[#3a3d4a] rounded mx-auto mt-0.5" />
+        </div>
+      ))}
+
+      {/* George's office border */}
+      <div style={{ position: "absolute", left: (DESKS.George.x - 6) * CELL, top: (DESKS.George.y - 8) * CELL }} className="w-28 h-32 border border-indigo-500/15 rounded-lg">
+        <div className="text-[7px] text-indigo-400/40 uppercase tracking-widest px-2 pt-1">Chief of Staff</div>
+      </div>
+
+      {/* Water station */}
+      <div style={{ position: "absolute", left: WATER.x * CELL - 12, top: WATER.y * CELL - 20 }}>
+        <div className="w-6 h-12 bg-gradient-to-b from-cyan-400/30 to-cyan-400/5 border border-cyan-400/20 rounded-t-md flex items-end justify-center pb-0.5">
+          <div className="w-3 h-1.5 bg-cyan-400/30 rounded-sm" />
+        </div>
+        <div className="w-8 h-1 bg-[#2e3345] rounded-b mx-auto" />
+        <div className="text-[7px] text-cyan-400/40 text-center mt-0.5">💧 Water</div>
+      </div>
+
+      {/* Coffee station */}
+      <div style={{ position: "absolute", left: COFFEE.x * CELL - 12, top: COFFEE.y * CELL - 14 }}>
+        <div className="w-8 h-7 bg-[#3a2a1a] border border-[#5a4a3a] rounded flex items-center justify-center">
+          <span className="text-xs">☕</span>
+        </div>
+        <div className="w-10 h-1 bg-[#2e3345] rounded-b mx-auto" />
+        <div className="text-[7px] text-amber-400/40 text-center mt-0.5">☕ Coffee</div>
+      </div>
+
+      {/* Break room */}
+      <div style={{ position: "absolute", left: BREAK_ROOM.x * CELL - 20, top: BREAK_ROOM.y * CELL - 20 }} className="bg-[#141620]/60 border border-[#2e3345] rounded-lg px-3 py-2">
+        <span className="text-sm">🍿</span>
+        <div className="text-[7px] text-[#8b8fa3] mt-0.5">Break Room</div>
+        <div className="flex gap-0.5 mt-0.5">
+          <span className="text-[6px]">🍕</span>
+          <span className="text-[6px]">🍪</span>
+          <span className="text-[6px]">🍎</span>
         </div>
       </div>
-      <div className="w-4 h-1.5 bg-[#3a3d4a]" />
-      <div className="w-8 h-1 bg-[#3a3d4a] rounded-b" />
-    </div>
+
+      {/* Meeting table */}
+      <div style={{ position: "absolute", left: MEETING.x * CELL - 32, top: MEETING.y * CELL - 10 }}>
+        <div className="bg-[#2a2d3a] rounded-[50%] border border-[#3a3d4a] w-16 h-8 flex items-center justify-center">
+          <span className="text-[6px] text-[#555] uppercase tracking-wider">Table</span>
+        </div>
+      </div>
+
+      {/* Windows (top wall) */}
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 20 }} className="bg-[#1a1d27] border-b border-[#2e3345] flex">
+        {Array.from({ length: 12 }).map((_, i) => (
+          <div key={i} className="flex-1 border-r border-[#2e3345] flex items-center justify-center">
+            <div className="w-3/4 h-3 rounded-sm bg-[#242836] border border-[#2e3345]" />
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
 
-function DeskUnit({ agent, flipped }: { agent: AgentInfo; flipped?: boolean }) {
-  const active = agent.status === "active";
-  return (
-    <div className="flex flex-col items-center gap-1">
-      {/* Character at desk */}
-      {!flipped && (
-        <PixelCharacter bodyColor={agent.bodyColor} eyeColor={agent.eyeColor} name={agent.name} active={active} />
-      )}
-      {/* Monitor */}
-      {active ? <Monitor /> : (
-        <div className="flex flex-col items-center">
-          <div className="w-14 h-10 rounded-sm border-2 border-[#2e3345] bg-[#0a0c10]" />
-          <div className="w-4 h-1.5 bg-[#2a2d3a]" />
-          <div className="w-8 h-1 bg-[#2a2d3a] rounded-b" />
-        </div>
-      )}
-      {flipped && (
-        <PixelCharacter bodyColor={agent.bodyColor} eyeColor={agent.eyeColor} name={agent.name} active={active} />
-      )}
-      {/* Desk surface */}
-      <div className={`w-20 h-2.5 rounded ${active ? "bg-[#4a4d5a]" : "bg-[#2a2d3a]"}`} />
-      {/* Task bubble */}
-      {agent.task && active && (
-        <div className="text-[8px] text-[#8b8fa3] max-w-20 truncate text-center" title={agent.task}>
-          💭 {agent.task}
-        </div>
-      )}
-    </div>
-  );
-}
-
-function isStandupActive(): boolean {
-  const now = new Date();
-  const h = now.getHours();
-  const m = now.getMinutes();
-  const t = h * 60 + m;
-  // Active during standup windows (15 min each): 7:45-8:00, 12:00-12:15, 17:30-17:45
-  return (t >= 465 && t < 480) || (t >= 720 && t < 735) || (t >= 1050 && t < 1065);
-}
-
+// --- Main component ---
 export default function OfficeTab() {
   const [team, setTeam] = useState<TeamData | null>(null);
-  const [standups, setStandups] = useState<StandupEntry[]>([]);
+  const [, setStandups] = useState<StandupEntry[]>([]);
+  const [agents, setAgents] = useState<AgentState[]>([]);
   const [liveActions, setLiveActions] = useState<LiveAction[]>([]);
-  const [standupActive, setStandupActive] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [standupActive, setStandupActive] = useState(false);
+  const tickRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const initAgents = useCallback((teamData: TeamData) => {
+    const list: AgentState[] = [];
+
+    // George
+    const gDesk = DESKS.George;
+    list.push({
+      name: "George", emoji: "🦾", bodyColor: "#6366f1", eyeColor: "#a5b4fc",
+      status: "active", task: "Managing the team",
+      pos: { ...gDesk }, target: { ...gDesk }, path: [], location: "desk",
+      walkFrame: 0, direction: "down", idleTimer: randomIdle(), deskPos: { ...gDesk },
+    });
+
+    // Division members
+    Object.values(teamData.org.divisions).forEach((div) => {
+      div.members.forEach((m) => {
+        const desk = DESKS[m.name] || { x: 60, y: 30 };
+        const colors = getColors(m.name);
+        list.push({
+          name: m.name, emoji: m.emoji,
+          bodyColor: colors.body, eyeColor: colors.eye,
+          status: m.status as "active" | "coming_soon",
+          task: m.currentTask || getDefaultTask(m.name),
+          pos: { ...desk }, target: { ...desk }, path: [],
+          location: "desk", walkFrame: 0, direction: "down",
+          idleTimer: randomIdle(), deskPos: { ...desk },
+        });
+      });
+    });
+
+    return list;
+  }, []);
 
   useEffect(() => {
     Promise.all([
@@ -130,154 +270,107 @@ export default function OfficeTab() {
     ]).then(([t, s]) => {
       setTeam(t);
       setStandups(s);
+      setAgents(initAgents(t));
     }).catch(() => {});
 
     setStandupActive(isStandupActive());
-    const interval = setInterval(() => setStandupActive(isStandupActive()), 30000);
-
     setLiveActions(getDefaultActions());
     setMounted(true);
-    return () => clearInterval(interval);
+  }, [initAgents]);
+
+  // Movement tick
+  useEffect(() => {
+    if (!mounted || agents.length === 0) return;
+
+    tickRef.current = setInterval(() => {
+      setAgents((prev) => prev.map((agent) => {
+        if (agent.status !== "active") return agent;
+
+        const a = { ...agent };
+
+        // If we have a path, walk along it
+        if (a.path.length > 0) {
+          const next = a.path[0];
+          a.direction = getDirection(a.pos, next);
+          a.pos = { ...next };
+          a.path = a.path.slice(1);
+          a.walkFrame = a.walkFrame + 1;
+
+          // Reached destination?
+          if (a.path.length === 0) {
+            if (a.pos.x === a.deskPos.x && a.pos.y === a.deskPos.y) {
+              a.location = "desk";
+            } else if (a.pos.x === WATER.x && a.pos.y === WATER.y) {
+              a.location = "water";
+            } else if (a.pos.x === COFFEE.x && a.pos.y === COFFEE.y) {
+              a.location = "coffee";
+            } else if (a.pos.x === BREAK_ROOM.x && a.pos.y === BREAK_ROOM.y) {
+              a.location = "break";
+            }
+            a.idleTimer = a.location === "desk" ? randomIdle() : randomShort();
+          }
+        } else {
+          // No path — idle countdown
+          a.idleTimer--;
+          a.walkFrame = 0;
+
+          if (a.idleTimer <= 0) {
+            // Decide where to go
+            if (a.location === "desk") {
+              // Go to a random destination
+              const dest = DESTINATIONS[Math.floor(Math.random() * DESTINATIONS.length)];
+              const jitter = { x: dest.x + Math.floor(Math.random() * 6) - 3, y: dest.y + Math.floor(Math.random() * 4) - 2 };
+              a.path = buildPath(a.pos, jitter);
+              a.target = { ...jitter };
+              a.location = "walking";
+            } else {
+              // Go back to desk
+              a.path = buildPath(a.pos, a.deskPos);
+              a.target = { ...a.deskPos };
+              a.location = "walking";
+            }
+          }
+        }
+
+        return a;
+      }));
+    }, 150);
+
+    return () => { if (tickRef.current) clearInterval(tickRef.current); };
+  }, [mounted, agents.length]);
+
+  // Standup check
+  useEffect(() => {
+    const i = setInterval(() => setStandupActive(isStandupActive()), 30000);
+    return () => clearInterval(i);
   }, []);
 
   if (!mounted || !team) return null;
 
-  // Build agent list (NO Brandon - just the AI team)
-  const agents: AgentInfo[] = [
-    { name: "George", emoji: "🦾", bodyColor: "#6366f1", eyeColor: "#a5b4fc", status: "active", task: "Managing the team" },
-  ];
-  Object.values(team.org.divisions).forEach((div) => {
-    div.members.forEach((m) => {
-      const colors = getColors(m.name);
-      agents.push({
-        name: m.name,
-        emoji: m.emoji,
-        bodyColor: colors.body,
-        eyeColor: colors.eye,
-        status: m.status as "active" | "coming_soon",
-        task: m.currentTask || getDefaultTask(m.name),
-      });
-    });
-  });
-
-  const activeAgents = agents.filter((a) => a.status === "active");
-  // standups data available for future use
-  void standups;
+  const activeCount = agents.filter((a) => a.status === "active").length;
 
   return (
     <div className="flex gap-4 max-w-7xl mx-auto">
-      {/* Office Floor Plan */}
+      {/* Office */}
       <div className="flex-1">
         <div className="mb-4">
           <h2 className="text-2xl font-bold">🏢 The Office</h2>
-          <p className="text-sm text-[#8b8fa3] mt-1">{activeAgents.length} agents online{standupActive ? " · 🟢 Standup in progress" : ""}</p>
+          <p className="text-sm text-[#8b8fa3] mt-1">{activeCount} agents online{standupActive ? " · 🟢 Standup in progress" : ""}</p>
         </div>
 
         <div className="bg-[#0a0c10] border border-[#2e3345] rounded-2xl overflow-hidden relative"
-          style={{ backgroundImage: "repeating-conic-gradient(#111318 0% 25%, #0d0f14 0% 50%)", backgroundSize: "32px 32px" }}>
-
-          {/* Top wall / windows */}
-          <div className="h-10 bg-[#1a1d27] border-b border-[#2e3345] flex">
-            {Array.from({ length: 8 }).map((_, i) => (
-              <div key={i} className="flex-1 border-r border-[#2e3345] flex items-center justify-center">
-                <div className="w-3/4 h-5 rounded-sm bg-[#242836] border border-[#2e3345]" />
-              </div>
-            ))}
-          </div>
-
-          <div className="p-8 relative z-10">
-            {/* Row 1: George's office + top row desks */}
-            <div className="flex items-start gap-6 mb-12">
-              {/* George's corner office */}
-              <div className="bg-[#141620]/80 border border-indigo-500/20 rounded-lg p-4 shrink-0">
-                <div className="text-[8px] text-indigo-400/60 uppercase tracking-widest mb-2">Chief of Staff</div>
-                <DeskUnit agent={agents[0]} />
-              </div>
-
-              {/* Top row desks */}
-              <div className="flex gap-10 ml-8">
-                {agents.slice(1, 4).map((a) => (
-                  <DeskUnit key={a.name} agent={a} />
-                ))}
-              </div>
-            </div>
-
-            {/* Row 2: Bottom row desks */}
-            <div className="flex gap-10 ml-32 mb-12">
-              {agents.slice(4).map((a) => (
-                <DeskUnit key={a.name} agent={a} />
-              ))}
-            </div>
-
-            {/* Meeting Table */}
-            <div className="flex justify-center mb-10">
-              <div className="relative">
-                {standupActive ? (
-                  <>
-                    {/* Agents gathered around table during standup */}
-                    <div className="flex justify-center gap-4 mb-2">
-                      {activeAgents.slice(0, Math.ceil(activeAgents.length / 2)).map((a) => (
-                        <PixelCharacter key={a.name} bodyColor={a.bodyColor} eyeColor={a.eyeColor} name={a.name} active size={24} />
-                      ))}
-                    </div>
-                    <div className="bg-[#3a3d4a] rounded-[50%] border-2 border-[#5a5d6a] px-20 py-5 shadow-xl flex flex-col items-center">
-                      <span className="text-[10px] text-white font-semibold uppercase tracking-wider">🟢 Standup Active</span>
-                    </div>
-                    <div className="flex justify-center gap-4 mt-2">
-                      {activeAgents.slice(Math.ceil(activeAgents.length / 2)).map((a) => (
-                        <PixelCharacter key={a.name} bodyColor={a.bodyColor} eyeColor={a.eyeColor} name={a.name} active size={24} />
-                      ))}
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    {/* Empty meeting table when no standup */}
-                    <div className="bg-[#2a2d3a] rounded-[50%] border-2 border-[#3a3d4a] px-20 py-5 shadow-lg flex flex-col items-center">
-                      <span className="text-[10px] text-[#8b8fa3] uppercase tracking-wider">Meeting Table</span>
-                      <span className="text-[8px] text-[#555] mt-0.5">
-                        Next: {getNextStandup()}
-                      </span>
-                    </div>
-                  </>
-                )}
-              </div>
-            </div>
-
-            {/* Bottom: Communal areas */}
-            <div className="flex justify-between items-end px-4">
-              {/* Water Station */}
-              <div className="flex flex-col items-center">
-                <div className="w-8 h-14 rounded-t-md bg-gradient-to-b from-cyan-400/30 to-cyan-400/5 border border-cyan-400/20 flex items-end justify-center pb-1">
-                  <div className="w-3 h-1.5 bg-cyan-400/30 rounded-sm" />
-                </div>
-                <div className="w-10 h-1.5 bg-[#2e3345] rounded-b" />
-                <span className="text-[8px] text-cyan-400/50 mt-1">💧 Water</span>
-              </div>
-
-              {/* Coffee Station */}
-              <div className="flex flex-col items-center">
-                <div className="w-10 h-8 bg-[#3a2a1a] rounded border border-[#5a4a3a] flex items-center justify-center">
-                  <span className="text-sm">☕</span>
-                </div>
-                <div className="w-12 h-1.5 bg-[#2e3345] rounded-b" />
-                <span className="text-[8px] text-amber-400/50 mt-1">☕ Coffee</span>
-              </div>
-
-              {/* Break Room */}
-              <div className="bg-[#141620]/60 border border-[#2e3345] rounded-lg px-4 py-3 flex flex-col items-center">
-                <span className="text-lg">🍿</span>
-                <span className="text-[8px] text-[#8b8fa3] mt-1">Break Room</span>
-                <div className="flex gap-1 mt-1">
-                  <span className="text-[8px]">🍕</span>
-                  <span className="text-[8px]">🍪</span>
-                  <span className="text-[8px]">🍎</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          style={{
+            width: OFFICE_W * CELL,
+            height: OFFICE_H * CELL,
+            backgroundImage: "repeating-conic-gradient(#111318 0% 25%, #0d0f14 0% 50%)",
+            backgroundSize: "32px 32px",
+          }}>
+          <OfficeFurniture />
+          {agents.map((a) => (
+            <PixelSprite key={a.name} agent={a} />
+          ))}
         </div>
 
-        {/* Legend */}
         <div className="flex items-center gap-6 mt-3 text-xs text-[#8b8fa3] justify-center">
           <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-emerald-400" /> Online</span>
           <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-[#2e3345]" /> Coming Soon</span>
@@ -323,6 +416,16 @@ export default function OfficeTab() {
   );
 }
 
+// --- Helpers ---
+function randomIdle() { return 30 + Math.floor(Math.random() * 60); } // 4.5-13.5s at desk
+function randomShort() { return 10 + Math.floor(Math.random() * 20); } // 1.5-4.5s at destination
+
+function isStandupActive(): boolean {
+  const now = new Date();
+  const t = now.getHours() * 60 + now.getMinutes();
+  return (t >= 465 && t < 480) || (t >= 720 && t < 735) || (t >= 1050 && t < 1065);
+}
+
 function getColors(name: string): { body: string; eye: string } {
   const map: Record<string, { body: string; eye: string }> = {
     Dwight: { body: "#a855f7", eye: "#e9d5ff" },
@@ -337,25 +440,10 @@ function getColors(name: string): { body: string; eye: string } {
 
 function getDefaultTask(name: string): string {
   const tasks: Record<string, string> = {
-    Dwight: "Research sweep",
-    Kelly: "Drafting tweets",
-    Rachel: "LinkedIn drafts",
-    John: "Market analysis",
-    Ross: "Code review",
-    Pam: "Calendar mgmt",
+    Dwight: "Research sweep", Kelly: "Drafting tweets", Rachel: "LinkedIn drafts",
+    John: "Market analysis", Ross: "Code review", Pam: "Calendar mgmt",
   };
   return tasks[name] || "";
-}
-
-function getNextStandup(): string {
-  const now = new Date();
-  const h = now.getHours();
-  const m = now.getMinutes();
-  const t = h * 60 + m;
-  if (t < 465) return "7:45 AM";
-  if (t < 720) return "12:00 PM";
-  if (t < 1050) return "5:30 PM";
-  return "7:45 AM tomorrow";
 }
 
 function getDefaultActions(): LiveAction[] {
