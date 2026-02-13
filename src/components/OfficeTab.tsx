@@ -32,9 +32,9 @@ interface LiveAction {
 }
 
 // --- Office layout constants (grid units, 1 unit = 8px) ---
-const CELL = 8;
-const OFFICE_W = 130; // grid cells wide
-const OFFICE_H = 80;  // grid cells tall
+const CELL = 12;
+const OFFICE_W = 95; // grid cells wide
+const OFFICE_H = 65;  // grid cells tall
 
 // Key positions in grid coords
 const DESKS: Record<string, Vec> = {
@@ -88,7 +88,7 @@ function getDirection(from: Vec, to: Vec): "left" | "right" | "up" | "down" {
 }
 
 // --- Pixel Character with walk animation ---
-function PixelSprite({ agent, scale = 1 }: { agent: AgentState; scale?: number }) {
+function PixelSprite({ agent, scale = 1.6 }: { agent: AgentState; scale?: number }) {
   const { bodyColor, eyeColor, walkFrame, direction, status } = agent;
   if (status === "coming_soon") return null;
 
@@ -133,7 +133,7 @@ function PixelSprite({ agent, scale = 1 }: { agent: AgentState; scale?: number }
       {/* Name label */}
       <div style={{
         textAlign: "center",
-        fontSize: 8 * scale,
+        fontSize: 9 * scale,
         fontWeight: 700,
         color: bodyColor,
         marginTop: -2,
@@ -152,68 +152,68 @@ function OfficeFurniture() {
     <>
       {/* Desks with monitors */}
       {Object.entries(DESKS).map(([name, pos]) => (
-        <div key={name} style={{ position: "absolute", left: pos.x * CELL - 28, top: pos.y * CELL - 8 }}>
+        <div key={name} style={{ position: "absolute", left: pos.x * CELL - 36, top: pos.y * CELL - 10 }}>
           {/* Monitor */}
-          <div className="w-14 h-9 rounded-sm border-2 border-blue-500/40 bg-blue-500/10 mx-auto relative">
-            <div className="absolute top-1 left-1.5 right-1.5 space-y-0.5">
-              <div className="h-[1px] bg-blue-400/30 w-3/4" />
-              <div className="h-[1px] bg-blue-400/20 w-1/2" />
-              <div className="h-[1px] bg-blue-400/20 w-2/3" />
+          <div className="w-[72px] h-12 rounded-sm border-2 border-blue-500/40 bg-blue-500/10 mx-auto relative">
+            <div className="absolute top-1.5 left-2 right-2 space-y-1">
+              <div className="h-[2px] bg-blue-400/30 w-3/4" />
+              <div className="h-[2px] bg-blue-400/20 w-1/2" />
+              <div className="h-[2px] bg-blue-400/20 w-2/3" />
             </div>
           </div>
-          <div className="w-3 h-1.5 bg-[#3a3d4a] mx-auto" />
-          <div className="w-7 h-1 bg-[#3a3d4a] mx-auto" />
+          <div className="w-4 h-2 bg-[#3a3d4a] mx-auto" />
+          <div className="w-9 h-1.5 bg-[#3a3d4a] mx-auto" />
           {/* Desk surface */}
-          <div className="w-16 h-2 bg-[#3a3d4a] rounded mx-auto mt-0.5" />
+          <div className="w-20 h-2.5 bg-[#3a3d4a] rounded mx-auto mt-0.5" />
         </div>
       ))}
 
       {/* George's office border */}
-      <div style={{ position: "absolute", left: (DESKS.George.x - 6) * CELL, top: (DESKS.George.y - 8) * CELL }} className="w-28 h-32 border border-indigo-500/15 rounded-lg">
-        <div className="text-[7px] text-indigo-400/40 uppercase tracking-widest px-2 pt-1">Chief of Staff</div>
+      <div style={{ position: "absolute", left: (DESKS.George.x - 5) * CELL, top: (DESKS.George.y - 7) * CELL, width: 160, height: 180 }} className="border border-indigo-500/15 rounded-lg">
+        <div className="text-[9px] text-indigo-400/40 uppercase tracking-widest px-3 pt-2">Chief of Staff</div>
       </div>
 
       {/* Water station */}
-      <div style={{ position: "absolute", left: WATER.x * CELL - 12, top: WATER.y * CELL - 20 }}>
-        <div className="w-6 h-12 bg-gradient-to-b from-cyan-400/30 to-cyan-400/5 border border-cyan-400/20 rounded-t-md flex items-end justify-center pb-0.5">
-          <div className="w-3 h-1.5 bg-cyan-400/30 rounded-sm" />
+      <div style={{ position: "absolute", left: WATER.x * CELL - 16, top: WATER.y * CELL - 28 }}>
+        <div className="w-8 h-16 bg-gradient-to-b from-cyan-400/30 to-cyan-400/5 border border-cyan-400/20 rounded-t-md flex items-end justify-center pb-1">
+          <div className="w-4 h-2 bg-cyan-400/30 rounded-sm" />
         </div>
-        <div className="w-8 h-1 bg-[#2e3345] rounded-b mx-auto" />
-        <div className="text-[7px] text-cyan-400/40 text-center mt-0.5">💧 Water</div>
+        <div className="w-10 h-1.5 bg-[#2e3345] rounded-b mx-auto" />
+        <div className="text-[10px] text-cyan-400/40 text-center mt-1">💧 Water</div>
       </div>
 
       {/* Coffee station */}
-      <div style={{ position: "absolute", left: COFFEE.x * CELL - 12, top: COFFEE.y * CELL - 14 }}>
-        <div className="w-8 h-7 bg-[#3a2a1a] border border-[#5a4a3a] rounded flex items-center justify-center">
-          <span className="text-xs">☕</span>
+      <div style={{ position: "absolute", left: COFFEE.x * CELL - 16, top: COFFEE.y * CELL - 20 }}>
+        <div className="w-11 h-10 bg-[#3a2a1a] border border-[#5a4a3a] rounded flex items-center justify-center">
+          <span className="text-base">☕</span>
         </div>
-        <div className="w-10 h-1 bg-[#2e3345] rounded-b mx-auto" />
-        <div className="text-[7px] text-amber-400/40 text-center mt-0.5">☕ Coffee</div>
+        <div className="w-14 h-1.5 bg-[#2e3345] rounded-b mx-auto" />
+        <div className="text-[10px] text-amber-400/40 text-center mt-1">☕ Coffee</div>
       </div>
 
       {/* Break room */}
-      <div style={{ position: "absolute", left: BREAK_ROOM.x * CELL - 20, top: BREAK_ROOM.y * CELL - 20 }} className="bg-[#141620]/60 border border-[#2e3345] rounded-lg px-3 py-2">
-        <span className="text-sm">🍿</span>
-        <div className="text-[7px] text-[#8b8fa3] mt-0.5">Break Room</div>
-        <div className="flex gap-0.5 mt-0.5">
-          <span className="text-[6px]">🍕</span>
-          <span className="text-[6px]">🍪</span>
-          <span className="text-[6px]">🍎</span>
+      <div style={{ position: "absolute", left: BREAK_ROOM.x * CELL - 28, top: BREAK_ROOM.y * CELL - 28 }} className="bg-[#141620]/60 border border-[#2e3345] rounded-lg px-4 py-3">
+        <span className="text-lg">🍿</span>
+        <div className="text-[10px] text-[#8b8fa3] mt-1">Break Room</div>
+        <div className="flex gap-1 mt-1">
+          <span className="text-[9px]">🍕</span>
+          <span className="text-[9px]">🍪</span>
+          <span className="text-[9px]">🍎</span>
         </div>
       </div>
 
       {/* Meeting table */}
-      <div style={{ position: "absolute", left: MEETING.x * CELL - 32, top: MEETING.y * CELL - 10 }}>
-        <div className="bg-[#2a2d3a] rounded-[50%] border border-[#3a3d4a] w-16 h-8 flex items-center justify-center">
-          <span className="text-[6px] text-[#555] uppercase tracking-wider">Table</span>
+      <div style={{ position: "absolute", left: MEETING.x * CELL - 50, top: MEETING.y * CELL - 16 }}>
+        <div className="bg-[#2a2d3a] rounded-[50%] border-2 border-[#3a3d4a] w-24 h-12 flex items-center justify-center">
+          <span className="text-[8px] text-[#555] uppercase tracking-wider">Meeting Table</span>
         </div>
       </div>
 
       {/* Windows (top wall) */}
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 20 }} className="bg-[#1a1d27] border-b border-[#2e3345] flex">
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 28 }} className="bg-[#1a1d27] border-b border-[#2e3345] flex">
         {Array.from({ length: 12 }).map((_, i) => (
           <div key={i} className="flex-1 border-r border-[#2e3345] flex items-center justify-center">
-            <div className="w-3/4 h-3 rounded-sm bg-[#242836] border border-[#2e3345]" />
+            <div className="w-3/4 h-4 rounded-sm bg-[#242836] border border-[#2e3345]" />
           </div>
         ))}
       </div>
@@ -283,10 +283,35 @@ export default function OfficeTab() {
     if (!mounted || agents.length === 0) return;
 
     tickRef.current = setInterval(() => {
-      setAgents((prev) => prev.map((agent) => {
+      const inStandup = isStandupActive();
+      setStandupActive(inStandup);
+
+      setAgents((prev) => prev.map((agent, idx) => {
         if (agent.status !== "active") return agent;
 
         const a = { ...agent };
+
+        // --- Standup logic: everyone goes to meeting table ---
+        if (inStandup && a.location !== "meeting") {
+          // Calculate a seat around the table with offset per agent
+          const angle = (idx / prev.filter(x => x.status === "active").length) * Math.PI * 2;
+          const meetingSpot = {
+            x: Math.round(MEETING.x + Math.cos(angle) * 6),
+            y: Math.round(MEETING.y + Math.sin(angle) * 4),
+          };
+          if (a.path.length === 0 || a.target.x !== meetingSpot.x || a.target.y !== meetingSpot.y) {
+            a.path = buildPath(a.pos, meetingSpot);
+            a.target = { ...meetingSpot };
+            a.location = "walking";
+          }
+        }
+
+        // --- Standup ended: go back to desk ---
+        if (!inStandup && a.location === "meeting") {
+          a.path = buildPath(a.pos, a.deskPos);
+          a.target = { ...a.deskPos };
+          a.location = "walking";
+        }
 
         // If we have a path, walk along it
         if (a.path.length > 0) {
@@ -298,27 +323,28 @@ export default function OfficeTab() {
 
           // Reached destination?
           if (a.path.length === 0) {
-            if (a.pos.x === a.deskPos.x && a.pos.y === a.deskPos.y) {
+            if (inStandup && Math.abs(a.pos.x - MEETING.x) < 10 && Math.abs(a.pos.y - MEETING.y) < 8) {
+              a.location = "meeting";
+              a.idleTimer = 999; // stay until standup ends
+            } else if (a.pos.x === a.deskPos.x && a.pos.y === a.deskPos.y) {
               a.location = "desk";
-            } else if (a.pos.x === WATER.x && a.pos.y === WATER.y) {
-              a.location = "water";
-            } else if (a.pos.x === COFFEE.x && a.pos.y === COFFEE.y) {
-              a.location = "coffee";
-            } else if (a.pos.x === BREAK_ROOM.x && a.pos.y === BREAK_ROOM.y) {
-              a.location = "break";
+              a.idleTimer = randomIdle();
+            } else {
+              // At water/coffee/break
+              a.location = a.pos.x < 20 ? "water" : a.pos.x > 90 ? "break" : "coffee";
+              a.idleTimer = randomShort();
             }
-            a.idleTimer = a.location === "desk" ? randomIdle() : randomShort();
           }
         } else {
           // No path — idle countdown
           a.idleTimer--;
           a.walkFrame = 0;
 
-          if (a.idleTimer <= 0) {
+          if (a.idleTimer <= 0 && !inStandup) {
             if (a.location === "desk") {
               // 70% chance to just keep working, 30% chance to get up
               if (Math.random() < 0.7) {
-                a.idleTimer = randomIdle(); // keep working
+                a.idleTimer = randomIdle();
               } else {
                 const dest = DESTINATIONS[Math.floor(Math.random() * DESTINATIONS.length)];
                 const jitter = { x: dest.x + Math.floor(Math.random() * 6) - 3, y: dest.y + Math.floor(Math.random() * 4) - 2 };
@@ -326,7 +352,7 @@ export default function OfficeTab() {
                 a.target = { ...jitter };
                 a.location = "walking";
               }
-            } else {
+            } else if (a.location !== "meeting") {
               // At a destination — head back to desk
               a.path = buildPath(a.pos, a.deskPos);
               a.target = { ...a.deskPos };
@@ -342,11 +368,7 @@ export default function OfficeTab() {
     return () => { if (tickRef.current) clearInterval(tickRef.current); };
   }, [mounted, agents.length]);
 
-  // Standup check
-  useEffect(() => {
-    const i = setInterval(() => setStandupActive(isStandupActive()), 30000);
-    return () => clearInterval(i);
-  }, []);
+  // Standup state is now updated inside the movement tick
 
   if (!mounted || !team) return null;
 
