@@ -54,42 +54,6 @@
     "createdAt": "2026-02-13T00:00:00.000Z"
   },
   {
-    "id": "g-t11",
-    "title": "Wire Kelly feedback to her memory",
-    "description": "Push Brandon's approve/deny decisions from content-feedback.json to agents/kelly/memory/ so she learns",
-    "assignee": "George",
-    "dueDate": "2026-02-14",
-    "status": "completed",
-    "createdAt": "2026-02-13T00:00:00.000Z"
-  },
-  {
-    "id": "g-t12",
-    "title": "Create Discord channels per agent",
-    "description": "#research, #x-drafts, #linkedin-drafts, #trades \u2014 dedicated channels for each division",
-    "assignee": "George",
-    "dueDate": "2026-02-14",
-    "status": "todo",
-    "createdAt": "2026-02-13T00:00:00.000Z"
-  },
-  {
-    "id": "g-t13",
-    "title": "Finish Google Drive setup",
-    "description": "Populate George folders in personal + Phase Drive with research docs",
-    "assignee": "George",
-    "dueDate": "2026-02-14",
-    "status": "todo",
-    "createdAt": "2026-02-13T00:00:00.000Z"
-  },
-  {
-    "id": "g-t14",
-    "title": "Research Phase products ($YIELD, pdSOL)",
-    "description": "Deep research on phaseSOL and pdSOL before creating strategy docs",
-    "assignee": "George",
-    "dueDate": "2026-02-14",
-    "status": "todo",
-    "createdAt": "2026-02-13T00:00:00.000Z"
-  },
-  {
     "id": "g-t16",
     "title": "Auto-create review tasks when drafts land",
     "description": "Only add 'Review Kelly/Rachel drafts' task when content.json actually has new pending drafts",

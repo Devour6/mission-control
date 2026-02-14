@@ -4,6 +4,6 @@
   { "id": "kelly", "agent": "Kelly", "agentEmoji": "🐦", "action": "Idle — next drafts: tomorrow 9:00 AM", "time": "", "color": "#ec4899" },
   { "id": "rachel", "agent": "Rachel", "agentEmoji": "💼", "action": "Idle — next drafts: tomorrow 9:00 AM", "time": "", "color": "#3b82f6" },
   { "id": "john", "agent": "John", "agentEmoji": "📈", "action": "Idle — next market scan: ~10:00 PM", "time": "", "color": "#10b981" },
-  { "id": "ross", "agent": "Ross", "agentEmoji": "⚙️", "action": "Idle — awaiting task assignment", "time": "", "color": "#f59e0b" },
+  { "id": "ross", "agent": "Ross", "agentEmoji": "⚙️", "action": "Full Mission Control audit and fixes", "time": "8:31 PM", "color": "#f59e0b" },
   { "id": "pam", "agent": "Pam", "agentEmoji": "📋", "action": "Idle — CRM ingestion runs at 10:00 PM", "time": "", "color": "#f472b6" }
 ]

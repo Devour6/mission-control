@@ -6,7 +6,7 @@
     "Kelly": { "activity": "idle", "detail": "Evening drafts completed — next batch tomorrow 9:00 AM", "location": "desk" },
     "Rachel": { "activity": "idle", "detail": "Evening drafts completed — next batch tomorrow 9:00 AM", "location": "desk" },
     "John": { "activity": "idle", "detail": "Next market scan ~10:00 PM", "location": "desk" },
-    "Ross": { "activity": "idle", "detail": "Awaiting task assignment", "location": "desk" },
+    "Ross": { "activity": "working", "detail": "Full Mission Control audit and fixes — checking every tab and data file", "location": "desk" },
     "Pam": { "activity": "idle", "detail": "CRM ingestion runs at 10:00 PM", "location": "desk" }
   }
 }
