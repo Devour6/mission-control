@@ -98,10 +98,14 @@ export default function DocsTab() {
     setMounted(true);
   }, []);
 
-  const handleDocClick = async (doc: { title: string; url?: string; id: string }) => {
+  const handleDocClick = async (doc: { title: string; url?: string; id: string; path?: string }) => {
     // Google Drive links open in new tab
     if (doc.url && doc.url.includes('docs.google.com')) {
-      window.open(doc.url, '_blank');
+      const newWindow = window.open(doc.url, '_blank');
+      // Check if the window was blocked or failed to open
+      if (!newWindow) {
+        alert('Popup blocked - please allow popups for this site to open Google Docs');
+      }
       return;
     }
 
@@ -118,10 +122,13 @@ export default function DocsTab() {
         const text = await response.text();
         setModalContent(text);
       } else {
-        setModalContent('Error: Could not load document');
+        const errorText = response.status === 404 
+          ? 'Document not found. The file may have been moved or is not yet available.'
+          : `Error loading document (${response.status}). Please try again later.`;
+        setModalContent(errorText);
       }
-    } catch {
-      setModalContent('Error: Network error while loading document');
+    } catch (error) {
+      setModalContent('Error: Network error while loading document. Please check your connection and try again.');
     } finally {
       setModalLoading(false);
     }
