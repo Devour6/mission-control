@@ -1,11 +1,12 @@
 {
-  "updatedAt": "2026-02-14T00:10:00.000Z",
+  "updatedAt": "2026-02-14T04:26:00.000Z",
   "agents": {
-    "George": { "activity": "working", "detail": "Running the team while Brandon flies to mtnDAO", "location": "desk" },
-    "Dwight": { "activity": "working", "detail": "Prepping evening sweep", "location": "desk" },
-    "Kelly": { "activity": "working", "detail": "Evening drafts batch incoming", "location": "desk" },
-    "Rachel": { "activity": "working", "detail": "Evening drafts batch incoming", "location": "desk" },
-    "John": { "activity": "working", "detail": "Afternoon analysis complete", "location": "desk" },
-    "Ross": { "activity": "working", "detail": "Online — awaiting first assignment", "location": "desk" }
+    "George": { "activity": "working", "detail": "Fixing Mission Control data accuracy", "location": "desk" },
+    "Dwight": { "activity": "idle", "detail": "Evening sweep completed — next sweep tomorrow 7:30 AM", "location": "desk" },
+    "Kelly": { "activity": "idle", "detail": "Evening drafts completed — next batch tomorrow 9:00 AM", "location": "desk" },
+    "Rachel": { "activity": "idle", "detail": "Evening drafts completed — next batch tomorrow 9:00 AM", "location": "desk" },
+    "John": { "activity": "idle", "detail": "Next market scan ~10:00 PM", "location": "desk" },
+    "Ross": { "activity": "idle", "detail": "Awaiting task assignment", "location": "desk" },
+    "Pam": { "activity": "idle", "detail": "CRM ingestion runs at 10:00 PM", "location": "desk" }
   }
 }
