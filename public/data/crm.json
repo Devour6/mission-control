@@ -4,151 +4,282 @@
     "name": "Jeff Newman",
     "emails": ["jeff@phaselabs.io"],
     "company": "Phase Labs",
-    "role": "Team Member",
-    "relationship": "Phase colleague",
-    "tags": ["phase-team", "marketing", "internal", "documents"],
+    "role": "Co-founder",
+    "relationship": "Phase co-founder and business partner",
+    "tags": ["phase-team", "cofounder", "ai"],
     "qualityScore": 5,
     "lastTouch": "2026-02-13T19:13:00Z",
-    "touchCount": 4,
-    "firstSeen": "2026-02-13T19:13:00Z",
+    "touchCount": 15,
+    "firstSeen": "2025-01-01T00:00:00Z",
     "timeline": [
       {
         "date": "2026-02-13",
         "type": "email",
-        "direction": "inbound",
+        "direction": "inbound", 
         "subject": "Fwd: My Claude Code Marketing System",
-        "summary": "Jeff forwarded marketing system information, marked as important"
-      },
-      {
-        "date": "2026-02-13",
-        "type": "google-docs",
-        "direction": "inbound",
-        "subject": "Document shared: State of the Company | Mid-Feb 2026",
-        "summary": "Jeff shared company state document via Google Docs"
-      },
-      {
-        "date": "2026-02-13",
-        "type": "meeting",
-        "direction": "both",
-        "subject": "Weekly Sync",
-        "summary": "Regular weekly sync meeting (8:00-8:30 AM PST)"
+        "summary": "Marketing system discussion"
       }
     ],
-    "notes": "Phase team member, actively sharing marketing insights and company documents. Regular weekly sync attendee."
+    "notes": "Phase Labs co-founder, frequent collaborator on product strategy and business development"
   },
   {
-    "id": "narek-hylo",
-    "name": "Narek",
-    "emails": ["usr-sfPau0JvhawgaiI@user.luma-mail.com"],
-    "company": "Hylo",
-    "role": "Event Organizer",
-    "relationship": "Community/Event contact",
-    "tags": ["hylo", "events", "community", "family-dinner"],
-    "qualityScore": 3,
-    "lastTouch": "2026-02-13T16:00:00Z",
-    "touchCount": 1,
-    "firstSeen": "2026-02-13T16:00:00Z",
+    "id": "vitor-medeiros-phase",
+    "name": "Vitor Medeiros", 
+    "emails": ["vitor@phaselabs.io"],
+    "company": "Phase Labs",
+    "role": "Engineer",
+    "relationship": "Phase team member",
+    "tags": ["phase-team", "engineer"],
+    "qualityScore": 4,
+    "lastTouch": "2026-02-12T03:26:00Z",
+    "touchCount": 8,
+    "firstSeen": "2025-06-01T00:00:00Z",
     "timeline": [
       {
-        "date": "2026-02-13",
-        "type": "event-reminder",
-        "direction": "inbound",
-        "subject": "⏰ Hylo Family Dinner is starting in 1 hour",
-        "summary": "Event reminder for Hylo Family Dinner through Luma platform"
+        "date": "2026-02-12",
+        "type": "calendar",
+        "direction": "meeting",
+        "subject": "Phase Weekly All-Hands", 
+        "summary": "Weekly team meeting acceptance"
       }
     ],
-    "notes": "Organizer of Hylo Family Dinner events. Uses Luma for event management."
+    "notes": "Phase Labs engineer, regular contributor to weekly meetings"
   },
   {
-    "id": "ella-white-reintakers",
-    "name": "Ella White",
-    "emails": ["white@reintakersleads.com"],
-    "company": "Reintakers Leads",
+    "id": "gabriel-hicks-phase",
+    "name": "Gabriel Hicks",
+    "emails": ["gabriel@phaselabs.io"], 
+    "company": "Phase Labs",
+    "role": "Engineer",
+    "relationship": "Phase team member",
+    "tags": ["phase-team", "engineer", "solana"],
+    "qualityScore": 4,
+    "lastTouch": "2026-02-09T10:17:00Z",
+    "touchCount": 12,
+    "firstSeen": "2025-06-01T00:00:00Z",
+    "timeline": [
+      {
+        "date": "2026-02-09",
+        "type": "calendar",
+        "direction": "meeting",
+        "subject": "Phase Delegation Update",
+        "summary": "Delegation planning meeting acceptance"
+      }
+    ],
+    "notes": "Phase Labs engineer focused on delegation and staking infrastructure"
+  },
+  {
+    "id": "seb-moriarty-phase", 
+    "name": "Seb Moriarty",
+    "emails": ["seb@phaselabs.io"],
+    "company": "Phase Labs",
+    "role": "Engineer",
+    "relationship": "Phase team member",
+    "tags": ["phase-team", "engineer"],
+    "qualityScore": 4,
+    "lastTouch": "2026-02-09T10:38:00Z",
+    "touchCount": 6,
+    "firstSeen": "2025-08-01T00:00:00Z",
+    "timeline": [
+      {
+        "date": "2026-02-09",
+        "type": "calendar", 
+        "direction": "meeting",
+        "subject": "Layer 33 Group Call",
+        "summary": "Weekly Layer 33 meeting acceptance"
+      }
+    ],
+    "notes": "Phase Labs engineer, active in Layer 33 calls"
+  },
+  {
+    "id": "chris-taylor-phase",
+    "name": "Chris Taylor",
+    "emails": ["chris@phaselabs.io"],
+    "company": "Phase Labs", 
+    "role": "Engineer",
+    "relationship": "Phase team member",
+    "tags": ["phase-team", "engineer"],
+    "qualityScore": 4,
+    "lastTouch": "2026-02-09T23:28:00Z",
+    "touchCount": 4,
+    "firstSeen": "2025-09-01T00:00:00Z",
+    "timeline": [
+      {
+        "date": "2026-02-09",
+        "type": "calendar",
+        "direction": "decline",
+        "subject": "Phase Weekly All-Hands",
+        "summary": "Declined weekly meeting"
+      }
+    ],
+    "notes": "Phase Labs engineer"
+  },
+  {
+    "id": "ben-meat-phase",
+    "name": "Ben",
+    "emails": ["meat@phaselabs.io"],
+    "company": "Phase Labs",
+    "role": "Engineer", 
+    "relationship": "Phase team member",
+    "tags": ["phase-team", "engineer"],
+    "qualityScore": 4,
+    "lastTouch": "2026-02-09T02:39:00Z",
+    "touchCount": 5,
+    "firstSeen": "2025-07-01T00:00:00Z",
+    "timeline": [
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "direction": "inbound",
+        "subject": "Fwd: Sprinto | Important Update Regarding Your Subscription", 
+        "summary": "Forwarded vendor communication about Sprinto subscription"
+      }
+    ],
+    "notes": "Phase Labs engineer, handles some administrative forwarding"
+  },
+  {
+    "id": "dan-trilo-phase",
+    "name": "DanTrilo Trilo",
+    "emails": ["dan@phaselabs.io"],
+    "company": "Phase Labs",
+    "role": "Financial Operations",
+    "relationship": "Phase team member - financial reporting",
+    "tags": ["phase-team", "finance", "validators"],
+    "qualityScore": 4,
+    "lastTouch": "2026-02-10T08:38:00Z",
+    "touchCount": 8,
+    "firstSeen": "2025-05-01T00:00:00Z",
+    "timeline": [
+      {
+        "date": "2026-02-05",
+        "type": "email",
+        "direction": "inbound",
+        "subject": "Validator Financial Statement January 2026",
+        "summary": "Monthly validator financial reporting - multiple versions sent"
+      },
+      {
+        "date": "2026-02-08",
+        "type": "calendar",
+        "direction": "meeting",
+        "subject": "Dan x Devour",
+        "summary": "One-on-one meeting acceptance"
+      }
+    ],
+    "notes": "Phase team member responsible for validator financial statements and reporting"
+  },
+  {
+    "id": "oscar-garcia-starke", 
+    "name": "Oscar Garcia",
+    "emails": ["oscar@starke.finance"],
+    "company": "Starke Finance",
+    "role": "Founder",
+    "relationship": "Layer 33 participant, finance/DeFi contact",
+    "tags": ["layer33", "defi", "finance"],
+    "qualityScore": 3,
+    "lastTouch": "2026-02-09T09:04:00Z",
+    "touchCount": 4,
+    "firstSeen": "2025-10-01T00:00:00Z",
+    "timeline": [
+      {
+        "date": "2026-02-09",
+        "type": "calendar",
+        "direction": "meeting", 
+        "subject": "Layer 33 Group Call",
+        "summary": "Layer 33 weekly meeting participant"
+      }
+    ],
+    "notes": "Starke Finance founder, regular Layer 33 call participant"
+  },
+  {
+    "id": "ross-cohen-solana",
+    "name": "Ross Cohen", 
+    "emails": ["ross@solana.com"],
+    "company": "Solana Labs",
     "role": "Business Development",
-    "relationship": "Prospective client/vendor",
-    "tags": ["leads", "business-dev", "prospect"],
+    "relationship": "Solana Labs contact",
+    "tags": ["solana", "business"],
+    "qualityScore": 4,
+    "lastTouch": "2026-01-15T21:04:00Z",
+    "touchCount": 3,
+    "firstSeen": "2025-12-01T00:00:00Z",
+    "timeline": [
+      {
+        "date": "2026-01-16",
+        "type": "calendar",
+        "direction": "meeting",
+        "subject": "River (kemosabe) and Ross Cohen",
+        "summary": "Scheduled meeting with Ross from Solana"
+      }
+    ],
+    "notes": "Solana Labs business development, scheduled meetings through Radiants identity"
+  },
+  {
+    "id": "francisco-tronelli-metapool",
+    "name": "Francisco Julian Tronelli",
+    "emails": ["franciscojulian@metapool.app"],
+    "company": "Meta Pool", 
+    "role": "Business Development",
+    "relationship": "Meta Pool contact - liquid staking partner",
+    "tags": ["metapool", "liquid-staking", "solana"],
     "qualityScore": 3,
-    "lastTouch": "2026-02-13T12:23:00Z",
-    "touchCount": 1,
-    "firstSeen": "2026-02-13T12:23:00Z",
+    "lastTouch": "2026-02-06T15:02:00Z",
+    "touchCount": 2,
+    "firstSeen": "2026-01-15T00:00:00Z",
     "timeline": [
       {
-        "date": "2026-02-13",
-        "type": "email",
-        "direction": "inbound",
-        "subject": "Brandon",
-        "summary": "Business inquiry from Reintakers Leads, marked as important"
+        "date": "2026-02-06",
+        "type": "calendar", 
+        "direction": "meeting",
+        "subject": "Brandon Geraldi y Francisco Julian Tronelli",
+        "summary": "Scheduled meeting for Feb 9"
       }
     ],
-    "notes": "Lead generation company outreach"
+    "notes": "Meta Pool business development, focuses on liquid staking partnerships"
   },
   {
-    "id": "hannah-mitchell-qualifisend",
-    "name": "Hannah Mitchell",
-    "emails": ["hannah@qualifisend.online"],
-    "company": "Qualifisend",
-    "role": "Unknown",
-    "relationship": "Business inquiry",
-    "tags": ["business-inquiry", "prospect"],
+    "id": "elay-carmon",
+    "name": "Elay Carmon",
+    "emails": [],
+    "company": "",
+    "role": "",
+    "relationship": "Business meeting contact",
+    "tags": ["business"],
     "qualityScore": 2,
-    "lastTouch": "2026-02-13T07:22:00Z",
+    "lastTouch": "2026-01-14T08:30:00Z", 
     "touchCount": 1,
-    "firstSeen": "2026-02-13T07:22:00Z",
+    "firstSeen": "2026-01-14T00:00:00Z",
     "timeline": [
       {
-        "date": "2026-02-13",
-        "type": "email",
-        "direction": "inbound",
-        "subject": "fast loc for Brandon",
-        "summary": "Business inquiry about location services"
+        "date": "2026-01-14",
+        "type": "calendar",
+        "direction": "meeting",
+        "subject": "Brandon (30 min) (Elay Carmon)",
+        "summary": "30-minute business meeting"
       }
     ],
-    "notes": "Location-based service inquiry"
+    "notes": "Had scheduled 30-minute meeting, limited context"
   },
   {
-    "id": "ines-cunningham-clickup",
-    "name": "Ines Cunningham",
-    "emails": ["icunningham@reachingclickupautomations.co"],
-    "company": "Reaching ClickUp Automations",
-    "role": "Automation Consultant",
-    "relationship": "Vendor/Service Provider",
-    "tags": ["automation", "clickup", "productivity", "vendor"],
-    "qualityScore": 2,
-    "lastTouch": "2026-02-13T06:09:00Z",
+    "id": "tim-garcia",
+    "name": "Tim Garcia", 
+    "emails": [],
+    "company": "",
+    "role": "",
+    "relationship": "Scheduled meeting contact",
+    "tags": ["business"],
+    "qualityScore": 1,
+    "lastTouch": "2026-02-11T10:15:00Z",
     "touchCount": 1,
-    "firstSeen": "2026-02-13T06:09:00Z",
+    "firstSeen": "2026-02-11T00:00:00Z",
     "timeline": [
       {
-        "date": "2026-02-13",
-        "type": "email",
-        "direction": "inbound",
-        "subject": "Case of the Mondays at Phase Labs?",
-        "summary": "ClickUp automation services pitch targeting Phase Labs productivity"
+        "date": "2026-02-11",
+        "type": "calendar",
+        "direction": "booking",
+        "subject": "Brandon (30 min) (Tim Garcia)",
+        "summary": "Appointment booked for Feb 17"
       }
     ],
-    "notes": "Offering ClickUp automation services for Phase Labs"
-  },
-  {
-    "id": "sandhoshkumar-sprinto",
-    "name": "Sandhoshkumar Krishnamoorthy",
-    "emails": ["sandhoshkumark@sprinto.com"],
-    "company": "Sprinto",
-    "role": "Account Manager",
-    "relationship": "Vendor",
-    "tags": ["compliance", "security", "vendor", "subscription"],
-    "qualityScore": 3,
-    "lastTouch": "2026-02-13T00:44:00Z",
-    "touchCount": 1,
-    "firstSeen": "2026-02-13T00:44:00Z",
-    "timeline": [
-      {
-        "date": "2026-02-13",
-        "type": "email",
-        "direction": "inbound",
-        "subject": "Sprinto | Important Update Regarding Your Subscription",
-        "summary": "Subscription update notification from compliance software vendor"
-      }
-    ],
-    "notes": "Sprinto compliance software - subscription management"
+    "notes": "Upcoming appointment scheduled for Feb 17, 2026"
   }
 ]
