@@ -563,8 +563,8 @@ function isStandupActive(): boolean {
 function getColors(name: string): { body: string; eye: string } {
   const m: Record<string, { body: string; eye: string }> = {
     Dwight: { body: "#a855f7", eye: "#e9d5ff" }, Kelly: { body: "#ec4899", eye: "#fce7f3" },
-    Rachel: { body: "#3b82f6", eye: "#bfdbfe" }, John: { body: "#10b981", eye: "#a7f3d0" },
-    Ross: { body: "#f97316", eye: "#fed7aa" }, Pam: { body: "#f43f5e", eye: "#fecdd3" },
+    Rachel: { body: "#00ff00", eye: "#bfdbfe" }, John: { body: "#10b981", eye: "#a7f3d0" },
+    Ross: { body: "#f97316", eye: "#fed7aa" }, Pam: { body: "#ff0000", eye: "#fecdd3" },
   };
   return m[name] || { body: "#6b7280", eye: "#d1d5db" };
 }
