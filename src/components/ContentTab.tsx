@@ -98,6 +98,35 @@ export default function ContentTab() {
     }
   };
 
+  const handleRevoke = async (draftId: string) => {
+    if (!confirm("Are you sure you want to revoke approval? This will move the item back to pending status and remove it from the publishing queue.")) {
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const response = await fetch("/api/content-approval", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          draftId,
+          action: "revoke",
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Revoke failed");
+      }
+
+      await loadData();
+    } catch (error) {
+      console.error("Revoke failed:", error);
+      alert("Revoke failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const toggleDraftSelection = (draftId: string) => {
     const newSelection = new Set(selectedDrafts);
     if (newSelection.has(draftId)) {
@@ -394,8 +423,17 @@ export default function ContentTab() {
                     Queued
                   </span>
                 </div>
-                <div className="bg-[#242836] rounded-lg p-3">
+                <div className="bg-[#242836] rounded-lg p-3 mb-3">
                   <p className="text-sm text-[#e4e6ed] whitespace-pre-wrap">{item.text}</p>
+                </div>
+                <div className="flex justify-end">
+                  <button
+                    onClick={() => handleRevoke(item.draftId)}
+                    disabled={loading}
+                    className="px-4 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg text-sm font-medium transition-colors disabled:opacity-50"
+                  >
+                    ❌ Revoke
+                  </button>
                 </div>
               </div>
             ))
@@ -436,6 +474,15 @@ export default function ContentTab() {
                     }`}>
                       {draft.status}
                     </span>
+                    {draft.status === "approved" && (
+                      <button
+                        onClick={() => handleRevoke(draft.id)}
+                        disabled={loading}
+                        className="px-2 py-1 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded text-[10px] font-medium transition-colors disabled:opacity-50"
+                      >
+                        Revoke Approval
+                      </button>
+                    )}
                   </div>
                 </div>
                 {draft.feedback && (

@@ -12,7 +12,7 @@ const GITHUB_TOKEN = process.env.GITHUB_TOKEN || process.env.VERCEL_GITHUB_TOKEN
 
 interface ApprovalRequest {
   draftId: string;
-  action: "approve" | "deny" | "edit";
+  action: "approve" | "deny" | "edit" | "revoke";
   feedback?: string;
   editedText?: string;
   scheduleFor?: string; // ISO string for publishing time
@@ -188,6 +188,44 @@ export async function POST(req: NextRequest) {
         
         if (!editUpdateOk) {
           return NextResponse.json({ error: "Failed to update content file" }, { status: 502 });
+        }
+        
+        break;
+
+      case "revoke":
+        // Move back to pending status and remove from queue
+        draft.status = "pending";
+        draft.resolvedAt = undefined;
+        draft.feedback = "";
+        
+        // Remove from publishing queue
+        const { content: queueData, sha: queueSha } = await getFileContent<PublishingQueueData>(QUEUE_FILE);
+        const originalQueueLength = queueData.queue.length;
+        
+        // Filter out any queue items for this draft
+        queueData.queue = queueData.queue.filter(item => item.draftId !== draft.id);
+        const removedFromQueue = queueData.queue.length < originalQueueLength;
+        
+        // Update content file
+        const revokeContentOk = await updateFileContent(
+          CONTENT_FILE,
+          contentData,
+          contentSha,
+          `Revoke approval for draft ${draft.id} by ${draft.author}`
+        );
+        
+        // Update queue file if we removed something
+        const revokeQueueOk = removedFromQueue 
+          ? await updateFileContent(
+              QUEUE_FILE,
+              queueData,
+              queueSha,
+              `Remove revoked draft ${draft.id} from publishing queue`
+            )
+          : true;
+        
+        if (!revokeContentOk || !revokeQueueOk) {
+          return NextResponse.json({ error: "Failed to update files" }, { status: 502 });
         }
         
         break;
