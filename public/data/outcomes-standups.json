@@ -1,28 +1,42 @@
-{
-  "standups": [
-    {
-      "date": "2026-02-13",
-      "time": "midday",
-      "file": "2026-02-13-midday.md",
-      "summary": "Dwight morning sweep silent failure cascaded to zero Kelly/Rachel output. Pipeline fix planned for midday sweep. George completed 2 autonomous tasks."
-    },
-    {
-      "date": "2026-02-13",
-      "time": "afternoon",
-      "file": "2026-02-13-afternoon.md",
-      "summary": "Full pipeline recovered. Dwight filed 12 stories. Kelly produced 5 drafts, Rachel 2 drafts (all 7 denied for formatting). John restructured to 24/7 scans. Mission Control major updates shipped."
-    },
-    {
-      "date": "2026-02-13",
-      "time": "evening",
-      "file": "2026-02-13-evening.md",
-      "summary": "Day 1 wrap. 7 drafts (0 approved). Dwight 3/3 sweeps. John 24/7 scans active. Ross + Pam built and deployed. George completed 5 autonomous research tasks + full infra buildout. All blockers resolved."
-    },
-    {
-      "date": "2026-02-13",
-      "time": "8pm",
-      "file": "2026-02-13-8pm.md",
-      "summary": "8PM standup: Mission Control data audit — fixed stale projects (Ross/Pam were 'coming soon'), live actions (frozen from afternoon), office state (missing Pam), content statuses (pending→denied). Systemic fix needed: auto-update live-actions on every cron run."
-    }
-  ]
-}
+[
+  {
+    "id": "standup-2026-02-13-midday-0",
+    "date": "2026-02-13",
+    "type": "midday",
+    "summary": "Dwight morning sweep silent failure cascaded to zero Kelly/Rachel output. Pipeline fix planned for midday sweep. George completed 2 autonomous tasks.",
+    "discussion": [],
+    "keyDecisions": [],
+    "improvements": [],
+    "actionItems": []
+  },
+  {
+    "id": "standup-2026-02-13-afternoon-1",
+    "date": "2026-02-13",
+    "type": "evening",
+    "summary": "Full pipeline recovered. Dwight filed 12 stories. Kelly produced 5 drafts, Rachel 2 drafts (all 7 denied for formatting). John restructured to 24/7 scans. Mission Control major updates shipped.",
+    "discussion": [],
+    "keyDecisions": [],
+    "improvements": [],
+    "actionItems": []
+  },
+  {
+    "id": "standup-2026-02-13-evening-2",
+    "date": "2026-02-13",
+    "type": "evening",
+    "summary": "Day 1 wrap. 7 drafts (0 approved). Dwight 3/3 sweeps. John 24/7 scans active. Ross + Pam built and deployed. George completed 5 autonomous research tasks + full infra buildout. All blockers resolved.",
+    "discussion": [],
+    "keyDecisions": [],
+    "improvements": [],
+    "actionItems": []
+  },
+  {
+    "id": "standup-2026-02-13-8pm-3",
+    "date": "2026-02-13",
+    "type": "evening",
+    "summary": "8PM standup: Mission Control data audit \u2014 fixed stale projects (Ross/Pam were 'coming soon'), live actions (frozen from afternoon), office state (missing Pam), content statuses (pending\u2192denied). Systemic fix needed: auto-update live-actions on every cron run.",
+    "discussion": [],
+    "keyDecisions": [],
+    "improvements": [],
+    "actionItems": []
+  }
+]
