@@ -186,6 +186,7 @@ export interface DocEntry {
   type: "intel" | "draft" | "analysis" | "report" | "memo" | "other";
   description: string;
   url?: string;
+  path?: string;
 }
 
 export interface DocsDay {

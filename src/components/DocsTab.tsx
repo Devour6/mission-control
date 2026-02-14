@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { DocsData } from "@/lib/types";
 import { fetchData } from "@/lib/dataFetch";
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 const typeColors: Record<string, { bg: string; text: string }> = {
   intel: { bg: "bg-amber-500/20", text: "text-amber-400" },
@@ -24,41 +26,6 @@ interface MarkdownModalProps {
 function MarkdownModal({ isOpen, onClose, title, content, loading }: MarkdownModalProps) {
   if (!isOpen) return null;
 
-  const renderMarkdown = (text: string) => {
-    return text
-      .split('\n')
-      .map((line, i) => {
-        // Headers
-        if (line.startsWith('### ')) {
-          return <h3 key={i} className="text-lg font-bold text-[#e4e6ed] mt-4 mb-2">{line.substring(4)}</h3>;
-        }
-        if (line.startsWith('## ')) {
-          return <h2 key={i} className="text-xl font-bold text-[#e4e6ed] mt-6 mb-3">{line.substring(3)}</h2>;
-        }
-        if (line.startsWith('# ')) {
-          return <h1 key={i} className="text-2xl font-bold text-[#e4e6ed] mt-8 mb-4">{line.substring(2)}</h1>;
-        }
-        
-        // Bullet points
-        if (line.startsWith('- ') || line.startsWith('* ')) {
-          return <li key={i} className="text-[#c4c7d1] ml-4 mb-1">{line.substring(2)}</li>;
-        }
-        
-        // Code blocks (simple detection)
-        if (line.startsWith('```') || line.includes('`')) {
-          return <pre key={i} className="bg-[#1a1d27] p-2 rounded text-[#8b8fa3] font-mono text-sm my-2 overflow-x-auto">{line}</pre>;
-        }
-        
-        // Empty lines
-        if (line.trim() === '') {
-          return <br key={i} />;
-        }
-        
-        // Regular text
-        return <p key={i} className="text-[#c4c7d1] mb-2">{line}</p>;
-      });
-  };
-
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
       <div className="bg-[#1a1d27] border border-[#2e3345] rounded-xl w-full max-w-4xl max-h-[80vh] overflow-hidden flex flex-col">
@@ -75,8 +42,42 @@ function MarkdownModal({ isOpen, onClose, title, content, loading }: MarkdownMod
           {loading ? (
             <div className="text-center text-[#8b8fa3] py-8">Loading...</div>
           ) : (
-            <div className="prose prose-invert max-w-none">
-              {renderMarkdown(content)}
+            <div className="prose prose-invert prose-sm max-w-none markdown-content">
+              <ReactMarkdown 
+                remarkPlugins={[remarkGfm]}
+                components={{
+                  h1: (props) => <h1 className="text-2xl font-bold text-[#e4e6ed] mt-8 mb-4" {...props} />,
+                  h2: (props) => <h2 className="text-xl font-bold text-[#e4e6ed] mt-6 mb-3" {...props} />,
+                  h3: (props) => <h3 className="text-lg font-bold text-[#e4e6ed] mt-4 mb-2" {...props} />,
+                  p: (props) => <p className="text-[#c4c7d1] mb-2" {...props} />,
+                  ul: (props) => <ul className="text-[#c4c7d1] ml-4 mb-2" {...props} />,
+                  ol: (props) => <ol className="text-[#c4c7d1] ml-4 mb-2" {...props} />,
+                  li: (props) => <li className="text-[#c4c7d1] mb-1" {...props} />,
+                  pre: (props) => <pre className="bg-[#1a1d27] p-2 rounded text-[#8b8fa3] font-mono text-sm my-2 overflow-x-auto" {...props} />,
+                  a: (props) => <a className="text-indigo-400 hover:text-indigo-300 underline" {...props} />,
+                  strong: (props) => <strong className="font-semibold text-[#e4e6ed]" {...props} />,
+                  em: (props) => <em className="italic text-[#e4e6ed]" {...props} />
+                }}
+              >
+                {content}
+              </ReactMarkdown>
+              <style jsx>{`
+                .markdown-content :global(code) {
+                  background-color: #1a1d27;
+                  padding: 0.125rem 0.25rem;
+                  border-radius: 0.25rem;
+                  color: #8b8fa3;
+                  font-family: ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+                  font-size: 0.875rem;
+                }
+                .markdown-content :global(pre code) {
+                  display: block;
+                  padding: 0.5rem;
+                  margin: 0.5rem 0;
+                  overflow-x: auto;
+                  background-color: #1a1d27;
+                }
+              `}</style>
             </div>
           )}
         </div>
@@ -99,13 +100,9 @@ export default function DocsTab() {
   }, []);
 
   const handleDocClick = async (doc: { title: string; url?: string; id: string; path?: string }) => {
-    // Google Drive links open in new tab
+    // Google Drive links are now handled directly via <a> tags, so this function 
+    // should not be called for them. But keeping the check for safety.
     if (doc.url && doc.url.includes('docs.google.com')) {
-      const newWindow = window.open(doc.url, '_blank');
-      // Check if the window was blocked or failed to open
-      if (!newWindow) {
-        alert('Popup blocked - please allow popups for this site to open Google Docs');
-      }
       return;
     }
 
@@ -167,12 +164,23 @@ export default function DocsTab() {
                       <div className="flex items-start gap-3">
                         <span className="text-lg mt-0.5">{doc.authorEmoji}</span>
                         <div>
-                          <button
-                            onClick={() => handleDocClick(doc)}
-                            className="text-sm font-medium text-indigo-400 hover:text-indigo-300 hover:underline cursor-pointer text-left"
-                          >
-                            {doc.title} {doc.url && doc.url.includes('docs.google.com') ? '↗' : ''}
-                          </button>
+                          {doc.url && doc.url.includes('docs.google.com') ? (
+                            <a
+                              href={doc.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-sm font-medium text-indigo-400 hover:text-indigo-300 hover:underline cursor-pointer text-left inline-flex items-center gap-1"
+                            >
+                              {doc.title} <span className="text-xs">↗</span>
+                            </a>
+                          ) : (
+                            <button
+                              onClick={() => handleDocClick(doc)}
+                              className="text-sm font-medium text-indigo-400 hover:text-indigo-300 hover:underline cursor-pointer text-left"
+                            >
+                              {doc.title}
+                            </button>
+                          )}
                           <p className="text-xs text-[#8b8fa3] mt-0.5">{doc.description}</p>
                           <p className="text-[10px] text-[#8b8fa3] mt-1">by {doc.author}</p>
                         </div>
