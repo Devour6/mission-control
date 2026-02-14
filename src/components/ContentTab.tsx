@@ -9,6 +9,8 @@ export default function ContentTab() {
   const [queueData, setQueueData] = useState<PublishingQueueData>({ queue: [] });
   const [view, setView] = useState<"pending" | "queue" | "history">("pending");
   const [selectedDrafts, setSelectedDrafts] = useState<Set<string>>(new Set());
+  const [editingDraft, setEditingDraft] = useState<string | null>(null);
+  const [editText, setEditText] = useState("");
   const [feedback, setFeedback] = useState("");
   const [loading, setLoading] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -32,6 +34,7 @@ export default function ContentTab() {
   };
 
   const pendingDrafts = contentData.drafts.filter(d => d.status === "pending");
+  const editingDrafts = contentData.drafts.filter(d => d.status === "editing");
   const resolvedDrafts = contentData.drafts.filter(d => ["approved", "denied"].includes(d.status));
   const queuedPosts = queueData.queue.filter(q => q.status === "queued");
 
@@ -53,22 +56,10 @@ export default function ContentTab() {
         throw new Error("Approval failed");
       }
 
-      // Optimistic local state update (GitHub CDN may lag)
-      setContentData(prev => {
-        const updated = { ...prev, drafts: prev.drafts.map(d => {
-          if (d.id !== draftId) return d;
-          if (action === "approve") return { ...d, status: "approved" as const, resolvedAt: new Date().toISOString(), feedback: feedback.trim() || d.feedback };
-          if (action === "deny") return { ...d, status: "denied" as const, resolvedAt: new Date().toISOString(), feedback: feedback.trim() || d.feedback };
-          return d;
-        })};
-        return updated;
-      });
-      
-      // Also refresh from server after a short delay to catch any queue updates
-      setTimeout(() => loadData(), 3000);
+      await loadData();
       setFeedback("");
-      
-      
+      setEditingDraft(null);
+      setEditText("");
     } catch (error) {
       console.error("Action failed:", error);
       alert("Action failed. Please try again.");
@@ -96,16 +87,7 @@ export default function ContentTab() {
         throw new Error("Batch approval failed");
       }
 
-      // Optimistic local state update
-      const ids = Array.from(selectedDrafts);
-      setContentData(prev => ({
-        ...prev,
-        drafts: prev.drafts.map(d => {
-          if (!ids.includes(d.id)) return d;
-          return { ...d, status: action === "approve" ? "approved" as const : "denied" as const, resolvedAt: new Date().toISOString(), feedback: feedback.trim() || d.feedback };
-        })
-      }));
-      setTimeout(() => loadData(), 3000);
+      await loadData();
       setSelectedDrafts(new Set());
       setFeedback("");
     } catch (error) {
@@ -136,16 +118,7 @@ export default function ContentTab() {
         throw new Error("Revoke failed");
       }
 
-      // Optimistic update
-      setContentData(prev => ({
-        ...prev,
-        drafts: prev.drafts.map(d => d.id === draftId ? { ...d, status: "pending" as const, resolvedAt: undefined, feedback: "" } : d)
-      }));
-      setQueueData(prev => ({
-        ...prev,
-        queue: prev.queue.filter(q => q.draftId !== draftId)
-      }));
-      setTimeout(() => loadData(), 3000);
+      await loadData();
     } catch (error) {
       console.error("Revoke failed:", error);
       alert("Revoke failed. Please try again.");
@@ -172,7 +145,21 @@ export default function ContentTab() {
     setSelectedDrafts(new Set());
   };
 
-  // Edit functions removed per Brandon's request
+  const startEdit = (draftId: string, currentText: string) => {
+    setEditingDraft(draftId);
+    setEditText(currentText);
+  };
+
+  const saveEdit = () => {
+    if (editingDraft && editText.trim()) {
+      handleSingleAction(editingDraft, "edit", editText.trim());
+    }
+  };
+
+  const cancelEdit = () => {
+    setEditingDraft(null);
+    setEditText("");
+  };
 
   const platformIcon = (platform: string) => platform === "x" ? "𝕏" : "in";
   const platformColor = (platform: string) => platform === "x" ? "text-white" : "text-blue-400";
@@ -303,10 +290,36 @@ export default function ContentTab() {
                         )}
                       </div>
 
-                      {/* Draft Text */}
-                      <div className="bg-[#242836] rounded-lg p-3 mb-3">
-                        <p className="text-sm text-[#e4e6ed] whitespace-pre-wrap">{draft.text}</p>
-                      </div>
+                      {/* Text Display/Edit */}
+                      {editingDraft === draft.id ? (
+                        <div className="space-y-3">
+                          <textarea
+                            value={editText}
+                            onChange={(e) => setEditText(e.target.value)}
+                            className="w-full bg-[#242836] border border-[#2e3345] rounded-lg p-3 text-sm text-[#e4e6ed] focus:outline-none focus:border-indigo-500/60 min-h-[120px] resize-none"
+                            placeholder="Edit the post text..."
+                          />
+                          <div className="flex gap-2">
+                            <button
+                              onClick={saveEdit}
+                              disabled={loading || !editText.trim()}
+                              className="px-4 py-2 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 rounded-lg text-sm font-medium transition-colors disabled:opacity-50"
+                            >
+                              Save Edit
+                            </button>
+                            <button
+                              onClick={cancelEdit}
+                              className="px-4 py-2 bg-gray-500/20 hover:bg-gray-500/30 text-gray-400 rounded-lg text-sm font-medium transition-colors"
+                            >
+                              Cancel
+                            </button>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="bg-[#242836] rounded-lg p-3 mb-3">
+                          <p className="text-sm text-[#e4e6ed] whitespace-pre-wrap">{draft.text}</p>
+                        </div>
+                      )}
 
                       {/* Meta info */}
                       {(draft.angle || draft.rationale) && (
@@ -320,32 +333,32 @@ export default function ContentTab() {
                         </p>
                       )}
 
-                      {/* Feedback + Actions */}
-                      <div className="space-y-2">
-                          <input
-                            type="text"
-                            value={feedback}
-                            onChange={(e) => setFeedback(e.target.value)}
-                            placeholder="Feedback (optional — why approve/deny?)..."
-                            className="w-full bg-[#242836] border border-[#2e3345] rounded-lg px-3 py-2 text-sm text-[#e4e6ed] placeholder-[#8b8fa3] focus:outline-none focus:border-indigo-500/60 min-h-[36px]"
-                          />
-                          <div className="flex flex-col sm:flex-row gap-2">
-                            <button
-                              onClick={() => handleSingleAction(draft.id, "approve")}
-                              disabled={loading}
-                              className="px-4 py-2 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 rounded-lg text-sm font-medium transition-colors disabled:opacity-50 min-h-[44px]"
-                            >
-                              ✓ Approve & Queue
-                            </button>
-                            <button
-                              onClick={() => handleSingleAction(draft.id, "deny")}
-                              disabled={loading}
-                              className="px-4 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg text-sm font-medium transition-colors disabled:opacity-50 min-h-[44px]"
-                            >
-                              ✕ Deny
-                            </button>
-                          </div>
+                      {/* Individual Actions */}
+                      {editingDraft !== draft.id && (
+                        <div className="flex flex-col sm:flex-row gap-2">
+                          <button
+                            onClick={() => handleSingleAction(draft.id, "approve")}
+                            disabled={loading}
+                            className="px-4 py-2 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 rounded-lg text-sm font-medium transition-colors disabled:opacity-50 min-h-[44px]"
+                          >
+                            ✓ Approve & Queue
+                          </button>
+                          <button
+                            onClick={() => startEdit(draft.id, draft.text)}
+                            disabled={loading}
+                            className="px-4 py-2 bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 rounded-lg text-sm font-medium transition-colors disabled:opacity-50 min-h-[44px]"
+                          >
+                            ✏️ Edit
+                          </button>
+                          <button
+                            onClick={() => handleSingleAction(draft.id, "deny")}
+                            disabled={loading}
+                            className="px-4 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg text-sm font-medium transition-colors disabled:opacity-50 min-h-[44px]"
+                          >
+                            ✕ Deny
+                          </button>
                         </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -353,7 +366,37 @@ export default function ContentTab() {
             </div>
           )}
 
-          {/* Edit section removed */}
+          {/* Editing Drafts */}
+          {editingDrafts.length > 0 && (
+            <div className="mt-8">
+              <h3 className="text-sm font-semibold text-[#8b8fa3] uppercase tracking-wider mb-3">
+                Being Edited ({editingDrafts.length})
+              </h3>
+              <div className="space-y-2">
+                {editingDrafts.map((draft) => (
+                  <div key={draft.id} className="bg-[#1a1d27] border border-blue-500/30 rounded-lg p-4">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <span className={`text-xs font-bold ${platformColor(draft.platform)}`}>
+                          {platformIcon(draft.platform)}
+                        </span>
+                        <span className="text-sm font-medium">{draft.authorEmoji} {draft.author}</span>
+                        <span className="text-xs text-[#8b8fa3]">editing...</span>
+                      </div>
+                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-400">
+                        In Edit
+                      </span>
+                    </div>
+                    {draft.editedText && (
+                      <div className="mt-2 text-xs text-[#8b8fa3] bg-[#242836] rounded-lg p-2">
+                        Latest: {draft.editedText.slice(0, 100)}...
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
 
