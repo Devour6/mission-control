@@ -56,7 +56,19 @@ export default function ContentTab() {
         throw new Error("Approval failed");
       }
 
-      await loadData();
+      // Optimistic local state update (GitHub CDN may lag)
+      setContentData(prev => {
+        const updated = { ...prev, drafts: prev.drafts.map(d => {
+          if (d.id !== draftId) return d;
+          if (action === "approve") return { ...d, status: "approved" as const, resolvedAt: new Date().toISOString(), feedback: feedback.trim() || d.feedback };
+          if (action === "deny") return { ...d, status: "denied" as const, resolvedAt: new Date().toISOString(), feedback: feedback.trim() || d.feedback };
+          return d;
+        })};
+        return updated;
+      });
+      
+      // Also refresh from server after a short delay to catch any queue updates
+      setTimeout(() => loadData(), 3000);
       setFeedback("");
       setEditingDraft(null);
       setEditText("");
@@ -87,7 +99,16 @@ export default function ContentTab() {
         throw new Error("Batch approval failed");
       }
 
-      await loadData();
+      // Optimistic local state update
+      const ids = Array.from(selectedDrafts);
+      setContentData(prev => ({
+        ...prev,
+        drafts: prev.drafts.map(d => {
+          if (!ids.includes(d.id)) return d;
+          return { ...d, status: action === "approve" ? "approved" as const : "denied" as const, resolvedAt: new Date().toISOString(), feedback: feedback.trim() || d.feedback };
+        })
+      }));
+      setTimeout(() => loadData(), 3000);
       setSelectedDrafts(new Set());
       setFeedback("");
     } catch (error) {
@@ -118,7 +139,16 @@ export default function ContentTab() {
         throw new Error("Revoke failed");
       }
 
-      await loadData();
+      // Optimistic update
+      setContentData(prev => ({
+        ...prev,
+        drafts: prev.drafts.map(d => d.id === draftId ? { ...d, status: "pending" as const, resolvedAt: undefined, feedback: "" } : d)
+      }));
+      setQueueData(prev => ({
+        ...prev,
+        queue: prev.queue.filter(q => q.draftId !== draftId)
+      }));
+      setTimeout(() => loadData(), 3000);
     } catch (error) {
       console.error("Revoke failed:", error);
       alert("Revoke failed. Please try again.");
@@ -145,21 +175,7 @@ export default function ContentTab() {
     setSelectedDrafts(new Set());
   };
 
-  const startEdit = (draftId: string, currentText: string) => {
-    setEditingDraft(draftId);
-    setEditText(currentText);
-  };
-
-  const saveEdit = () => {
-    if (editingDraft && editText.trim()) {
-      handleSingleAction(editingDraft, "edit", editText.trim());
-    }
-  };
-
-  const cancelEdit = () => {
-    setEditingDraft(null);
-    setEditText("");
-  };
+  // Edit functionality removed per Brandon's request
 
   const platformIcon = (platform: string) => platform === "x" ? "𝕏" : "in";
   const platformColor = (platform: string) => platform === "x" ? "text-white" : "text-blue-400";
@@ -350,6 +366,13 @@ export default function ContentTab() {
                               className="px-4 py-2 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 rounded-lg text-sm font-medium transition-colors disabled:opacity-50 min-h-[44px]"
                             >
                               ✓ Approve & Queue
+                            </button>
+                            <button
+                              onClick={() => startEdit(draft.id, draft.text)}
+                              disabled={loading}
+                              className="px-4 py-2 bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 rounded-lg text-sm font-medium transition-colors disabled:opacity-50 min-h-[44px]"
+                            >
+                              ✏️ Edit
                             </button>
                             <button
                               onClick={() => handleSingleAction(draft.id, "deny")}
