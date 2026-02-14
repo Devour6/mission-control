@@ -40,7 +40,7 @@
       "personalAssistant": {
         "name": "Personal Assistant",
         "members": [
-          {"name": "Pam", "title": "Personal Assistant", "emoji": "📋", "model": "Sonnet 4", "status": "coming_soon"}
+          {"name": "Pam", "title": "Personal Assistant + CRM", "emoji": "📋", "model": "Sonnet 4", "status": "active"}
         ]
       }
     }

@@ -18,6 +18,7 @@ const tabs = [
   { id: "calendar", label: "Calendar", icon: "📅" },
   { id: "wallet", label: "Wallet", icon: "💰" },
   { id: "memory", label: "Memory", icon: "🧠" },
+  { id: "crm", label: "CRM", icon: "👤" },
   { id: "team", label: "Team", icon: "👥" },
 ];
 
