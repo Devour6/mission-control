@@ -9,8 +9,6 @@ export default function ContentTab() {
   const [queueData, setQueueData] = useState<PublishingQueueData>({ queue: [] });
   const [view, setView] = useState<"pending" | "queue" | "history">("pending");
   const [selectedDrafts, setSelectedDrafts] = useState<Set<string>>(new Set());
-  const [editingDraft, setEditingDraft] = useState<string | null>(null);
-  const [editText, setEditText] = useState("");
   const [feedback, setFeedback] = useState("");
   const [loading, setLoading] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -34,7 +32,6 @@ export default function ContentTab() {
   };
 
   const pendingDrafts = contentData.drafts.filter(d => d.status === "pending");
-  const editingDrafts = contentData.drafts.filter(d => d.status === "editing");
   const resolvedDrafts = contentData.drafts.filter(d => ["approved", "denied"].includes(d.status));
   const queuedPosts = queueData.queue.filter(q => q.status === "queued");
 
@@ -175,7 +172,7 @@ export default function ContentTab() {
     setSelectedDrafts(new Set());
   };
 
-  // Edit functionality removed per Brandon's request
+  // Edit functions removed per Brandon's request
 
   const platformIcon = (platform: string) => platform === "x" ? "𝕏" : "in";
   const platformColor = (platform: string) => platform === "x" ? "text-white" : "text-blue-400";
@@ -306,7 +303,7 @@ export default function ContentTab() {
                         )}
                       </div>
 
-                      {/* Text Display/Edit */}
+                      {/* Draft Text */}
                       <div className="bg-[#242836] rounded-lg p-3 mb-3">
                         <p className="text-sm text-[#e4e6ed] whitespace-pre-wrap">{draft.text}</p>
                       </div>
@@ -341,13 +338,6 @@ export default function ContentTab() {
                               ✓ Approve & Queue
                             </button>
                             <button
-                              onClick={() => startEdit(draft.id, draft.text)}
-                              disabled={loading}
-                              className="px-4 py-2 bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 rounded-lg text-sm font-medium transition-colors disabled:opacity-50 min-h-[44px]"
-                            >
-                              ✏️ Edit
-                            </button>
-                            <button
                               onClick={() => handleSingleAction(draft.id, "deny")}
                               disabled={loading}
                               className="px-4 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg text-sm font-medium transition-colors disabled:opacity-50 min-h-[44px]"
@@ -363,37 +353,7 @@ export default function ContentTab() {
             </div>
           )}
 
-          {/* Editing Drafts */}
-          {editingDrafts.length > 0 && (
-            <div className="mt-8">
-              <h3 className="text-sm font-semibold text-[#8b8fa3] uppercase tracking-wider mb-3">
-                Being Edited ({editingDrafts.length})
-              </h3>
-              <div className="space-y-2">
-                {editingDrafts.map((draft) => (
-                  <div key={draft.id} className="bg-[#1a1d27] border border-blue-500/30 rounded-lg p-4">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <span className={`text-xs font-bold ${platformColor(draft.platform)}`}>
-                          {platformIcon(draft.platform)}
-                        </span>
-                        <span className="text-sm font-medium">{draft.authorEmoji} {draft.author}</span>
-                        <span className="text-xs text-[#8b8fa3]">editing...</span>
-                      </div>
-                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-400">
-                        In Edit
-                      </span>
-                    </div>
-                    {draft.editedText && (
-                      <div className="mt-2 text-xs text-[#8b8fa3] bg-[#242836] rounded-lg p-2">
-                        Latest: {draft.editedText.slice(0, 100)}...
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
+          {/* Edit section removed */}
         </div>
       )}
 
