@@ -9,7 +9,7 @@
     "tags": ["phase-team", "marketing", "internal", "documents"],
     "qualityScore": 5,
     "lastTouch": "2026-02-13T19:13:00Z",
-    "touchCount": 3,
+    "touchCount": 4,
     "firstSeen": "2026-02-13T19:13:00Z",
     "timeline": [
       {
@@ -35,6 +35,29 @@
       }
     ],
     "notes": "Phase team member, actively sharing marketing insights and company documents. Regular weekly sync attendee."
+  },
+  {
+    "id": "narek-hylo",
+    "name": "Narek",
+    "emails": ["usr-sfPau0JvhawgaiI@user.luma-mail.com"],
+    "company": "Hylo",
+    "role": "Event Organizer",
+    "relationship": "Community/Event contact",
+    "tags": ["hylo", "events", "community", "family-dinner"],
+    "qualityScore": 3,
+    "lastTouch": "2026-02-13T16:00:00Z",
+    "touchCount": 1,
+    "firstSeen": "2026-02-13T16:00:00Z",
+    "timeline": [
+      {
+        "date": "2026-02-13",
+        "type": "event-reminder",
+        "direction": "inbound",
+        "subject": "⏰ Hylo Family Dinner is starting in 1 hour",
+        "summary": "Event reminder for Hylo Family Dinner through Luma platform"
+      }
+    ],
+    "notes": "Organizer of Hylo Family Dinner events. Uses Luma for event management."
   },
   {
     "id": "ella-white-reintakers",
