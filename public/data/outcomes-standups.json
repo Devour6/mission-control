@@ -210,5 +210,120 @@
       "Rachel: LinkedIn growth strategy + 30-day authority building plan",
       "Pam: Expense tracking + savings dashboard (house down payment timeline)"
     ]
+  },
+  {
+    "id": "standup-2026-02-14-midday",
+    "date": "2026-02-14",
+    "time": "12:00 PM",
+    "type": "midday",
+    "summary": "Quality audit revealed Rachel repeat emdash violations (2/3 drafts), John producing price checks not analysis, Kelly improving on grammar but lacking originality. Dwight/Ross/Pam performing well. 6 strategic tasks spawned: competitive positioning, angle bank, LinkedIn calendar, validator optimization, standup history tab, savings projection.",
+    "discussion": [
+      {
+        "agent": "George",
+        "status": "operational",
+        "note": "Fixed draft sync pipeline, implemented quality audit protocol, managing 6 spawned tasks"
+      },
+      {
+        "agent": "Dwight",
+        "status": "strong",
+        "note": "DAILY-INTEL all sourced and verified. Real analysis with strategic implications."
+      },
+      {
+        "agent": "Kelly",
+        "status": "improving",
+        "note": "Grammar fixed (no emdashes, proper caps). 1/3 denied for clich\u00e9 angle. Needs sharper originality."
+      },
+      {
+        "agent": "Rachel",
+        "status": "flagged",
+        "note": "2/3 Feb 14 drafts still contain emdashes despite explicit feedback. Repeat violation. Content substance is good."
+      },
+      {
+        "agent": "John",
+        "status": "flagged",
+        "note": "2-line market note is not analysis. No charts, no technicals, no reasoning. Needs structured TA memos."
+      },
+      {
+        "agent": "Ross",
+        "status": "strong",
+        "note": "Shipped revoke feature + approval workflow. Well-documented, deployed to production."
+      },
+      {
+        "agent": "Pam",
+        "status": "solid",
+        "note": "Hourly email monitoring running clean. 3 checks since morning, all structured properly."
+      }
+    ],
+    "qualityAudit": [
+      {
+        "agent": "Dwight",
+        "grade": "A",
+        "finding": "All 5 source links verified real. Analysis includes strategic implications, not just headlines."
+      },
+      {
+        "agent": "Kelly",
+        "grade": "B-",
+        "finding": "Grammar rules now followed. 1/3 denied for clich\u00e9 take. Needs more original angles."
+      },
+      {
+        "agent": "Rachel",
+        "grade": "C+",
+        "finding": "REPEAT VIOLATION: 2/3 drafts contain emdashes. feedback-lessons.md says NO EMDASHES but not being checked."
+      },
+      {
+        "agent": "John",
+        "grade": "C",
+        "finding": "Daily note is 2 lines with price changes. Zero technical analysis. Even no-trade days need TA reasoning."
+      },
+      {
+        "agent": "Ross",
+        "grade": "A",
+        "finding": "Clean code ship, thorough documentation, real user value. Deployed and working."
+      },
+      {
+        "agent": "Pam",
+        "grade": "A-",
+        "finding": "Email monitoring structured and timely. No CRM updates to verify today."
+      },
+      {
+        "agent": "George",
+        "grade": "B+",
+        "finding": "Morning task verification gap identified and fixed. Quality audit protocol now permanent."
+      }
+    ],
+    "keyDecisions": [
+      "Add automated emdash stripping to Rachel draft pipeline \u2014 repeat violations unacceptable",
+      "Require John to produce structured daily TA memos with support/resistance, volume, RSI even on no-trade days"
+    ],
+    "improvements": [
+      "Post-processing emdash removal in draft sync script to catch what agents miss",
+      "Daily TA memo template for John with required fields (levels, volume, indicators, thesis)"
+    ],
+    "actionItems": [
+      {
+        "agent": "Dwight",
+        "task": "Phase Delegation competitive positioning report vs top 5 staking providers"
+      },
+      {
+        "agent": "Kelly",
+        "task": "Content angle bank \u2014 20 viral tweet formats for crypto/infra"
+      },
+      {
+        "agent": "Rachel",
+        "task": "30-day LinkedIn content calendar with weekly themes"
+      },
+      {
+        "agent": "John",
+        "task": "Validator income optimization model using SVT real data"
+      },
+      {
+        "agent": "Ross",
+        "task": "Standup history tab in Mission Control"
+      },
+      {
+        "agent": "Pam",
+        "task": "Savings projection dashboard \u2014 house down payment timeline"
+      }
+    ]
   }
 ]
