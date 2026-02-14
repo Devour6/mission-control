@@ -199,12 +199,12 @@ export async function POST(req: NextRequest) {
         draft.feedback = "";
         
         // Remove from publishing queue
-        const { content: queueData, sha: queueSha } = await getFileContent<PublishingQueueData>(QUEUE_FILE);
-        const originalQueueLength = queueData.queue.length;
+        const { content: revokeQueueData, sha: revokeQueueSha } = await getFileContent<PublishingQueueData>(QUEUE_FILE);
+        const originalQueueLength = revokeQueueData.queue.length;
         
         // Filter out any queue items for this draft
-        queueData.queue = queueData.queue.filter(item => item.draftId !== draft.id);
-        const removedFromQueue = queueData.queue.length < originalQueueLength;
+        revokeQueueData.queue = revokeQueueData.queue.filter(item => item.draftId !== draft.id);
+        const removedFromQueue = revokeQueueData.queue.length < originalQueueLength;
         
         // Update content file
         const revokeContentOk = await updateFileContent(
@@ -218,8 +218,8 @@ export async function POST(req: NextRequest) {
         const revokeQueueOk = removedFromQueue 
           ? await updateFileContent(
               QUEUE_FILE,
-              queueData,
-              queueSha,
+              revokeQueueData,
+              revokeQueueSha,
               `Remove revoked draft ${draft.id} from publishing queue`
             )
           : true;

@@ -333,30 +333,32 @@ export default function ContentTab() {
                         </p>
                       )}
 
-                      {/* Individual Actions */}
+                      {/* Feedback input for individual draft */}
                       {editingDraft !== draft.id && (
-                        <div className="flex flex-col sm:flex-row gap-2">
-                          <button
-                            onClick={() => handleSingleAction(draft.id, "approve")}
-                            disabled={loading}
-                            className="px-4 py-2 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 rounded-lg text-sm font-medium transition-colors disabled:opacity-50 min-h-[44px]"
-                          >
-                            ✓ Approve & Queue
-                          </button>
-                          <button
-                            onClick={() => startEdit(draft.id, draft.text)}
-                            disabled={loading}
-                            className="px-4 py-2 bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 rounded-lg text-sm font-medium transition-colors disabled:opacity-50 min-h-[44px]"
-                          >
-                            ✏️ Edit
-                          </button>
-                          <button
-                            onClick={() => handleSingleAction(draft.id, "deny")}
-                            disabled={loading}
-                            className="px-4 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg text-sm font-medium transition-colors disabled:opacity-50 min-h-[44px]"
-                          >
-                            ✕ Deny
-                          </button>
+                        <div className="space-y-2">
+                          <input
+                            type="text"
+                            value={feedback}
+                            onChange={(e) => setFeedback(e.target.value)}
+                            placeholder="Feedback (optional — why approve/deny?)..."
+                            className="w-full bg-[#242836] border border-[#2e3345] rounded-lg px-3 py-2 text-sm text-[#e4e6ed] placeholder-[#8b8fa3] focus:outline-none focus:border-indigo-500/60 min-h-[36px]"
+                          />
+                          <div className="flex flex-col sm:flex-row gap-2">
+                            <button
+                              onClick={() => handleSingleAction(draft.id, "approve")}
+                              disabled={loading}
+                              className="px-4 py-2 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 rounded-lg text-sm font-medium transition-colors disabled:opacity-50 min-h-[44px]"
+                            >
+                              ✓ Approve & Queue
+                            </button>
+                            <button
+                              onClick={() => handleSingleAction(draft.id, "deny")}
+                              disabled={loading}
+                              className="px-4 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg text-sm font-medium transition-colors disabled:opacity-50 min-h-[44px]"
+                            >
+                              ✕ Deny
+                            </button>
+                          </div>
                         </div>
                       )}
                     </div>
