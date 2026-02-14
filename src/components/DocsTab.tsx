@@ -47,7 +47,11 @@ export default function DocsTab() {
                     <div className="flex items-start gap-3">
                       <span className="text-lg mt-0.5">{doc.authorEmoji}</span>
                       <div>
-                        <h4 className="text-sm font-medium text-[#e4e6ed]">{doc.title}</h4>
+                        {doc.url ? (
+                          <a href={doc.url} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-indigo-400 hover:text-indigo-300 hover:underline">{doc.title} ↗</a>
+                        ) : (
+                          <h4 className="text-sm font-medium text-[#e4e6ed]">{doc.title}</h4>
+                        )}
                         <p className="text-xs text-[#8b8fa3] mt-0.5">{doc.description}</p>
                         <p className="text-[10px] text-[#8b8fa3] mt-1">by {doc.author}</p>
                       </div>

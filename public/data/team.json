@@ -34,7 +34,7 @@
       "engineering": {
         "name": "Engineering Dept",
         "members": [
-          {"name": "Ross", "title": "Engineering Lead", "emoji": "⚙️", "model": "Sonnet 4", "status": "active"}
+          {"name": "Ross", "title": "Engineering Lead", "emoji": "⚙️", "model": "Sonnet 4 + Codex CLI", "status": "active"}
         ]
       },
       "personalAssistant": {

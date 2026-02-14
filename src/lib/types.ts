@@ -164,6 +164,7 @@ export interface DocEntry {
   authorEmoji: string;
   type: "intel" | "draft" | "analysis" | "report" | "memo" | "other";
   description: string;
+  url?: string;
 }
 
 export interface DocsDay {

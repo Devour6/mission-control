@@ -22,7 +22,24 @@ export default function ContentTab() {
   const [denyFeedback, setDenyFeedback] = useState("");
 
   useEffect(() => {
-    setActions(getItem(ACTIONS_KEY, {}));
+    // Load local actions first for instant UI
+    const local = getItem<Record<string, DraftAction>>(ACTIONS_KEY, {});
+    setActions(local);
+
+    // Then load server-side feedback (persists across devices)
+    fetch("/api/feedback", { cache: "no-store" })
+      .then((r) => r.ok ? r.json() : [])
+      .then((entries: Array<{ id: string; status: "approved" | "denied"; reviewedAt: string; feedback?: string }>) => {
+        const merged = { ...local };
+        for (const e of entries) {
+          // Server is source of truth — overwrite local
+          merged[e.id] = { status: e.status, at: e.reviewedAt, ...(e.feedback ? { feedback: e.feedback } : {}) };
+        }
+        setActions(merged);
+        setItem(ACTIONS_KEY, merged); // sync local with server
+      })
+      .catch(() => {});
+
     fetchData<ContentData>("content.json").then(setData).catch(() => {});
     setMounted(true);
   }, []);
