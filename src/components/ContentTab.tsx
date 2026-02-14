@@ -43,13 +43,27 @@ export default function ContentTab() {
     setDenyingId(null);
     setDenyFeedback("");
 
-    // Auto-complete review tasks when all drafts from an author are reviewed
+    // Push feedback to server so agents can read it
     const draft = data.drafts.find((d) => d.id === id);
     if (draft) {
+      fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          id: draft.id,
+          author: draft.author,
+          platform: draft.platform,
+          status,
+          feedback: feedback || undefined,
+          text: draft.text.slice(0, 200),
+          reviewedAt: new Date().toISOString(),
+        }),
+      }).catch(() => {}); // best-effort
+
+      // Auto-complete review tasks when all drafts from an author are reviewed
       const authorDrafts = data.drafts.filter((d) => d.author === draft.author);
       const allReviewed = authorDrafts.every((d) => d.id === id || next[d.id]);
       if (allReviewed) {
-        // Map author to their review task id pattern
         const taskMap: Record<string, string> = { Kelly: "b-t11", Rachel: "b-t12" };
         const taskId = taskMap[draft.author];
         if (taskId) {

@@ -20,6 +20,7 @@ const ALLOWED = new Set([
   "calendar.json",
   "wallet.json",
   "wallet-weekly.json",
+  "content-feedback.json",
 ]);
 
 export async function GET(req: NextRequest) {
