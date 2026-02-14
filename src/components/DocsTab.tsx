@@ -98,14 +98,22 @@ export default function DocsTab() {
     setMounted(true);
   }, []);
 
-  const handleDocClick = async (title: string, url: string) => {
-    setModalTitle(title);
+  const handleDocClick = async (doc: { title: string; url?: string; id: string }) => {
+    // Google Drive links open in new tab
+    if (doc.url && doc.url.includes('docs.google.com')) {
+      window.open(doc.url, '_blank');
+      return;
+    }
+
+    // Non-Drive docs open in modal via /api/doc endpoint or raw URL
+    setModalTitle(doc.title);
     setModalOpen(true);
     setModalLoading(true);
     setModalContent('');
 
     try {
-      const response = await fetch(url);
+      const fetchUrl = doc.url || `/api/doc?id=${doc.id}`;
+      const response = await fetch(fetchUrl);
       if (response.ok) {
         const text = await response.text();
         setModalContent(text);
@@ -152,16 +160,12 @@ export default function DocsTab() {
                       <div className="flex items-start gap-3">
                         <span className="text-lg mt-0.5">{doc.authorEmoji}</span>
                         <div>
-                          {doc.url ? (
-                            <button
-                              onClick={() => handleDocClick(doc.title, doc.url!)}
-                              className="text-sm font-medium text-indigo-400 hover:text-indigo-300 hover:underline cursor-pointer"
-                            >
-                              {doc.title}
-                            </button>
-                          ) : (
-                            <h4 className="text-sm font-medium text-[#8b8fa3]">{doc.title}</h4>
-                          )}
+                          <button
+                            onClick={() => handleDocClick(doc)}
+                            className="text-sm font-medium text-indigo-400 hover:text-indigo-300 hover:underline cursor-pointer text-left"
+                          >
+                            {doc.title} {doc.url && doc.url.includes('docs.google.com') ? '↗' : ''}
+                          </button>
                           <p className="text-xs text-[#8b8fa3] mt-0.5">{doc.description}</p>
                           <p className="text-[10px] text-[#8b8fa3] mt-1">by {doc.author}</p>
                         </div>
