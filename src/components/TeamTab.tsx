@@ -128,6 +128,7 @@ function PersonCard({ name, title, emoji, status, model, highlight, onClick }: {
         isClickable ? 'cursor-pointer hover:scale-105 hover:border-indigo-400/60 hover:bg-[#1e2130]' : ''
       }`}
       onClick={isClickable ? onClick : undefined}
+    >
       {status === "active" && (
         <div className="absolute top-2 right-2 w-2 h-2 rounded-full bg-emerald-400" />
       )}
