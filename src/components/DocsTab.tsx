@@ -127,7 +127,7 @@ export default function DocsTab() {
           : `Error loading document (${response.status}). Please try again later.`;
         setModalContent(errorText);
       }
-    } catch (error) {
+    } catch {
       setModalContent('Error: Network error while loading document. Please check your connection and try again.');
     } finally {
       setModalLoading(false);

@@ -2,6 +2,16 @@ import { NextRequest, NextResponse } from "next/server";
 import path from "path";
 import { promises as fs } from "fs";
 
+interface Doc {
+  id: string;
+  title: string;
+  path?: string;
+  url?: string;
+  author: string;
+  type: string;
+  description: string;
+}
+
 // Legacy hardcoded map for backwards compatibility
 const LEGACY_DOC_PATHS: Record<string, string> = {
   "d-1": "docs/DAILY-INTEL.md",
@@ -37,7 +47,7 @@ export async function GET(req: NextRequest) {
     
     // Find the doc by ID across all days
     for (const day of docsData.days) {
-      const doc = day.docs.find((d: any) => d.id === id);
+      const doc = day.docs.find((d: Doc) => d.id === id);
       if (doc) {
         if (doc.path) {
           // Map the workspace path to the public/docs filename
