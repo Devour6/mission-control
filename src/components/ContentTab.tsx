@@ -1,223 +1,459 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ContentData } from "@/lib/types";
+import { ContentData, PublishingQueueData } from "@/lib/types";
 import { fetchData } from "@/lib/dataFetch";
-import { getItem, setItem } from "@/lib/storage";
-
-const ACTIONS_KEY = "mc_content_actions";
-
-interface DraftAction {
-  status: "approved" | "denied";
-  at: string;
-  feedback?: string;
-}
 
 export default function ContentTab() {
-  const [data, setData] = useState<ContentData>({ drafts: [], posted: [] });
-  const [actions, setActions] = useState<Record<string, DraftAction>>({});
-  const [view, setView] = useState<"drafts" | "posted">("drafts");
+  const [contentData, setContentData] = useState<ContentData>({ drafts: [], posted: [] });
+  const [queueData, setQueueData] = useState<PublishingQueueData>({ queue: [] });
+  const [view, setView] = useState<"pending" | "queue" | "history">("pending");
+  const [selectedDrafts, setSelectedDrafts] = useState<Set<string>>(new Set());
+  const [editingDraft, setEditingDraft] = useState<string | null>(null);
+  const [editText, setEditText] = useState("");
+  const [feedback, setFeedback] = useState("");
+  const [loading, setLoading] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const [denyingId, setDenyingId] = useState<string | null>(null);
-  const [denyFeedback, setDenyFeedback] = useState("");
 
   useEffect(() => {
-    // Load local actions first for instant UI
-    const local = getItem<Record<string, DraftAction>>(ACTIONS_KEY, {});
-    setActions(local);
-
-    // Then load server-side feedback (persists across devices)
-    fetch("/api/feedback", { cache: "no-store" })
-      .then((r) => r.ok ? r.json() : [])
-      .then((entries: Array<{ id: string; status: "approved" | "denied"; reviewedAt: string; feedback?: string }>) => {
-        const merged = { ...local };
-        for (const e of entries) {
-          // Server is source of truth — overwrite local
-          merged[e.id] = { status: e.status, at: e.reviewedAt, ...(e.feedback ? { feedback: e.feedback } : {}) };
-        }
-        setActions(merged);
-        setItem(ACTIONS_KEY, merged); // sync local with server
-      })
-      .catch(() => {});
-
-    fetchData<ContentData>("content.json").then(setData).catch(() => {});
+    loadData();
     setMounted(true);
   }, []);
 
-  const drafts = data.drafts.map((d) => {
-    const action = actions[d.id];
-    if (action) return { ...d, status: action.status, resolvedAt: action.at };
-    return d;
-  });
-
-  const pendingDrafts = drafts.filter((d) => d.status === "pending");
-  const resolvedDrafts = drafts.filter((d) => d.status !== "pending");
-
-  const handleAction = (id: string, status: "approved" | "denied", feedback?: string) => {
-    const next = { ...actions, [id]: { status, at: new Date().toISOString(), ...(feedback ? { feedback } : {}) } };
-    setActions(next);
-    setItem(ACTIONS_KEY, next);
-    setDenyingId(null);
-    setDenyFeedback("");
-
-    // Push feedback to server so agents can read it
-    const draft = data.drafts.find((d) => d.id === id);
-    if (draft) {
-      fetch("/api/feedback", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          id: draft.id,
-          author: draft.author,
-          platform: draft.platform,
-          status,
-          feedback: feedback || undefined,
-          text: draft.text.slice(0, 200),
-          reviewedAt: new Date().toISOString(),
-        }),
-      }).catch(() => {}); // best-effort
-
-      // Auto-complete review tasks when all drafts from an author are reviewed
-      const authorDrafts = data.drafts.filter((d) => d.author === draft.author);
-      const allReviewed = authorDrafts.every((d) => d.id === id || next[d.id]);
-      if (allReviewed) {
-        const taskMap: Record<string, string> = { Kelly: "b-t11", Rachel: "b-t12" };
-        const taskId = taskMap[draft.author];
-        if (taskId) {
-          const overrides = getItem<Record<string, string>>("mc_tasks_seed_overrides", {});
-          overrides[taskId] = "completed";
-          setItem("mc_tasks_seed_overrides", overrides);
-        }
-      }
+  const loadData = async () => {
+    try {
+      const [content, queue] = await Promise.all([
+        fetchData<ContentData>("content.json"),
+        fetchData<PublishingQueueData>("publishing-queue.json").catch(() => ({ queue: [] }))
+      ]);
+      setContentData(content);
+      setQueueData(queue);
+    } catch (error) {
+      console.error("Failed to load data:", error);
     }
   };
 
-  const platformIcon = (p: string) => p === "x" ? "𝕏" : "in";
-  const platformColor = (p: string) => p === "x" ? "text-white" : "text-blue-400";
+  const pendingDrafts = contentData.drafts.filter(d => d.status === "pending");
+  const editingDrafts = contentData.drafts.filter(d => d.status === "editing");
+  const resolvedDrafts = contentData.drafts.filter(d => ["approved", "denied"].includes(d.status));
+  const queuedPosts = queueData.queue.filter(q => q.status === "queued");
+
+  const handleSingleAction = async (draftId: string, action: "approve" | "deny" | "edit", editedText?: string) => {
+    setLoading(true);
+    try {
+      const response = await fetch("/api/content-approval", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          draftId,
+          action,
+          feedback: feedback.trim() || undefined,
+          editedText: action === "edit" ? editedText : undefined,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Approval failed");
+      }
+
+      await loadData();
+      setFeedback("");
+      setEditingDraft(null);
+      setEditText("");
+    } catch (error) {
+      console.error("Action failed:", error);
+      alert("Action failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleBatchAction = async (action: "approve" | "deny") => {
+    if (selectedDrafts.size === 0) return;
+
+    setLoading(true);
+    try {
+      const response = await fetch("/api/content-approval", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          draftIds: Array.from(selectedDrafts),
+          action,
+          feedback: feedback.trim() || undefined,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Batch approval failed");
+      }
+
+      await loadData();
+      setSelectedDrafts(new Set());
+      setFeedback("");
+    } catch (error) {
+      console.error("Batch action failed:", error);
+      alert("Batch action failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const toggleDraftSelection = (draftId: string) => {
+    const newSelection = new Set(selectedDrafts);
+    if (newSelection.has(draftId)) {
+      newSelection.delete(draftId);
+    } else {
+      newSelection.add(draftId);
+    }
+    setSelectedDrafts(newSelection);
+  };
+
+  const selectAll = () => {
+    setSelectedDrafts(new Set(pendingDrafts.map(d => d.id)));
+  };
+
+  const clearSelection = () => {
+    setSelectedDrafts(new Set());
+  };
+
+  const startEdit = (draftId: string, currentText: string) => {
+    setEditingDraft(draftId);
+    setEditText(currentText);
+  };
+
+  const saveEdit = () => {
+    if (editingDraft && editText.trim()) {
+      handleSingleAction(editingDraft, "edit", editText.trim());
+    }
+  };
+
+  const cancelEdit = () => {
+    setEditingDraft(null);
+    setEditText("");
+  };
+
+  const platformIcon = (platform: string) => platform === "x" ? "𝕏" : "in";
+  const platformColor = (platform: string) => platform === "x" ? "text-white" : "text-blue-400";
 
   if (!mounted) return null;
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-6xl mx-auto">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
-        <h2 className="text-xl md:text-2xl font-bold">📝 Content</h2>
-        <div className="flex gap-1 bg-[#1a1d27] border border-[#2e3345] rounded-lg p-1 w-full sm:w-auto">
-          {(["drafts", "posted"] as const).map((v) => (
+        <h2 className="text-xl md:text-2xl font-bold">📝 Content Approval</h2>
+        
+        <div className="flex gap-1 bg-[#1a1d27] border border-[#2e3345] rounded-lg p-1">
+          {([
+            { key: "pending", label: `Pending (${pendingDrafts.length})` },
+            { key: "queue", label: `Queue (${queuedPosts.length})` },
+            { key: "history", label: "History" }
+          ] as const).map(({ key, label }) => (
             <button
-              key={v}
-              onClick={() => setView(v)}
-              className={`flex-1 sm:flex-none px-4 py-2 rounded-md text-xs font-medium transition-colors capitalize min-h-[44px] ${
-                view === v ? "bg-indigo-500/20 text-indigo-400" : "text-[#8b8fa3] hover:text-[#e4e6ed]"
+              key={key}
+              onClick={() => setView(key)}
+              className={`px-4 py-2 rounded-md text-xs font-medium transition-colors min-h-[44px] ${
+                view === key ? "bg-indigo-500/20 text-indigo-400" : "text-[#8b8fa3] hover:text-[#e4e6ed]"
               }`}
             >
-              {v} {v === "drafts" && pendingDrafts.length > 0 && `(${pendingDrafts.length})`}
+              {label}
             </button>
           ))}
         </div>
       </div>
 
-      {view === "drafts" && (
-        <>
-          {pendingDrafts.length === 0 && resolvedDrafts.length === 0 ? (
-            <div className="bg-[#1a1d27] border border-[#2e3345] rounded-xl p-8 text-center text-[#8b8fa3] text-sm">
-              No drafts yet — Kelly and Rachel are warming up.
-            </div>
-          ) : (
-            <>
-              {pendingDrafts.length > 0 && (
-                <div className="space-y-3 mb-6">
-                  {pendingDrafts.map((d) => (
-                    <div key={d.id} className="bg-[#1a1d27] border border-amber-500/30 rounded-xl p-5">
-                      <div className="flex items-center gap-3 mb-3">
-                        <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${d.platform === "x" ? "border-white/20 bg-white/5 text-white" : "border-blue-400/30 bg-blue-400/10 text-blue-400"}`}>{platformIcon(d.platform)} {d.platform === "x" ? "X / Twitter" : "LinkedIn"}</span>
-                        <span className="text-xs font-medium text-[#e4e6ed]">{d.authorEmoji} {d.author}</span>
-                        <span className="text-xs text-[#8b8fa3]">{d.date}</span>
-                      </div>
-                      <p className="text-sm text-[#e4e6ed] whitespace-pre-wrap mb-2 bg-[#242836] rounded-lg p-3">{d.text}</p>
-                      {(d.rationale || d.angle) && <p className="text-xs text-[#8b8fa3] italic mb-3">💡 {d.rationale || d.angle}</p>}
-                      {d.source && <p className="text-[10px] text-[#8b8fa3] mb-3">📎 Source: {d.source}</p>}
-                      <div className="space-y-3">
-                        <div className="flex flex-col sm:flex-row gap-2">
-                          <button onClick={() => handleAction(d.id, "approved")} className="px-4 py-2 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 rounded-lg text-sm font-medium transition-colors min-h-[44px]">✓ Approve</button>
-                          <button onClick={() => { setDenyingId(denyingId === d.id ? null : d.id); setDenyFeedback(""); }} className="px-4 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg text-sm font-medium transition-colors min-h-[44px]">✕ Deny</button>
-                        </div>
-                        {denyingId === d.id && (
-                          <div className="flex flex-col sm:flex-row gap-2">
-                            <input
-                              type="text"
-                              value={denyFeedback}
-                              onChange={(e) => setDenyFeedback(e.target.value)}
-                              onKeyDown={(e) => { if (e.key === "Enter" && denyFeedback.trim()) handleAction(d.id, "denied", denyFeedback.trim()); }}
-                              placeholder="Why? (helps Kelly/Rachel improve)"
-                              className="flex-1 bg-[#242836] border border-red-500/30 rounded-lg px-3 py-2 text-sm text-[#e4e6ed] placeholder-[#8b8fa3] focus:outline-none focus:border-red-500/60 min-h-[44px]"
-                              autoFocus
-                            />
-                            <button
-                              onClick={() => { if (denyFeedback.trim()) handleAction(d.id, "denied", denyFeedback.trim()); }}
-                              className="px-4 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg text-sm font-medium transition-colors min-h-[44px]"
-                            >Send</button>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-              {resolvedDrafts.length > 0 && (
-                <>
-                  <h3 className="text-sm font-semibold text-[#8b8fa3] uppercase tracking-wider mb-3">Reviewed</h3>
-                  <div className="space-y-2">
-                    {resolvedDrafts.map((d) => (
-                      <div key={d.id} className={`bg-[#1a1d27] border rounded-lg p-3 ${d.status === "approved" ? "border-emerald-500/20" : "border-red-500/20"}`}>
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                          <div className="flex items-center gap-2 min-w-0 flex-1">
-                            <span className={`text-xs font-bold ${platformColor(d.platform)}`}>{platformIcon(d.platform)}</span>
-                            <span className="text-sm truncate">{d.text.slice(0, 80)}{d.text.length > 80 ? "…" : ""}</span>
-                          </div>
-                          <div className="flex items-center gap-2 shrink-0">
-                            <span className="text-xs text-[#8b8fa3]">{d.authorEmoji} {d.author}</span>
-                            <span className={`text-[10px] px-2 py-0.5 rounded-full ${d.status === "approved" ? "bg-emerald-500/20 text-emerald-400" : "bg-red-500/20 text-red-400"}`}>{d.status}</span>
-                          </div>
-                        </div>
-                        {actions[d.id]?.feedback && (
-                          <p className="text-[10px] text-red-400/70 mt-1 ml-6">💬 {actions[d.id].feedback}</p>
-                        )}
-                      </div>
-                    ))}
+      {view === "pending" && (
+        <div className="space-y-4">
+          {/* Batch Actions */}
+          {pendingDrafts.length > 0 && (
+            <div className="bg-[#1a1d27] border border-[#2e3345] rounded-xl p-4">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div className="flex items-center gap-4">
+                  <div className="flex gap-2">
+                    <button
+                      onClick={selectAll}
+                      className="text-xs px-3 py-1 rounded-md bg-indigo-500/20 text-indigo-400 hover:bg-indigo-500/30 transition-colors"
+                    >
+                      Select All ({pendingDrafts.length})
+                    </button>
+                    {selectedDrafts.size > 0 && (
+                      <button
+                        onClick={clearSelection}
+                        className="text-xs px-3 py-1 rounded-md bg-gray-500/20 text-gray-400 hover:bg-gray-500/30 transition-colors"
+                      >
+                        Clear ({selectedDrafts.size})
+                      </button>
+                    )}
                   </div>
-                </>
-              )}
-            </>
+                  
+                  {selectedDrafts.size > 0 && (
+                    <span className="text-xs text-[#8b8fa3]">
+                      {selectedDrafts.size} selected
+                    </span>
+                  )}
+                </div>
+                
+                {selectedDrafts.size > 0 && (
+                  <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
+                    <input
+                      type="text"
+                      value={feedback}
+                      onChange={(e) => setFeedback(e.target.value)}
+                      placeholder="Optional feedback for batch..."
+                      className="flex-1 sm:w-64 bg-[#242836] border border-[#2e3345] rounded-lg px-3 py-2 text-sm text-[#e4e6ed] placeholder-[#8b8fa3] focus:outline-none focus:border-indigo-500/60 min-h-[36px]"
+                    />
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => handleBatchAction("approve")}
+                        disabled={loading}
+                        className="px-4 py-2 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 rounded-lg text-sm font-medium transition-colors disabled:opacity-50 min-h-[36px]"
+                      >
+                        ✓ Approve All
+                      </button>
+                      <button
+                        onClick={() => handleBatchAction("deny")}
+                        disabled={loading}
+                        className="px-4 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg text-sm font-medium transition-colors disabled:opacity-50 min-h-[36px]"
+                      >
+                        ✕ Deny All
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
           )}
-        </>
-      )}
 
-      {view === "posted" && (
-        <>
-          {data.posted.length === 0 ? (
+          {/* Pending Drafts */}
+          {pendingDrafts.length === 0 ? (
             <div className="bg-[#1a1d27] border border-[#2e3345] rounded-xl p-8 text-center text-[#8b8fa3] text-sm">
-              Nothing posted yet — still in calibration mode.
+              🎉 No pending drafts — all caught up!
             </div>
           ) : (
             <div className="space-y-3">
-              {data.posted.map((p) => (
-                <div key={p.id} className="bg-[#1a1d27] border border-[#2e3345] rounded-xl p-5">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className={`text-sm font-bold ${platformColor(p.platform)}`}>{platformIcon(p.platform)}</span>
-                    <span className="text-xs text-[#8b8fa3]">{p.authorEmoji} {p.author} • {p.postedAt}</span>
-                  </div>
-                  <p className="text-sm text-[#e4e6ed] whitespace-pre-wrap mb-3">{p.text}</p>
-                  <div className="flex gap-4 text-xs text-[#8b8fa3]">
-                    {p.impressions !== undefined && <span>👁 {p.impressions.toLocaleString()}</span>}
-                    {p.likes !== undefined && <span>❤️ {p.likes}</span>}
-                    {p.comments !== undefined && <span>💬 {p.comments}</span>}
-                    {p.url && <a href={p.url} target="_blank" rel="noopener" className="text-indigo-400 hover:underline">View →</a>}
+              {pendingDrafts.map((draft) => (
+                <div
+                  key={draft.id}
+                  className={`bg-[#1a1d27] border rounded-xl p-5 transition-all ${
+                    selectedDrafts.has(draft.id) ? "border-indigo-500/50 bg-indigo-500/5" : "border-amber-500/30"
+                  }`}
+                >
+                  <div className="flex items-start gap-3 mb-4">
+                    <input
+                      type="checkbox"
+                      checked={selectedDrafts.has(draft.id)}
+                      onChange={() => toggleDraftSelection(draft.id)}
+                      className="mt-1 w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+                    />
+                    
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3 mb-3">
+                        <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
+                          draft.platform === "x" ? "border-white/20 bg-white/5 text-white" : "border-blue-400/30 bg-blue-400/10 text-blue-400"
+                        }`}>
+                          {platformIcon(draft.platform)} {draft.platform === "x" ? "X" : "LinkedIn"}
+                        </span>
+                        <span className="text-sm font-medium text-[#e4e6ed]">{draft.authorEmoji} {draft.author}</span>
+                        <span className="text-xs text-[#8b8fa3]">{draft.date}</span>
+                        {draft.batch && (
+                          <span className="text-[10px] px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-400">
+                            {draft.batch}
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Text Display/Edit */}
+                      {editingDraft === draft.id ? (
+                        <div className="space-y-3">
+                          <textarea
+                            value={editText}
+                            onChange={(e) => setEditText(e.target.value)}
+                            className="w-full bg-[#242836] border border-[#2e3345] rounded-lg p-3 text-sm text-[#e4e6ed] focus:outline-none focus:border-indigo-500/60 min-h-[120px] resize-none"
+                            placeholder="Edit the post text..."
+                          />
+                          <div className="flex gap-2">
+                            <button
+                              onClick={saveEdit}
+                              disabled={loading || !editText.trim()}
+                              className="px-4 py-2 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 rounded-lg text-sm font-medium transition-colors disabled:opacity-50"
+                            >
+                              Save Edit
+                            </button>
+                            <button
+                              onClick={cancelEdit}
+                              className="px-4 py-2 bg-gray-500/20 hover:bg-gray-500/30 text-gray-400 rounded-lg text-sm font-medium transition-colors"
+                            >
+                              Cancel
+                            </button>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="bg-[#242836] rounded-lg p-3 mb-3">
+                          <p className="text-sm text-[#e4e6ed] whitespace-pre-wrap">{draft.text}</p>
+                        </div>
+                      )}
+
+                      {/* Meta info */}
+                      {(draft.angle || draft.rationale) && (
+                        <p className="text-xs text-[#8b8fa3] italic mb-2">
+                          💡 {draft.angle || draft.rationale}
+                        </p>
+                      )}
+                      {draft.source && (
+                        <p className="text-[10px] text-[#8b8fa3] mb-3">
+                          📎 Source: {draft.source}
+                        </p>
+                      )}
+
+                      {/* Individual Actions */}
+                      {editingDraft !== draft.id && (
+                        <div className="flex flex-col sm:flex-row gap-2">
+                          <button
+                            onClick={() => handleSingleAction(draft.id, "approve")}
+                            disabled={loading}
+                            className="px-4 py-2 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 rounded-lg text-sm font-medium transition-colors disabled:opacity-50 min-h-[44px]"
+                          >
+                            ✓ Approve & Queue
+                          </button>
+                          <button
+                            onClick={() => startEdit(draft.id, draft.text)}
+                            disabled={loading}
+                            className="px-4 py-2 bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 rounded-lg text-sm font-medium transition-colors disabled:opacity-50 min-h-[44px]"
+                          >
+                            ✏️ Edit
+                          </button>
+                          <button
+                            onClick={() => handleSingleAction(draft.id, "deny")}
+                            disabled={loading}
+                            className="px-4 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg text-sm font-medium transition-colors disabled:opacity-50 min-h-[44px]"
+                          >
+                            ✕ Deny
+                          </button>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
           )}
-        </>
+
+          {/* Editing Drafts */}
+          {editingDrafts.length > 0 && (
+            <div className="mt-8">
+              <h3 className="text-sm font-semibold text-[#8b8fa3] uppercase tracking-wider mb-3">
+                Being Edited ({editingDrafts.length})
+              </h3>
+              <div className="space-y-2">
+                {editingDrafts.map((draft) => (
+                  <div key={draft.id} className="bg-[#1a1d27] border border-blue-500/30 rounded-lg p-4">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <span className={`text-xs font-bold ${platformColor(draft.platform)}`}>
+                          {platformIcon(draft.platform)}
+                        </span>
+                        <span className="text-sm font-medium">{draft.authorEmoji} {draft.author}</span>
+                        <span className="text-xs text-[#8b8fa3]">editing...</span>
+                      </div>
+                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-400">
+                        In Edit
+                      </span>
+                    </div>
+                    {draft.editedText && (
+                      <div className="mt-2 text-xs text-[#8b8fa3] bg-[#242836] rounded-lg p-2">
+                        Latest: {draft.editedText.slice(0, 100)}...
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {view === "queue" && (
+        <div className="space-y-3">
+          {queuedPosts.length === 0 ? (
+            <div className="bg-[#1a1d27] border border-[#2e3345] rounded-xl p-8 text-center text-[#8b8fa3] text-sm">
+              No posts queued for publishing.
+            </div>
+          ) : (
+            queuedPosts.map((item) => (
+              <div key={item.id} className="bg-[#1a1d27] border border-emerald-500/30 rounded-xl p-5">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
+                    item.platform === "x" ? "border-white/20 bg-white/5 text-white" : "border-blue-400/30 bg-blue-400/10 text-blue-400"
+                  }`}>
+                    {platformIcon(item.platform)} {item.platform === "x" ? "X" : "LinkedIn"}
+                  </span>
+                  <span className="text-sm font-medium text-[#e4e6ed]">{item.authorEmoji} {item.author}</span>
+                  <span className="text-xs text-emerald-400">
+                    📅 {new Date(item.scheduledFor).toLocaleString()}
+                  </span>
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400">
+                    Queued
+                  </span>
+                </div>
+                <div className="bg-[#242836] rounded-lg p-3">
+                  <p className="text-sm text-[#e4e6ed] whitespace-pre-wrap">{item.text}</p>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+      )}
+
+      {view === "history" && (
+        <div className="space-y-2">
+          {resolvedDrafts.length === 0 ? (
+            <div className="bg-[#1a1d27] border border-[#2e3345] rounded-xl p-8 text-center text-[#8b8fa3] text-sm">
+              No approval history yet.
+            </div>
+          ) : (
+            resolvedDrafts.map((draft) => (
+              <div
+                key={draft.id}
+                className={`bg-[#1a1d27] border rounded-lg p-4 ${
+                  draft.status === "approved" ? "border-emerald-500/20" : "border-red-500/20"
+                }`}
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <span className={`text-xs font-bold ${platformColor(draft.platform)}`}>
+                      {platformIcon(draft.platform)}
+                    </span>
+                    <span className="text-sm font-medium">{draft.authorEmoji} {draft.author}</span>
+                    <span className="text-sm truncate max-w-md">
+                      {(draft.editedText || draft.text).slice(0, 80)}...
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs text-[#8b8fa3]">
+                      {draft.resolvedAt ? new Date(draft.resolvedAt).toLocaleDateString() : draft.date}
+                    </span>
+                    <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${
+                      draft.status === "approved" ? "bg-emerald-500/20 text-emerald-400" : "bg-red-500/20 text-red-400"
+                    }`}>
+                      {draft.status}
+                    </span>
+                  </div>
+                </div>
+                {draft.feedback && (
+                  <p className="text-[10px] text-[#8b8fa3] mt-2 ml-4">💬 {draft.feedback}</p>
+                )}
+              </div>
+            ))
+          )}
+        </div>
+      )}
+
+      {loading && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-[#1a1d27] border border-[#2e3345] rounded-xl p-6 text-center">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-400 mx-auto mb-3"></div>
+            <p className="text-sm text-[#8b8fa3]">Processing approval...</p>
+          </div>
+        </div>
       )}
     </div>
   );
