@@ -1,9 +1,58 @@
 [
-  { "id": "george", "agent": "George", "agentEmoji": "🦾", "action": "Fixing Mission Control data accuracy", "time": "8:26 PM", "color": "#6366f1" },
-  { "id": "dwight", "agent": "Dwight", "agentEmoji": "🔍", "action": "Idle — next sweep: 6:00 PM (completed)", "time": "", "color": "#a855f7" },
-  { "id": "kelly", "agent": "Kelly", "agentEmoji": "🐦", "action": "Idle — next drafts: tomorrow 9:00 AM", "time": "", "color": "#ec4899" },
-  { "id": "rachel", "agent": "Rachel", "agentEmoji": "💼", "action": "Idle — next drafts: tomorrow 9:00 AM", "time": "", "color": "#3b82f6" },
-  { "id": "john", "agent": "John", "agentEmoji": "📈", "action": "Idle — next market scan: ~10:00 PM", "time": "", "color": "#10b981" },
-  { "id": "ross", "agent": "Ross", "agentEmoji": "⚙️", "action": "Full Mission Control audit and fixes", "time": "8:31 PM", "color": "#f59e0b" },
-  { "id": "pam", "agent": "Pam", "agentEmoji": "📋", "action": "Idle — CRM ingestion runs at 10:00 PM", "time": "", "color": "#f472b6" }
+  {
+    "id": "george",
+    "agent": "George",
+    "agentEmoji": "\ud83e\uddbe",
+    "action": "Fixing Mission Control data accuracy",
+    "time": "8:26 PM",
+    "color": "#6366f1"
+  },
+  {
+    "id": "dwight",
+    "agent": "Dwight",
+    "agentEmoji": "\ud83d\udd0d",
+    "action": "Idle \u2014 next sweep: 6:00 PM (completed)",
+    "time": "",
+    "color": "#a855f7"
+  },
+  {
+    "id": "kelly",
+    "agent": "Kelly",
+    "agentEmoji": "\ud83d\udc26",
+    "action": "Idle \u2014 next drafts: tomorrow 9:00 AM",
+    "time": "",
+    "color": "#ec4899"
+  },
+  {
+    "id": "rachel",
+    "agent": "Rachel",
+    "agentEmoji": "\ud83d\udcbc",
+    "action": "Idle \u2014 next drafts: tomorrow 9:00 AM",
+    "time": "",
+    "color": "#3b82f6"
+  },
+  {
+    "id": "john",
+    "agent": "John",
+    "agentEmoji": "\ud83d\udcc8",
+    "action": "Idle \u2014 next market scan: ~10:00 PM",
+    "time": "",
+    "color": "#10b981"
+  },
+  {
+    "id": "ross",
+    "agent": "Ross",
+    "agentEmoji": "\u2699\ufe0f",
+    "action": "Full Mission Control audit and fixes",
+    "time": "8:31 PM",
+    "color": "#f59e0b"
+  },
+  {
+    "id": "pam",
+    "agent": "Pam",
+    "agentEmoji": "\ud83d\udccb",
+    "action": "Running 8-month CRM deep ingestion",
+    "time": "9:03 PM",
+    "color": "#f472b6"
+  }
 ]
