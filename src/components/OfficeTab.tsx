@@ -4,6 +4,41 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { TeamData } from "@/lib/types";
 import { fetchData } from "@/lib/dataFetch";
 
+// --- Timezone Conversion Helper ---
+function convertPSTToLocal(pstTime: string): string {
+  // Handle non-time strings
+  if (!pstTime || pstTime.toLowerCase().includes('every') || pstTime.toLowerCase().includes('hourly') || pstTime.toLowerCase().includes('ongoing')) {
+    return pstTime;
+  }
+
+  // Parse standard time format like "11:00 PM" or "4:00 AM" or "8:00 AM" or "7:45 AM"
+  const timeMatch = pstTime.match(/^(\d{1,2}):?(\d{2})?\s*(AM|PM)$/i);
+  if (!timeMatch) {
+    return pstTime; // Return original if format doesn't match
+  }
+
+  const hours = parseInt(timeMatch[1]);
+  const minutes = timeMatch[2] ? parseInt(timeMatch[2]) : 0;
+  const period = timeMatch[3].toUpperCase();
+  
+  // Convert to 24-hour format
+  let h = hours;
+  if (period === 'PM' && h !== 12) h += 12;
+  if (period === 'AM' && h === 12) h = 0;
+
+  // Create a Date object representing this time in PST
+  // Using a fixed date (2026-02-14) and PST offset (-08:00)
+  const pstDateString = `2026-02-14T${String(h).padStart(2,'0')}:${String(minutes).padStart(2,'0')}:00-08:00`;
+  const date = new Date(pstDateString);
+  
+  // Convert to user's local timezone
+  return date.toLocaleTimeString('en-US', { 
+    hour: 'numeric', 
+    minute: '2-digit', 
+    hour12: true 
+  });
+}
+
 // --- Types ---
 interface Vec { x: number; y: number }
 
@@ -510,7 +545,7 @@ export default function OfficeTab() {
         <div className="flex items-center gap-2 md:gap-4 mt-3 text-[9px] md:text-[10px] text-[#8b8fa3] justify-center flex-wrap">
           <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-emerald-400" /> Online</span>
           <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-[#2e3345]" /> Coming Soon</span>
-          <span className="hidden sm:inline">Standups: 4a · 7:45a · 12p · 4p · 8p · 11p</span>
+          <span className="hidden sm:inline">Standups: {convertPSTToLocal("4:00 AM")} · {convertPSTToLocal("7:45 AM")} · {convertPSTToLocal("12:00 PM")} · {convertPSTToLocal("4:00 PM")} · {convertPSTToLocal("8:00 PM")} · {convertPSTToLocal("11:00 PM")}</span>
           <span className="sm:hidden">6 standups daily</span>
         </div>
       </div>
@@ -556,15 +591,16 @@ export default function OfficeTab() {
 // --- Helpers ---
 function isStandupActive(): boolean {
   const now = new Date();
-  const t = now.getHours() * 60 + now.getMinutes();
-  // 6x daily: 4:00a, 7:45a, 12:00p, 4:00p, 8:00p, 11:00p — each lasts 15 min
+  const pstNow = new Date(now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
+  const t = pstNow.getHours() * 60 + pstNow.getMinutes();
+  // 6x daily: 4:00a, 7:45a, 12:00p, 4:00p, 8:00p, 11:00p PST — each lasts 15 min
   return (
-    (t >= 240 && t < 255) ||   // 4:00 AM
-    (t >= 465 && t < 480) ||   // 7:45 AM
-    (t >= 720 && t < 735) ||   // 12:00 PM
-    (t >= 960 && t < 975) ||   // 4:00 PM
-    (t >= 1200 && t < 1215) || // 8:00 PM
-    (t >= 1380 && t < 1395)    // 11:00 PM
+    (t >= 240 && t < 255) ||   // 4:00 AM PST
+    (t >= 465 && t < 480) ||   // 7:45 AM PST
+    (t >= 720 && t < 735) ||   // 12:00 PM PST
+    (t >= 960 && t < 975) ||   // 4:00 PM PST
+    (t >= 1200 && t < 1215) || // 8:00 PM PST
+    (t >= 1380 && t < 1395)    // 11:00 PM PST
   );
 }
 

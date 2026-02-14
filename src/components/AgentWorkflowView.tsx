@@ -2,6 +2,58 @@
 
 import { useState } from "react";
 
+// --- Timezone Conversion Helper ---
+function convertPSTToLocal(pstTime: string): string {
+  // Handle non-time strings
+  if (!pstTime || pstTime.toLowerCase().includes('every') || pstTime.toLowerCase().includes('hourly') || pstTime.toLowerCase().includes('ongoing')) {
+    return pstTime;
+  }
+
+  // Handle "Morning" and other descriptive times
+  if (pstTime.toLowerCase().includes('morning') && !pstTime.includes(':')) {
+    return pstTime;
+  }
+
+  // Handle "Mon 9AM" format
+  if (pstTime.includes('Mon ') && pstTime.includes('AM')) {
+    const timeMatch = pstTime.match(/(\d+)(AM|PM)/);
+    if (timeMatch) {
+      const hour = parseInt(timeMatch[1]);
+      const period = timeMatch[2];
+      const convertedTime = convertPSTToLocal(`${hour}:00 ${period}`);
+      return `Mon ${convertedTime}`;
+    }
+    return pstTime;
+  }
+
+  // Parse standard time format like "11:00 PM" or "4:00 AM" or "8:00 AM"
+  const timeMatch = pstTime.match(/^(\d{1,2}):?(\d{2})?\s*(AM|PM)$/i);
+  if (!timeMatch) {
+    return pstTime; // Return original if format doesn't match
+  }
+
+  const hours = parseInt(timeMatch[1]);
+  const minutes = timeMatch[2] ? parseInt(timeMatch[2]) : 0;
+  const period = timeMatch[3].toUpperCase();
+  
+  // Convert to 24-hour format
+  let h = hours;
+  if (period === 'PM' && h !== 12) h += 12;
+  if (period === 'AM' && h === 12) h = 0;
+
+  // Create a Date object representing this time in PST
+  // Using a fixed date (2026-02-14) and PST offset (-08:00)
+  const pstDateString = `2026-02-14T${String(h).padStart(2,'0')}:${String(minutes).padStart(2,'0')}:00-08:00`;
+  const date = new Date(pstDateString);
+  
+  // Convert to user's local timezone
+  return date.toLocaleTimeString('en-US', { 
+    hour: 'numeric', 
+    minute: '2-digit', 
+    hour12: true 
+  });
+}
+
 // --- Types ---
 interface WorkflowNode {
   id: string;
@@ -349,7 +401,7 @@ function WorkflowNode({ node, isSelected, onClick }: {
             <div className="text-xs leading-tight">
               <div className="font-semibold">{node.label}</div>
               {node.time && (
-                <div className="text-emerald-300/70 text-[10px] mt-1">{node.time}</div>
+                <div className="text-emerald-300/70 text-[10px] mt-1">{convertPSTToLocal(node.time)}</div>
               )}
             </div>
           </div>
