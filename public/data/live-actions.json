@@ -1,14 +1,9 @@
 [
-  { "id": "12", "agent": "Ross", "agentEmoji": "⚙️", "action": "Engineering agent online — Codex CLI + GitHub ready", "time": "3:40 PM", "color": "#f59e0b" },
-  { "id": "11", "agent": "George", "agentEmoji": "🦾", "action": "All 3 standups updated with Ross engineering ideation", "time": "3:37 PM", "color": "#6366f1" },
-  { "id": "10", "agent": "George", "agentEmoji": "🦾", "action": "Task board: all views now kanban, daily default", "time": "3:25 PM", "color": "#6366f1" },
-  { "id": "9", "agent": "George", "agentEmoji": "🦾", "action": "X API tokens + OpenAI org verification complete", "time": "3:15 PM", "color": "#6366f1" },
-  { "id": "8", "agent": "John", "agentEmoji": "📈", "action": "Unblocked — o4-mini verified, afternoon analysis running", "time": "3:12 PM", "color": "#10b981" },
-  { "id": "7", "agent": "George", "agentEmoji": "🦾", "action": "Content tab: author + platform badges on drafts", "time": "2:30 PM", "color": "#6366f1" },
-  { "id": "6", "agent": "George", "agentEmoji": "🦾", "action": "Content→Tasks bridge: auto-complete review tasks", "time": "2:25 PM", "color": "#6366f1" },
-  { "id": "5", "agent": "Rachel", "agentEmoji": "💼", "action": "Midday drafts retrying — API was overloaded", "time": "2:03 PM", "color": "#3b82f6" },
-  { "id": "4", "agent": "Kelly", "agentEmoji": "🐦", "action": "Midday drafts delivered — 3 tweets ready for review", "time": "1:30 PM", "color": "#ec4899" },
-  { "id": "3", "agent": "Dwight", "agentEmoji": "🔍", "action": "Midday sweep complete — 12 stories filed", "time": "1:00 PM", "color": "#a855f7" },
-  { "id": "2", "agent": "George", "agentEmoji": "🦾", "action": "Midday standup completed", "time": "12:00 PM", "color": "#6366f1" },
-  { "id": "1", "agent": "George", "agentEmoji": "🦾", "action": "Daily autonomous work completed — 5 tasks", "time": "10:45 AM", "color": "#6366f1" }
+  { "id": "george", "agent": "George", "agentEmoji": "🦾", "action": "Fixing Mission Control data accuracy", "time": "8:26 PM", "color": "#6366f1" },
+  { "id": "dwight", "agent": "Dwight", "agentEmoji": "🔍", "action": "Idle — next sweep: 6:00 PM (completed)", "time": "", "color": "#a855f7" },
+  { "id": "kelly", "agent": "Kelly", "agentEmoji": "🐦", "action": "Idle — next drafts: tomorrow 9:00 AM", "time": "", "color": "#ec4899" },
+  { "id": "rachel", "agent": "Rachel", "agentEmoji": "💼", "action": "Idle — next drafts: tomorrow 9:00 AM", "time": "", "color": "#3b82f6" },
+  { "id": "john", "agent": "John", "agentEmoji": "📈", "action": "Idle — next market scan: ~10:00 PM", "time": "", "color": "#10b981" },
+  { "id": "ross", "agent": "Ross", "agentEmoji": "⚙️", "action": "Idle — awaiting task assignment", "time": "", "color": "#f59e0b" },
+  { "id": "pam", "agent": "Pam", "agentEmoji": "📋", "action": "Idle — CRM ingestion runs at 10:00 PM", "time": "", "color": "#f472b6" }
 ]
