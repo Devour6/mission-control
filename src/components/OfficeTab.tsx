@@ -408,8 +408,13 @@ export default function OfficeTab() {
             const key = `${next.x},${next.y}`;
             const blocker = occupied.get(key);
             if (blocker && blocker !== a.name) {
-              // Wait a tick (don't move)
+              // Wait a tick — but if stuck too long, skip the blocked step
               a.walkFrame++;
+              if (a.walkFrame > 15) {
+                // Stuck too long — skip this waypoint to unstick
+                a.path = a.path.slice(1);
+                a.walkFrame = 0;
+              }
             } else {
               // Remove old position, update
               occupied.delete(`${a.pos.x},${a.pos.y}`);
@@ -542,7 +547,15 @@ export default function OfficeTab() {
 function isStandupActive(): boolean {
   const now = new Date();
   const t = now.getHours() * 60 + now.getMinutes();
-  return (t >= 465 && t < 480) || (t >= 720 && t < 735) || (t >= 1050 && t < 1065);
+  // 6x daily: 4:00a, 7:45a, 12:00p, 4:00p, 8:00p, 11:00p — each lasts 15 min
+  return (
+    (t >= 240 && t < 255) ||   // 4:00 AM
+    (t >= 465 && t < 480) ||   // 7:45 AM
+    (t >= 720 && t < 735) ||   // 12:00 PM
+    (t >= 960 && t < 975) ||   // 4:00 PM
+    (t >= 1200 && t < 1215) || // 8:00 PM
+    (t >= 1380 && t < 1395)    // 11:00 PM
+  );
 }
 
 function getColors(name: string): { body: string; eye: string } {
