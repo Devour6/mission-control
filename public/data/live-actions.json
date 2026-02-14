@@ -51,8 +51,8 @@
     "id": "pam",
     "agent": "Pam",
     "agentEmoji": "\ud83d\udccb",
-    "action": "Running 8-month CRM deep ingestion",
-    "time": "9:03 PM",
+    "action": "Idle \u2014 CRM ingestion complete (20 contacts)",
+    "time": "9:09 PM",
     "color": "#f472b6"
   }
 ]
