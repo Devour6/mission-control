@@ -10,7 +10,7 @@
           "authorEmoji": "📈",
           "type": "analysis",
           "description": "Analysis of income optimization levers for Brandon's 4 validators. Commission strategy, stake growth, block production efficiency. NOTE: MEV commission increase rejected — would lose stake.",
-          "path": "agents/john/research/validator-income-optimization.md"
+          "url": "https://docs.google.com/document/d/1n46o7UIJ7kmQNqrPa-LlAcAjFBRZhLSlSNYhbQk2csk/edit"
         },
         {
           "id": "d-14-2",
@@ -19,7 +19,7 @@
           "authorEmoji": "📈",
           "type": "analysis",
           "description": "Dollar-cost averaging strategy for SOL accumulation, calibrated to current market conditions and house savings timeline.",
-          "path": "agents/john/memory/dca-strategy-optimization.md"
+          "url": "https://docs.google.com/document/d/1_6jtAQCOa2nwGVuhPZCecMm9kMnSlsWqZZaxYBvWoT0/edit"
         },
         {
           "id": "d-14-3",
@@ -28,7 +28,7 @@
           "authorEmoji": "⚙️",
           "type": "engineering",
           "description": "Built automated content approval system in Mission Control — batch approve/deny, inline editing, feedback loop to Kelly/Rachel.",
-          "path": "agents/ross/memory/2026-02-14-approval-workflow.md"
+          "url": "https://docs.google.com/document/d/1j6pC3f2pEgVKn3XCcJuESI9PgtgxanmTPcsnYVb2joU/edit"
         },
         {
           "id": "d-14-4",
@@ -37,7 +37,7 @@
           "authorEmoji": "📋",
           "type": "report",
           "description": "Detailed breakdown of Brandon's $3,634/mo expenses with optimization opportunities — subscriptions, API costs, alternatives.",
-          "path": "agents/pam/agents/pam/financial/expense-categories.md"
+          "url": "https://docs.google.com/document/d/1ju3Mp-xNCbcyEnsmgDA_KIf8J972NqVxrke3GHTVWJE/edit"
         },
         {
           "id": "d-14-5",
@@ -46,7 +46,7 @@
           "authorEmoji": "📋",
           "type": "report",
           "description": "Austin house purchase tracker — $180K down payment goal, current savings rate, projected timeline based on validator income + salary.",
-          "path": "agents/pam/agents/pam/financial/savings-tracker.md"
+          "url": "https://docs.google.com/document/d/1hCj9O0Eq2R85-wlvokqw2zaiZrMeeqDsArjj__VZjSk/edit"
         },
         {
           "id": "d-14-6",
@@ -55,7 +55,7 @@
           "authorEmoji": "🦾",
           "type": "report",
           "description": "Real onchain validator income data from SVT.one API. Epochs 923-925: Brandon earned 46.85 SOL (~$4,087). 24h run rate: 6.66 SOL ($586). Annualized: ~$214K.",
-          "path": "scripts/svt-validator-income.sh"
+          "url": "https://docs.google.com/document/d/12-na8Wd3mPVCtlKFyyKizcHrTHl7EArJK73I_FimEVI/edit"
         }
       ]
     },
@@ -77,7 +77,7 @@
           "authorEmoji": "🦾",
           "type": "report",
           "description": "Current metrics for Ded Monkes, Gojira, Nebula, Kisetsu — skip rates, credits, stake, commission comparison",
-          "url": "https://docs.google.com/document/d/1PMvuwQeqrsOvHQ1lYlGSwefb8q3KGkFj/edit"
+          "url": "https://drive.google.com/file/d/1PMvuwQeqrsOvHQ1lYlGSwefb8q3KGkFj/view"
         },
         {
           "id": "d-7",
