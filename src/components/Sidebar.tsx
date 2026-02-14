@@ -13,6 +13,7 @@ const tabs = [
   { id: "approvals", label: "Approvals", icon: "✅" },
   { id: "content", label: "Content", icon: "📝" },
   { id: "outcomes", label: "Outcomes", icon: "🏛️" },
+  { id: "standups", label: "Standup History", icon: "📝" },
   { id: "projects", label: "Projects", icon: "🚀" },
   { id: "docs", label: "Docs", icon: "📄" },
   { id: "calendar", label: "Calendar", icon: "📅" },
