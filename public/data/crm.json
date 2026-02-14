@@ -3,7 +3,9 @@
     "id": "f3f57375-f80d-68a3-efed-6ba882d7ad6d",
     "name": "Jeff Newman",
     "email": "jeff@phaselabs.io",
-    "emails": ["jeff@phaselabs.io"],
+    "emails": [
+      "jeff@phaselabs.io"
+    ],
     "company": "Phase Labs",
     "role": "Co-founder / Operations Lead",
     "category": "employee",
@@ -12,24 +14,153 @@
     "source": "phase-inbox",
     "notes": "Key Phase Labs team member. Handles ops, invoicing, planning. Forwards important items to Brandon. Manages Sprinto subscription, weekly planning, and delegation strategy.",
     "interactions": [
-      {"date": "2026-02-13", "type": "email", "summary": "Fwd: My Claude Code Marketing System", "direction": "inbound"},
-      {"date": "2026-02-13", "type": "meeting", "summary": "Weekly Sync", "direction": "bidirectional"},
-      {"date": "2026-02-12", "type": "meeting", "summary": "Exec Meeting", "direction": "bidirectional"},
-      {"date": "2026-02-12", "type": "meeting", "summary": "Phase Weekly All-Hands", "direction": "bidirectional"},
-      {"date": "2026-02-11", "type": "meeting", "summary": "Banker Agent Jam", "direction": "bidirectional"},
-      {"date": "2026-02-09", "type": "email", "summary": "Fwd: Sprinto subscription update", "direction": "inbound"},
-      {"date": "2026-02-05", "type": "meeting", "summary": "Jeff Newman and Sean Hu meeting", "direction": "bidirectional"},
-      {"date": "2026-02-04", "type": "email", "summary": "Fwd: Sprinto important update", "direction": "inbound"},
-      {"date": "2026-02-04", "type": "email", "summary": "Phase Stake/Delegation Weekly Planning invitation", "direction": "inbound"},
-      {"date": "2026-02-03", "type": "email", "summary": "Shared doc: Proposal for AI-Enabled Pod (Netrunner + Essence)", "direction": "inbound"},
-      {"date": "2026-02-02", "type": "email", "summary": "Jeff Newman Invoice - End Jan 2026", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "summary": "Fwd: My Claude Code Marketing System",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-13",
+        "type": "meeting",
+        "summary": "Weekly Sync",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-12",
+        "type": "meeting",
+        "summary": "Exec Meeting",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-12",
+        "type": "meeting",
+        "summary": "Phase Weekly All-Hands",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-11",
+        "type": "meeting",
+        "summary": "Banker Agent Jam",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "summary": "Fwd: Sprinto subscription update",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-05",
+        "type": "meeting",
+        "summary": "Jeff Newman and Sean Hu meeting",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-04",
+        "type": "email",
+        "summary": "Fwd: Sprinto important update",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-04",
+        "type": "email",
+        "summary": "Phase Stake/Delegation Weekly Planning invitation",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-03",
+        "type": "email",
+        "summary": "Shared doc: Proposal for AI-Enabled Pod (Netrunner + Essence)",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-02",
+        "type": "email",
+        "summary": "Jeff Newman Invoice - End Jan 2026",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "employee"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "summary": "Fwd: My Claude Code Marketing System",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-13",
+        "type": "meeting",
+        "summary": "Weekly Sync",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-12",
+        "type": "meeting",
+        "summary": "Exec Meeting",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-12",
+        "type": "meeting",
+        "summary": "Phase Weekly All-Hands",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-11",
+        "type": "meeting",
+        "summary": "Banker Agent Jam",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "summary": "Fwd: Sprinto subscription update",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-05",
+        "type": "meeting",
+        "summary": "Jeff Newman and Sean Hu meeting",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-04",
+        "type": "email",
+        "summary": "Fwd: Sprinto important update",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-04",
+        "type": "email",
+        "summary": "Phase Stake/Delegation Weekly Planning invitation",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-03",
+        "type": "email",
+        "summary": "Shared doc: Proposal for AI-Enabled Pod (Netrunner + Essence)",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-02",
+        "type": "email",
+        "summary": "Jeff Newman Invoice - End Jan 2026",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 5
   },
   {
     "id": "a2750504-d5df-eada-c4a7-068f8ed4e3f7",
     "name": "Seb Moriarty",
     "email": "seb@phaselabs.io",
-    "emails": ["seb@phaselabs.io"],
+    "emails": [
+      "seb@phaselabs.io"
+    ],
     "company": "Phase Labs",
     "role": "Product / Content Lead",
     "category": "employee",
@@ -38,20 +169,105 @@
     "source": "phase-inbox",
     "notes": "Phase Labs team member. Works on Netrunner app, liquid staking content, Google Docs collaboration. Attends Layer 33 calls. Also known as S3B.",
     "interactions": [
-      {"date": "2026-02-13", "type": "meeting", "summary": "Weekly Sync (S3B x Devour)", "direction": "bidirectional"},
-      {"date": "2026-02-11", "type": "meeting", "summary": "S3B x Devour Weekly Sync", "direction": "bidirectional"},
-      {"date": "2026-02-10", "type": "email", "summary": "Google Docs comment on Liquid Staking content", "direction": "bidirectional"},
-      {"date": "2026-02-09", "type": "email", "summary": "Accepted Layer 33 Group Call", "direction": "inbound"},
-      {"date": "2026-02-05", "type": "email", "summary": "Updated Netrunner App Feedback meeting invite", "direction": "inbound"},
-      {"date": "2026-02-04", "type": "email", "summary": "Typefully comment by S3B on content draft", "direction": "inbound"},
-      {"date": "2026-02-04", "type": "meeting", "summary": "S3B x Devour Weekly Sync + mtndao planning", "direction": "bidirectional"}
-    ]
+      {
+        "date": "2026-02-13",
+        "type": "meeting",
+        "summary": "Weekly Sync (S3B x Devour)",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-11",
+        "type": "meeting",
+        "summary": "S3B x Devour Weekly Sync",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-10",
+        "type": "email",
+        "summary": "Google Docs comment on Liquid Staking content",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "summary": "Accepted Layer 33 Group Call",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-05",
+        "type": "email",
+        "summary": "Updated Netrunner App Feedback meeting invite",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-04",
+        "type": "email",
+        "summary": "Typefully comment by S3B on content draft",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-04",
+        "type": "meeting",
+        "summary": "S3B x Devour Weekly Sync + mtndao planning",
+        "direction": "bidirectional"
+      }
+    ],
+    "tags": [
+      "employee"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-13",
+        "type": "meeting",
+        "summary": "Weekly Sync (S3B x Devour)",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-11",
+        "type": "meeting",
+        "summary": "S3B x Devour Weekly Sync",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-10",
+        "type": "email",
+        "summary": "Google Docs comment on Liquid Staking content",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "summary": "Accepted Layer 33 Group Call",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-05",
+        "type": "email",
+        "summary": "Updated Netrunner App Feedback meeting invite",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-04",
+        "type": "email",
+        "summary": "Typefully comment by S3B on content draft",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-04",
+        "type": "meeting",
+        "summary": "S3B x Devour Weekly Sync + mtndao planning",
+        "direction": "bidirectional"
+      }
+    ],
+    "qualityScore": 5
   },
   {
     "id": "762503a7-cdad-e01b-7f54-e9912a92b44b",
     "name": "Gabriel Hicks",
     "email": "gabriel@phaselabs.io",
-    "emails": ["gabriel@phaselabs.io"],
+    "emails": [
+      "gabriel@phaselabs.io"
+    ],
     "company": "Phase Labs",
     "role": "Engineering",
     "category": "employee",
@@ -60,16 +276,57 @@
     "source": "phase-inbox",
     "notes": "Phase Labs engineer. Works on staking infrastructure. Active on Linear (STK tickets). Handles Astralane Iris issues.",
     "interactions": [
-      {"date": "2026-02-12", "type": "email", "summary": "Linear comment on STK-42 Astralane Iris Issue (Vandal)", "direction": "inbound"},
-      {"date": "2026-02-09", "type": "email", "summary": "Accepted Phase Delegation Update meeting", "direction": "inbound"},
-      {"date": "2026-02-04", "type": "email", "summary": "Linear: changed STK-39 status to Done", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "Linear comment on STK-42 Astralane Iris Issue (Vandal)",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "summary": "Accepted Phase Delegation Update meeting",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-04",
+        "type": "email",
+        "summary": "Linear: changed STK-39 status to Done",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "employee"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "Linear comment on STK-42 Astralane Iris Issue (Vandal)",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "summary": "Accepted Phase Delegation Update meeting",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-04",
+        "type": "email",
+        "summary": "Linear: changed STK-39 status to Done",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 5
   },
   {
     "id": "3f8faabb-ae26-c2ad-0cf1-d44ac05ff773",
     "name": "DanTrilo Trilo",
     "email": "dan@phaselabs.io",
-    "emails": ["dan@phaselabs.io"],
+    "emails": [
+      "dan@phaselabs.io"
+    ],
     "company": "Phase Labs",
     "role": "Finance / Validator Operations",
     "category": "employee",
@@ -78,18 +335,81 @@
     "source": "phase-inbox",
     "notes": "Phase Labs finance/ops team member. Sends validator financial statements. Regular 1:1 meetings with Brandon (Dan x Devour).",
     "interactions": [
-      {"date": "2026-02-09", "type": "meeting", "summary": "Dan x Devour 1:1", "direction": "bidirectional"},
-      {"date": "2026-02-08", "type": "email", "summary": "Accepted Dan x Devour meeting invite", "direction": "inbound"},
-      {"date": "2026-02-06", "type": "email", "summary": "Validator Financial Statement January 2026 (thread, multiple sends)", "direction": "inbound"},
-      {"date": "2026-02-05", "type": "email", "summary": "Validator Financial Statement January 2026 (multiple versions)", "direction": "inbound"},
-      {"date": "2026-01-16", "type": "meeting", "summary": "Devour X Dan meeting", "direction": "bidirectional"}
-    ]
+      {
+        "date": "2026-02-09",
+        "type": "meeting",
+        "summary": "Dan x Devour 1:1",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-08",
+        "type": "email",
+        "summary": "Accepted Dan x Devour meeting invite",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-06",
+        "type": "email",
+        "summary": "Validator Financial Statement January 2026 (thread, multiple sends)",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-05",
+        "type": "email",
+        "summary": "Validator Financial Statement January 2026 (multiple versions)",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-01-16",
+        "type": "meeting",
+        "summary": "Devour X Dan meeting",
+        "direction": "bidirectional"
+      }
+    ],
+    "tags": [
+      "employee"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-09",
+        "type": "meeting",
+        "summary": "Dan x Devour 1:1",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-08",
+        "type": "email",
+        "summary": "Accepted Dan x Devour meeting invite",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-06",
+        "type": "email",
+        "summary": "Validator Financial Statement January 2026 (thread, multiple sends)",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-05",
+        "type": "email",
+        "summary": "Validator Financial Statement January 2026 (multiple versions)",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-01-16",
+        "type": "meeting",
+        "summary": "Devour X Dan meeting",
+        "direction": "bidirectional"
+      }
+    ],
+    "qualityScore": 5
   },
   {
     "id": "2fd5078b-b014-7085-44e6-c84887cdb24a",
     "name": "Vitor Medeiros",
     "email": "vitor@phaselabs.io",
-    "emails": ["vitor@phaselabs.io"],
+    "emails": [
+      "vitor@phaselabs.io"
+    ],
     "company": "Phase Labs",
     "role": "Engineering",
     "category": "employee",
@@ -98,15 +418,45 @@
     "source": "phase-inbox",
     "notes": "Phase Labs team member. Accepts team meeting invitations. Part of weekly all-hands.",
     "interactions": [
-      {"date": "2026-02-12", "type": "email", "summary": "Accepted Phase Weekly All-Hands", "direction": "inbound"},
-      {"date": "2026-02-05", "type": "email", "summary": "Accepted Phase Team Meeting", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "Accepted Phase Weekly All-Hands",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-05",
+        "type": "email",
+        "summary": "Accepted Phase Team Meeting",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "employee"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "Accepted Phase Weekly All-Hands",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-05",
+        "type": "email",
+        "summary": "Accepted Phase Team Meeting",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 5
   },
   {
     "id": "50abe87d-1a05-81f0-abfe-fb927e3a2551",
     "name": "Chris Taylor",
     "email": "chris@phaselabs.io",
-    "emails": ["chris@phaselabs.io"],
+    "emails": [
+      "chris@phaselabs.io"
+    ],
     "company": "Phase Labs",
     "role": "Team Member",
     "category": "employee",
@@ -115,16 +465,57 @@
     "source": "phase-inbox",
     "notes": "Phase Labs team member. Completed AME1 agreement via PandaDoc. Comments on Liquid Staking Google Doc. Declined some meetings.",
     "interactions": [
-      {"date": "2026-02-09", "type": "email", "summary": "Declined Phase Weekly All-Hands", "direction": "inbound"},
-      {"date": "2026-02-04", "type": "email", "summary": "Completed PandaDoc '26 02 04 AME1 CHRIS'", "direction": "bidirectional"},
-      {"date": "2026-02-03", "type": "email", "summary": "Google Docs comment on Liquid Staking content", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "summary": "Declined Phase Weekly All-Hands",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-04",
+        "type": "email",
+        "summary": "Completed PandaDoc '26 02 04 AME1 CHRIS'",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-03",
+        "type": "email",
+        "summary": "Google Docs comment on Liquid Staking content",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "employee"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "summary": "Declined Phase Weekly All-Hands",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-04",
+        "type": "email",
+        "summary": "Completed PandaDoc '26 02 04 AME1 CHRIS'",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-03",
+        "type": "email",
+        "summary": "Google Docs comment on Liquid Staking content",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 5
   },
   {
     "id": "25173947-eca6-6778-70b2-c0706414a731",
     "name": "Adam Carter",
     "email": "adam@phaselabs.io",
-    "emails": ["adam@phaselabs.io"],
+    "emails": [
+      "adam@phaselabs.io"
+    ],
     "company": "Phase Labs",
     "role": "Operations / Finance",
     "category": "employee",
@@ -133,17 +524,69 @@
     "source": "phase-inbox",
     "notes": "Phase Labs team member. Handles Latitude reconciliation. Has 1:1 meetings with Brandon (Devour x Adam). Manages calendar invitations.",
     "interactions": [
-      {"date": "2026-02-12", "type": "meeting", "summary": "Devour x Adam (invited)", "direction": "bidirectional"},
-      {"date": "2026-02-05", "type": "meeting", "summary": "Past Latitude Reconciliation", "direction": "bidirectional"},
-      {"date": "2026-02-04", "type": "email", "summary": "Invitation: Devour x Adam meeting", "direction": "inbound"},
-      {"date": "2026-01-22", "type": "meeting", "summary": "Brandon (30 min) with Adam Carter", "direction": "bidirectional"}
-    ]
+      {
+        "date": "2026-02-12",
+        "type": "meeting",
+        "summary": "Devour x Adam (invited)",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-05",
+        "type": "meeting",
+        "summary": "Past Latitude Reconciliation",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-04",
+        "type": "email",
+        "summary": "Invitation: Devour x Adam meeting",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-01-22",
+        "type": "meeting",
+        "summary": "Brandon (30 min) with Adam Carter",
+        "direction": "bidirectional"
+      }
+    ],
+    "tags": [
+      "employee"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-12",
+        "type": "meeting",
+        "summary": "Devour x Adam (invited)",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-05",
+        "type": "meeting",
+        "summary": "Past Latitude Reconciliation",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-04",
+        "type": "email",
+        "summary": "Invitation: Devour x Adam meeting",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-01-22",
+        "type": "meeting",
+        "summary": "Brandon (30 min) with Adam Carter",
+        "direction": "bidirectional"
+      }
+    ],
+    "qualityScore": 5
   },
   {
     "id": "238f2669-3362-1762-e2fa-44dea584fccf",
     "name": "Ben",
     "email": "meat@phaselabs.io",
-    "emails": ["meat@phaselabs.io"],
+    "emails": [
+      "meat@phaselabs.io"
+    ],
     "company": "Phase Labs",
     "role": "Team Member",
     "category": "employee",
@@ -152,14 +595,33 @@
     "source": "phase-inbox",
     "notes": "Phase Labs team member. Forwarded Sprinto subscription update to Brandon.",
     "interactions": [
-      {"date": "2026-02-09", "type": "email", "summary": "Fwd: Sprinto important subscription update", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "summary": "Fwd: Sprinto important subscription update",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "employee"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "summary": "Fwd: Sprinto important subscription update",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "acaf1e55-ca46-0d42-f725-b9a6db77c76b",
     "name": "Sean Hu",
     "email": "sean@rate-x.io",
-    "emails": ["sean@rate-x.io"],
+    "emails": [
+      "sean@rate-x.io"
+    ],
     "company": "Rate-X",
     "role": "",
     "category": "professional",
@@ -168,16 +630,57 @@
     "source": "phase-inbox",
     "notes": "External contact meeting with Jeff Newman. Updated meeting invitation involving Brandon's calendar.",
     "interactions": [
-      {"date": "2026-02-05", "type": "meeting", "summary": "Jeff Newman and Sean Hu meeting (Brandon on invite)", "direction": "bidirectional"},
-      {"date": "2026-02-05", "type": "email", "summary": "Updated meeting invitation", "direction": "inbound"},
-      {"date": "2026-01-29", "type": "meeting", "summary": "Jeff Newman and Sean Hu", "direction": "bidirectional"}
-    ]
+      {
+        "date": "2026-02-05",
+        "type": "meeting",
+        "summary": "Jeff Newman and Sean Hu meeting (Brandon on invite)",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-05",
+        "type": "email",
+        "summary": "Updated meeting invitation",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-01-29",
+        "type": "meeting",
+        "summary": "Jeff Newman and Sean Hu",
+        "direction": "bidirectional"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-05",
+        "type": "meeting",
+        "summary": "Jeff Newman and Sean Hu meeting (Brandon on invite)",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-05",
+        "type": "email",
+        "summary": "Updated meeting invitation",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-01-29",
+        "type": "meeting",
+        "summary": "Jeff Newman and Sean Hu",
+        "direction": "bidirectional"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "15f9ded1-1898-37e3-a42c-5092495e765d",
     "name": "Jerk Terror",
     "email": "jerkterror@gmail.com",
-    "emails": ["jerkterror@gmail.com"],
+    "emails": [
+      "jerkterror@gmail.com"
+    ],
     "company": "",
     "role": "",
     "category": "community",
@@ -186,16 +689,57 @@
     "source": "phase-inbox",
     "notes": "Layer 33 community member. Attends weekly Layer 33 Group Calls. Read AI meeting reports generated under this name.",
     "interactions": [
-      {"date": "2026-02-09", "type": "meeting", "summary": "Layer 33 Group Call + Read AI meeting report", "direction": "bidirectional"},
-      {"date": "2026-02-03", "type": "email", "summary": "Accepted Layer 33 Group Call", "direction": "inbound"},
-      {"date": "2026-02-02", "type": "meeting", "summary": "Layer 33 Group Call", "direction": "bidirectional"}
-    ]
+      {
+        "date": "2026-02-09",
+        "type": "meeting",
+        "summary": "Layer 33 Group Call + Read AI meeting report",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-03",
+        "type": "email",
+        "summary": "Accepted Layer 33 Group Call",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-02",
+        "type": "meeting",
+        "summary": "Layer 33 Group Call",
+        "direction": "bidirectional"
+      }
+    ],
+    "tags": [
+      "community"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-09",
+        "type": "meeting",
+        "summary": "Layer 33 Group Call + Read AI meeting report",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-03",
+        "type": "email",
+        "summary": "Accepted Layer 33 Group Call",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-02",
+        "type": "meeting",
+        "summary": "Layer 33 Group Call",
+        "direction": "bidirectional"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "c3d9e819-79b8-d937-ae1f-1353dbc20803",
     "name": "Oscar Garcia",
     "email": "oscar@starke.finance",
-    "emails": ["oscar@starke.finance"],
+    "emails": [
+      "oscar@starke.finance"
+    ],
     "company": "Starke Finance",
     "role": "",
     "category": "partner",
@@ -204,15 +748,45 @@
     "source": "phase-inbox",
     "notes": "Layer 33 community member. Attends weekly group calls. Part of the Solana ecosystem.",
     "interactions": [
-      {"date": "2026-02-09", "type": "email", "summary": "Accepted Layer 33 Group Call", "direction": "inbound"},
-      {"date": "2026-02-02", "type": "email", "summary": "Declined Layer 33 Group Call", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "summary": "Accepted Layer 33 Group Call",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-02",
+        "type": "email",
+        "summary": "Declined Layer 33 Group Call",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "partner"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "summary": "Accepted Layer 33 Group Call",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-02",
+        "type": "email",
+        "summary": "Declined Layer 33 Group Call",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "87b73b4e-1284-351b-61c6-a2551bc30921",
-    "name": "João Gustavo",
+    "name": "Jo\u00e3o Gustavo",
     "email": "jota@doublezero.xyz",
-    "emails": ["jota@doublezero.xyz"],
+    "emails": [
+      "jota@doublezero.xyz"
+    ],
     "company": "DoubleZero",
     "role": "",
     "category": "partner",
@@ -221,16 +795,57 @@
     "source": "phase-inbox",
     "notes": "DoubleZero protocol team. Organized DoubleZero x Layer 33 meeting. Part of monthly DoubleZero user calls.",
     "interactions": [
-      {"date": "2026-02-04", "type": "meeting", "summary": "Monthly DoubleZero User Call", "direction": "bidirectional"},
-      {"date": "2026-02-03", "type": "email", "summary": "Invitation: DoubleZero x Layer 33 meeting", "direction": "inbound"},
-      {"date": "2026-02-02", "type": "email", "summary": "Accepted Layer 33 Group Call", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-04",
+        "type": "meeting",
+        "summary": "Monthly DoubleZero User Call",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-03",
+        "type": "email",
+        "summary": "Invitation: DoubleZero x Layer 33 meeting",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-02",
+        "type": "email",
+        "summary": "Accepted Layer 33 Group Call",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "partner"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-04",
+        "type": "meeting",
+        "summary": "Monthly DoubleZero User Call",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-03",
+        "type": "email",
+        "summary": "Invitation: DoubleZero x Layer 33 meeting",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-02",
+        "type": "email",
+        "summary": "Accepted Layer 33 Group Call",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "165b8cce-e092-feab-b570-bca173114540",
     "name": "Francisco Julian Tronelli",
     "email": "franciscojulian@metapool.app",
-    "emails": ["franciscojulian@metapool.app"],
+    "emails": [
+      "franciscojulian@metapool.app"
+    ],
     "company": "Meta Pool",
     "role": "",
     "category": "partner",
@@ -239,10 +854,49 @@
     "source": "phase-inbox",
     "notes": "Meta Pool team. Scheduled 1:1 meeting with Brandon via zcal. Liquid staking ecosystem partner.",
     "interactions": [
-      {"date": "2026-02-10", "type": "meeting", "summary": "Brandon Geraldi y Francisco Julian Tronelli 1:1", "direction": "bidirectional"},
-      {"date": "2026-02-08", "type": "email", "summary": "Reminder for scheduled meeting", "direction": "inbound"},
-      {"date": "2026-02-06", "type": "email", "summary": "Meeting invitation via zcal", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-10",
+        "type": "meeting",
+        "summary": "Brandon Geraldi y Francisco Julian Tronelli 1:1",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-08",
+        "type": "email",
+        "summary": "Reminder for scheduled meeting",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-06",
+        "type": "email",
+        "summary": "Meeting invitation via zcal",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "partner"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-10",
+        "type": "meeting",
+        "summary": "Brandon Geraldi y Francisco Julian Tronelli 1:1",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-08",
+        "type": "email",
+        "summary": "Reminder for scheduled meeting",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-06",
+        "type": "email",
+        "summary": "Meeting invitation via zcal",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "e6d5a546-efac-3cb8-2838-656855e7abea",
@@ -257,9 +911,37 @@
     "source": "phase-inbox",
     "notes": "Completed PandaDoc agreement '26 02 04 AME1 DIMKE'. Phase Labs contractor/team member.",
     "interactions": [
-      {"date": "2026-02-09", "type": "email", "summary": "Completed PandaDoc agreement AME1 DIMKE", "direction": "bidirectional"},
-      {"date": "2026-02-04", "type": "email", "summary": "Brandon sent PandaDoc agreement", "direction": "outbound"}
-    ]
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "summary": "Completed PandaDoc agreement AME1 DIMKE",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-04",
+        "type": "email",
+        "summary": "Brandon sent PandaDoc agreement",
+        "direction": "outbound"
+      }
+    ],
+    "tags": [
+      "employee"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "summary": "Completed PandaDoc agreement AME1 DIMKE",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-04",
+        "type": "email",
+        "summary": "Brandon sent PandaDoc agreement",
+        "direction": "outbound"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "05a21e55-b0cb-7f24-8943-f3b7b2df3b13",
@@ -274,15 +956,45 @@
     "source": "phase-inbox",
     "notes": "Completed PandaDoc agreement '26 02 04 AME3 TANER'. Phase Labs contractor/team member.",
     "interactions": [
-      {"date": "2026-02-05", "type": "email", "summary": "Completed PandaDoc agreement AME3 TANER", "direction": "bidirectional"},
-      {"date": "2026-02-04", "type": "email", "summary": "Brandon sent PandaDoc agreement, Taner viewed", "direction": "outbound"}
-    ]
+      {
+        "date": "2026-02-05",
+        "type": "email",
+        "summary": "Completed PandaDoc agreement AME3 TANER",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-04",
+        "type": "email",
+        "summary": "Brandon sent PandaDoc agreement, Taner viewed",
+        "direction": "outbound"
+      }
+    ],
+    "tags": [
+      "employee"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-05",
+        "type": "email",
+        "summary": "Completed PandaDoc agreement AME3 TANER",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-04",
+        "type": "email",
+        "summary": "Brandon sent PandaDoc agreement, Taner viewed",
+        "direction": "outbound"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "d129e12a-0f3d-27e1-7e3b-093f75e0eaaf",
     "name": "Bilesimo",
     "email": "stang3tzzz@gmail.com",
-    "emails": ["stang3tzzz@gmail.com"],
+    "emails": [
+      "stang3tzzz@gmail.com"
+    ],
     "company": "Phase Labs",
     "role": "Contractor / Designer",
     "category": "employee",
@@ -291,14 +1003,33 @@
     "source": "phase-inbox",
     "notes": "Phase Labs contractor. Submitted work report. Also requested Figma upgrade for Radiants workspace.",
     "interactions": [
-      {"date": "2026-02-02", "type": "email", "summary": "Bilesimo's work report submitted", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-02",
+        "type": "email",
+        "summary": "Bilesimo's work report submitted",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "employee"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-02",
+        "type": "email",
+        "summary": "Bilesimo's work report submitted",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "3759da5f-d433-f994-49ac-de0cb31cdf57",
     "name": "Nick (quicks)",
     "email": "nick@solflare.com",
-    "emails": ["nick@solflare.com"],
+    "emails": [
+      "nick@solflare.com"
+    ],
     "company": "Solflare",
     "role": "",
     "category": "partner",
@@ -307,14 +1038,33 @@
     "source": "phase-inbox",
     "notes": "Solflare wallet team. Invited Phase/DEVOUR to Solflare Live #29 on Feb 23. Solana ecosystem partner.",
     "interactions": [
-      {"date": "2026-02-03", "type": "email", "summary": "Invitation: Solflare Live #29 featuring @phase_ @DEVOUR_", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-03",
+        "type": "email",
+        "summary": "Invitation: Solflare Live #29 featuring @phase_ @DEVOUR_",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "partner"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-03",
+        "type": "email",
+        "summary": "Invitation: Solflare Live #29 featuring @phase_ @DEVOUR_",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "e1d9b171-b242-d18d-9c05-015e130d5c52",
     "name": "Maroo",
     "email": "maroo@radiant.nexus",
-    "emails": ["maroo@radiant.nexus"],
+    "emails": [
+      "maroo@radiant.nexus"
+    ],
     "company": "Radiant Nexus",
     "role": "Team Lead",
     "category": "partner",
@@ -323,16 +1073,57 @@
     "source": "radiants-inbox",
     "notes": "Radiants team member. Active on Google Docs (CODE Pool, Radiants Auction). Accepted Ansel <> Monolith meeting. Key Radiants collaborator.",
     "interactions": [
-      {"date": "2026-02-11", "type": "email", "summary": "Google Docs comment on CODE Pool proposal", "direction": "inbound"},
-      {"date": "2026-02-05", "type": "email", "summary": "Google Docs comment on Radiants Auction", "direction": "inbound"},
-      {"date": "2026-02-02", "type": "email", "summary": "Accepted Ansel <> Monolith meeting", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-11",
+        "type": "email",
+        "summary": "Google Docs comment on CODE Pool proposal",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-05",
+        "type": "email",
+        "summary": "Google Docs comment on Radiants Auction",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-02",
+        "type": "email",
+        "summary": "Accepted Ansel <> Monolith meeting",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "partner"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-11",
+        "type": "email",
+        "summary": "Google Docs comment on CODE Pool proposal",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-05",
+        "type": "email",
+        "summary": "Google Docs comment on Radiants Auction",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-02",
+        "type": "email",
+        "summary": "Accepted Ansel <> Monolith meeting",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 5
   },
   {
     "id": "0c4b1f3e-cc07-18eb-9b09-8d9a2183f081",
     "name": "Nabeel Munir",
     "email": "nabeel.beeni30@gmail.com",
-    "emails": ["nabeel.beeni30@gmail.com"],
+    "emails": [
+      "nabeel.beeni30@gmail.com"
+    ],
     "company": "Radiant Nexus",
     "role": "",
     "category": "partner",
@@ -341,15 +1132,45 @@
     "source": "radiants-inbox",
     "notes": "Radiants team collaborator. Active on Google Docs for Radiants Auction work.",
     "interactions": [
-      {"date": "2026-02-05", "type": "email", "summary": "Google Docs mention on Radiants Auction (@nabeel)", "direction": "inbound"},
-      {"date": "2026-02-02", "type": "email", "summary": "Google Docs comment on Radiants Auction formatting", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-05",
+        "type": "email",
+        "summary": "Google Docs mention on Radiants Auction (@nabeel)",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-02",
+        "type": "email",
+        "summary": "Google Docs comment on Radiants Auction formatting",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "partner"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-05",
+        "type": "email",
+        "summary": "Google Docs mention on Radiants Auction (@nabeel)",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-02",
+        "type": "email",
+        "summary": "Google Docs comment on Radiants Auction formatting",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "155b3693-1348-2070-05a4-1a330212a272",
     "name": "Ross Cohen",
     "email": "ross@solana.com",
-    "emails": ["ross@solana.com"],
+    "emails": [
+      "ross@solana.com"
+    ],
     "company": "Solana Foundation",
     "role": "",
     "category": "partner",
@@ -358,9 +1179,37 @@
     "source": "radiants-inbox",
     "notes": "Solana Foundation team member. Had scheduled meeting with River (kemosabe) / Brandon via Radiants calendar.",
     "interactions": [
-      {"date": "2026-01-16", "type": "meeting", "summary": "River (kemosabe) and Ross Cohen 1:1", "direction": "bidirectional"},
-      {"date": "2026-01-15", "type": "email", "summary": "Calendar invitation for meeting", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-01-16",
+        "type": "meeting",
+        "summary": "River (kemosabe) and Ross Cohen 1:1",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-01-15",
+        "type": "email",
+        "summary": "Calendar invitation for meeting",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "partner"
+    ],
+    "timeline": [
+      {
+        "date": "2026-01-16",
+        "type": "meeting",
+        "summary": "River (kemosabe) and Ross Cohen 1:1",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-01-15",
+        "type": "email",
+        "summary": "Calendar invitation for meeting",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "e4bfafb7-435c-e271-0060-5c6ab4e5551b",
@@ -375,8 +1224,25 @@
     "source": "calendar",
     "notes": "Had a 30-minute meeting with Brandon on Phase calendar.",
     "interactions": [
-      {"date": "2026-01-14", "type": "meeting", "summary": "Brandon (30 min) with Elay Carmon", "direction": "bidirectional"}
-    ]
+      {
+        "date": "2026-01-14",
+        "type": "meeting",
+        "summary": "Brandon (30 min) with Elay Carmon",
+        "direction": "bidirectional"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-01-14",
+        "type": "meeting",
+        "summary": "Brandon (30 min) with Elay Carmon",
+        "direction": "bidirectional"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "9742e708-34f6-ad7f-36d5-ffe1f757bf7e",
@@ -391,8 +1257,25 @@
     "source": "calendar",
     "notes": "Had a 30-minute meeting with Brandon on Phase calendar.",
     "interactions": [
-      {"date": "2026-01-21", "type": "meeting", "summary": "Brandon (30 min) with Erik Ashdown", "direction": "bidirectional"}
-    ]
+      {
+        "date": "2026-01-21",
+        "type": "meeting",
+        "summary": "Brandon (30 min) with Erik Ashdown",
+        "direction": "bidirectional"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-01-21",
+        "type": "meeting",
+        "summary": "Brandon (30 min) with Erik Ashdown",
+        "direction": "bidirectional"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "5644af95-7e25-0ec5-09a3-9c700359777e",
@@ -407,8 +1290,25 @@
     "source": "calendar",
     "notes": "Had a 30-minute meeting with Brandon on Phase calendar.",
     "interactions": [
-      {"date": "2026-01-22", "type": "meeting", "summary": "Brandon (30 min) with Miller Whitehouse Levine", "direction": "bidirectional"}
-    ]
+      {
+        "date": "2026-01-22",
+        "type": "meeting",
+        "summary": "Brandon (30 min) with Miller Whitehouse Levine",
+        "direction": "bidirectional"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-01-22",
+        "type": "meeting",
+        "summary": "Brandon (30 min) with Miller Whitehouse Levine",
+        "direction": "bidirectional"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "9dca006a-7a3b-8911-e00d-33b5229aa715",
@@ -423,8 +1323,25 @@
     "source": "calendar",
     "notes": "Had a 30-minute meeting with Brandon on Phase calendar.",
     "interactions": [
-      {"date": "2026-01-23", "type": "meeting", "summary": "Brandon (30 min) with Tyler Griffiths", "direction": "bidirectional"}
-    ]
+      {
+        "date": "2026-01-23",
+        "type": "meeting",
+        "summary": "Brandon (30 min) with Tyler Griffiths",
+        "direction": "bidirectional"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-01-23",
+        "type": "meeting",
+        "summary": "Brandon (30 min) with Tyler Griffiths",
+        "direction": "bidirectional"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "a3c266af-f767-e1e5-62b6-cb766ec5bc71",
@@ -439,8 +1356,25 @@
     "source": "calendar",
     "notes": "Had a 60-minute meeting with Adam on Phase calendar. External contact.",
     "interactions": [
-      {"date": "2026-01-23", "type": "meeting", "summary": "60 min with Adam (Matthew Cammell)", "direction": "bidirectional"}
-    ]
+      {
+        "date": "2026-01-23",
+        "type": "meeting",
+        "summary": "60 min with Adam (Matthew Cammell)",
+        "direction": "bidirectional"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-01-23",
+        "type": "meeting",
+        "summary": "60 min with Adam (Matthew Cammell)",
+        "direction": "bidirectional"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "6f1ea6ec-919b-97aa-0ed9-4d98f57fb336",
@@ -455,8 +1389,25 @@
     "source": "calendar",
     "notes": "Had a 30-minute meeting with Brandon on Phase calendar.",
     "interactions": [
-      {"date": "2026-01-27", "type": "meeting", "summary": "Brandon (30 min) with Mujtaba Taqvi", "direction": "bidirectional"}
-    ]
+      {
+        "date": "2026-01-27",
+        "type": "meeting",
+        "summary": "Brandon (30 min) with Mujtaba Taqvi",
+        "direction": "bidirectional"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-01-27",
+        "type": "meeting",
+        "summary": "Brandon (30 min) with Mujtaba Taqvi",
+        "direction": "bidirectional"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "aa67911e-9245-3598-78a8-af3b8f12d12b",
@@ -471,8 +1422,25 @@
     "source": "calendar",
     "notes": "Had a meeting with Brandon on Phase calendar.",
     "interactions": [
-      {"date": "2026-01-29", "type": "meeting", "summary": "Murad Rizvi and Brandon Geraldi (Devour)", "direction": "bidirectional"}
-    ]
+      {
+        "date": "2026-01-29",
+        "type": "meeting",
+        "summary": "Murad Rizvi and Brandon Geraldi (Devour)",
+        "direction": "bidirectional"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-01-29",
+        "type": "meeting",
+        "summary": "Murad Rizvi and Brandon Geraldi (Devour)",
+        "direction": "bidirectional"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "8108e7cf-510c-c331-0239-3749154679e7",
@@ -487,8 +1455,25 @@
     "source": "calendar",
     "notes": "Had two back-to-back meetings with Brandon on Phase calendar.",
     "interactions": [
-      {"date": "2026-01-20", "type": "meeting", "summary": "Jared Warn and Brandon Geraldi (2 meetings)", "direction": "bidirectional"}
-    ]
+      {
+        "date": "2026-01-20",
+        "type": "meeting",
+        "summary": "Jared Warn and Brandon Geraldi (2 meetings)",
+        "direction": "bidirectional"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-01-20",
+        "type": "meeting",
+        "summary": "Jared Warn and Brandon Geraldi (2 meetings)",
+        "direction": "bidirectional"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "4b9d04a4-b166-b01b-f9c4-4b062c235a47",
@@ -503,8 +1488,25 @@
     "source": "calendar",
     "notes": "Had a 30-minute meeting with Brandon on Phase calendar.",
     "interactions": [
-      {"date": "2026-01-20", "type": "meeting", "summary": "Brandon (30 min) with Dalrae Ali Mohamed", "direction": "bidirectional"}
-    ]
+      {
+        "date": "2026-01-20",
+        "type": "meeting",
+        "summary": "Brandon (30 min) with Dalrae Ali Mohamed",
+        "direction": "bidirectional"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-01-20",
+        "type": "meeting",
+        "summary": "Brandon (30 min) with Dalrae Ali Mohamed",
+        "direction": "bidirectional"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "d65b0f1a-a8f1-a63a-c7c3-a95bfc5f7381",
@@ -519,8 +1521,25 @@
     "source": "calendar",
     "notes": "Had a 30-minute meeting with Brandon on Phase calendar.",
     "interactions": [
-      {"date": "2026-01-21", "type": "meeting", "summary": "30 min with Justin (Brandon Geraldi)", "direction": "bidirectional"}
-    ]
+      {
+        "date": "2026-01-21",
+        "type": "meeting",
+        "summary": "30 min with Justin (Brandon Geraldi)",
+        "direction": "bidirectional"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-01-21",
+        "type": "meeting",
+        "summary": "30 min with Justin (Brandon Geraldi)",
+        "direction": "bidirectional"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "d2729a49-0357-bf0b-1b0f-9b862676085b",
@@ -535,8 +1554,25 @@
     "source": "phase-inbox",
     "notes": "Brandon booked a 30-minute appointment with Tim Garcia for Feb 17.",
     "interactions": [
-      {"date": "2026-02-11", "type": "email", "summary": "Appointment booked: Brandon (30 min) with Tim Garcia for Feb 17", "direction": "outbound"}
-    ]
+      {
+        "date": "2026-02-11",
+        "type": "email",
+        "summary": "Appointment booked: Brandon (30 min) with Tim Garcia for Feb 17",
+        "direction": "outbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-11",
+        "type": "email",
+        "summary": "Appointment booked: Brandon (30 min) with Tim Garcia for Feb 17",
+        "direction": "outbound"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "0d3db859-b8c8-c16d-76d5-f916c09ea7e5",
@@ -551,8 +1587,25 @@
     "source": "phase-inbox",
     "notes": "Shared Google Drive document 'LilyPad' with Brandon via Phase inbox.",
     "interactions": [
-      {"date": "2026-02-11", "type": "email", "summary": "Share request for 'LilyPad' document via Google Drive", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-11",
+        "type": "email",
+        "summary": "Share request for 'LilyPad' document via Google Drive",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-11",
+        "type": "email",
+        "summary": "Share request for 'LilyPad' document via Google Drive",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "326bdeaa-0f1b-f921-f273-bac547549dec",
@@ -567,16 +1620,57 @@
     "source": "phase-inbox",
     "notes": "Hylo Family Dinner organizer via Luma. Sends event updates and reminders.",
     "interactions": [
-      {"date": "2026-02-13", "type": "email", "summary": "Hylo Family Dinner starting in 1 hour reminder", "direction": "inbound"},
-      {"date": "2026-02-12", "type": "email", "summary": "Hylo Family Dinner starting tomorrow", "direction": "inbound"},
-      {"date": "2026-02-05", "type": "email", "summary": "Update for Hylo Family Dinner", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "summary": "Hylo Family Dinner starting in 1 hour reminder",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "Hylo Family Dinner starting tomorrow",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-05",
+        "type": "email",
+        "summary": "Update for Hylo Family Dinner",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "community"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "summary": "Hylo Family Dinner starting in 1 hour reminder",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "Hylo Family Dinner starting tomorrow",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-05",
+        "type": "email",
+        "summary": "Update for Hylo Family Dinner",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "ccb38148-bb9e-0c7d-81ea-e0310d8ca5a9",
     "name": "Sandhoshkumar Krishnamoorthy",
     "email": "sandhoshkumark@sprinto.com",
-    "emails": ["sandhoshkumark@sprinto.com"],
+    "emails": [
+      "sandhoshkumark@sprinto.com"
+    ],
     "company": "Sprinto",
     "role": "",
     "category": "professional",
@@ -585,8 +1679,25 @@
     "source": "phase-inbox",
     "notes": "Sprinto account representative. Handling Phase Labs subscription update thread (4 messages). Vendor relationship for compliance tooling.",
     "interactions": [
-      {"date": "2026-02-13", "type": "email", "summary": "Sprinto subscription update thread (ongoing)", "direction": "bidirectional"}
-    ]
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "summary": "Sprinto subscription update thread (ongoing)",
+        "direction": "bidirectional"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "summary": "Sprinto subscription update thread (ongoing)",
+        "direction": "bidirectional"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "7f9973bc-d804-d2b5-7b68-52ce356bdbda",
@@ -601,8 +1712,25 @@
     "source": "radiants-inbox",
     "notes": "Requested Figma upgrade on Radiants workspace. Likely a contractor/designer for Radiants.",
     "interactions": [
-      {"date": "2026-02-09", "type": "email", "summary": "Figma upgrade request from Tulio Caldas", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "summary": "Figma upgrade request from Tulio Caldas",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "employee"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "summary": "Figma upgrade request from Tulio Caldas",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "a4482fc1-8b2b-9195-0a27-b09cb7d29fc8",
@@ -617,9 +1745,37 @@
     "source": "phase-inbox",
     "notes": "Shared 'Somos Branding assets' folder via Google Drive. Brandon attended Expo Somos Axolotl on Feb 1. Creative/branding partner.",
     "interactions": [
-      {"date": "2026-02-03", "type": "email", "summary": "Shared 'Somos Branding assets' Google Drive folder", "direction": "inbound"},
-      {"date": "2026-02-01", "type": "meeting", "summary": "Expo Somos Axolotl (personal calendar)", "direction": "bidirectional"}
-    ]
+      {
+        "date": "2026-02-03",
+        "type": "email",
+        "summary": "Shared 'Somos Branding assets' Google Drive folder",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-01",
+        "type": "meeting",
+        "summary": "Expo Somos Axolotl (personal calendar)",
+        "direction": "bidirectional"
+      }
+    ],
+    "tags": [
+      "partner"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-03",
+        "type": "email",
+        "summary": "Shared 'Somos Branding assets' Google Drive folder",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-01",
+        "type": "meeting",
+        "summary": "Expo Somos Axolotl (personal calendar)",
+        "direction": "bidirectional"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "fdded883-84c7-2f62-96fe-8d87ca906cd1",
@@ -634,10 +1790,49 @@
     "source": "phase-inbox",
     "notes": "Active on Typefully commenting on Phase content drafts. Likely content/social collaborator.",
     "interactions": [
-      {"date": "2026-02-12", "type": "email", "summary": "Typefully comment on content draft (dTR0Zzd)", "direction": "inbound"},
-      {"date": "2026-02-09", "type": "email", "summary": "Typefully comment on content draft (ASAUbHD)", "direction": "inbound"},
-      {"date": "2026-02-04", "type": "email", "summary": "Typefully comment on content draft (qYjFkXk)", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "Typefully comment on content draft (dTR0Zzd)",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "summary": "Typefully comment on content draft (ASAUbHD)",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-04",
+        "type": "email",
+        "summary": "Typefully comment on content draft (qYjFkXk)",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "employee"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "Typefully comment on content draft (dTR0Zzd)",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "summary": "Typefully comment on content draft (ASAUbHD)",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-04",
+        "type": "email",
+        "summary": "Typefully comment on content draft (qYjFkXk)",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "508d0be1-7dfe-5dd5-d6f4-cb5571d907af",
@@ -652,14 +1847,33 @@
     "source": "phase-inbox",
     "notes": "Commented on Typefully content draft. Community/content collaborator.",
     "interactions": [
-      {"date": "2026-02-02", "type": "email", "summary": "Typefully comment on content draft (2zlkGRm)", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-02",
+        "type": "email",
+        "summary": "Typefully comment on content draft (2zlkGRm)",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "community"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-02",
+        "type": "email",
+        "summary": "Typefully comment on content draft (2zlkGRm)",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "aa256a2a-838c-352d-80a5-9b04b964d3b8",
     "name": "Oleksandr Yaremenko",
     "email": "oy@digisol.agency",
-    "emails": ["oy@digisol.agency"],
+    "emails": [
+      "oy@digisol.agency"
+    ],
     "company": "Digisol Agency",
     "role": "",
     "category": "professional",
@@ -668,14 +1882,33 @@
     "source": "phase-inbox",
     "notes": "Emailed about fixing SOLValue 0 on Leaderboard. Thread with 2 messages - could be a dev or contractor.",
     "interactions": [
-      {"date": "2026-02-05", "type": "email", "summary": "Fix SOLValue 0 on Leaderboard Fast (2-msg thread)", "direction": "bidirectional"}
-    ]
+      {
+        "date": "2026-02-05",
+        "type": "email",
+        "summary": "Fix SOLValue 0 on Leaderboard Fast (2-msg thread)",
+        "direction": "bidirectional"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-05",
+        "type": "email",
+        "summary": "Fix SOLValue 0 on Leaderboard Fast (2-msg thread)",
+        "direction": "bidirectional"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "fdfd428f-18d3-d378-e7ae-11342c2a2e94",
     "name": "Collector Crypt",
     "email": "postman@collectorcrypt.com",
-    "emails": ["postman@collectorcrypt.com"],
+    "emails": [
+      "postman@collectorcrypt.com"
+    ],
     "company": "Collector Crypt",
     "role": "",
     "category": "professional",
@@ -684,15 +1917,45 @@
     "source": "phase-inbox",
     "notes": "Card grading/collecting service. Brandon has active transactions - withdraw cards invoices and successful transactions.",
     "interactions": [
-      {"date": "2026-02-08", "type": "email", "summary": "Withdraw cards invoice + Transaction Successful", "direction": "inbound"},
-      {"date": "2026-02-06", "type": "email", "summary": "Withdraw cards invoice + Transaction Successful", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-08",
+        "type": "email",
+        "summary": "Withdraw cards invoice + Transaction Successful",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-06",
+        "type": "email",
+        "summary": "Withdraw cards invoice + Transaction Successful",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-08",
+        "type": "email",
+        "summary": "Withdraw cards invoice + Transaction Successful",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-06",
+        "type": "email",
+        "summary": "Withdraw cards invoice + Transaction Successful",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "1e75d715-1a8e-e631-f011-04638edeebb9",
     "name": "Decentra Cloud",
     "email": "noreply@billing.decentra.cloud",
-    "emails": ["noreply@billing.decentra.cloud"],
+    "emails": [
+      "noreply@billing.decentra.cloud"
+    ],
     "company": "Decentra Cloud",
     "role": "",
     "category": "professional",
@@ -701,8 +1964,25 @@
     "source": "radiants-inbox",
     "notes": "Cloud infrastructure provider for Radiants. Invoice payment confirmation.",
     "interactions": [
-      {"date": "2026-02-03", "type": "email", "summary": "Invoice Payment Confirmation", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-03",
+        "type": "email",
+        "summary": "Invoice Payment Confirmation",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-03",
+        "type": "email",
+        "summary": "Invoice Payment Confirmation",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "d81709fd-a182-a365-0560-1024541bc5b1",
@@ -717,14 +1997,33 @@
     "source": "calendar",
     "notes": "Cross-chain protocol. Brandon had a Wormhole Call on Phase calendar.",
     "interactions": [
-      {"date": "2026-01-21", "type": "meeting", "summary": "Wormhole Call", "direction": "bidirectional"}
-    ]
+      {
+        "date": "2026-01-21",
+        "type": "meeting",
+        "summary": "Wormhole Call",
+        "direction": "bidirectional"
+      }
+    ],
+    "tags": [
+      "partner"
+    ],
+    "timeline": [
+      {
+        "date": "2026-01-21",
+        "type": "meeting",
+        "summary": "Wormhole Call",
+        "direction": "bidirectional"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "7dbfd8c0-3ec9-0592-1dd8-6011e464d6cd",
     "name": "Latitude.sh",
     "email": "notifications@latitude.sh",
-    "emails": ["notifications@latitude.sh"],
+    "emails": [
+      "notifications@latitude.sh"
+    ],
     "company": "Latitude.sh",
     "role": "",
     "category": "professional",
@@ -733,17 +2032,69 @@
     "source": "phase-inbox",
     "notes": "Bare metal server provider for Phase Labs Validators. Frequent bandwidth usage alerts. Active infrastructure vendor.",
     "interactions": [
-      {"date": "2026-02-13", "type": "email", "summary": "Bandwidth usage alert - Phase Labs Validators", "direction": "inbound"},
-      {"date": "2026-02-12", "type": "email", "summary": "Bandwidth usage alert", "direction": "inbound"},
-      {"date": "2026-02-11", "type": "email", "summary": "Bandwidth usage alert", "direction": "inbound"},
-      {"date": "2026-02-10", "type": "email", "summary": "Bandwidth usage alert", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "summary": "Bandwidth usage alert - Phase Labs Validators",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "Bandwidth usage alert",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-11",
+        "type": "email",
+        "summary": "Bandwidth usage alert",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-10",
+        "type": "email",
+        "summary": "Bandwidth usage alert",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "summary": "Bandwidth usage alert - Phase Labs Validators",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "Bandwidth usage alert",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-11",
+        "type": "email",
+        "summary": "Bandwidth usage alert",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-10",
+        "type": "email",
+        "summary": "Bandwidth usage alert",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "b6d44c65-c01c-f6b7-c02a-256282df18ad",
     "name": "Figma (Radiants)",
     "email": "support+notifications@figma.com",
-    "emails": ["support+notifications@figma.com"],
+    "emails": [
+      "support+notifications@figma.com"
+    ],
     "company": "Figma",
     "role": "",
     "category": "professional",
@@ -752,16 +2103,57 @@
     "source": "radiants-inbox",
     "notes": "Figma workspace for Radiants (CHARTWISE ASSETS). Subscription renewal due Feb 19. Active design tooling.",
     "interactions": [
-      {"date": "2026-02-12", "type": "email", "summary": "Can now edit CHARTWISE ASSETS file", "direction": "inbound"},
-      {"date": "2026-02-12", "type": "email", "summary": "Subscription renewal reminder Feb 19", "direction": "inbound"},
-      {"date": "2026-02-07", "type": "email", "summary": "Upgrade request from Bilesimo", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "Can now edit CHARTWISE ASSETS file",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "Subscription renewal reminder Feb 19",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-07",
+        "type": "email",
+        "summary": "Upgrade request from Bilesimo",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "Can now edit CHARTWISE ASSETS file",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "Subscription renewal reminder Feb 19",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-07",
+        "type": "email",
+        "summary": "Upgrade request from Bilesimo",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "b2158f4a-087a-f7dd-9a73-de42d225dfe5",
     "name": "Kickit365",
     "email": "",
-    "emails": ["kickit365.mailer@leagueapps.com"],
+    "emails": [
+      "kickit365.mailer@leagueapps.com"
+    ],
     "company": "Kickit365",
     "role": "",
     "category": "personal",
@@ -770,15 +2162,46 @@
     "source": "personal-inbox",
     "notes": "Soccer league platform. Brandon plays in preseason and regular games. Playoff info for 2/24.",
     "interactions": [
-      {"date": "2026-02-10", "type": "email", "summary": "Games are ON - rain or shine + RSVP reminder + Playoffs 2/24", "direction": "inbound"},
-      {"date": "2026-02-11", "type": "meeting", "summary": "Soccer Preseason (personal calendar)", "direction": "bidirectional"}
-    ]
+      {
+        "date": "2026-02-10",
+        "type": "email",
+        "summary": "Games are ON - rain or shine + RSVP reminder + Playoffs 2/24",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-11",
+        "type": "meeting",
+        "summary": "Soccer Preseason (personal calendar)",
+        "direction": "bidirectional"
+      }
+    ],
+    "tags": [
+      "personal"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-10",
+        "type": "email",
+        "summary": "Games are ON - rain or shine + RSVP reminder + Playoffs 2/24",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-11",
+        "type": "meeting",
+        "summary": "Soccer Preseason (personal calendar)",
+        "direction": "bidirectional"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "883af902-b535-8803-6e54-ff9e4b9cfdac",
     "name": "KAST",
     "email": "noreply@kast.xyz",
-    "emails": ["noreply@kast.xyz", "noreply@outreach.kast.xyz"],
+    "emails": [
+      "noreply@kast.xyz",
+      "noreply@outreach.kast.xyz"
+    ],
     "company": "KAST",
     "role": "",
     "category": "professional",
@@ -787,18 +2210,81 @@
     "source": "phase-inbox",
     "notes": "Crypto debit card provider. Brandon receives regular dollar deposits and uses for transactions. Had a refund. Some card declines.",
     "interactions": [
-      {"date": "2026-02-13", "type": "email", "summary": "Received a refund", "direction": "inbound"},
-      {"date": "2026-02-06", "type": "email", "summary": "Received dollars", "direction": "inbound"},
-      {"date": "2026-02-03", "type": "email", "summary": "Received dollars + card transaction declined", "direction": "inbound"},
-      {"date": "2026-02-02", "type": "email", "summary": "Received dollars + card declined", "direction": "inbound"},
-      {"date": "2026-02-01", "type": "email", "summary": "Multiple card transaction declines", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "summary": "Received a refund",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-06",
+        "type": "email",
+        "summary": "Received dollars",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-03",
+        "type": "email",
+        "summary": "Received dollars + card transaction declined",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-02",
+        "type": "email",
+        "summary": "Received dollars + card declined",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-01",
+        "type": "email",
+        "summary": "Multiple card transaction declines",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "summary": "Received a refund",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-06",
+        "type": "email",
+        "summary": "Received dollars",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-03",
+        "type": "email",
+        "summary": "Received dollars + card transaction declined",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-02",
+        "type": "email",
+        "summary": "Received dollars + card declined",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-01",
+        "type": "email",
+        "summary": "Multiple card transaction declines",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "237adfa8-407b-9626-99e3-7afe17c4b310",
     "name": "Marinade Finance",
     "email": "chefs@marinade.finance",
-    "emails": ["chefs@marinade.finance"],
+    "emails": [
+      "chefs@marinade.finance"
+    ],
     "company": "Marinade Finance",
     "role": "",
     "category": "partner",
@@ -807,14 +2293,33 @@
     "source": "phase-inbox",
     "notes": "Solana liquid staking protocol. Sent January Marinade Update with portfolio and rewards info. Ecosystem partner.",
     "interactions": [
-      {"date": "2026-02-09", "type": "email", "summary": "January Marinade Update: Portfolio, Rewards & More", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "summary": "January Marinade Update: Portfolio, Rewards & More",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "partner"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "summary": "January Marinade Update: Portfolio, Rewards & More",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "0691f108-033f-9cc3-aed7-97c108bc6dec",
     "name": "Colosseum",
     "email": "colosseum@ghost.io",
-    "emails": ["colosseum@ghost.io"],
+    "emails": [
+      "colosseum@ghost.io"
+    ],
     "company": "Colosseum",
     "role": "",
     "category": "community",
@@ -823,16 +2328,57 @@
     "source": "phase-inbox",
     "notes": "Solana hackathon/accelerator platform. Regular Codex newsletter updates. Announcing Agent Hackathon. Ecosystem resource.",
     "interactions": [
-      {"date": "2026-02-13", "type": "email", "summary": "Colosseum Codex: Syndica Developer Report, DFlow Proof, Quicknode x402", "direction": "inbound"},
-      {"date": "2026-02-06", "type": "email", "summary": "Colosseum Codex: Agent Hackathon, Blueshift Mobile Course, Arcium Mainnet Alpha", "direction": "inbound"},
-      {"date": "2026-02-02", "type": "email", "summary": "Announcing Colosseum's Agent Hackathon", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "summary": "Colosseum Codex: Syndica Developer Report, DFlow Proof, Quicknode x402",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-06",
+        "type": "email",
+        "summary": "Colosseum Codex: Agent Hackathon, Blueshift Mobile Course, Arcium Mainnet Alpha",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-02",
+        "type": "email",
+        "summary": "Announcing Colosseum's Agent Hackathon",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "community"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "summary": "Colosseum Codex: Syndica Developer Report, DFlow Proof, Quicknode x402",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-06",
+        "type": "email",
+        "summary": "Colosseum Codex: Agent Hackathon, Blueshift Mobile Course, Arcium Mainnet Alpha",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-02",
+        "type": "email",
+        "summary": "Announcing Colosseum's Agent Hackathon",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "fdd1b8dd-8b9a-af9d-6948-264ed1a5f1b3",
     "name": "NODE40",
     "email": "connect@node40.com",
-    "emails": ["connect@node40.com"],
+    "emails": [
+      "connect@node40.com"
+    ],
     "company": "NODE40",
     "role": "",
     "category": "professional",
@@ -841,15 +2387,47 @@
     "source": "phase-inbox",
     "notes": "Blockchain accounting/compliance provider. Sends regulatory updates on DAC8, CLARITY Act, staking topics. Tax/compliance tooling.",
     "interactions": [
-      {"date": "2026-02-10", "type": "email", "summary": "DAC8 compliance and CLARITY Act updates", "direction": "inbound"},
-      {"date": "2026-02-03", "type": "email", "summary": "DAC8 enforcement and staking income recognition updates", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-10",
+        "type": "email",
+        "summary": "DAC8 compliance and CLARITY Act updates",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-03",
+        "type": "email",
+        "summary": "DAC8 enforcement and staking income recognition updates",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-10",
+        "type": "email",
+        "summary": "DAC8 compliance and CLARITY Act updates",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-03",
+        "type": "email",
+        "summary": "DAC8 enforcement and staking income recognition updates",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "26b9b9c2-db36-f4ee-23c9-ec7171f20dc7",
     "name": "Anthropic",
     "email": "invoice+statements@mail.anthropic.com",
-    "emails": ["invoice+statements@mail.anthropic.com", "no-reply-w6ePCFz60nYQOip93NOw7w@mail.anthropic.com", "no-reply-dg_JgqNJivRGGUf4HC9O9w@mail.anthropic.com"],
+    "emails": [
+      "invoice+statements@mail.anthropic.com",
+      "no-reply-w6ePCFz60nYQOip93NOw7w@mail.anthropic.com",
+      "no-reply-dg_JgqNJivRGGUf4HC9O9w@mail.anthropic.com"
+    ],
     "company": "Anthropic",
     "role": "",
     "category": "professional",
@@ -858,15 +2436,45 @@
     "source": "personal-inbox",
     "notes": "Major API provider. Multiple daily receipts indicating heavy Claude API usage. Monthly spend exceeding thresholds alert. API access was turned off briefly.",
     "interactions": [
-      {"date": "2026-02-13", "type": "email", "summary": "Multiple receipts + Monthly spend exceeding thresholds alert", "direction": "inbound"},
-      {"date": "2026-02-12", "type": "email", "summary": "API access turned off notice + multiple receipts", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "summary": "Multiple receipts + Monthly spend exceeding thresholds alert",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "API access turned off notice + multiple receipts",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "summary": "Multiple receipts + Monthly spend exceeding thresholds alert",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "API access turned off notice + multiple receipts",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 5
   },
   {
     "id": "ee3d3018-9ead-7735-b073-c3ea2740c021",
     "name": "Vercel",
     "email": "notifications@vercel.com",
-    "emails": ["notifications@vercel.com"],
+    "emails": [
+      "notifications@vercel.com"
+    ],
     "company": "Vercel",
     "role": "",
     "category": "professional",
@@ -875,15 +2483,46 @@
     "source": "personal-inbox",
     "notes": "Hosting/deployment platform. Failed production deployment on Brandon's projects. New sign-in detected.",
     "interactions": [
-      {"date": "2026-02-13", "type": "email", "summary": "Failed production deployment on team 'Brandon's projects'", "direction": "inbound"},
-      {"date": "2026-02-12", "type": "email", "summary": "New sign-in detected on Vercel account", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "summary": "Failed production deployment on team 'Brandon's projects'",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "New sign-in detected on Vercel account",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "summary": "Failed production deployment on team 'Brandon's projects'",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "New sign-in detected on Vercel account",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "a0d6f167-6a71-50a9-c8c2-4c3a40bc95cc",
     "name": "Replit",
     "email": "notifications@replit.com",
-    "emails": ["notifications@replit.com", "contact@mail.replit.com"],
+    "emails": [
+      "notifications@replit.com",
+      "contact@mail.replit.com"
+    ],
     "company": "Replit",
     "role": "",
     "category": "professional",
@@ -892,16 +2531,57 @@
     "source": "personal-inbox",
     "notes": "Cloud dev platform. Multiple successful deployments: PhaseDelegationSite, Crypto-Trade-Analyzer, Asset-Manager. Active development platform.",
     "interactions": [
-      {"date": "2026-02-13", "type": "email", "summary": "Deployment for PhaseDelegationSite Successful", "direction": "inbound"},
-      {"date": "2026-02-11", "type": "email", "summary": "Deployment for Crypto-Trade-Analyzer Successful", "direction": "inbound"},
-      {"date": "2026-02-10", "type": "email", "summary": "Multiple successful deployments (PhaseDelegationSite, Asset-Manager)", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "summary": "Deployment for PhaseDelegationSite Successful",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-11",
+        "type": "email",
+        "summary": "Deployment for Crypto-Trade-Analyzer Successful",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-10",
+        "type": "email",
+        "summary": "Multiple successful deployments (PhaseDelegationSite, Asset-Manager)",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "summary": "Deployment for PhaseDelegationSite Successful",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-11",
+        "type": "email",
+        "summary": "Deployment for Crypto-Trade-Analyzer Successful",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-10",
+        "type": "email",
+        "summary": "Multiple successful deployments (PhaseDelegationSite, Asset-Manager)",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "357a4db7-12d9-a5df-3232-d94b36cba3dd",
     "name": "Kalshi",
     "email": "no-reply@kalshi.com",
-    "emails": ["no-reply@kalshi.com"],
+    "emails": [
+      "no-reply@kalshi.com"
+    ],
     "company": "Kalshi",
     "role": "",
     "category": "professional",
@@ -910,15 +2590,47 @@
     "source": "personal-inbox",
     "notes": "Prediction market platform. Brandon recently signed up, got approved, and deposited money.",
     "interactions": [
-      {"date": "2026-02-13", "type": "email", "summary": "Welcome to Kalshi", "direction": "inbound"},
-      {"date": "2026-02-12", "type": "email", "summary": "Application Approved + You've got money!", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "summary": "Welcome to Kalshi",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "Application Approved + You've got money!",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "summary": "Welcome to Kalshi",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "Application Approved + You've got money!",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "3f9827e4-5a8f-3306-8b68-c34504943d92",
     "name": "Harvard Business Services / Delaware Inc",
     "email": "payments@delawareinc.com",
-    "emails": ["payments@delawareinc.com", "filings@delawareinc.com", "info@delawareinc.com"],
+    "emails": [
+      "payments@delawareinc.com",
+      "filings@delawareinc.com",
+      "info@delawareinc.com"
+    ],
     "company": "Harvard Business Services",
     "role": "",
     "category": "professional",
@@ -927,16 +2639,57 @@
     "source": "phase-inbox",
     "notes": "Delaware incorporation and registered agent service for Phase Labs. Franchise tax payments and filings. Active corporate service provider.",
     "interactions": [
-      {"date": "2026-02-13", "type": "email", "summary": "Franchise Tax Payment Acknowledgement + Order Confirmation", "direction": "inbound"},
-      {"date": "2026-02-05", "type": "email", "summary": "Registered Agent Invoice", "direction": "inbound"},
-      {"date": "2026-02-04", "type": "email", "summary": "Early Payment Discount: LLC/LP Franchise Tax Reminder", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "summary": "Franchise Tax Payment Acknowledgement + Order Confirmation",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-05",
+        "type": "email",
+        "summary": "Registered Agent Invoice",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-04",
+        "type": "email",
+        "summary": "Early Payment Discount: LLC/LP Franchise Tax Reminder",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "summary": "Franchise Tax Payment Acknowledgement + Order Confirmation",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-05",
+        "type": "email",
+        "summary": "Registered Agent Invoice",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-04",
+        "type": "email",
+        "summary": "Early Payment Discount: LLC/LP Franchise Tax Reminder",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "15a02275-4f97-abc2-7475-5071799385a3",
     "name": "DIFC (Dubai International Financial Centre)",
     "email": "communication@difc.ae",
-    "emails": ["communication@difc.ae"],
+    "emails": [
+      "communication@difc.ae"
+    ],
     "company": "DIFC Authority",
     "role": "",
     "category": "professional",
@@ -945,16 +2698,57 @@
     "source": "phase-inbox",
     "notes": "Dubai financial center authority. Phase Labs has DIFC presence. Sends regulatory updates, filing reminders, and relocation notices.",
     "interactions": [
-      {"date": "2026-02-05", "type": "email", "summary": "DIFC's 2025 Annual Results", "direction": "inbound"},
-      {"date": "2026-02-02", "type": "email", "summary": "Update on Filing of Annual Accounts", "direction": "inbound"},
-      {"date": "2026-02-01", "type": "email", "summary": "Temporary relocation of DIFC Services", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-05",
+        "type": "email",
+        "summary": "DIFC's 2025 Annual Results",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-02",
+        "type": "email",
+        "summary": "Update on Filing of Annual Accounts",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-01",
+        "type": "email",
+        "summary": "Temporary relocation of DIFC Services",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-05",
+        "type": "email",
+        "summary": "DIFC's 2025 Annual Results",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-02",
+        "type": "email",
+        "summary": "Update on Filing of Annual Accounts",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-01",
+        "type": "email",
+        "summary": "Temporary relocation of DIFC Services",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "d71d107a-077b-e88f-979a-6f16ec08a02a",
     "name": "Meydan Free Zone",
     "email": "awareness@meydanfz.ae",
-    "emails": ["awareness@meydanfz.ae"],
+    "emails": [
+      "awareness@meydanfz.ae"
+    ],
     "company": "Meydan Free Zone",
     "role": "",
     "category": "professional",
@@ -963,14 +2757,33 @@
     "source": "radiants-inbox",
     "notes": "Dubai free zone authority. Radiants may have presence here. Sent phishing awareness notice.",
     "interactions": [
-      {"date": "2026-02-12", "type": "email", "summary": "Important Notice: Beware of Phishing", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "Important Notice: Beware of Phishing",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "Important Notice: Beware of Phishing",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "5f27c075-3a75-87e9-9073-c21399959ff9",
     "name": "Linear",
     "email": "notifications@linear.app",
-    "emails": ["notifications@linear.app"],
+    "emails": [
+      "notifications@linear.app"
+    ],
     "company": "Linear",
     "role": "",
     "category": "professional",
@@ -979,16 +2792,57 @@
     "source": "phase-inbox",
     "notes": "Project management tool for Phase Labs. Jeff invited Brandon. Active issue tracking (STK tickets). Business trial ending.",
     "interactions": [
-      {"date": "2026-02-12", "type": "email", "summary": "Gabriel commented on STK-42 Astralane Iris Issue", "direction": "inbound"},
-      {"date": "2026-02-11", "type": "email", "summary": "Business trial ends in 7 days", "direction": "inbound"},
-      {"date": "2026-02-03", "type": "email", "summary": "19 unread notifications + Welcome to Linear", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "Gabriel commented on STK-42 Astralane Iris Issue",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-11",
+        "type": "email",
+        "summary": "Business trial ends in 7 days",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-03",
+        "type": "email",
+        "summary": "19 unread notifications + Welcome to Linear",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "Gabriel commented on STK-42 Astralane Iris Issue",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-11",
+        "type": "email",
+        "summary": "Business trial ends in 7 days",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-03",
+        "type": "email",
+        "summary": "19 unread notifications + Welcome to Linear",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "69d3709c-b029-7fda-3273-def7d49b0a24",
     "name": "Typefully",
     "email": "notifications@typefully.com",
-    "emails": ["notifications@typefully.com"],
+    "emails": [
+      "notifications@typefully.com"
+    ],
     "company": "Typefully",
     "role": "",
     "category": "professional",
@@ -997,17 +2851,69 @@
     "source": "phase-inbox",
     "notes": "Social media content drafting tool. Phase team uses for Twitter/X content. Active comments from Gotto, S3B, and Pye.",
     "interactions": [
-      {"date": "2026-02-12", "type": "email", "summary": "New comment by Gotto on content draft", "direction": "inbound"},
-      {"date": "2026-02-09", "type": "email", "summary": "New comment by Gotto on content draft", "direction": "inbound"},
-      {"date": "2026-02-04", "type": "email", "summary": "New comments by S3B and Gotto", "direction": "inbound"},
-      {"date": "2026-02-02", "type": "email", "summary": "New comment by Pye", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "New comment by Gotto on content draft",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "summary": "New comment by Gotto on content draft",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-04",
+        "type": "email",
+        "summary": "New comments by S3B and Gotto",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-02",
+        "type": "email",
+        "summary": "New comment by Pye",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "New comment by Gotto on content draft",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "summary": "New comment by Gotto on content draft",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-04",
+        "type": "email",
+        "summary": "New comments by S3B and Gotto",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-02",
+        "type": "email",
+        "summary": "New comment by Pye",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "532f8073-0de5-36a2-ca86-4ad21539bd19",
     "name": "Fireflies.ai (Fred)",
     "email": "fred@fireflies.ai",
-    "emails": ["fred@fireflies.ai"],
+    "emails": [
+      "fred@fireflies.ai"
+    ],
     "company": "Fireflies.ai",
     "role": "",
     "category": "professional",
@@ -1016,16 +2922,57 @@
     "source": "phase-inbox",
     "notes": "AI meeting recording/transcription service. Generates meeting recaps and weekly digests for Phase meetings.",
     "interactions": [
-      {"date": "2026-02-12", "type": "email", "summary": "Meeting recap - Executive Meeting", "direction": "inbound"},
-      {"date": "2026-02-09", "type": "email", "summary": "Weekly Digest: Highlights from Feb 02 - Feb 09", "direction": "inbound"},
-      {"date": "2026-02-02", "type": "email", "summary": "Meeting Prep: Phase Delegation Standup", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "Meeting recap - Executive Meeting",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "summary": "Weekly Digest: Highlights from Feb 02 - Feb 09",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-02",
+        "type": "email",
+        "summary": "Meeting Prep: Phase Delegation Standup",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "Meeting recap - Executive Meeting",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "summary": "Weekly Digest: Highlights from Feb 02 - Feb 09",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-02",
+        "type": "email",
+        "summary": "Meeting Prep: Phase Delegation Standup",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "78c36320-8006-2253-1ef5-c892cca806f9",
     "name": "Suno",
     "email": "invoice+statements@suno.com",
-    "emails": ["invoice+statements@suno.com"],
+    "emails": [
+      "invoice+statements@suno.com"
+    ],
     "company": "Suno",
     "role": "",
     "category": "personal",
@@ -1034,14 +2981,33 @@
     "source": "personal-inbox",
     "notes": "AI music generation platform. Brandon made a purchase via Link payment.",
     "interactions": [
-      {"date": "2026-02-12", "type": "email", "summary": "Receipt from Suno + purchase via Link", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "Receipt from Suno + purchase via Link",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "personal"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "Receipt from Suno + purchase via Link",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "6cc77c70-a6c5-1474-d6f8-7da554c01141",
     "name": "Sphere (Bridge)",
     "email": "noreply@e.withbridge.com",
-    "emails": ["noreply@e.withbridge.com"],
+    "emails": [
+      "noreply@e.withbridge.com"
+    ],
     "company": "Sphere / Bridge",
     "role": "",
     "category": "professional",
@@ -1050,16 +3016,57 @@
     "source": "phase-inbox",
     "notes": "Payment infrastructure. Phase Labs receives regular payments/receipts from Sphere. Likely staking rewards or business payments.",
     "interactions": [
-      {"date": "2026-02-09", "type": "email", "summary": "Receipt from Sphere", "direction": "inbound"},
-      {"date": "2026-02-03", "type": "email", "summary": "Receipt from Sphere", "direction": "inbound"},
-      {"date": "2026-02-02", "type": "email", "summary": "Receipt from Sphere (multiple)", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "summary": "Receipt from Sphere",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-03",
+        "type": "email",
+        "summary": "Receipt from Sphere",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-02",
+        "type": "email",
+        "summary": "Receipt from Sphere (multiple)",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "summary": "Receipt from Sphere",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-03",
+        "type": "email",
+        "summary": "Receipt from Sphere",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-02",
+        "type": "email",
+        "summary": "Receipt from Sphere (multiple)",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "7775da31-532b-01be-a226-c25420dce57b",
     "name": "PandaDoc",
     "email": "docs@email.pandadoc.net",
-    "emails": ["docs@email.pandadoc.net"],
+    "emails": [
+      "docs@email.pandadoc.net"
+    ],
     "company": "PandaDoc",
     "role": "",
     "category": "professional",
@@ -1068,16 +3075,57 @@
     "source": "phase-inbox",
     "notes": "Document signing platform used by Phase Labs for contractor agreements (AME1 CHRIS, AME3 TANER, AME1 DIMKE).",
     "interactions": [
-      {"date": "2026-02-09", "type": "email", "summary": "AME1 DIMKE document completed by all participants", "direction": "inbound"},
-      {"date": "2026-02-05", "type": "email", "summary": "AME1 CHRIS + AME3 TANER completed", "direction": "inbound"},
-      {"date": "2026-02-04", "type": "email", "summary": "Brandon sent documents to Chris, Taner, and Dimke", "direction": "outbound"}
-    ]
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "summary": "AME1 DIMKE document completed by all participants",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-05",
+        "type": "email",
+        "summary": "AME1 CHRIS + AME3 TANER completed",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-04",
+        "type": "email",
+        "summary": "Brandon sent documents to Chris, Taner, and Dimke",
+        "direction": "outbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "summary": "AME1 DIMKE document completed by all participants",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-05",
+        "type": "email",
+        "summary": "AME1 CHRIS + AME3 TANER completed",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-04",
+        "type": "email",
+        "summary": "Brandon sent documents to Chris, Taner, and Dimke",
+        "direction": "outbound"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "3bef2aa2-f792-deea-6725-60eab9644915",
     "name": "Namecheap",
     "email": "renewals@namecheap.com",
-    "emails": ["renewals@namecheap.com"],
+    "emails": [
+      "renewals@namecheap.com"
+    ],
     "company": "Namecheap",
     "role": "",
     "category": "professional",
@@ -1086,14 +3134,33 @@
     "source": "personal-inbox",
     "notes": "Domain registrar. Auto-renewal notice for Brandon's domains.",
     "interactions": [
-      {"date": "2026-02-13", "type": "email", "summary": "Auto-renewal notice for domains", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "summary": "Auto-renewal notice for domains",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "summary": "Auto-renewal notice for domains",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "f2f10c01-37ed-1a41-d42a-a36c950190f5",
     "name": "Netlify",
     "email": "noreply@netlify.com",
-    "emails": ["noreply@netlify.com"],
+    "emails": [
+      "noreply@netlify.com"
+    ],
     "company": "Netlify",
     "role": "",
     "category": "professional",
@@ -1102,14 +3169,35 @@
     "source": "radiants-inbox",
     "notes": "Web hosting for Radiants. Payment received for invoice.",
     "interactions": [
-      {"date": "2026-01-20", "type": "email", "summary": "Payment received for Netlify invoice", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-01-20",
+        "type": "email",
+        "summary": "Payment received for Netlify invoice",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-01-20",
+        "type": "email",
+        "summary": "Payment received for Netlify invoice",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "1217a907-5fb5-7dd9-a85f-509970516486",
     "name": "OpenAI",
     "email": "noreply@tm1.openai.com",
-    "emails": ["noreply@tm1.openai.com", "noreply@tm.openai.com", "noreply@email.openai.com"],
+    "emails": [
+      "noreply@tm1.openai.com",
+      "noreply@tm.openai.com",
+      "noreply@email.openai.com"
+    ],
     "company": "OpenAI",
     "role": "",
     "category": "professional",
@@ -1118,15 +3206,45 @@
     "source": "personal-inbox",
     "notes": "AI API provider. Usage limits increased, account funded. Privacy policy update. Active API user.",
     "interactions": [
-      {"date": "2026-02-13", "type": "email", "summary": "API usage limits increased + account funded", "direction": "inbound"},
-      {"date": "2026-02-12", "type": "email", "summary": "Updates to Privacy Policy", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "summary": "API usage limits increased + account funded",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "Updates to Privacy Policy",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "summary": "API usage limits increased + account funded",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "Updates to Privacy Policy",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "42c1214d-5dc8-3efe-7a01-fa8ef8f07eb7",
     "name": "Brave Search API",
     "email": "search-api@brave.com",
-    "emails": ["search-api@brave.com"],
+    "emails": [
+      "search-api@brave.com"
+    ],
     "company": "Brave",
     "role": "",
     "category": "professional",
@@ -1135,14 +3253,33 @@
     "source": "personal-inbox",
     "notes": "Search API provider. Brandon recently created account and verified email.",
     "interactions": [
-      {"date": "2026-02-13", "type": "email", "summary": "New user created + login attempt + verify email", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "summary": "New user created + login attempt + verify email",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "summary": "New user created + login attempt + verify email",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "46911d3d-c058-5b7e-b2a0-d1cdaf7f157c",
     "name": "Gemini (Google)",
     "email": "gemini-notes@google.com",
-    "emails": ["gemini-notes@google.com"],
+    "emails": [
+      "gemini-notes@google.com"
+    ],
     "company": "Google",
     "role": "",
     "category": "professional",
@@ -1151,18 +3288,82 @@
     "source": "phase-inbox",
     "notes": "Google Gemini generates meeting notes for Phase meetings. Covers Weekly Sync, Exec Meeting, Phase Weekly All-Hands, Delegation Standup, mtndao planning, Antigravity AI Weekly, and more.",
     "interactions": [
-      {"date": "2026-02-13", "type": "email", "summary": "Notes: Weekly Sync Feb 13", "direction": "inbound"},
-      {"date": "2026-02-12", "type": "email", "summary": "Notes: Exec Meeting + Phase Weekly All-Hands Feb 12", "direction": "inbound"},
-      {"date": "2026-02-09", "type": "email", "summary": "Notes: Phase Delegation Update + Dan x Devour + Phase Stake Planning", "direction": "inbound"},
-      {"date": "2026-02-05", "type": "email", "summary": "Notes: Executive Meeting + Claude Tools + Past Latitude Reconciliation", "direction": "inbound"},
-      {"date": "2026-02-04", "type": "email", "summary": "Notes: mtndao planning + Antigravity AI Weekly + Phase Delegation Standup", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "summary": "Notes: Weekly Sync Feb 13",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "Notes: Exec Meeting + Phase Weekly All-Hands Feb 12",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "summary": "Notes: Phase Delegation Update + Dan x Devour + Phase Stake Planning",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-05",
+        "type": "email",
+        "summary": "Notes: Executive Meeting + Claude Tools + Past Latitude Reconciliation",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-04",
+        "type": "email",
+        "summary": "Notes: mtndao planning + Antigravity AI Weekly + Phase Delegation Standup",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "summary": "Notes: Weekly Sync Feb 13",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "Notes: Exec Meeting + Phase Weekly All-Hands Feb 12",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-09",
+        "type": "email",
+        "summary": "Notes: Phase Delegation Update + Dan x Devour + Phase Stake Planning",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-05",
+        "type": "email",
+        "summary": "Notes: Executive Meeting + Claude Tools + Past Latitude Reconciliation",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-04",
+        "type": "email",
+        "summary": "Notes: mtndao planning + Antigravity AI Weekly + Phase Delegation Standup",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 5
   },
   {
     "id": "62d4e055-762f-1dca-a4c2-a94057a0a6d9",
     "name": "Google Workspace",
     "email": "workspace-noreply@google.com",
-    "emails": ["workspace-noreply@google.com", "payments-noreply@google.com"],
+    "emails": [
+      "workspace-noreply@google.com",
+      "payments-noreply@google.com"
+    ],
     "company": "Google",
     "role": "",
     "category": "professional",
@@ -1171,16 +3372,57 @@
     "source": "phase-inbox",
     "notes": "Google Workspace for phaselabs.io domain. Invoicing, payment issues (declined), security advisories. Deleted Clarence user account.",
     "interactions": [
-      {"date": "2026-02-10", "type": "email", "summary": "Fix potential security issues advisory", "direction": "inbound"},
-      {"date": "2026-02-02", "type": "email", "summary": "Google Workspace invoice + payment declined for phaselabs.io", "direction": "inbound"},
-      {"date": "2026-01-26", "type": "email", "summary": "Deletion of Clarence from Google Workspace successful", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-10",
+        "type": "email",
+        "summary": "Fix potential security issues advisory",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-02",
+        "type": "email",
+        "summary": "Google Workspace invoice + payment declined for phaselabs.io",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-01-26",
+        "type": "email",
+        "summary": "Deletion of Clarence from Google Workspace successful",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-10",
+        "type": "email",
+        "summary": "Fix potential security issues advisory",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-02",
+        "type": "email",
+        "summary": "Google Workspace invoice + payment declined for phaselabs.io",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-01-26",
+        "type": "email",
+        "summary": "Deletion of Clarence from Google Workspace successful",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "abcd8977-5787-5411-772f-8702f7a00af9",
     "name": "Malwarebytes",
     "email": "noreply@e.malwarebytes.com",
-    "emails": ["noreply@e.malwarebytes.com"],
+    "emails": [
+      "noreply@e.malwarebytes.com"
+    ],
     "company": "Malwarebytes",
     "role": "",
     "category": "professional",
@@ -1189,14 +3431,33 @@
     "source": "phase-inbox",
     "notes": "Security software for Phase Labs team. Monthly security reports.",
     "interactions": [
-      {"date": "2026-02-10", "type": "email", "summary": "Monthly security report for Malwarebytes for Teams", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-10",
+        "type": "email",
+        "summary": "Monthly security report for Malwarebytes for Teams",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-10",
+        "type": "email",
+        "summary": "Monthly security report for Malwarebytes for Teams",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "ca7a6fe7-d65c-f129-d1d5-22be3eb68548",
     "name": "Mixpanel",
     "email": "noreply@outgoing.mixpanel.com",
-    "emails": ["noreply@outgoing.mixpanel.com"],
+    "emails": [
+      "noreply@outgoing.mixpanel.com"
+    ],
     "company": "Mixpanel",
     "role": "",
     "category": "professional",
@@ -1205,14 +3466,33 @@
     "source": "phase-inbox",
     "notes": "Analytics platform. New user joined Phase organization.",
     "interactions": [
-      {"date": "2026-02-03", "type": "email", "summary": "New user has joined your organization", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-03",
+        "type": "email",
+        "summary": "New user has joined your organization",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-03",
+        "type": "email",
+        "summary": "New user has joined your organization",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "ac07f69f-f1b5-3594-d9da-0b82311778fc",
     "name": "Paddle (Sapphire Discord Bot)",
     "email": "help@paddle.com",
-    "emails": ["help@paddle.com"],
+    "emails": [
+      "help@paddle.com"
+    ],
     "company": "Paddle / Sapphire",
     "role": "",
     "category": "professional",
@@ -1221,14 +3501,33 @@
     "source": "radiants-inbox",
     "notes": "Payment receipt for Sapphire Discord Bot subscription for Radiants.",
     "interactions": [
-      {"date": "2026-01-23", "type": "email", "summary": "Receipt from Sapphire Discord Bot", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-01-23",
+        "type": "email",
+        "summary": "Receipt from Sapphire Discord Bot",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-01-23",
+        "type": "email",
+        "summary": "Receipt from Sapphire Discord Bot",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "a4ab2774-d493-4683-2390-7071904af76f",
     "name": "Innovation City Free Zone",
     "email": "media@innovationcity.com",
-    "emails": ["media@innovationcity.com"],
+    "emails": [
+      "media@innovationcity.com"
+    ],
     "company": "Innovation City Free Zone Authority",
     "role": "",
     "category": "professional",
@@ -1237,14 +3536,33 @@
     "source": "radiants-inbox",
     "notes": "Dubai free zone. Invited to get featured on Khaleej Times. Radiants may have presence here.",
     "interactions": [
-      {"date": "2026-02-10", "type": "email", "summary": "Invitation to get featured on Khaleej Times", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-10",
+        "type": "email",
+        "summary": "Invitation to get featured on Khaleej Times",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-10",
+        "type": "email",
+        "summary": "Invitation to get featured on Khaleej Times",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "3938147b-1cc3-8207-3a95-b25db98b25a6",
     "name": "Jupiter",
     "email": "jupiter@calendar.luma-mail.com",
-    "emails": ["jupiter@calendar.luma-mail.com"],
+    "emails": [
+      "jupiter@calendar.luma-mail.com"
+    ],
     "company": "Jupiter",
     "role": "",
     "category": "community",
@@ -1253,15 +3571,45 @@
     "source": "radiants-inbox",
     "notes": "Solana DEX aggregator. Brandon attends JUP Rally events via Radiants calendar. Active Solana ecosystem participant.",
     "interactions": [
-      {"date": "2026-02-13", "type": "meeting", "summary": "JUP Rally: A Plan for JUP, CatLumpurr Roundup (Radiants calendar)", "direction": "bidirectional"},
-      {"date": "2026-01-21", "type": "email", "summary": "Update for Planetary Call #63", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-13",
+        "type": "meeting",
+        "summary": "JUP Rally: A Plan for JUP, CatLumpurr Roundup (Radiants calendar)",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-01-21",
+        "type": "email",
+        "summary": "Update for Planetary Call #63",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "community"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-13",
+        "type": "meeting",
+        "summary": "JUP Rally: A Plan for JUP, CatLumpurr Roundup (Radiants calendar)",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-01-21",
+        "type": "email",
+        "summary": "Update for Planetary Call #63",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "35bc5bb7-ff99-4c4d-94c4-c8e6d89ec4e2",
     "name": "Netrunner Tax",
     "email": "no-reply@netrunner.tax",
-    "emails": ["no-reply@netrunner.tax"],
+    "emails": [
+      "no-reply@netrunner.tax"
+    ],
     "company": "Netrunner",
     "role": "",
     "category": "partner",
@@ -1270,10 +3618,49 @@
     "source": "radiants-inbox",
     "notes": "Solana tax tool. Phase calendar shows Netrunner App Feedback and partnerships meetings. Key product in Phase ecosystem.",
     "interactions": [
-      {"date": "2026-01-28", "type": "meeting", "summary": "Netrunner App Feedback (Phase calendar)", "direction": "bidirectional"},
-      {"date": "2026-01-20", "type": "email", "summary": "Solana taxes promo", "direction": "inbound"},
-      {"date": "2026-01-14", "type": "meeting", "summary": "Netrunner partnerships meeting (Phase calendar)", "direction": "bidirectional"}
-    ]
+      {
+        "date": "2026-01-28",
+        "type": "meeting",
+        "summary": "Netrunner App Feedback (Phase calendar)",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-01-20",
+        "type": "email",
+        "summary": "Solana taxes promo",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-01-14",
+        "type": "meeting",
+        "summary": "Netrunner partnerships meeting (Phase calendar)",
+        "direction": "bidirectional"
+      }
+    ],
+    "tags": [
+      "partner"
+    ],
+    "timeline": [
+      {
+        "date": "2026-01-28",
+        "type": "meeting",
+        "summary": "Netrunner App Feedback (Phase calendar)",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-01-20",
+        "type": "email",
+        "summary": "Solana taxes promo",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-01-14",
+        "type": "meeting",
+        "summary": "Netrunner partnerships meeting (Phase calendar)",
+        "direction": "bidirectional"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "21b0d2cd-5409-119e-b792-23623b48ccea",
@@ -1288,8 +3675,25 @@
     "source": "calendar",
     "notes": "Community-led Solana validator call. Brandon participates regularly via Phase calendar.",
     "interactions": [
-      {"date": "2026-01-22", "type": "meeting", "summary": "Solana validator community-led call", "direction": "bidirectional"}
-    ]
+      {
+        "date": "2026-01-22",
+        "type": "meeting",
+        "summary": "Solana validator community-led call",
+        "direction": "bidirectional"
+      }
+    ],
+    "tags": [
+      "community"
+    ],
+    "timeline": [
+      {
+        "date": "2026-01-22",
+        "type": "meeting",
+        "summary": "Solana validator community-led call",
+        "direction": "bidirectional"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "977a83d5-0fb4-fdd5-d55d-a31973417e55",
@@ -1304,18 +3708,81 @@
     "source": "phase-inbox",
     "notes": "Google Antigravity project. Brandon attends weekly Antigravity AI meetings. Got 'Get started' email from Google Antigravity.",
     "interactions": [
-      {"date": "2026-02-11", "type": "meeting", "summary": "Antigravity AI Weekly meeting", "direction": "bidirectional"},
-      {"date": "2026-02-06", "type": "email", "summary": "Get started with Google Antigravity", "direction": "inbound"},
-      {"date": "2026-02-04", "type": "meeting", "summary": "Antigravity AI Weekly meeting", "direction": "bidirectional"},
-      {"date": "2026-01-28", "type": "meeting", "summary": "Antigravity AI Weekly meeting", "direction": "bidirectional"},
-      {"date": "2026-01-21", "type": "meeting", "summary": "Antigravity AI Weekly meeting", "direction": "bidirectional"}
-    ]
+      {
+        "date": "2026-02-11",
+        "type": "meeting",
+        "summary": "Antigravity AI Weekly meeting",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-06",
+        "type": "email",
+        "summary": "Get started with Google Antigravity",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-04",
+        "type": "meeting",
+        "summary": "Antigravity AI Weekly meeting",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-01-28",
+        "type": "meeting",
+        "summary": "Antigravity AI Weekly meeting",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-01-21",
+        "type": "meeting",
+        "summary": "Antigravity AI Weekly meeting",
+        "direction": "bidirectional"
+      }
+    ],
+    "tags": [
+      "partner"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-11",
+        "type": "meeting",
+        "summary": "Antigravity AI Weekly meeting",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-06",
+        "type": "email",
+        "summary": "Get started with Google Antigravity",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-04",
+        "type": "meeting",
+        "summary": "Antigravity AI Weekly meeting",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-01-28",
+        "type": "meeting",
+        "summary": "Antigravity AI Weekly meeting",
+        "direction": "bidirectional"
+      },
+      {
+        "date": "2026-01-21",
+        "type": "meeting",
+        "summary": "Antigravity AI Weekly meeting",
+        "direction": "bidirectional"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "fb1b04eb-0d0c-11e3-934e-28a0f4e8d8da",
     "name": "VibeCode App",
     "email": "no-reply@mail.vibecodeapp.com",
-    "emails": ["no-reply@mail.vibecodeapp.com"],
+    "emails": [
+      "no-reply@mail.vibecodeapp.com"
+    ],
     "company": "VibeCode",
     "role": "",
     "category": "professional",
@@ -1324,14 +3791,34 @@
     "source": "personal-inbox",
     "notes": "App platform. Brandon downloaded ChartWise Mobile build.",
     "interactions": [
-      {"date": "2026-02-11", "type": "email", "summary": "Download ready for ChartWise Mobile", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-11",
+        "type": "email",
+        "summary": "Download ready for ChartWise Mobile",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-11",
+        "type": "email",
+        "summary": "Download ready for ChartWise Mobile",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "cc7fa4b8-f3ec-9825-67f9-e2fb389c9312",
     "name": "Google Cloud",
     "email": "googlecloud@google.com",
-    "emails": ["googlecloud@google.com", "CloudPlatform-noreply@google.com"],
+    "emails": [
+      "googlecloud@google.com",
+      "CloudPlatform-noreply@google.com"
+    ],
     "company": "Google Cloud",
     "role": "",
     "category": "professional",
@@ -1340,9 +3827,37 @@
     "source": "personal-inbox",
     "notes": "Cloud infrastructure. Free trial started across all 3 accounts. Security and product updates.",
     "interactions": [
-      {"date": "2026-02-12", "type": "email", "summary": "Welcome to Google Cloud Free Trial (all 3 accounts)", "direction": "inbound"},
-      {"date": "2026-02-10", "type": "email", "summary": "Credential security best practices advisory", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "Welcome to Google Cloud Free Trial (all 3 accounts)",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-10",
+        "type": "email",
+        "summary": "Credential security best practices advisory",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-12",
+        "type": "email",
+        "summary": "Welcome to Google Cloud Free Trial (all 3 accounts)",
+        "direction": "inbound"
+      },
+      {
+        "date": "2026-02-10",
+        "type": "email",
+        "summary": "Credential security best practices advisory",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 3
   },
   {
     "id": "f8fb36a3-465a-7bf2-ad67-e2b3a71f4506",
@@ -1357,14 +3872,33 @@
     "source": "calendar",
     "notes": "Anchor (Solana framework) community meeting on Phase calendar.",
     "interactions": [
-      {"date": "2026-02-11", "type": "meeting", "summary": "Anchor Community Meeting", "direction": "bidirectional"}
-    ]
+      {
+        "date": "2026-02-11",
+        "type": "meeting",
+        "summary": "Anchor Community Meeting",
+        "direction": "bidirectional"
+      }
+    ],
+    "tags": [
+      "community"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-11",
+        "type": "meeting",
+        "summary": "Anchor Community Meeting",
+        "direction": "bidirectional"
+      }
+    ],
+    "qualityScore": 1
   },
   {
     "id": "414ccb17-f7ac-f2aa-f195-3a48392ee429",
     "name": "CUDIS",
     "email": "support@cudis.xyz",
-    "emails": ["support@cudis.xyz"],
+    "emails": [
+      "support@cudis.xyz"
+    ],
     "company": "CUDIS",
     "role": "",
     "category": "community",
@@ -1373,7 +3907,24 @@
     "source": "radiants-inbox",
     "notes": "Web3 wearable/health project. Preparing for Kickstarter launch. Sent early access invite.",
     "interactions": [
-      {"date": "2026-02-04", "type": "email", "summary": "Preparing for biggest launch - join early on Kickstarter", "direction": "inbound"}
-    ]
+      {
+        "date": "2026-02-04",
+        "type": "email",
+        "summary": "Preparing for biggest launch - join early on Kickstarter",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "community"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-04",
+        "type": "email",
+        "summary": "Preparing for biggest launch - join early on Kickstarter",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 1
   }
 ]

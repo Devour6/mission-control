@@ -1,8 +1,37 @@
 {
   "address": "CCHC1C7ztDyaVZWWxXtwH7ApSCiQAbtBK1jre1AeRgkp",
   "startDate": "2026-02-12",
-  "startingBalance": {"sol": 0.76147777, "usd": 308},
+  "startingBalance": {
+    "sol": 0.76147777,
+    "usd": 308
+  },
   "monthlyTarget": 7.5,
-  "currentBalance": {"sol": 0.76147777, "usd": 308},
+  "currentBalance": {
+    "sol": 0.76147777,
+    "usd": 314.97
+  },
+  "holdings": [
+    {
+      "token": "SOL",
+      "amount": 0.76147777,
+      "usd": 64.67
+    },
+    {
+      "token": "CRT",
+      "amount": 2.189318443,
+      "usd": 250.24
+    },
+    {
+      "token": "BLZE",
+      "amount": 576.27,
+      "usd": 0.06
+    },
+    {
+      "token": "USDC",
+      "amount": 0.0066,
+      "usd": 0.01
+    }
+  ],
+  "lastUpdated": "2026-02-13T21:30:00-08:00",
   "trades": []
 }
