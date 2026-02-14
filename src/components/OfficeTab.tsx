@@ -328,6 +328,7 @@ export default function OfficeTab() {
         list.push(makeAgent(m.name, m.emoji, getColors(m.name), m.status as "active" | "coming_soon"));
       });
     });
+    console.log("Initialized agents:", list.map(a => ({name: a.name, status: a.status, desk: a.deskPos})));
     return list;
   }, []);
 
@@ -480,6 +481,7 @@ export default function OfficeTab() {
 
   if (!mounted || !team) return null;
   const activeCount = agents.filter(a => a.status === "active").length;
+  console.log("Rendering office with agents:", agents.map(a => ({name: a.name, status: a.status, visible: a.status !== "coming_soon"})));
 
   return (
     <div className="flex flex-col lg:flex-row gap-4 max-w-7xl mx-auto">
