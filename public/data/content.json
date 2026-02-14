@@ -35,6 +35,54 @@
       "angle": "Crypto × AI intersection. Specific numbers add authority. Builder perspective.",
       "source": "Coinbase agentic wallets launch",
       "status": "pending"
+    },
+    {
+      "id": "kelly-2026-02-13-4",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Evening Batch",
+      "date": "Feb 13, 2026 — 5:00 PM",
+      "text": "github just launched agentic workflows. AI agents that handle issue triage, PR reviews, docs, code quality. you write CI/CD in plain markdown and agents execute everything. CI/CD is dead. continuous AI is the new standard.",
+      "angle": "Dev-audience provocative take on GitHub's agentic workflows.",
+      "source": "GitHub Agentic Workflows technical preview",
+      "status": "pending"
+    },
+    {
+      "id": "kelly-2026-02-13-5",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Evening Batch",
+      "date": "Feb 13, 2026 — 5:00 PM",
+      "text": "anthropic just hit $380B valuation. that's not an AI company valuation. that's a reasoning engine valuation. everything else is a wrapper.",
+      "angle": "Spicy take on Anthropic's valuation — reasoning engines vs features.",
+      "source": "Anthropic $380B valuation",
+      "status": "pending"
+    },
+    {
+      "id": "rachel-2026-02-13-1",
+      "platform": "linkedin",
+      "author": "Rachel",
+      "authorEmoji": "💼",
+      "batch": "Evening Batch",
+      "date": "Feb 13, 2026 — 5:00 PM",
+      "text": "Wall Street just panic-sold $500M+ worth of real estate, legal, and insurance service stocks this week because of AI agents. The market is finally pricing in what business leaders have been quietly discussing for months: white-collar automation isn't coming—it's here.\n\nAs someone building with AI agents daily, I see this moment differently. The panic isn't about the technology itself—it's about the speed. Companies that are already experimenting, adapting, and reimagining their workflows will thrive. Those waiting for permission or certainty will struggle.\n\nThe question isn't whether AI will transform your industry. It's whether you're building the capabilities to lead that transformation or just hoping to survive it.",
+      "angle": "Thought leadership on AI Scare Trade from a business leader's perspective.",
+      "source": "AI Scare Trade coverage (Reuters/CNBC), Wall Street sector sell-offs",
+      "status": "pending"
+    },
+    {
+      "id": "rachel-2026-02-13-2",
+      "platform": "linkedin",
+      "author": "Rachel",
+      "authorEmoji": "💼",
+      "batch": "Evening Batch",
+      "date": "Feb 13, 2026 — 5:00 PM",
+      "text": "GitHub just launched Agentic Workflows in technical preview - AI agents that handle issue triage, PR reviews, documentation, and code quality checks. You write CI/CD in plain Markdown, and agents execute everything else.\n\nThis isn't just another developer tool. It's a fundamental shift in how we think about software development. The most successful engineering teams will be those who learn to work alongside AI agents, not those who resist them.\n\nWe're moving from continuous integration to continuous intelligence. The companies that understand this distinction will build faster, ship better software, and attract top engineering talent who want to work with cutting-edge tooling.",
+      "angle": "Professional development perspective on GitHub's technical preview for engineering leaders and CTOs.",
+      "source": "GitHub Agentic Workflows technical preview (GitHub Blog)",
+      "status": "pending"
     }
   ],
   "posted": []
