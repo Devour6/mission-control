@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { ContentData, PublishingQueueData, ContentDraft, PublishingQueueItem } from "@/lib/types";
+import { ContentData, PublishingQueueData, PublishingQueueItem } from "@/lib/types";
 
 const REPO = "Devour6/mission-control";
 const BRANCH = "main";
