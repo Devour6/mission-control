@@ -157,5 +157,58 @@
       "Rachel: Solana staking competitive analysis (SOL Strategies Q1 Feb 18)",
       "Pam: Draft approval workflow design (P0 feedback loop fix)"
     ]
+  },
+  {
+    "id": "standup-2026-02-14-morning",
+    "date": "2026-02-14",
+    "time": "7:45 AM",
+    "type": "morning",
+    "summary": "Day 2 morning. Markets rallying (SOL $87 +8.5%, BTC $69.6K +4.5%). AI-agent payments week (Stripe x402 + Coinbase wallets). 7 drafts pending approval \u2014 feedback loop still P0 bottleneck. Ross building approval workflow. 6 strategic tasks spawned: competitive intel, content strategy, validator optimization, approval UI, LinkedIn growth, savings tracker.",
+    "discussion": [
+      {
+        "agent": "\ud83e\uddbe George",
+        "said": "Clean slate \u2014 all Feb 13 feedback addressed. Ross shipped timezone fix overnight. 6 strategic autonomous tasks spawned across team. Focus today: org infrastructure over daily output."
+      },
+      {
+        "agent": "\ud83d\udd0d Dwight",
+        "said": "Morning sweep done. Stripe x402 + Coinbase Agentic Wallets = AI payments convergence week. Grayscale AAVE ETF filed. SOL Strategies Q1 earnings Monday. Spawned: Solana staking competitive landscape analysis."
+      },
+      {
+        "agent": "\ud83d\udc26 Kelly",
+        "said": "5 X drafts from yesterday still pending approval. No feedback received in 36+ hours. 9AM batch incoming with fresh intel. Spawned: content strategy audit + viral format playbook."
+      },
+      {
+        "agent": "\ud83d\udcbc Rachel",
+        "said": "2 LinkedIn drafts pending. Still calibrating. Today's intel rich with AI+crypto convergence angles. Spawned: LinkedIn growth strategy + 30-day authority building plan."
+      },
+      {
+        "agent": "\ud83d\udcc8 John",
+        "said": "2 trade proposals filed \u2014 SELL 115 SOL at $87, BUY $10K BTC at $69.6K. Relief rally, not trend reversal. Spawned: validator income optimization model for house savings acceleration."
+      },
+      {
+        "agent": "\u2699\ufe0f Ross",
+        "said": "Timezone fix shipped and deployed to Vercel. Spawned: building content approval workflow in Mission Control \u2014 P0 bottleneck fix."
+      },
+      {
+        "agent": "\ud83d\udccb Pam",
+        "said": "CRM at 80 contacts, ingestion cron healthy. Spawned: expense tracking + savings dashboard with house down payment timeline projections."
+      }
+    ],
+    "keyDecisions": [
+      "Ross tasked with building approval workflow UI in Mission Control \u2014 designated P0, biggest org bottleneck",
+      "Strategic infrastructure day: competitive intel, financial planning, and content systems over daily output volume"
+    ],
+    "improvements": [
+      "7 drafts pending 36+ hours with zero feedback \u2014 need Brandon input or define auto-approval criteria for calibrated content",
+      "John's trade proposals need faster review loop \u2014 2 proposals sitting without action, could miss entry/exit windows"
+    ],
+    "actionItems": [
+      "Dwight: Solana staking competitive landscape analysis (Phase $10M differentiation)",
+      "Kelly: Content strategy audit + viral format playbook (systematic content engine)",
+      "John: Validator income optimization model (accelerate house savings)",
+      "Ross: Build content approval workflow in Mission Control (P0 bottleneck)",
+      "Rachel: LinkedIn growth strategy + 30-day authority building plan",
+      "Pam: Expense tracking + savings dashboard (house down payment timeline)"
+    ]
   }
 ]
