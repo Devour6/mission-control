@@ -125,7 +125,7 @@ export default function CouncilTab() {
                         <div className="space-y-2.5">
                           {s.discussion.map((d, i) => (
                             <div key={i} className="flex gap-2.5 items-start">
-                              <span className="text-sm shrink-0 mt-0.5">{d.emoji}</span>
+                              {d.emoji && <span className="text-sm shrink-0 mt-0.5">{d.emoji}</span>}
                               <div className="min-w-0">
                                 <span className="text-xs font-semibold text-[#e4e6ed]">{d.agent}</span>
                                 <p className="text-xs md:text-sm text-[#9b9fb3] mt-0.5">{d.said}</p>
@@ -155,7 +155,11 @@ export default function CouncilTab() {
                       <div className="mt-3">
                         <p className="text-xs text-indigo-400/70 uppercase tracking-wider mb-1">Action Items</p>
                         <ul className="space-y-1">
-                          {s.actionItems.map((d, i) => <li key={i} className="text-xs md:text-sm text-[#c4c7d4]">• {d}</li>)}
+                          {s.actionItems.map((d: unknown, i: number) => {
+                            if (typeof d === "string") return <li key={i} className="text-xs md:text-sm text-[#c4c7d4]">• {d}</li>;
+                            const item = d as { task?: string; agent?: string; status?: string };
+                            return <li key={i} className="text-xs md:text-sm text-[#c4c7d4]">• {item.task || "Unknown"}{item.agent ? ` → ${item.agent}` : ""}{item.status ? ` (${item.status})` : ""}</li>;
+                          })}
                         </ul>
                       </div>
                     )}
