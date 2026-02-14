@@ -1,20 +1,15 @@
 "use client";
 
-import { useState } from "react";
-
 // --- Timezone Conversion Helper ---
 function convertPSTToLocal(pstTime: string): string {
-  // Handle non-time strings
   if (!pstTime || pstTime.toLowerCase().includes('every') || pstTime.toLowerCase().includes('hourly') || pstTime.toLowerCase().includes('ongoing')) {
     return pstTime;
   }
 
-  // Handle "Morning" and other descriptive times
   if (pstTime.toLowerCase().includes('morning') && !pstTime.includes(':')) {
     return pstTime;
   }
 
-  // Handle "Mon 9AM" format
   if (pstTime.includes('Mon ') && pstTime.includes('AM')) {
     const timeMatch = pstTime.match(/(\d+)(AM|PM)/);
     if (timeMatch) {
@@ -26,27 +21,22 @@ function convertPSTToLocal(pstTime: string): string {
     return pstTime;
   }
 
-  // Parse standard time format like "11:00 PM" or "4:00 AM" or "8:00 AM"
   const timeMatch = pstTime.match(/^(\d{1,2}):?(\d{2})?\s*(AM|PM)$/i);
   if (!timeMatch) {
-    return pstTime; // Return original if format doesn't match
+    return pstTime;
   }
 
   const hours = parseInt(timeMatch[1]);
   const minutes = timeMatch[2] ? parseInt(timeMatch[2]) : 0;
   const period = timeMatch[3].toUpperCase();
   
-  // Convert to 24-hour format
   let h = hours;
   if (period === 'PM' && h !== 12) h += 12;
   if (period === 'AM' && h === 12) h = 0;
 
-  // Create a Date object representing this time in PST
-  // Using a fixed date (2026-02-14) and PST offset (-08:00)
   const pstDateString = `2026-02-14T${String(h).padStart(2,'0')}:${String(minutes).padStart(2,'0')}:00-08:00`;
   const date = new Date(pstDateString);
   
-  // Convert to user's local timezone
   return date.toLocaleTimeString('en-US', { 
     hour: 'numeric', 
     minute: '2-digit', 
@@ -54,436 +44,728 @@ function convertPSTToLocal(pstTime: string): string {
   });
 }
 
-// --- Types ---
-interface WorkflowNode {
+// --- New Timeline-based Types ---
+interface TimelineStep {
   id: string;
-  type: "action" | "decision" | "data" | "discord";
-  label: string;
+  type: "trigger" | "action" | "data" | "decision" | "output";
+  title: string;
+  subtitle?: string;
   time?: string;
-  icon?: string;
-  x: number;
-  y: number;
-  width?: number;
-  height?: number;
+  icon: string;
+  inputs?: string[];
+  outputs?: string[];
+  discordChannel?: string;
+  description?: string;
+  color: string;
 }
 
-interface WorkflowConnection {
-  from: string;
-  to: string;
-  label?: string;
-  color?: string;
-  points?: { x: number; y: number }[];
-}
-
-interface AgentWorkflow {
+interface AgentTimeline {
   name: string;
   emoji: string;
+  role: string;
   color: string;
-  nodes: WorkflowNode[];
-  connections: WorkflowConnection[];
+  description: string;
+  steps: TimelineStep[];
 }
 
-// --- Workflow Data ---
-const WORKFLOWS: Record<string, AgentWorkflow> = {
+// --- Redesigned Workflow Data (Timeline Format) ---
+const AGENT_TIMELINES: Record<string, AgentTimeline> = {
   George: {
     name: "George",
-    emoji: "🦾",
+    emoji: "🦾", 
+    role: "Chief of Staff",
     color: "#6366f1",
-    nodes: [
-      { id: "morning-brief", type: "action", label: "Morning Briefing", time: "8:00 AM", icon: "📋", x: 50, y: 50 },
-      { id: "dwight-intel", type: "data", label: "DAILY-INTEL.md", x: 250, y: 30, width: 120 },
-      { id: "pam-cal", type: "data", label: "Calendar Context", x: 250, y: 70, width: 120 },
-      { id: "brandon-brief", type: "discord", label: "Send to Brandon", x: 450, y: 50, width: 110 },
-      { id: "morning-auto", type: "action", label: "Morning Autonomous Work", time: "10:00 AM", icon: "⚡", x: 50, y: 150 },
-      { id: "midday-standup", type: "action", label: "Midday Standup", time: "12:00 PM", icon: "👥", x: 50, y: 220 },
-      { id: "afternoon-auto", type: "action", label: "Afternoon Autonomous Work", time: "3:00 PM", icon: "⚡", x: 50, y: 290 },
-      { id: "afternoon-standup", type: "action", label: "Afternoon Standup", time: "4:00 PM", icon: "👥", x: 50, y: 360 },
-      { id: "evening-standup", type: "action", label: "Evening Standup", time: "8:00 PM", icon: "🌙", x: 50, y: 430 },
-      { id: "late-standup", type: "action", label: "Late Night Standup", time: "11:00 PM", icon: "🌚", x: 50, y: 500 },
-      { id: "early-standup", type: "action", label: "Early Morning Standup", time: "4:00 AM", icon: "🌅", x: 50, y: 570 },
-      { id: "john-review", type: "decision", label: "Review John's Trades", x: 300, y: 200, width: 140 },
-      { id: "high-conviction", type: "decision", label: "HIGH conviction?", x: 500, y: 200, width: 140 },
-      { id: "execute-trade", type: "action", label: "Execute via Solana CLI", icon: "💸", x: 650, y: 150 },
-      { id: "log-trade", type: "data", label: "Trade Log", x: 800, y: 150, width: 100 },
-    ],
-    connections: [
-      { from: "morning-brief", to: "dwight-intel", color: "#a855f7" },
-      { from: "morning-brief", to: "pam-cal", color: "#f43f5e" },
-      { from: "dwight-intel", to: "brandon-brief" },
-      { from: "pam-cal", to: "brandon-brief" },
-      { from: "john-review", to: "high-conviction", label: "proposals" },
-      { from: "high-conviction", to: "execute-trade", label: "YES", color: "#10b981" },
-      { from: "execute-trade", to: "log-trade" },
+    description: "Coordinates all agents, conducts standups, and executes high-conviction trades",
+    steps: [
+      {
+        id: "early-standup",
+        type: "action",
+        title: "Early Morning Standup", 
+        time: "4:00 AM",
+        icon: "🌅",
+        description: "Check overnight activities, prep for day",
+        color: "#6366f1"
+      },
+      {
+        id: "morning-brief",
+        type: "action",
+        title: "Morning Briefing",
+        time: "8:00 AM", 
+        icon: "📋",
+        inputs: ["DAILY-INTEL.md", "Calendar Context"],
+        outputs: ["Brandon Brief"],
+        description: "Synthesize intel and calendar for Brandon",
+        color: "#6366f1"
+      },
+      {
+        id: "send-brief",
+        type: "output",
+        title: "Brief to Brandon",
+        icon: "📤",
+        discordChannel: "DM",
+        description: "Daily intelligence summary and schedule overview",
+        color: "#8b5cf6"
+      },
+      {
+        id: "midday-standup", 
+        type: "action",
+        title: "Midday Standup",
+        time: "12:00 PM",
+        icon: "👥",
+        description: "Check progress, coordinate agents",
+        color: "#6366f1"
+      },
+      {
+        id: "trade-review",
+        type: "decision",
+        title: "Trade Review",
+        icon: "⚖️",
+        inputs: ["John's Proposals"],
+        description: "Review high-conviction opportunities",
+        color: "#f59e0b"
+      },
+      {
+        id: "execute-trades",
+        type: "action", 
+        title: "Execute Trades",
+        icon: "💸",
+        outputs: ["Trade Log"],
+        description: "Execute approved high-conviction trades via Solana CLI",
+        color: "#10b981"
+      },
+      {
+        id: "evening-standup",
+        type: "action",
+        title: "Evening Standup", 
+        time: "8:00 PM",
+        icon: "🌙",
+        description: "End-of-day review and planning",
+        color: "#6366f1"
+      },
+      {
+        id: "late-standup",
+        type: "action",
+        title: "Late Night Standup",
+        time: "11:00 PM",
+        icon: "🌚", 
+        description: "Final check before overnight period",
+        color: "#6366f1"
+      }
     ]
   },
-  
+
   Dwight: {
     name: "Dwight",
     emoji: "🔍",
+    role: "Research Lead", 
     color: "#a855f7",
-    nodes: [
-      { id: "morning-sweep", type: "action", label: "Morning Sweep", time: "7:30 AM", icon: "🔍", x: 50, y: 50 },
-      { id: "intel-write", type: "data", label: "DAILY-INTEL.md", x: 250, y: 50, width: 140 },
-      { id: "research-post", type: "discord", label: "#research Discord", x: 450, y: 50, width: 130 },
-      { id: "feeds-kelly", type: "action", label: "Feeds Kelly", icon: "🐦", x: 250, y: 120, width: 100 },
-      { id: "feeds-rachel", type: "action", label: "Feeds Rachel", icon: "💼", x: 370, y: 120, width: 100 },
-      { id: "feeds-john", type: "action", label: "Feeds John", icon: "📈", x: 250, y: 180, width: 100 },
-      { id: "feeds-george", type: "action", label: "Feeds George", icon: "🦾", x: 370, y: 180, width: 100 },
-      { id: "midday-sweep", type: "action", label: "Midday Sweep", time: "1:00 PM", icon: "🔍", x: 50, y: 250 },
-      { id: "intel-update", type: "data", label: "Update DAILY-INTEL.md", x: 250, y: 250, width: 160 },
-      { id: "midday-post", type: "discord", label: "#research Discord", x: 450, y: 250, width: 130 },
-      { id: "evening-sweep", type: "action", label: "Evening Sweep", time: "6:00 PM", icon: "🔍", x: 50, y: 350 },
-      { id: "evening-intel", type: "data", label: "Evening Market Snapshot", x: 250, y: 350, width: 180 },
-      { id: "evening-post", type: "discord", label: "#research Discord", x: 450, y: 350, width: 130 },
-    ],
-    connections: [
-      { from: "morning-sweep", to: "intel-write" },
-      { from: "intel-write", to: "research-post" },
-      { from: "intel-write", to: "feeds-kelly", color: "#ec4899" },
-      { from: "intel-write", to: "feeds-rachel", color: "#3b82f6" },
-      { from: "intel-write", to: "feeds-john", color: "#10b981" },
-      { from: "intel-write", to: "feeds-george", color: "#6366f1" },
-      { from: "midday-sweep", to: "intel-update" },
-      { from: "intel-update", to: "midday-post" },
-      { from: "evening-sweep", to: "evening-intel" },
-      { from: "evening-intel", to: "evening-post" },
+    description: "Conducts market research sweeps 3x daily, writes DAILY-INTEL.md, feeds all other agents",
+    steps: [
+      {
+        id: "morning-sweep",
+        type: "trigger",
+        title: "Morning Sweep",
+        time: "7:30 AM",
+        icon: "🔍", 
+        description: "Comprehensive market and news analysis",
+        color: "#a855f7"
+      },
+      {
+        id: "write-intel",
+        type: "data",
+        title: "Write DAILY-INTEL.md",
+        icon: "📄",
+        outputs: ["DAILY-INTEL.md"],
+        description: "Structured intelligence document",
+        color: "#06b6d4"
+      },
+      {
+        id: "research-post",
+        type: "output", 
+        title: "Research Update",
+        icon: "💬",
+        discordChannel: "#research",
+        description: "Share findings with team",
+        color: "#8b5cf6"
+      },
+      {
+        id: "feed-agents",
+        type: "action",
+        title: "Feed Other Agents", 
+        icon: "🔄",
+        outputs: ["Kelly", "Rachel", "John", "George"],
+        description: "Intel flows to content creators and trading",
+        color: "#10b981"
+      },
+      {
+        id: "midday-sweep",
+        type: "trigger", 
+        title: "Midday Update",
+        time: "1:00 PM",
+        icon: "🔄",
+        description: "Market pulse check and intel update", 
+        color: "#a855f7"
+      },
+      {
+        id: "update-intel",
+        type: "data",
+        title: "Update Intel",
+        icon: "✏️", 
+        outputs: ["DAILY-INTEL.md"],
+        description: "Refresh with latest developments",
+        color: "#06b6d4"
+      },
+      {
+        id: "evening-sweep",
+        type: "trigger",
+        title: "Evening Market Snapshot", 
+        time: "6:00 PM",
+        icon: "📸",
+        description: "End-of-day market summary",
+        color: "#a855f7"
+      },
+      {
+        id: "evening-post",
+        type: "output",
+        title: "Evening Report",
+        icon: "📊",
+        discordChannel: "#research", 
+        description: "Day's key developments and outlook",
+        color: "#8b5cf6"
+      }
     ]
   },
 
   Kelly: {
     name: "Kelly",
     emoji: "🐦",
-    color: "#ec4899",
-    nodes: [
-      { id: "read-intel", type: "data", label: "Read DAILY-INTEL.md", x: 50, y: 50, width: 150 },
-      { id: "check-feedback", type: "data", label: "content-feedback.json", x: 50, y: 120, width: 160 },
-      { id: "morning-drafts", type: "action", label: "Morning Drafts", time: "9:00 AM", icon: "✍️", x: 300, y: 50 },
-      { id: "drafts-file", type: "data", label: "drafts/x/YYYY-MM-DD.md", x: 500, y: 50, width: 170 },
-      { id: "x-drafts-post", type: "discord", label: "#x-drafts Discord", x: 720, y: 50, width: 130 },
-      { id: "midday-drafts", type: "action", label: "Midday Drafts", time: "1:30 PM", icon: "✍️", x: 300, y: 150 },
-      { id: "brandon-review", type: "action", label: "Brandon Reviews", icon: "👑", x: 300, y: 220, width: 120 },
-      { id: "feedback-sync", type: "action", label: "Feedback Sync", icon: "🔄", x: 500, y: 220, width: 110 },
-      { id: "evening-drafts", type: "action", label: "Evening Drafts", time: "5:00 PM", icon: "✍️", x: 300, y: 290 },
-      { id: "performance", type: "action", label: "Performance Review", icon: "📊", x: 500, y: 290, width: 130 },
-    ],
-    connections: [
-      { from: "read-intel", to: "morning-drafts", color: "#a855f7", label: "intel data" },
-      { from: "check-feedback", to: "morning-drafts", label: "feedback" },
-      { from: "morning-drafts", to: "drafts-file" },
-      { from: "drafts-file", to: "x-drafts-post" },
-      { from: "midday-drafts", to: "drafts-file" },
-      { from: "brandon-review", to: "feedback-sync", label: "approve/deny" },
-      { from: "feedback-sync", to: "check-feedback", label: "every 15min" },
-      { from: "evening-drafts", to: "performance" },
+    role: "X Content Creator",
+    color: "#ec4899", 
+    description: "Creates X/Twitter content 3x daily based on research intel and feedback",
+    steps: [
+      {
+        id: "read-intel",
+        type: "data",
+        title: "Read Intel & Feedback",
+        icon: "📖",
+        inputs: ["DAILY-INTEL.md", "content-feedback.json"],
+        description: "Consume research and review feedback",
+        color: "#06b6d4"
+      },
+      {
+        id: "morning-drafts",
+        type: "action", 
+        title: "Morning Drafts",
+        time: "9:00 AM",
+        icon: "✍️",
+        description: "Create initial X content drafts",
+        color: "#ec4899"
+      },
+      {
+        id: "save-drafts",
+        type: "data",
+        title: "Save to drafts/x/",
+        icon: "💾",
+        outputs: ["YYYY-MM-DD.md"],
+        description: "Store drafts in organized files", 
+        color: "#06b6d4"
+      },
+      {
+        id: "x-discord",
+        type: "output",
+        title: "Share Drafts",
+        icon: "🐦",
+        discordChannel: "#x-drafts",
+        description: "Post drafts for review and approval",
+        color: "#8b5cf6"
+      },
+      {
+        id: "midday-drafts",
+        type: "action",
+        title: "Midday Iteration", 
+        time: "1:30 PM",
+        icon: "🔄",
+        description: "Refine based on market developments",
+        color: "#ec4899"
+      },
+      {
+        id: "brandon-review",
+        type: "decision",
+        title: "Brandon Review Cycle",
+        icon: "👑",
+        description: "15min feedback sync loop",
+        color: "#f59e0b"
+      },
+      {
+        id: "evening-drafts",
+        type: "action",
+        title: "Evening Polish", 
+        time: "5:00 PM",
+        icon: "✨",
+        description: "Final content refinements",
+        color: "#ec4899"
+      },
+      {
+        id: "performance",
+        type: "action",
+        title: "Performance Analysis",
+        icon: "📊",
+        description: "Review engagement and optimize",
+        color: "#10b981"
+      }
     ]
   },
 
   Rachel: {
-    name: "Rachel",
+    name: "Rachel", 
     emoji: "💼",
+    role: "LinkedIn Content Creator",
     color: "#3b82f6",
-    nodes: [
-      { id: "read-intel", type: "data", label: "Read DAILY-INTEL.md", x: 50, y: 50, width: 150 },
-      { id: "check-feedback", type: "data", label: "content-feedback.json", x: 50, y: 120, width: 160 },
-      { id: "morning-drafts", type: "action", label: "Morning Drafts", time: "9:00 AM", icon: "✍️", x: 300, y: 50 },
-      { id: "linkedin-drafts-file", type: "data", label: "drafts/linkedin/YYYY-MM-DD.md", x: 500, y: 50, width: 200 },
-      { id: "linkedin-post", type: "discord", label: "#linkedin-drafts Discord", x: 750, y: 50, width: 150 },
-      { id: "midday-drafts", type: "action", label: "Midday Drafts", time: "1:30 PM", icon: "✍️", x: 300, y: 150 },
-      { id: "evening-drafts", type: "action", label: "Evening Drafts", time: "5:00 PM", icon: "✍️", x: 300, y: 220 },
-      { id: "daily-review", type: "action", label: "Daily Review", icon: "📝", x: 500, y: 220, width: 110 },
-      { id: "live-posting", type: "action", label: "Live Posting", icon: "📡", x: 300, y: 320, width: 110 },
-      { id: "tue-thu", type: "action", label: "Tuesdays & Thursdays", icon: "📅", x: 500, y: 320, width: 150 },
-    ],
-    connections: [
-      { from: "read-intel", to: "morning-drafts", color: "#a855f7", label: "intel data" },
-      { from: "check-feedback", to: "morning-drafts", label: "feedback" },
-      { from: "morning-drafts", to: "linkedin-drafts-file" },
-      { from: "linkedin-drafts-file", to: "linkedin-post" },
-      { from: "midday-drafts", to: "linkedin-drafts-file" },
-      { from: "evening-drafts", to: "daily-review" },
-      { from: "live-posting", to: "tue-thu", label: "2x/week" },
+    description: "Creates professional LinkedIn content 3x daily, posts live Tuesdays & Thursdays",
+    steps: [
+      {
+        id: "read-intel",
+        type: "data",
+        title: "Read Intel & Feedback", 
+        icon: "📖",
+        inputs: ["DAILY-INTEL.md", "content-feedback.json"],
+        description: "Consume research and review feedback",
+        color: "#06b6d4"
+      },
+      {
+        id: "morning-drafts",
+        type: "action",
+        title: "Morning Drafts",
+        time: "9:00 AM", 
+        icon: "✍️",
+        description: "Create professional LinkedIn content",
+        color: "#3b82f6"
+      },
+      {
+        id: "save-drafts",
+        type: "data",
+        title: "Save to drafts/linkedin/",
+        icon: "💾",
+        outputs: ["YYYY-MM-DD.md"],
+        description: "Store drafts in organized files",
+        color: "#06b6d4"
+      },
+      {
+        id: "linkedin-discord",
+        type: "output", 
+        title: "Share Drafts",
+        icon: "💼",
+        discordChannel: "#linkedin-drafts",
+        description: "Post drafts for review",
+        color: "#8b5cf6"
+      },
+      {
+        id: "midday-drafts",
+        type: "action",
+        title: "Midday Iteration",
+        time: "1:30 PM",
+        icon: "🔄", 
+        description: "Professional angle refinements",
+        color: "#3b82f6"
+      },
+      {
+        id: "evening-polish",
+        type: "action",
+        title: "Evening Polish",
+        time: "5:00 PM",
+        icon: "✨",
+        description: "Final professional tone check",
+        color: "#3b82f6"
+      },
+      {
+        id: "live-posting",
+        type: "action",
+        title: "Live Posting", 
+        subtitle: "Tuesdays & Thursdays",
+        icon: "📡",
+        description: "Post approved content to LinkedIn",
+        color: "#10b981"
+      },
+      {
+        id: "engagement",
+        type: "action",
+        title: "Engagement Tracking",
+        icon: "📊", 
+        description: "Monitor and respond to interactions",
+        color: "#10b981"
+      }
     ]
   },
 
   John: {
     name: "John",
-    emoji: "📈",
+    emoji: "📈", 
+    role: "Quantitative Trader",
     color: "#10b981",
-    nodes: [
-      { id: "market-scan", type: "action", label: "Market Scan", time: "Every 2h", icon: "🔄", x: 50, y: 50 },
-      { id: "george-trigger", type: "action", label: "Triggered by George", icon: "🦾", x: 250, y: 30, width: 140 },
-      { id: "coingecko", type: "data", label: "CoinGecko Pro API", x: 250, y: 80, width: 140 },
-      { id: "analysis", type: "action", label: "Full Analysis", icon: "📊", x: 450, y: 50, width: 110 },
-      { id: "proposals", type: "data", label: "proposals/YYYY-MM-DD.md", x: 600, y: 50, width: 180 },
-      { id: "george-review", type: "decision", label: "George Auto-Review", x: 450, y: 150, width: 150 },
-      { id: "position-check", type: "decision", label: "Position < 15%?", x: 650, y: 150, width: 130 },
-      { id: "execute", type: "action", label: "Execute Trade", icon: "💸", x: 450, y: 250, width: 110 },
-      { id: "trade-log", type: "data", label: "Trade Log", x: 600, y: 250, width: 100 },
-      { id: "discord-post", type: "discord", label: "#trades Discord", x: 750, y: 250, width: 120 },
-    ],
-    connections: [
-      { from: "market-scan", to: "george-trigger", color: "#6366f1" },
-      { from: "market-scan", to: "coingecko" },
-      { from: "coingecko", to: "analysis" },
-      { from: "analysis", to: "proposals" },
-      { from: "proposals", to: "george-review", color: "#6366f1" },
-      { from: "george-review", to: "position-check", label: "verify prices" },
-      { from: "position-check", to: "execute", label: "YES", color: "#10b981" },
-      { from: "execute", to: "trade-log" },
-      { from: "trade-log", to: "discord-post" },
+    description: "Conducts market analysis every 2 hours, generates trade proposals for George's review",
+    steps: [
+      {
+        id: "market-scan",
+        type: "trigger",
+        title: "Market Scan",
+        time: "Every 2h",
+        icon: "🔄",
+        description: "Systematic market opportunity detection", 
+        color: "#10b981"
+      },
+      {
+        id: "data-analysis",
+        type: "data", 
+        title: "CoinGecko Pro Analysis",
+        icon: "📊",
+        inputs: ["CoinGecko Pro API", "Portfolio Targets", "DAILY-INTEL.md"],
+        description: "Comprehensive market data analysis",
+        color: "#06b6d4"
+      },
+      {
+        id: "generate-proposals",
+        type: "action",
+        title: "Generate Proposals",
+        icon: "📋", 
+        outputs: ["proposals/YYYY-MM-DD.md"],
+        description: "Create structured trade recommendations",
+        color: "#10b981"
+      },
+      {
+        id: "george-review",
+        type: "decision",
+        title: "George Auto-Review",
+        icon: "🦾",
+        description: "Automated proposal validation and risk check", 
+        color: "#f59e0b"
+      },
+      {
+        id: "position-check",
+        type: "decision",
+        title: "Position Size Check",
+        subtitle: "< 15% portfolio?",
+        icon: "⚖️",
+        description: "Risk management verification",
+        color: "#f59e0b"
+      },
+      {
+        id: "auto-execute",
+        type: "action", 
+        title: "Auto-Execute",
+        icon: "💸",
+        outputs: ["Trade Log"],
+        description: "Execute approved trades automatically",
+        color: "#10b981"
+      },
+      {
+        id: "trades-discord",
+        type: "output",
+        title: "Trade Logging",
+        icon: "📈",
+        discordChannel: "#trades",
+        description: "Log all trade activity and results", 
+        color: "#8b5cf6"
+      },
+      {
+        id: "performance",
+        type: "action",
+        title: "Performance Review",
+        icon: "📊",
+        description: "Analyze trade outcomes and optimize strategy",
+        color: "#10b981"
+      }
     ]
   },
 
   Ross: {
     name: "Ross",
-    emoji: "⚙️",
+    emoji: "⚙️", 
+    role: "Engineering Lead",
     color: "#f97316",
-    nodes: [
-      { id: "receive-tasks", type: "data", label: "tasks.md from George", x: 50, y: 50, width: 150 },
-      { id: "plan-approach", type: "action", label: "Plan Approach", icon: "🧠", x: 250, y: 50, width: 120 },
-      { id: "sonnet4", type: "action", label: "Sonnet 4 Brain", icon: "🤖", x: 400, y: 30, width: 120 },
-      { id: "codex-cli", type: "action", label: "Build with Codex CLI", icon: "🛠️", x: 250, y: 120, width: 140 },
-      { id: "test-deploy", type: "action", label: "Test & Deploy", icon: "🚀", x: 450, y: 120, width: 120 },
-      { id: "vercel", type: "data", label: "Vercel Deployment", x: 600, y: 120, width: 140 },
-      { id: "live-links", type: "action", label: "Report Live Links", icon: "🔗", x: 250, y: 220, width: 130 },
-      { id: "george-review", type: "action", label: "George Reviews", icon: "🦾", x: 450, y: 220, width: 120 },
-    ],
-    connections: [
-      { from: "receive-tasks", to: "plan-approach", color: "#6366f1" },
-      { from: "plan-approach", to: "sonnet4" },
-      { from: "plan-approach", to: "codex-cli" },
-      { from: "codex-cli", to: "test-deploy" },
-      { from: "test-deploy", to: "vercel" },
-      { from: "vercel", to: "live-links" },
-      { from: "live-links", to: "george-review", color: "#6366f1" },
+    description: "Handles on-demand development tasks, builds with Codex CLI, maintains Mission Control",
+    steps: [
+      {
+        id: "receive-task",
+        type: "data",
+        title: "Receive Task",
+        icon: "📝",
+        inputs: ["tasks.md from George"],
+        description: "Get engineering requirements and context", 
+        color: "#06b6d4"
+      },
+      {
+        id: "understand-plan",
+        type: "action",
+        title: "Understand & Plan",
+        icon: "🧠",
+        description: "Deep analysis of requirements and technical approach",
+        color: "#f97316"
+      },
+      {
+        id: "sonnet4-brain",
+        type: "action", 
+        title: "Sonnet 4 Analysis",
+        icon: "🤖",
+        description: "AI-assisted technical planning and architecture",
+        color: "#8b5cf6"
+      },
+      {
+        id: "build-codex",
+        type: "action",
+        title: "Build with Codex CLI",
+        icon: "🛠️",
+        description: "Autonomous coding with Codex CLI tool", 
+        color: "#f97316"
+      },
+      {
+        id: "test-deploy",
+        type: "action",
+        title: "Test & Deploy",
+        icon: "🚀",
+        outputs: ["Vercel Deployment"],
+        description: "Quality assurance and production deployment",
+        color: "#10b981"
+      },
+      {
+        id: "report-links",
+        type: "action", 
+        title: "Report Live Links",
+        icon: "🔗",
+        description: "Document deployment URLs and completion",
+        color: "#f97316"
+      },
+      {
+        id: "george-review",
+        type: "decision",
+        title: "George Final Review",
+        icon: "🦾",
+        description: "Final approval before task completion", 
+        color: "#f59e0b"
+      },
+      {
+        id: "maintenance",
+        type: "action",
+        title: "Mission Control Maintenance",
+        subtitle: "Ongoing",
+        icon: "🔧",
+        description: "Keep systems running smoothly",
+        color: "#f97316"
+      }
     ]
   },
 
   Pam: {
     name: "Pam",
     emoji: "📋",
-    color: "#f43f5e",
-    nodes: [
-      { id: "email-monitor", type: "action", label: "Urgent Email Monitor", time: "Hourly", icon: "📧", x: 50, y: 50 },
-      { id: "three-inboxes", type: "data", label: "3 Email Inboxes", x: 250, y: 50, width: 130 },
-      { id: "alert-brandon", type: "action", label: "Alert Brandon if Urgent", icon: "🚨", x: 450, y: 50, width: 160 },
-      { id: "morning-context", type: "action", label: "Morning Context", time: "Morning", icon: "🌅", x: 50, y: 150 },
-      { id: "calendar-data", type: "data", label: "Calendar + Email Context", x: 250, y: 150, width: 170 },
-      { id: "george-brief", type: "action", label: "Feed to George", icon: "🦾", x: 450, y: 150, width: 120 },
-      { id: "crm-queries", type: "action", label: "CRM Queries", time: "Ongoing", icon: "💬", x: 50, y: 250 },
-      { id: "crm-ingestion", type: "action", label: "Daily CRM Ingestion", time: "10:00 PM", icon: "📊", x: 50, y: 320 },
-      { id: "scan-gmail", type: "data", label: "Scan 3 Gmail Accounts", x: 250, y: 320, width: 160 },
-      { id: "crm-json", type: "data", label: "crm/contacts.json", x: 450, y: 320, width: 130 },
-      { id: "weekly-report", type: "action", label: "Weekly Validator Report", time: "Mon 9AM", icon: "📈", x: 50, y: 420 },
-    ],
-    connections: [
-      { from: "email-monitor", to: "three-inboxes" },
-      { from: "three-inboxes", to: "alert-brandon" },
-      { from: "morning-context", to: "calendar-data" },
-      { from: "calendar-data", to: "george-brief", color: "#6366f1" },
-      { from: "crm-ingestion", to: "scan-gmail" },
-      { from: "scan-gmail", to: "crm-json" },
+    role: "Personal Assistant",
+    color: "#f43f5e", 
+    description: "Monitors emails hourly, manages calendar context, handles CRM ingestion daily at 10PM",
+    steps: [
+      {
+        id: "email-monitor",
+        type: "trigger",
+        title: "Urgent Email Monitor",
+        time: "Every Hour",
+        icon: "📧",
+        inputs: ["3 Email Inboxes"],
+        description: "Scan for urgent communications", 
+        color: "#f43f5e"
+      },
+      {
+        id: "alert-urgent",
+        type: "decision",
+        title: "Urgent Alert System",
+        icon: "🚨",
+        outputs: ["Brandon Alert"],
+        description: "Immediately flag high-priority emails",
+        color: "#f59e0b"
+      },
+      {
+        id: "morning-context",
+        type: "action", 
+        title: "Morning Context",
+        time: "Morning",
+        icon: "🌅",
+        inputs: ["Calendar", "Email Context"],
+        description: "Prepare daily briefing materials",
+        color: "#f43f5e"
+      },
+      {
+        id: "feed-george",
+        type: "output",
+        title: "Feed to George",
+        icon: "🦾", 
+        outputs: ["George Brief"],
+        description: "Provide calendar and email context for briefing",
+        color: "#6366f1"
+      },
+      {
+        id: "crm-queries",
+        type: "action",
+        title: "CRM Queries",
+        subtitle: "Ongoing",
+        icon: "💬",
+        description: "Handle contact and relationship queries", 
+        color: "#f43f5e"
+      },
+      {
+        id: "crm-ingestion",
+        type: "action",
+        title: "Daily CRM Ingestion",
+        time: "10:00 PM",
+        icon: "📊",
+        inputs: ["3 Gmail Accounts"],
+        outputs: ["crm/contacts.json"],
+        description: "Scan emails for new contacts and updates",
+        color: "#f43f5e"
+      },
+      {
+        id: "weekly-report", 
+        type: "action",
+        title: "Weekly Validator Report",
+        time: "Monday 9AM",
+        icon: "📈",
+        description: "Generate weekly performance and activity report",
+        color: "#10b981"
+      },
+      {
+        id: "calendar-management",
+        type: "action",
+        title: "Calendar Management",
+        subtitle: "Ongoing", 
+        icon: "📅",
+        description: "Coordinate schedules and meetings",
+        color: "#f43f5e"
+      }
     ]
   }
 };
 
-// --- Components ---
-function WorkflowNode({ node, isSelected, onClick }: {
-  node: WorkflowNode;
-  isSelected?: boolean;
-  onClick?: () => void;
+// --- Timeline Step Component ---
+function TimelineStep({ step, isLast }: {
+  step: TimelineStep;
+  isLast: boolean;
 }) {
-  const getNodeStyle = () => {
-    const baseStyles = {
-      position: "absolute" as const,
-      left: node.x,
-      top: node.y,
-      cursor: onClick ? "pointer" : "default",
-      transition: "all 0.2s ease",
-      zIndex: isSelected ? 10 : 5,
-    };
-
-    const width = node.width || 160;
-    const height = node.height || 60;
-
-    switch (node.type) {
-      case "decision":
-        return {
-          ...baseStyles,
-          width,
-          height,
-          transform: "rotate(45deg)",
-        };
-      case "data":
-        return {
-          ...baseStyles,
-          width,
-          height: height * 0.8,
-        };
-      case "discord":
-        return {
-          ...baseStyles,
-          width,
-          height: height * 0.9,
-        };
-      default: // action
-        return {
-          ...baseStyles,
-          width,
-          height,
-        };
+  const getStepIcon = () => {
+    switch (step.type) {
+      case "trigger": return "⚡";
+      case "action": return step.icon;
+      case "data": return "📄";
+      case "decision": return "⚖️";
+      case "output": return "📤";
+      default: return step.icon;
     }
   };
 
-  const getNodeContent = () => {
-    const width = node.width || 160;
-    const height = node.height || 60;
-    
-    const baseClasses = `
-      flex flex-col items-center justify-center text-center p-3
-      border transition-all duration-200 text-white/90 text-sm font-medium
-      ${isSelected ? "ring-2 ring-blue-400/50" : ""}
-      ${onClick ? "hover:scale-105 hover:shadow-lg" : ""}
-    `;
-
-    switch (node.type) {
-      case "decision":
-        return (
-          <div
-            className={`${baseClasses} bg-amber-500/10 border-amber-400/30 transform -rotate-45`}
-            style={{ width, height }}
-            onClick={onClick}
-          >
-            <div className="transform rotate-45 text-xs leading-tight">
-              <div className="font-semibold">{node.label}</div>
-            </div>
-          </div>
-        );
-      
-      case "data":
-        return (
-          <div
-            className={`${baseClasses} bg-cyan-500/10 border-cyan-400/30 rounded-lg relative overflow-hidden`}
-            style={{ width, height: height * 0.8 }}
-            onClick={onClick}
-          >
-            <div className="absolute top-1 right-1 text-cyan-400/60 text-xs">📄</div>
-            <div className="text-xs leading-tight">
-              <div className="font-semibold text-cyan-200">{node.label}</div>
-            </div>
-          </div>
-        );
-      
-      case "discord":
-        return (
-          <div
-            className={`${baseClasses} bg-indigo-500/10 border-indigo-400/30 rounded-2xl relative`}
-            style={{ width, height: height * 0.9 }}
-            onClick={onClick}
-          >
-            <div className="absolute top-1 right-2 text-indigo-400/60 text-xs">💬</div>
-            <div className="text-xs leading-tight">
-              <div className="font-semibold text-indigo-200">{node.label}</div>
-            </div>
-          </div>
-        );
-      
-      default: // action
-        return (
-          <div
-            className={`${baseClasses} bg-emerald-500/10 border-emerald-400/30 rounded-xl`}
-            style={{ width, height }}
-            onClick={onClick}
-          >
-            {node.icon && (
-              <div className="text-lg mb-1">{node.icon}</div>
-            )}
-            <div className="text-xs leading-tight">
-              <div className="font-semibold">{node.label}</div>
-              {node.time && (
-                <div className="text-emerald-300/70 text-[10px] mt-1">{convertPSTToLocal(node.time)}</div>
-              )}
-            </div>
-          </div>
-        );
+  const getStepColor = () => {
+    switch (step.type) {
+      case "trigger": return "bg-yellow-500/10 border-yellow-400/30 text-yellow-200";
+      case "action": return `bg-${step.color}/10 border-${step.color}/30 text-white`;
+      case "data": return "bg-cyan-500/10 border-cyan-400/30 text-cyan-200";
+      case "decision": return "bg-amber-500/10 border-amber-400/30 text-amber-200";
+      case "output": return "bg-purple-500/10 border-purple-400/30 text-purple-200";
+      default: return "bg-gray-500/10 border-gray-400/30 text-gray-200";
     }
   };
 
   return (
-    <div style={getNodeStyle()}>
-      {getNodeContent()}
+    <div className="flex items-start gap-4 group">
+      {/* Timeline Connector */}
+      <div className="flex flex-col items-center">
+        {/* Step Icon */}
+        <div className={`
+          w-12 h-12 rounded-full border-2 flex items-center justify-center text-lg
+          transition-all duration-200 group-hover:scale-110
+          ${getStepColor()}
+        `}>
+          {getStepIcon()}
+        </div>
+        
+        {/* Connecting Line */}
+        {!isLast && (
+          <div className="w-0.5 h-16 bg-gradient-to-b from-slate-600 to-slate-700 mt-2" />
+        )}
+      </div>
+
+      {/* Step Content */}
+      <div className="flex-1 pb-16">
+        {/* Header */}
+        <div className="flex items-start justify-between mb-2">
+          <div>
+            <h3 className="font-semibold text-white text-lg">{step.title}</h3>
+            {step.subtitle && (
+              <p className="text-slate-400 text-sm">{step.subtitle}</p>
+            )}
+            {step.time && (
+              <p className="text-emerald-400 text-sm font-medium">
+                🕐 {convertPSTToLocal(step.time)}
+              </p>
+            )}
+          </div>
+          <div className={`
+            px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wide
+            ${getStepColor()}
+          `}>
+            {step.type}
+          </div>
+        </div>
+
+        {/* Description */}
+        {step.description && (
+          <p className="text-slate-300 text-sm mb-3">{step.description}</p>
+        )}
+
+        {/* Inputs/Outputs */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          {/* Inputs */}
+          {step.inputs && step.inputs.length > 0 && (
+            <div>
+              <h4 className="text-slate-400 font-medium mb-1 flex items-center gap-1">
+                📥 Inputs
+              </h4>
+              <ul className="space-y-1">
+                {step.inputs.map((input, i) => (
+                  <li key={i} className="text-slate-300 flex items-center gap-2">
+                    <span className="w-1 h-1 bg-slate-500 rounded-full"></span>
+                    {input}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Outputs */}
+          {step.outputs && step.outputs.length > 0 && (
+            <div>
+              <h4 className="text-slate-400 font-medium mb-1 flex items-center gap-1">
+                📤 Outputs
+              </h4>
+              <ul className="space-y-1">
+                {step.outputs.map((output, i) => (
+                  <li key={i} className="text-slate-300 flex items-center gap-2">
+                    <span className="w-1 h-1 bg-slate-500 rounded-full"></span>
+                    {output}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+
+        {/* Discord Channel */}
+        {step.discordChannel && (
+          <div className="mt-3 flex items-center gap-2 text-sm">
+            <span className="text-indigo-400">💬</span>
+            <span className="text-slate-300">Posts to:</span>
+            <span className="text-indigo-300 font-medium">{step.discordChannel}</span>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
 
-function WorkflowConnections({ workflow }: { workflow: AgentWorkflow }) {
-  return (
-    <svg className="absolute inset-0 pointer-events-none" style={{ zIndex: 1 }}>
-      {workflow.connections.map((conn, i) => {
-        const fromNode = workflow.nodes.find(n => n.id === conn.from);
-        const toNode = workflow.nodes.find(n => n.id === conn.to);
-        
-        if (!fromNode || !toNode) return null;
-
-        // Calculate connection points
-        const fromX = fromNode.x + (fromNode.width || 160) / 2;
-        const fromY = fromNode.y + (fromNode.height || 60);
-        const toX = toNode.x + (toNode.width || 160) / 2;
-        const toY = toNode.y;
-
-        // Simple curved path
-        const midX = (fromX + toX) / 2;
-        const midY = fromY + (toY - fromY) / 2;
-        const curve = Math.abs(toX - fromX) > 100 ? 40 : 20;
-
-        const color = conn.color || "#64748b";
-
-        return (
-          <g key={`conn-${i}`}>
-            <path
-              d={`M ${fromX} ${fromY} Q ${midX} ${midY - curve} ${toX} ${toY}`}
-              fill="none"
-              stroke={color}
-              strokeWidth="2"
-              opacity="0.7"
-              markerEnd="url(#arrowhead)"
-            />
-            {conn.label && (
-              <text
-                x={midX}
-                y={midY - curve - 10}
-                fill={color}
-                fontSize="10"
-                textAnchor="middle"
-                className="font-medium"
-              >
-                {conn.label}
-              </text>
-            )}
-          </g>
-        );
-      })}
-      
-      <defs>
-        <marker
-          id="arrowhead"
-          markerWidth="10"
-          markerHeight="7"
-          refX="9"
-          refY="3.5"
-          orient="auto"
-        >
-          <polygon
-            points="0 0, 10 3.5, 0 7"
-            fill="#64748b"
-            opacity="0.7"
-          />
-        </marker>
-      </defs>
-    </svg>
-  );
-}
-
+// --- Main Component ---
 export default function AgentWorkflowView({ 
   agentName, 
   onBack 
@@ -491,17 +773,15 @@ export default function AgentWorkflowView({
   agentName: string; 
   onBack: () => void; 
 }) {
-  const [selectedNode, setSelectedNode] = useState<string | null>(null);
-
-  const workflow = WORKFLOWS[agentName];
+  const timeline = AGENT_TIMELINES[agentName];
   
-  if (!workflow) {
+  if (!timeline) {
     return (
-      <div className="p-8 text-center">
-        <h2 className="text-xl text-[#8b8fa3] mb-4">Workflow not found for {agentName}</h2>
+      <div className="max-w-4xl mx-auto p-8 text-center">
+        <h2 className="text-xl text-slate-400 mb-4">Workflow not found for {agentName}</h2>
         <button
           onClick={onBack}
-          className="px-4 py-2 bg-[#2e3345] text-white rounded-lg hover:bg-[#3a3d4a] transition-colors"
+          className="px-4 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-600 transition-colors"
         >
           ← Back to Team
         </button>
@@ -509,77 +789,61 @@ export default function AgentWorkflowView({
     );
   }
 
-  // Calculate diagram dimensions
-  const maxX = Math.max(...workflow.nodes.map(n => n.x + (n.width || 160)));
-  const maxY = Math.max(...workflow.nodes.map(n => n.y + (n.height || 60)));
-  const diagramWidth = maxX + 100;
-  const diagramHeight = maxY + 100;
-
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-4xl mx-auto">
       {/* Header */}
-      <div className="mb-6 flex items-center gap-4">
+      <div className="mb-8 flex items-start gap-6">
         <button
           onClick={onBack}
-          className="flex items-center gap-2 px-3 py-2 bg-[#2e3345] text-white rounded-lg hover:bg-[#3a3d4a] transition-colors"
+          className="flex items-center gap-2 px-4 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-600 transition-colors"
         >
           ← Back to Team
         </button>
-        <div>
-          <h1 className="text-2xl font-bold flex items-center gap-3">
-            <span className="text-3xl">{workflow.emoji}</span>
-            {workflow.name} — Workflow
-          </h1>
-          <p className="text-[#8b8fa3] mt-1">Daily operations and data flow</p>
+        
+        <div className="flex-1">
+          <div className="flex items-center gap-4 mb-2">
+            <span className="text-4xl">{timeline.emoji}</span>
+            <div>
+              <h1 className="text-3xl font-bold text-white">{timeline.name}</h1>
+              <p className="text-slate-400 text-lg">{timeline.role}</p>
+            </div>
+          </div>
+          <p className="text-slate-300 text-base leading-relaxed">
+            {timeline.description}
+          </p>
         </div>
       </div>
 
-      {/* Workflow Diagram */}
-      <div className="bg-[#0a0c10] border border-[#2e3345] rounded-xl overflow-auto">
-        <div 
-          className="relative"
-          style={{ 
-            width: diagramWidth,
-            height: diagramHeight,
-            minHeight: "600px"
-          }}
-        >
-          <WorkflowConnections workflow={workflow} />
-          
-          {workflow.nodes.map((node) => (
-            <WorkflowNode
-              key={node.id}
-              node={node}
-              isSelected={selectedNode === node.id}
-              onClick={() => setSelectedNode(selectedNode === node.id ? null : node.id)}
+      {/* Workflow Timeline */}
+      <div className="bg-slate-900/50 border border-slate-700 rounded-xl p-8">
+        <div className="space-y-0">
+          {timeline.steps.map((step, index) => (
+            <TimelineStep
+              key={step.id}
+              step={step}
+              isLast={index === timeline.steps.length - 1}
             />
           ))}
         </div>
       </div>
 
       {/* Legend */}
-      <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-xs">
-        <div className="flex items-center gap-2">
-          <div className="w-4 h-4 bg-emerald-500/20 border border-emerald-400/30 rounded"></div>
-          <span className="text-[#8b8fa3]">Action/Task</span>
+      <div className="mt-8 bg-slate-900/30 border border-slate-700 rounded-lg p-6">
+        <h3 className="text-lg font-semibold text-white mb-4">Legend</h3>
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-sm">
+          {[
+            { type: "trigger", color: "yellow", icon: "⚡", label: "Triggers" },
+            { type: "action", color: "blue", icon: "🔧", label: "Actions" },
+            { type: "data", color: "cyan", icon: "📄", label: "Data Files" },
+            { type: "decision", color: "amber", icon: "⚖️", label: "Decisions" },
+            { type: "output", color: "purple", icon: "📤", label: "Outputs" }
+          ].map((item) => (
+            <div key={item.type} className="flex items-center gap-2">
+              <span className="text-lg">{item.icon}</span>
+              <span className="text-slate-300">{item.label}</span>
+            </div>
+          ))}
         </div>
-        <div className="flex items-center gap-2">
-          <div className="w-4 h-4 bg-amber-500/20 border border-amber-400/30 transform rotate-45"></div>
-          <span className="text-[#8b8fa3]">Decision</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <div className="w-4 h-4 bg-cyan-500/20 border border-cyan-400/30 rounded"></div>
-          <span className="text-[#8b8fa3]">Data File</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <div className="w-4 h-4 bg-indigo-500/20 border border-indigo-400/30 rounded-lg"></div>
-          <span className="text-[#8b8fa3]">Discord Post</span>
-        </div>
-      </div>
-
-      {/* Mobile scroll hint */}
-      <div className="mt-4 text-center text-xs text-[#8b8fa3] md:hidden">
-        💡 Scroll horizontally to explore the full workflow
       </div>
     </div>
   );
