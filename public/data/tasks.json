@@ -42,7 +42,7 @@
   },
   {
     "id": "r-t1",
-    "title": "Full Mission Control audit \u2014 all tabs, data accuracy, mobile layout",
+    "title": "Full Mission Control audit — all tabs, data accuracy, mobile layout",
     "assignee": "Ross",
     "dueDate": "2026-02-14",
     "status": "in_progress",
@@ -66,7 +66,7 @@
   },
   {
     "id": "d-t1",
-    "title": "Weekly research sweep \u2014 emerging AI trends",
+    "title": "Weekly research sweep — emerging AI trends",
     "assignee": "Dwight",
     "dueDate": "2026-02-14",
     "status": "todo",
@@ -146,7 +146,7 @@
   },
   {
     "id": "b-t22",
-    "title": "Fix Newsy \u2014 10 days stories max",
+    "title": "Fix Newsy — 10 days stories max",
     "assignee": "Brandon",
     "dueDate": "2026-02-14",
     "status": "completed",
@@ -279,5 +279,14 @@
     "dueDate": "2026-02-14",
     "status": "completed",
     "createdAt": "2026-02-13T00:00:00.000Z"
+  },
+  {
+    "id": "g-review-rachel-1771088529",
+    "title": "Review Rachel's 3 new drafts",
+    "description": "Review and approve new drafts",
+    "assignee": "Brandon",
+    "dueDate": "2026-02-14",
+    "status": "todo",
+    "createdAt": "2026-02-14T00:00:00.000Z"
   }
 ]
