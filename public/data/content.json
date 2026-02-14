@@ -169,6 +169,30 @@
       "source": "GitHub Agentic Workflows technical preview (GitHub Blog)",
       "status": "denied",
       "feedback": "No emdashes ever. Use regular dashes or rewrite the sentence."
+    },
+    {
+      "id": "rachel-2026-02-14-4",
+      "platform": "linkedin",
+      "author": "Rachel",
+      "authorEmoji": "💼",
+      "batch": "Auto-synced",
+      "date": "2026-02-14",
+      "text": "Staked SOL just became collateral. This changes everything for institutional crypto.\n\nAnchorage Digital, Kamino, and Solana Company announced the first framework letting institutions borrow against natively staked SOL while keeping assets in qualified custody AND earning staking yield.\n\nThink about the implications:\n• Your SOL stays staked, earning ~7% APY\n• You borrow against it for working capital\n• Assets never leave qualified custody (regulatory box checked)\n• You maintain upside exposure to SOL price appreciation\n\nThis is the blueprint every institutional treasury has been waiting for.",
+      "angle": "Capital efficiency breakthrough for institutional crypto",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "rachel-2026-02-14-5",
+      "platform": "linkedin",
+      "author": "Rachel",
+      "authorEmoji": "💼",
+      "batch": "Auto-synced",
+      "date": "2026-02-14",
+      "text": "\"Is coding dead?\" is the wrong question.\n\nGPT-5.3-Codex and Claude Opus 4.6 launched last week with coding capabilities that spark existential debates about developers. But after running a 6-person AI agent team for months, here's what actually matters:",
+      "angle": "Practical AI implementation beyond the hype",
+      "status": "pending",
+      "feedback": ""
     }
   ]
 }
