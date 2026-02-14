@@ -109,6 +109,25 @@ export interface PostedContent {
   url?: string;
 }
 
+export interface PublishingQueueItem {
+  id: string;
+  draftId: string;
+  platform: "x" | "linkedin";
+  text: string;
+  author: string;
+  authorEmoji: string;
+  scheduledFor: string;
+  queuedAt: string;
+  status: "queued" | "publishing" | "published" | "failed";
+  publishedAt?: string;
+  publishedUrl?: string;
+  error?: string;
+}
+
+export interface PublishingQueueData {
+  queue: PublishingQueueItem[];
+}
+
 export interface ContentData {
   drafts: ContentDraft[];
   posted: PostedContent[];
