@@ -6,10 +6,10 @@
     "company": "Phase Labs",
     "role": "Team Member",
     "relationship": "Phase colleague",
-    "tags": ["phase-team", "marketing", "internal"],
+    "tags": ["phase-team", "marketing", "internal", "documents"],
     "qualityScore": 5,
     "lastTouch": "2026-02-13T19:13:00Z",
-    "touchCount": 1,
+    "touchCount": 3,
     "firstSeen": "2026-02-13T19:13:00Z",
     "timeline": [
       {
@@ -18,9 +18,23 @@
         "direction": "inbound",
         "subject": "Fwd: My Claude Code Marketing System",
         "summary": "Jeff forwarded marketing system information, marked as important"
+      },
+      {
+        "date": "2026-02-13",
+        "type": "google-docs",
+        "direction": "inbound",
+        "subject": "Document shared: State of the Company | Mid-Feb 2026",
+        "summary": "Jeff shared company state document via Google Docs"
+      },
+      {
+        "date": "2026-02-13",
+        "type": "meeting",
+        "direction": "both",
+        "subject": "Weekly Sync",
+        "summary": "Regular weekly sync meeting (8:00-8:30 AM PST)"
       }
     ],
-    "notes": "Phase team member, actively sharing marketing insights"
+    "notes": "Phase team member, actively sharing marketing insights and company documents. Regular weekly sync attendee."
   },
   {
     "id": "ella-white-reintakers",
