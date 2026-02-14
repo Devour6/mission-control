@@ -70,8 +70,8 @@ export default function ContentTab() {
       // Also refresh from server after a short delay to catch any queue updates
       setTimeout(() => loadData(), 3000);
       setFeedback("");
-      setEditingDraft(null);
-      setEditText("");
+      
+      
     } catch (error) {
       console.error("Action failed:", error);
       alert("Action failed. Please try again.");
@@ -307,35 +307,9 @@ export default function ContentTab() {
                       </div>
 
                       {/* Text Display/Edit */}
-                      {editingDraft === draft.id ? (
-                        <div className="space-y-3">
-                          <textarea
-                            value={editText}
-                            onChange={(e) => setEditText(e.target.value)}
-                            className="w-full bg-[#242836] border border-[#2e3345] rounded-lg p-3 text-sm text-[#e4e6ed] focus:outline-none focus:border-indigo-500/60 min-h-[120px] resize-none"
-                            placeholder="Edit the post text..."
-                          />
-                          <div className="flex gap-2">
-                            <button
-                              onClick={saveEdit}
-                              disabled={loading || !editText.trim()}
-                              className="px-4 py-2 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 rounded-lg text-sm font-medium transition-colors disabled:opacity-50"
-                            >
-                              Save Edit
-                            </button>
-                            <button
-                              onClick={cancelEdit}
-                              className="px-4 py-2 bg-gray-500/20 hover:bg-gray-500/30 text-gray-400 rounded-lg text-sm font-medium transition-colors"
-                            >
-                              Cancel
-                            </button>
-                          </div>
-                        </div>
-                      ) : (
-                        <div className="bg-[#242836] rounded-lg p-3 mb-3">
-                          <p className="text-sm text-[#e4e6ed] whitespace-pre-wrap">{draft.text}</p>
-                        </div>
-                      )}
+                      <div className="bg-[#242836] rounded-lg p-3 mb-3">
+                        <p className="text-sm text-[#e4e6ed] whitespace-pre-wrap">{draft.text}</p>
+                      </div>
 
                       {/* Meta info */}
                       {(draft.angle || draft.rationale) && (
@@ -349,9 +323,8 @@ export default function ContentTab() {
                         </p>
                       )}
 
-                      {/* Feedback input for individual draft */}
-                      {editingDraft !== draft.id && (
-                        <div className="space-y-2">
+                      {/* Feedback + Actions */}
+                      <div className="space-y-2">
                           <input
                             type="text"
                             value={feedback}
@@ -383,7 +356,6 @@ export default function ContentTab() {
                             </button>
                           </div>
                         </div>
-                      )}
                     </div>
                   </div>
                 </div>
