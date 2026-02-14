@@ -1,1 +1,9 @@
-[]
+[
+  {"id": "kelly-2026-02-13-1", "author": "Kelly", "platform": "x", "status": "denied", "feedback": "Grammar: capitalize after periods. No emdashes ever.", "reviewedAt": "2026-02-14T01:00:00.000Z"},
+  {"id": "kelly-2026-02-13-2", "author": "Kelly", "platform": "x", "status": "denied", "feedback": "Grammar: capitalize after periods. No emdashes ever.", "reviewedAt": "2026-02-14T01:00:00.000Z"},
+  {"id": "kelly-2026-02-13-3", "author": "Kelly", "platform": "x", "status": "denied", "feedback": "Grammar: capitalize after periods. No emdashes ever.", "reviewedAt": "2026-02-14T01:00:00.000Z"},
+  {"id": "kelly-2026-02-13-4", "author": "Kelly", "platform": "x", "status": "denied", "feedback": "Grammar: capitalize after periods. No emdashes ever.", "reviewedAt": "2026-02-14T01:00:00.000Z"},
+  {"id": "kelly-2026-02-13-5", "author": "Kelly", "platform": "x", "status": "denied", "feedback": "Grammar: capitalize after periods. No emdashes ever.", "reviewedAt": "2026-02-14T01:00:00.000Z"},
+  {"id": "rachel-2026-02-13-1", "author": "Rachel", "platform": "linkedin", "status": "denied", "feedback": "No emdashes ever. Use regular dashes or rewrite the sentence.", "reviewedAt": "2026-02-14T01:00:00.000Z"},
+  {"id": "rachel-2026-02-13-2", "author": "Rachel", "platform": "linkedin", "status": "denied", "feedback": "No emdashes ever. Use regular dashes or rewrite the sentence.", "reviewedAt": "2026-02-14T01:00:00.000Z"}
+]
