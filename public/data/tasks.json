@@ -1,31 +1,263 @@
 [
-  {"id": "b-t1", "title": "Read and enact Shubham Saboo's X post", "description": "https://x.com/saboo_shubham_/status/2022014147450614038", "assignee": "Brandon", "dueDate": "2026-02-13", "status": "completed", "createdAt": "2026-02-12T00:00:00.000Z"},
-  {"id": "b-t2", "title": "Answer agent team questions + build first agent", "description": "Work with George to stand up the Research Agent", "assignee": "Brandon", "dueDate": "2026-02-13", "status": "completed", "createdAt": "2026-02-13T00:00:00.000Z"},
-  {"id": "b-t11", "title": "Review Kelly's X draft batches", "description": "Review and give feedback on Kelly's tweet drafts for voice calibration", "assignee": "Brandon", "dueDate": "2026-02-13", "status": "completed", "createdAt": "2026-02-13T00:00:00.000Z"},
-  {"id": "b-t13", "title": "Renew X API bearer token", "description": "Current token returns 401. Kelly and Dwight need it for X research. Regenerate at developer.x.com", "assignee": "Brandon", "dueDate": "2026-02-14", "status": "completed", "createdAt": "2026-02-13T00:00:00.000Z"},
-  {"id": "b-t14", "title": "Verify OpenAI org", "description": "John (o4-mini) needs verified org for reasoning. Go to platform.openai.com/settings/organization/general", "assignee": "Brandon", "dueDate": "2026-02-14", "status": "completed", "createdAt": "2026-02-13T00:00:00.000Z"},
-  {"id": "b-t19", "title": "Set up GitHub 2FA for Devour6", "description": "GitHub requiring 2FA soon — set it up before they lock the account", "assignee": "Brandon", "dueDate": "2026-02-13", "status": "todo", "createdAt": "2026-02-13T00:00:00.000Z"},
-  {"id": "b-t20", "title": "Watch Matthew Berman video", "description": "https://x.com/matthewberman/status/2021669868366598632", "assignee": "Brandon", "dueDate": "2026-02-14", "status": "todo", "createdAt": "2026-02-13T00:00:00.000Z"},
-  {"id": "b-t21", "title": "Bill Phase for personal CC refunds", "description": "Submit personal credit card charges that need to be reimbursed by Phase", "assignee": "Brandon", "dueDate": "2026-02-14", "status": "todo", "createdAt": "2026-02-13T00:00:00.000Z"},
-  {"id": "b-t22", "title": "Fix Newsy — 10 days stories max", "description": "Cap Newsy stories at 10 days maximum", "assignee": "Brandon", "dueDate": "2026-02-14", "status": "completed", "createdAt": "2026-02-13T00:00:00.000Z"},
-  {"id": "b-t15", "title": "Release Borrowed Light Single #1", "description": "First single release for Borrowed Light", "assignee": "Brandon", "dueDate": "2026-02-16", "status": "todo", "createdAt": "2026-02-13T00:00:00.000Z"},
-  {"id": "b-t16", "title": "Release Borrowed Light Single #2", "description": "Second single release", "assignee": "Brandon", "dueDate": "2026-02-23", "status": "todo", "createdAt": "2026-02-13T00:00:00.000Z"},
-  {"id": "b-t17", "title": "Release Borrowed Light Single #3", "description": "Third single release", "assignee": "Brandon", "dueDate": "2026-03-02", "status": "todo", "createdAt": "2026-02-13T00:00:00.000Z"},
-  {"id": "b-t18", "title": "Release Borrowed Light EP", "description": "Full EP release after 3 singles", "assignee": "Brandon", "dueDate": "2026-03-09", "status": "todo", "createdAt": "2026-02-13T00:00:00.000Z"},
-  {"id": "g-t1", "title": "Build Dwight (Research Agent)", "description": "SOUL.md, AGENTS.md, references, 3x daily sweep crons", "assignee": "George", "dueDate": "2026-02-13", "status": "completed", "createdAt": "2026-02-13T00:00:00.000Z"},
-  {"id": "g-t2", "title": "Build Kelly (X Content Agent)", "description": "SOUL.md, AGENTS.md, voice guide from real tweets, 3x daily draft crons", "assignee": "George", "dueDate": "2026-02-13", "status": "completed", "createdAt": "2026-02-13T00:00:00.000Z"},
-  {"id": "g-t3", "title": "Build Rachel (LinkedIn Agent)", "description": "SOUL.md, AGENTS.md, voice guide (Brandon + Jeff Newman blend), 3x daily draft crons", "assignee": "George", "dueDate": "2026-02-13", "status": "completed", "createdAt": "2026-02-13T00:00:00.000Z"},
-  {"id": "g-t4", "title": "Build John (Trader Agent)", "description": "SOUL.md, AGENTS.md, portfolio targets, trade proposal workflow", "assignee": "George", "dueDate": "2026-02-13", "status": "completed", "createdAt": "2026-02-13T00:00:00.000Z"},
-  {"id": "g-t5", "title": "Mission Control V2", "description": "7 new tabs: Approvals, Content, Council, Projects, Docs, Team, Office (pixel art)", "assignee": "George", "dueDate": "2026-02-13", "status": "completed", "createdAt": "2026-02-13T00:00:00.000Z"},
-  {"id": "g-t6", "title": "Set up 6x daily standups", "description": "4AM, 7:45AM, 12PM, 4PM, 8PM, 11PM — full 24h coverage", "assignee": "George", "dueDate": "2026-02-13", "status": "completed", "createdAt": "2026-02-13T00:00:00.000Z"},
-  {"id": "g-t7", "title": "Build Ross (Engineering Agent)", "description": "SOUL.md, AGENTS.md, Codex integration, personal repos only", "assignee": "George", "dueDate": "2026-02-14", "status": "completed", "createdAt": "2026-02-13T00:00:00.000Z"},
-  {"id": "g-t8", "title": "Build Pam (Personal Assistant + CRM)", "description": "SOUL.md, AGENTS.md, CRM pipeline, Mission Control CRM tab, daily ingestion cron", "assignee": "George", "dueDate": "2026-02-13", "status": "completed", "createdAt": "2026-02-13T00:00:00.000Z"},
-  {"id": "g-t9", "title": "Automate live-actions.json updates", "description": "Wire cron callbacks to auto-push activity to live-actions.json on every cron completion", "assignee": "George", "dueDate": "2026-02-14", "status": "todo", "createdAt": "2026-02-13T00:00:00.000Z"},
-  {"id": "g-t10", "title": "Content feedback pipeline", "description": "Content tab POSTs reviews to GitHub API, Kelly/Rachel read content-feedback.json", "assignee": "George", "dueDate": "2026-02-13", "status": "completed", "createdAt": "2026-02-13T00:00:00.000Z"},
-  {"id": "g-t11", "title": "Wire Kelly feedback to her memory", "description": "Push Brandon's approve/deny decisions from content-feedback.json to agents/kelly/memory/ so she learns", "assignee": "George", "dueDate": "2026-02-14", "status": "todo", "createdAt": "2026-02-13T00:00:00.000Z"},
-  {"id": "g-t12", "title": "Create Discord channels per agent", "description": "#research, #x-drafts, #linkedin-drafts, #trades — dedicated channels for each division", "assignee": "George", "dueDate": "2026-02-14", "status": "todo", "createdAt": "2026-02-13T00:00:00.000Z"},
-  {"id": "g-t13", "title": "Finish Google Drive setup", "description": "Populate George folders in personal + Phase Drive with research docs", "assignee": "George", "dueDate": "2026-02-14", "status": "todo", "createdAt": "2026-02-13T00:00:00.000Z"},
-  {"id": "g-t14", "title": "Research Phase products ($YIELD, pdSOL)", "description": "Deep research on phaseSOL and pdSOL before creating strategy docs", "assignee": "George", "dueDate": "2026-02-14", "status": "todo", "createdAt": "2026-02-13T00:00:00.000Z"},
-  {"id": "g-t15", "title": "Fix memorySearch embedding provider", "description": "Configure embedding provider so memory_search works properly", "assignee": "George", "dueDate": "2026-02-14", "status": "todo", "createdAt": "2026-02-13T00:00:00.000Z"},
-  {"id": "g-t16", "title": "Auto-create review tasks when drafts land", "description": "Only add 'Review Kelly/Rachel drafts' task when content.json actually has new pending drafts", "assignee": "George", "dueDate": "2026-02-14", "status": "todo", "createdAt": "2026-02-13T00:00:00.000Z"}
+  {
+    "id": "b-t1",
+    "title": "Read and enact Shubham Saboo's X post",
+    "description": "https://x.com/saboo_shubham_/status/2022014147450614038",
+    "assignee": "Brandon",
+    "dueDate": "2026-02-13",
+    "status": "completed",
+    "createdAt": "2026-02-12T00:00:00.000Z"
+  },
+  {
+    "id": "b-t2",
+    "title": "Answer agent team questions + build first agent",
+    "description": "Work with George to stand up the Research Agent",
+    "assignee": "Brandon",
+    "dueDate": "2026-02-13",
+    "status": "completed",
+    "createdAt": "2026-02-13T00:00:00.000Z"
+  },
+  {
+    "id": "b-t11",
+    "title": "Review Kelly's X draft batches",
+    "description": "Review and give feedback on Kelly's tweet drafts for voice calibration",
+    "assignee": "Brandon",
+    "dueDate": "2026-02-13",
+    "status": "completed",
+    "createdAt": "2026-02-13T00:00:00.000Z"
+  },
+  {
+    "id": "b-t13",
+    "title": "Renew X API bearer token",
+    "description": "Current token returns 401. Kelly and Dwight need it for X research. Regenerate at developer.x.com",
+    "assignee": "Brandon",
+    "dueDate": "2026-02-14",
+    "status": "completed",
+    "createdAt": "2026-02-13T00:00:00.000Z"
+  },
+  {
+    "id": "b-t14",
+    "title": "Verify OpenAI org",
+    "description": "John (o4-mini) needs verified org for reasoning. Go to platform.openai.com/settings/organization/general",
+    "assignee": "Brandon",
+    "dueDate": "2026-02-14",
+    "status": "completed",
+    "createdAt": "2026-02-13T00:00:00.000Z"
+  },
+  {
+    "id": "b-t19",
+    "title": "Set up GitHub 2FA for Devour6",
+    "description": "GitHub requiring 2FA soon \u2014 set it up before they lock the account",
+    "assignee": "Brandon",
+    "dueDate": "2026-02-13",
+    "status": "completed",
+    "createdAt": "2026-02-13T00:00:00.000Z"
+  },
+  {
+    "id": "b-t20",
+    "title": "Watch Matthew Berman video",
+    "description": "https://x.com/matthewberman/status/2021669868366598632",
+    "assignee": "Brandon",
+    "dueDate": "2026-02-14",
+    "status": "todo",
+    "createdAt": "2026-02-13T00:00:00.000Z"
+  },
+  {
+    "id": "b-t21",
+    "title": "Bill Phase for personal CC refunds",
+    "description": "Submit personal credit card charges that need to be reimbursed by Phase",
+    "assignee": "Brandon",
+    "dueDate": "2026-02-14",
+    "status": "completed",
+    "createdAt": "2026-02-13T00:00:00.000Z"
+  },
+  {
+    "id": "b-t22",
+    "title": "Fix Newsy \u2014 10 days stories max",
+    "description": "Cap Newsy stories at 10 days maximum",
+    "assignee": "Brandon",
+    "dueDate": "2026-02-14",
+    "status": "completed",
+    "createdAt": "2026-02-13T00:00:00.000Z"
+  },
+  {
+    "id": "b-t15",
+    "title": "Release Borrowed Light Single #1",
+    "description": "First single release for Borrowed Light",
+    "assignee": "Brandon",
+    "dueDate": "2026-02-16",
+    "status": "todo",
+    "createdAt": "2026-02-13T00:00:00.000Z"
+  },
+  {
+    "id": "b-t16",
+    "title": "Release Borrowed Light Single #2",
+    "description": "Second single release",
+    "assignee": "Brandon",
+    "dueDate": "2026-02-23",
+    "status": "todo",
+    "createdAt": "2026-02-13T00:00:00.000Z"
+  },
+  {
+    "id": "b-t17",
+    "title": "Release Borrowed Light Single #3",
+    "description": "Third single release",
+    "assignee": "Brandon",
+    "dueDate": "2026-03-02",
+    "status": "todo",
+    "createdAt": "2026-02-13T00:00:00.000Z"
+  },
+  {
+    "id": "b-t18",
+    "title": "Release Borrowed Light EP",
+    "description": "Full EP release after 3 singles",
+    "assignee": "Brandon",
+    "dueDate": "2026-03-09",
+    "status": "todo",
+    "createdAt": "2026-02-13T00:00:00.000Z"
+  },
+  {
+    "id": "g-t1",
+    "title": "Build Dwight (Research Agent)",
+    "description": "SOUL.md, AGENTS.md, references, 3x daily sweep crons",
+    "assignee": "George",
+    "dueDate": "2026-02-13",
+    "status": "completed",
+    "createdAt": "2026-02-13T00:00:00.000Z"
+  },
+  {
+    "id": "g-t2",
+    "title": "Build Kelly (X Content Agent)",
+    "description": "SOUL.md, AGENTS.md, voice guide from real tweets, 3x daily draft crons",
+    "assignee": "George",
+    "dueDate": "2026-02-13",
+    "status": "completed",
+    "createdAt": "2026-02-13T00:00:00.000Z"
+  },
+  {
+    "id": "g-t3",
+    "title": "Build Rachel (LinkedIn Agent)",
+    "description": "SOUL.md, AGENTS.md, voice guide (Brandon + Jeff Newman blend), 3x daily draft crons",
+    "assignee": "George",
+    "dueDate": "2026-02-13",
+    "status": "completed",
+    "createdAt": "2026-02-13T00:00:00.000Z"
+  },
+  {
+    "id": "g-t4",
+    "title": "Build John (Trader Agent)",
+    "description": "SOUL.md, AGENTS.md, portfolio targets, trade proposal workflow",
+    "assignee": "George",
+    "dueDate": "2026-02-13",
+    "status": "completed",
+    "createdAt": "2026-02-13T00:00:00.000Z"
+  },
+  {
+    "id": "g-t5",
+    "title": "Mission Control V2",
+    "description": "7 new tabs: Approvals, Content, Council, Projects, Docs, Team, Office (pixel art)",
+    "assignee": "George",
+    "dueDate": "2026-02-13",
+    "status": "completed",
+    "createdAt": "2026-02-13T00:00:00.000Z"
+  },
+  {
+    "id": "g-t6",
+    "title": "Set up 6x daily standups",
+    "description": "4AM, 7:45AM, 12PM, 4PM, 8PM, 11PM \u2014 full 24h coverage",
+    "assignee": "George",
+    "dueDate": "2026-02-13",
+    "status": "completed",
+    "createdAt": "2026-02-13T00:00:00.000Z"
+  },
+  {
+    "id": "g-t7",
+    "title": "Build Ross (Engineering Agent)",
+    "description": "SOUL.md, AGENTS.md, Codex integration, personal repos only",
+    "assignee": "George",
+    "dueDate": "2026-02-14",
+    "status": "completed",
+    "createdAt": "2026-02-13T00:00:00.000Z"
+  },
+  {
+    "id": "g-t8",
+    "title": "Build Pam (Personal Assistant + CRM)",
+    "description": "SOUL.md, AGENTS.md, CRM pipeline, Mission Control CRM tab, daily ingestion cron",
+    "assignee": "George",
+    "dueDate": "2026-02-13",
+    "status": "completed",
+    "createdAt": "2026-02-13T00:00:00.000Z"
+  },
+  {
+    "id": "g-t9",
+    "title": "Automate live-actions.json updates",
+    "description": "Wire cron callbacks to auto-push activity to live-actions.json on every cron completion",
+    "assignee": "George",
+    "dueDate": "2026-02-14",
+    "status": "todo",
+    "createdAt": "2026-02-13T00:00:00.000Z"
+  },
+  {
+    "id": "g-t10",
+    "title": "Content feedback pipeline",
+    "description": "Content tab POSTs reviews to GitHub API, Kelly/Rachel read content-feedback.json",
+    "assignee": "George",
+    "dueDate": "2026-02-13",
+    "status": "completed",
+    "createdAt": "2026-02-13T00:00:00.000Z"
+  },
+  {
+    "id": "g-t11",
+    "title": "Wire Kelly feedback to her memory",
+    "description": "Push Brandon's approve/deny decisions from content-feedback.json to agents/kelly/memory/ so she learns",
+    "assignee": "George",
+    "dueDate": "2026-02-14",
+    "status": "todo",
+    "createdAt": "2026-02-13T00:00:00.000Z"
+  },
+  {
+    "id": "g-t12",
+    "title": "Create Discord channels per agent",
+    "description": "#research, #x-drafts, #linkedin-drafts, #trades \u2014 dedicated channels for each division",
+    "assignee": "George",
+    "dueDate": "2026-02-14",
+    "status": "todo",
+    "createdAt": "2026-02-13T00:00:00.000Z"
+  },
+  {
+    "id": "g-t13",
+    "title": "Finish Google Drive setup",
+    "description": "Populate George folders in personal + Phase Drive with research docs",
+    "assignee": "George",
+    "dueDate": "2026-02-14",
+    "status": "todo",
+    "createdAt": "2026-02-13T00:00:00.000Z"
+  },
+  {
+    "id": "g-t14",
+    "title": "Research Phase products ($YIELD, pdSOL)",
+    "description": "Deep research on phaseSOL and pdSOL before creating strategy docs",
+    "assignee": "George",
+    "dueDate": "2026-02-14",
+    "status": "todo",
+    "createdAt": "2026-02-13T00:00:00.000Z"
+  },
+  {
+    "id": "g-t15",
+    "title": "Fix memorySearch embedding provider",
+    "description": "Configure embedding provider so memory_search works properly",
+    "assignee": "George",
+    "dueDate": "2026-02-14",
+    "status": "todo",
+    "createdAt": "2026-02-13T00:00:00.000Z"
+  },
+  {
+    "id": "g-t16",
+    "title": "Auto-create review tasks when drafts land",
+    "description": "Only add 'Review Kelly/Rachel drafts' task when content.json actually has new pending drafts",
+    "assignee": "George",
+    "dueDate": "2026-02-14",
+    "status": "todo",
+    "createdAt": "2026-02-13T00:00:00.000Z"
+  }
 ]

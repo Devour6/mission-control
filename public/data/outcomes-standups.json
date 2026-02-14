@@ -16,7 +16,13 @@
       "date": "2026-02-13",
       "time": "evening",
       "file": "2026-02-13-evening.md",
-      "summary": "Day 1 wrap. 7 drafts (0 approved — all formatting, angles solid). Dwight 3/3 sweeps. John tracking extreme fear (F&G=8, SOL $78.52). Ross built, first tasks assigned for Feb 14. Pam CRM ingestion complete (6 contacts). George completed 5 autonomous research tasks + full infra buildout. X API and OpenAI org issues resolved. Brandon at mtnDAO."
+      "summary": "Day 1 wrap. 7 drafts (0 approved). Dwight 3/3 sweeps. John 24/7 scans active. Ross + Pam built and deployed. George completed 5 autonomous research tasks + full infra buildout. All blockers resolved."
+    },
+    {
+      "date": "2026-02-13",
+      "time": "8pm",
+      "file": "2026-02-13-8pm.md",
+      "summary": "8PM standup: Mission Control data audit — fixed stale projects (Ross/Pam were 'coming soon'), live actions (frozen from afternoon), office state (missing Pam), content statuses (pending→denied). Systemic fix needed: auto-update live-actions on every cron run."
     }
   ]
 }
