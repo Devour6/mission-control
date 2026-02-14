@@ -1,1 +1,117 @@
-[]
+[
+  {
+    "id": "jeff-newman-phase",
+    "name": "Jeff Newman",
+    "emails": ["jeff@phaselabs.io"],
+    "company": "Phase Labs",
+    "role": "Team Member",
+    "relationship": "Phase colleague",
+    "tags": ["phase-team", "marketing", "internal"],
+    "qualityScore": 5,
+    "lastTouch": "2026-02-13T19:13:00Z",
+    "touchCount": 1,
+    "firstSeen": "2026-02-13T19:13:00Z",
+    "timeline": [
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "direction": "inbound",
+        "subject": "Fwd: My Claude Code Marketing System",
+        "summary": "Jeff forwarded marketing system information, marked as important"
+      }
+    ],
+    "notes": "Phase team member, actively sharing marketing insights"
+  },
+  {
+    "id": "ella-white-reintakers",
+    "name": "Ella White",
+    "emails": ["white@reintakersleads.com"],
+    "company": "Reintakers Leads",
+    "role": "Business Development",
+    "relationship": "Prospective client/vendor",
+    "tags": ["leads", "business-dev", "prospect"],
+    "qualityScore": 3,
+    "lastTouch": "2026-02-13T12:23:00Z",
+    "touchCount": 1,
+    "firstSeen": "2026-02-13T12:23:00Z",
+    "timeline": [
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "direction": "inbound",
+        "subject": "Brandon",
+        "summary": "Business inquiry from Reintakers Leads, marked as important"
+      }
+    ],
+    "notes": "Lead generation company outreach"
+  },
+  {
+    "id": "hannah-mitchell-qualifisend",
+    "name": "Hannah Mitchell",
+    "emails": ["hannah@qualifisend.online"],
+    "company": "Qualifisend",
+    "role": "Unknown",
+    "relationship": "Business inquiry",
+    "tags": ["business-inquiry", "prospect"],
+    "qualityScore": 2,
+    "lastTouch": "2026-02-13T07:22:00Z",
+    "touchCount": 1,
+    "firstSeen": "2026-02-13T07:22:00Z",
+    "timeline": [
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "direction": "inbound",
+        "subject": "fast loc for Brandon",
+        "summary": "Business inquiry about location services"
+      }
+    ],
+    "notes": "Location-based service inquiry"
+  },
+  {
+    "id": "ines-cunningham-clickup",
+    "name": "Ines Cunningham",
+    "emails": ["icunningham@reachingclickupautomations.co"],
+    "company": "Reaching ClickUp Automations",
+    "role": "Automation Consultant",
+    "relationship": "Vendor/Service Provider",
+    "tags": ["automation", "clickup", "productivity", "vendor"],
+    "qualityScore": 2,
+    "lastTouch": "2026-02-13T06:09:00Z",
+    "touchCount": 1,
+    "firstSeen": "2026-02-13T06:09:00Z",
+    "timeline": [
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "direction": "inbound",
+        "subject": "Case of the Mondays at Phase Labs?",
+        "summary": "ClickUp automation services pitch targeting Phase Labs productivity"
+      }
+    ],
+    "notes": "Offering ClickUp automation services for Phase Labs"
+  },
+  {
+    "id": "sandhoshkumar-sprinto",
+    "name": "Sandhoshkumar Krishnamoorthy",
+    "emails": ["sandhoshkumark@sprinto.com"],
+    "company": "Sprinto",
+    "role": "Account Manager",
+    "relationship": "Vendor",
+    "tags": ["compliance", "security", "vendor", "subscription"],
+    "qualityScore": 3,
+    "lastTouch": "2026-02-13T00:44:00Z",
+    "touchCount": 1,
+    "firstSeen": "2026-02-13T00:44:00Z",
+    "timeline": [
+      {
+        "date": "2026-02-13",
+        "type": "email",
+        "direction": "inbound",
+        "subject": "Sprinto | Important Update Regarding Your Subscription",
+        "summary": "Subscription update notification from compliance software vendor"
+      }
+    ],
+    "notes": "Sprinto compliance software - subscription management"
+  }
+]
