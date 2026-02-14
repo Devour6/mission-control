@@ -496,7 +496,7 @@ export default function OfficeTab() {
         <div className="flex items-center gap-3 md:gap-5 mt-2 text-[9px] md:text-[10px] text-[#8b8fa3] justify-center flex-wrap">
           <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-emerald-400" /> Online</span>
           <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-[#2e3345]" /> Coming Soon</span>
-          <span>Standups: 7:45a · 12p · 5:30p</span>
+          <span>Standups: 4a · 7:45a · 12p · 4p · 8p · 11p</span>
         </div>
       </div>
 
