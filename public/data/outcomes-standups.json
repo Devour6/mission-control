@@ -1,7 +1,8 @@
 [
   {
-    "id": "standup-2026-02-13-midday-0",
+    "id": "standup-2026-02-13-midday",
     "date": "2026-02-13",
+    "time": "12:00 PM",
     "type": "midday",
     "summary": "Dwight morning sweep silent failure cascaded to zero Kelly/Rachel output. Pipeline fix planned for midday sweep. George completed 2 autonomous tasks.",
     "discussion": [],
@@ -10,30 +11,22 @@
     "actionItems": []
   },
   {
-    "id": "standup-2026-02-13-afternoon-1",
+    "id": "standup-2026-02-13-afternoon",
     "date": "2026-02-13",
-    "type": "evening",
-    "summary": "Full pipeline recovered. Dwight filed 12 stories. Kelly produced 5 drafts, Rachel 2 drafts (all 7 denied for formatting). John restructured to 24/7 scans. Mission Control major updates shipped.",
+    "time": "4:00 PM",
+    "type": "afternoon",
+    "summary": "Full pipeline recovered. Dwight filed 12 stories. Kelly produced 5 drafts, Rachel 2 drafts. John 24/7 scans active.",
     "discussion": [],
     "keyDecisions": [],
     "improvements": [],
     "actionItems": []
   },
   {
-    "id": "standup-2026-02-13-evening-2",
+    "id": "standup-2026-02-13-evening",
     "date": "2026-02-13",
+    "time": "8:00 PM",
     "type": "evening",
-    "summary": "Day 1 wrap. 7 drafts (0 approved). Dwight 3/3 sweeps. John 24/7 scans active. Ross + Pam built and deployed. George completed 5 autonomous research tasks + full infra buildout. All blockers resolved.",
-    "discussion": [],
-    "keyDecisions": [],
-    "improvements": [],
-    "actionItems": []
-  },
-  {
-    "id": "standup-2026-02-13-8pm-3",
-    "date": "2026-02-13",
-    "type": "evening",
-    "summary": "8PM standup: Mission Control data audit \u2014 fixed stale projects (Ross/Pam were 'coming soon'), live actions (frozen from afternoon), office state (missing Pam), content statuses (pending\u2192denied). Systemic fix needed: auto-update live-actions on every cron run.",
+    "summary": "Day 1 wrap. 7 drafts (0 approved). Dwight 3/3 sweeps. John 24/7 scans active. Ross audit complete. Mission Control data fixed.",
     "discussion": [],
     "keyDecisions": [],
     "improvements": [],

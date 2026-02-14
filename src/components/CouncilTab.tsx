@@ -13,7 +13,8 @@ interface StandupDiscussion {
 interface StandupOutcome {
   id: string;
   date: string;
-  type: "morning" | "midday" | "evening";
+  time?: string;
+  type: string;
   summary: string;
   discussion: StandupDiscussion[];
   keyDecisions: string[];
@@ -52,9 +53,13 @@ export default function CouncilTab() {
   };
 
   const standupIcon = (type: string) => {
-    if (type === "morning") return "🌅";
+    if (type === "early-morning") return "🌅";
+    if (type === "morning") return "🌄";
     if (type === "midday") return "☀️";
-    return "🌙";
+    if (type === "afternoon") return "🌤️";
+    if (type === "evening") return "🌙";
+    if (type === "latenight") return "🌚";
+    return "📋";
   };
 
   if (!mounted) return null;
@@ -105,7 +110,7 @@ export default function CouncilTab() {
                       <h4 className="font-semibold text-[#e4e6ed] text-sm md:text-base">
                         {standupIcon(s.type)} {s.type.charAt(0).toUpperCase() + s.type.slice(1)} Standup
                       </h4>
-                      <p className="text-xs text-[#8b8fa3] mt-0.5">{s.date}</p>
+                      <p className="text-xs text-[#8b8fa3] mt-0.5">{s.date}{s.time ? ` · ${s.time}` : ""}</p>
                     </div>
                     <span className="text-xs text-[#8b8fa3]">{expanded === s.id ? "▾" : "▸"}</span>
                   </div>
