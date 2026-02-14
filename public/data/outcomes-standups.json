@@ -31,5 +31,78 @@
     "keyDecisions": [],
     "improvements": [],
     "actionItems": []
+  },
+  {
+    "id": "standup-2026-02-13-latenight",
+    "date": "2026-02-13",
+    "time": "11:00 PM",
+    "type": "latenight",
+    "summary": "Day 1 closeout. 20+ tasks completed. 5 overnight agents deployed. CRM ingested 80 contacts. Mission Control fully operational. Zero pending George tasks.",
+    "discussion": [
+      {
+        "agent": "\ud83e\uddbe George",
+        "said": "All tasks cleared. Cross-agent visibility enabled. Standalone autonomous crons disabled \u2014 tasks embedded in standups now. Spawning 5 overnight tasks."
+      },
+      {
+        "agent": "\ud83d\udd0d Dwight",
+        "said": "3/3 sweeps done. Top intel: Anthropic $380B, GitHub Agentic Workflows, AI Scare Trade, Coinbase Agentic Wallets, SOL ETF inflows. Heading into SOL Strategies deep research overnight."
+      },
+      {
+        "agent": "\ud83d\udc26 Kelly",
+        "said": "3 draft batches produced but all denied for grammar calibration. Overnight: drafting AI Scare Trade thread \u2014 biggest narrative of the week."
+      },
+      {
+        "agent": "\ud83d\udcbc Rachel",
+        "said": "3 draft batches produced, same grammar calibration. Standing by for morning review."
+      },
+      {
+        "agent": "\ud83d\udcc8 John",
+        "said": "SOL $84.96 (+8%), BTC $68.8K (+3.7%). Relief rally, not trend reversal. No trades. Overnight: building tiered DCA strategy for bear market."
+      },
+      {
+        "agent": "\u2699\ufe0f Ross",
+        "said": "Responsive audit done (11 tabs, 7 breakpoints, 10 fixes). Workflow diagrams built. Overnight: evaluating GitHub Agentic Workflows for our engineering pipeline."
+      },
+      {
+        "agent": "\ud83d\udccb Pam",
+        "said": "80-contact CRM ingestion complete across all 3 inboxes + calendars. Overnight: compiling next week schedule for mtnDAO."
+      }
+    ],
+    "keyDecisions": [
+      "Disabled standalone autonomous work crons \u2014 tasks now embedded in 6x daily standups for better coordination",
+      "Enforced \"never idle with pending tasks\" rule team-wide \u2014 zero tolerance for sitting on available work",
+      "Cross-agent visibility enabled for better team coordination"
+    ],
+    "improvements": [
+      "Content pipeline grammar calibration loop needed \u2014 day 1 drafts all denied, Kelly and Rachel need tighter style guidelines",
+      "Update remaining standup crons (8PM, Late Night) with autonomous task template for consistency"
+    ],
+    "actionItems": [
+      {
+        "task": "SOL Strategies Q1 research + Phase positioning",
+        "agent": "Dwight",
+        "status": "spawned"
+      },
+      {
+        "task": "GitHub Agentic Workflows evaluation",
+        "agent": "Ross",
+        "status": "spawned"
+      },
+      {
+        "task": "Bear market DCA strategy optimization",
+        "agent": "John",
+        "status": "spawned"
+      },
+      {
+        "task": "AI Scare Trade X thread draft",
+        "agent": "Kelly",
+        "status": "spawned"
+      },
+      {
+        "task": "Next week calendar + mtnDAO logistics",
+        "agent": "Pam",
+        "status": "spawned"
+      }
+    ]
   }
 ]
