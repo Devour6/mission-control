@@ -1,17 +1,144 @@
 {
   "days": [
     {
+      "date": "2026-02-14",
+      "docs": [
+        {
+          "id": "d-14-1",
+          "title": "Validator Income Optimization Model",
+          "author": "John",
+          "authorEmoji": "📈",
+          "type": "analysis",
+          "description": "Analysis of income optimization levers for Brandon's 4 validators. Commission strategy, stake growth, block production efficiency. NOTE: MEV commission increase rejected — would lose stake.",
+          "path": "agents/john/research/validator-income-optimization.md"
+        },
+        {
+          "id": "d-14-2",
+          "title": "DCA Strategy Optimization for SOL",
+          "author": "John",
+          "authorEmoji": "📈",
+          "type": "analysis",
+          "description": "Dollar-cost averaging strategy for SOL accumulation, calibrated to current market conditions and house savings timeline.",
+          "path": "agents/john/memory/dca-strategy-optimization.md"
+        },
+        {
+          "id": "d-14-3",
+          "title": "Content Approval Workflow (Engineering)",
+          "author": "Ross",
+          "authorEmoji": "⚙️",
+          "type": "engineering",
+          "description": "Built automated content approval system in Mission Control — batch approve/deny, inline editing, feedback loop to Kelly/Rachel.",
+          "path": "agents/ross/memory/2026-02-14-approval-workflow.md"
+        },
+        {
+          "id": "d-14-4",
+          "title": "Expense Categories & Optimization",
+          "author": "Pam",
+          "authorEmoji": "📋",
+          "type": "report",
+          "description": "Detailed breakdown of Brandon's $3,634/mo expenses with optimization opportunities — subscriptions, API costs, alternatives.",
+          "path": "agents/pam/agents/pam/financial/expense-categories.md"
+        },
+        {
+          "id": "d-14-5",
+          "title": "House Savings Dashboard",
+          "author": "Pam",
+          "authorEmoji": "📋",
+          "type": "report",
+          "description": "Austin house purchase tracker — $180K down payment goal, current savings rate, projected timeline based on validator income + salary.",
+          "path": "agents/pam/agents/pam/financial/savings-tracker.md"
+        },
+        {
+          "id": "d-14-6",
+          "title": "SVT.one Validator Income Report",
+          "author": "George",
+          "authorEmoji": "🦾",
+          "type": "report",
+          "description": "Real onchain validator income data from SVT.one API. Epochs 923-925: Brandon earned 46.85 SOL (~$4,087). 24h run rate: 6.66 SOL ($586). Annualized: ~$214K.",
+          "path": "scripts/svt-validator-income.sh"
+        }
+      ]
+    },
+    {
       "date": "2026-02-13",
       "docs": [
-        {"id": "d-1", "title": "DAILY-INTEL.md", "author": "Dwight", "authorEmoji": "🔍", "type": "intel", "description": "Daily research intel — market data, Solana ecosystem, AI news, competitor activity"},
-        {"id": "d-6", "title": "Validator Performance Audit", "author": "George", "authorEmoji": "🦾", "type": "report", "description": "Current metrics for Ded Monkes, Gojira, Nebula, Kisetsu — skip rates, credits, stake, commission comparison", "url": "https://docs.google.com/document/d/1PMvuwQeqrsOvHQ1lYlGSwefb8q3KGkFj/edit"},
-        {"id": "d-7", "title": "Netrunner Competitor Analysis", "author": "George", "authorEmoji": "🦾", "type": "analysis", "description": "Top 5 Solana tax tools — features, pricing, UX. Growth gaps Netrunner can exploit", "url": "https://docs.google.com/document/d/1Ukbd6Elh6C3Eh-WrEcA5XMMuzZn5SA0L/edit"},
-        {"id": "d-8", "title": "Phase $1.4M → $10M Revenue Path", "author": "George", "authorEmoji": "🦾", "type": "analysis", "description": "Growth framework with specific levers — staking expansion, Netrunner monetization, Phase Delegation scaling", "url": "https://docs.google.com/document/d/13CznJnlKoLGIiisxN0q7I5WEtruZ59_XEfG5T7Uj_tU/edit"},
-        {"id": "d-9", "title": "Monthly Expense Optimization", "author": "George", "authorEmoji": "🦾", "type": "report", "description": "Review of $3,634/mo spend — subscriptions replaceable with self-built tools, cheaper alternatives identified", "url": "https://docs.google.com/document/d/1GVnD9XnQc0UWgQoE7LgTHxxY-9M758HLr3abMwLFxkI/edit"},
-        {"id": "d-10", "title": "Bear Market Stacking Playbook", "author": "George", "authorEmoji": "🦾", "type": "analysis", "description": "Historical DCA strategies for SOL/BTC/ETH, framework for John to execute", "url": "https://docs.google.com/document/d/1KT428azzQKs7ReE9Vk1EnODrI4-2FseAmtb7Db4g2r0/edit"},
-        {"id": "d-11", "title": "John Portfolio Targets", "author": "George", "authorEmoji": "🦾", "type": "memo", "description": "Brandon's target holdings, DCA schedule, validator positions, trading rules"},
-        {"id": "d-12", "title": "Agent Team Architecture", "author": "George", "authorEmoji": "🦾", "type": "memo", "description": "Full org structure, routing logic, security posture, implementation phases for the 6-agent squad"},
-        {"id": "d-14", "title": "Phase Products Research", "author": "George", "authorEmoji": "🦾", "type": "analysis", "description": "phaseSOL, pdSOL, Phase Delegation — APY, TVL, pool stats, product comparison"}
+        {
+          "id": "d-1",
+          "title": "DAILY-INTEL.md",
+          "author": "Dwight",
+          "authorEmoji": "🔍",
+          "type": "intel",
+          "description": "Daily research intel — market data, Solana ecosystem, AI news, competitor activity"
+        },
+        {
+          "id": "d-6",
+          "title": "Validator Performance Audit",
+          "author": "George",
+          "authorEmoji": "🦾",
+          "type": "report",
+          "description": "Current metrics for Ded Monkes, Gojira, Nebula, Kisetsu — skip rates, credits, stake, commission comparison",
+          "url": "https://docs.google.com/document/d/1PMvuwQeqrsOvHQ1lYlGSwefb8q3KGkFj/edit"
+        },
+        {
+          "id": "d-7",
+          "title": "Netrunner Competitor Analysis",
+          "author": "George",
+          "authorEmoji": "🦾",
+          "type": "analysis",
+          "description": "Top 5 Solana tax tools — features, pricing, UX. Growth gaps Netrunner can exploit",
+          "url": "https://docs.google.com/document/d/1Ukbd6Elh6C3Eh-WrEcA5XMMuzZn5SA0L/edit"
+        },
+        {
+          "id": "d-8",
+          "title": "Phase $1.4M → $10M Revenue Path",
+          "author": "George",
+          "authorEmoji": "🦾",
+          "type": "analysis",
+          "description": "Growth framework with specific levers — staking expansion, Netrunner monetization, Phase Delegation scaling",
+          "url": "https://docs.google.com/document/d/13CznJnlKoLGIiisxN0q7I5WEtruZ59_XEfG5T7Uj_tU/edit"
+        },
+        {
+          "id": "d-9",
+          "title": "Monthly Expense Optimization",
+          "author": "George",
+          "authorEmoji": "🦾",
+          "type": "report",
+          "description": "Review of $3,634/mo spend — subscriptions replaceable with self-built tools, cheaper alternatives identified",
+          "url": "https://docs.google.com/document/d/1GVnD9XnQc0UWgQoE7LgTHxxY-9M758HLr3abMwLFxkI/edit"
+        },
+        {
+          "id": "d-10",
+          "title": "Bear Market Stacking Playbook",
+          "author": "George",
+          "authorEmoji": "🦾",
+          "type": "analysis",
+          "description": "Historical DCA strategies for SOL/BTC/ETH, framework for John to execute",
+          "url": "https://docs.google.com/document/d/1KT428azzQKs7ReE9Vk1EnODrI4-2FseAmtb7Db4g2r0/edit"
+        },
+        {
+          "id": "d-11",
+          "title": "John Portfolio Targets",
+          "author": "George",
+          "authorEmoji": "🦾",
+          "type": "memo",
+          "description": "Brandon's target holdings, DCA schedule, validator positions, trading rules"
+        },
+        {
+          "id": "d-12",
+          "title": "Agent Team Architecture",
+          "author": "George",
+          "authorEmoji": "🦾",
+          "type": "memo",
+          "description": "Full org structure, routing logic, security posture, implementation phases for the 6-agent squad"
+        },
+        {
+          "id": "d-14",
+          "title": "Phase Products Research",
+          "author": "George",
+          "authorEmoji": "🦾",
+          "type": "analysis",
+          "description": "phaseSOL, pdSOL, Phase Delegation — APY, TVL, pool stats, product comparison"
+        }
       ]
     }
   ]
