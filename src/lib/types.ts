@@ -86,12 +86,14 @@ export interface ContentDraft {
   author: string;
   authorEmoji: string;
   date: string;
-  status: "pending" | "approved" | "denied";
+  status: "pending" | "approved" | "denied" | "editing";
   rationale?: string;
   angle?: string;
   source?: string;
   batch?: string;
   resolvedAt?: string;
+  feedback?: string;
+  editedText?: string;
 }
 
 export interface PostedContent {
