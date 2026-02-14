@@ -50,7 +50,7 @@
     "description": "Wire cron callbacks to auto-push activity to live-actions.json on every cron completion",
     "assignee": "George",
     "dueDate": "2026-02-14",
-    "status": "todo",
+    "status": "done",
     "createdAt": "2026-02-13T00:00:00.000Z"
   },
   {
@@ -59,7 +59,7 @@
     "description": "Only add 'Review Kelly/Rachel drafts' task when content.json actually has new pending drafts",
     "assignee": "George",
     "dueDate": "2026-02-14",
-    "status": "todo",
+    "status": "done",
     "createdAt": "2026-02-13T00:00:00.000Z"
   }
 ]
