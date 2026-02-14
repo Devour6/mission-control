@@ -3,10 +3,12 @@
 import { useState, useEffect } from "react";
 import { TeamData } from "@/lib/types";
 import { fetchData } from "@/lib/dataFetch";
+import AgentWorkflowView from "./AgentWorkflowView";
 
 export default function TeamTab() {
   const [data, setData] = useState<TeamData | null>(null);
   const [mounted, setMounted] = useState(false);
+  const [selectedAgent, setSelectedAgent] = useState<string | null>(null);
 
   useEffect(() => {
     fetchData<TeamData>("team.json").then(setData).catch(() => {});
@@ -17,13 +19,31 @@ export default function TeamTab() {
 
   const { director, chiefOfStaff, divisions } = data.org;
 
+  // Show agent workflow view if an agent is selected
+  if (selectedAgent) {
+    return (
+      <AgentWorkflowView 
+        agentName={selectedAgent} 
+        onBack={() => setSelectedAgent(null)} 
+      />
+    );
+  }
+
+  // Show team overview
   return (
     <div className="max-w-5xl mx-auto">
       <h2 className="text-2xl font-bold mb-8">👥 Team</h2>
 
       {/* Director */}
       <div className="flex justify-center mb-4">
-        <PersonCard name={director.name} title={director.title} emoji={director.emoji} status="active" highlight="gold" />
+        <PersonCard 
+          name={director.name} 
+          title={director.title} 
+          emoji={director.emoji} 
+          status="active" 
+          highlight="gold" 
+          onClick={() => {/* Brandon doesn't have a workflow */}}
+        />
       </div>
 
       {/* Connector line */}
@@ -33,7 +53,15 @@ export default function TeamTab() {
 
       {/* Chief of Staff */}
       <div className="flex justify-center mb-4">
-        <PersonCard name={chiefOfStaff.name} title={chiefOfStaff.title} emoji={chiefOfStaff.emoji} status="active" highlight="indigo" model="Opus 4.6" />
+        <PersonCard 
+          name={chiefOfStaff.name} 
+          title={chiefOfStaff.title} 
+          emoji={chiefOfStaff.emoji} 
+          status="active" 
+          highlight="indigo" 
+          model="Opus 4.6" 
+          onClick={() => setSelectedAgent(chiefOfStaff.name)}
+        />
       </div>
 
       {/* Connector lines */}
@@ -65,6 +93,7 @@ export default function TeamTab() {
                 emoji={m.emoji}
                 status={m.status === "coming_soon" ? "coming_soon" : "active"}
                 model={m.model}
+                onClick={m.status === "active" ? () => setSelectedAgent(m.name) : undefined}
               />
             ))}
           </div>
@@ -74,13 +103,14 @@ export default function TeamTab() {
   );
 }
 
-function PersonCard({ name, title, emoji, status, model, highlight }: {
+function PersonCard({ name, title, emoji, status, model, highlight, onClick }: {
   name: string;
   title: string;
   emoji: string;
   status: "active" | "coming_soon";
   model?: string;
   highlight?: "gold" | "indigo";
+  onClick?: () => void;
 }) {
   const borderColor = status === "coming_soon"
     ? "border-[#2e3345] opacity-50"
@@ -90,8 +120,14 @@ function PersonCard({ name, title, emoji, status, model, highlight }: {
     ? "border-indigo-500/40"
     : "border-[#2e3345]";
 
+  const isClickable = onClick && status === "active";
+
   return (
-    <div className={`bg-[#1a1d27] border ${borderColor} rounded-xl p-4 text-center min-w-[140px] relative`}>
+    <div 
+      className={`bg-[#1a1d27] border ${borderColor} rounded-xl p-4 text-center min-w-[140px] relative transition-all duration-200 ${
+        isClickable ? 'cursor-pointer hover:scale-105 hover:border-indigo-400/60 hover:bg-[#1e2130]' : ''
+      }`}
+      onClick={isClickable ? onClick : undefined}
       {status === "active" && (
         <div className="absolute top-2 right-2 w-2 h-2 rounded-full bg-emerald-400" />
       )}
@@ -105,6 +141,11 @@ function PersonCard({ name, title, emoji, status, model, highlight }: {
       )}
       {status === "coming_soon" && (
         <p className="text-[10px] text-[#8b8fa3] mt-1 italic">Coming Soon</p>
+      )}
+      {isClickable && (
+        <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2">
+          <span className="text-[8px] text-indigo-400/60">📋 View Workflow</span>
+        </div>
       )}
     </div>
   );

@@ -36,12 +36,12 @@ const RIGHT_AISLE_X = 114;  // vertical aisle on right
 const MID_AISLE_X = 60;     // vertical aisle in middle
 
 const DESKS: Record<string, Vec> = {
-  George:  { x: 18, y: 15 },
-  Dwight:  { x: 42, y: 15 },
-  Kelly:   { x: 66, y: 15 },
+  George:  { x: 10, y: 15 },
+  Dwight:  { x: 10, y: 35 },
+  Kelly:   { x: 50, y: 15 },
   Rachel:  { x: 90, y: 15 },
-  John:    { x: 42, y: 35 },
-  Ross:    { x: 66, y: 35 },
+  John:    { x: 50, y: 35 },
+  Ross:    { x: 50, y: 55 },
   Pam:     { x: 90, y: 35 },
 };
 
@@ -236,7 +236,7 @@ function OfficeFurniture() {
       ))}
 
       {/* George's office border */}
-      <div style={{ position: "absolute", left: (DESKS.George.x - 8) * CELL, top: (DESKS.George.y - 6) * CELL, width: 120, height: 145, zIndex: 0 }} className="border border-indigo-500/12 rounded-lg">
+      <div style={{ position: "absolute", left: (DESKS.George.x - 6) * CELL, top: (DESKS.George.y - 6) * CELL, width: 120, height: 145, zIndex: 0 }} className="border border-indigo-500/12 rounded-lg">
         <div className="text-[8px] text-indigo-400/30 uppercase tracking-widest px-2 pt-1.5">Chief of Staff</div>
       </div>
 
@@ -277,8 +277,9 @@ function OfficeFurniture() {
       </div>
 
       {/* Floor labels */}
-      <div style={{ position: "absolute", left: 30 * CELL, top: 7 * CELL, zIndex: 0 }} className="text-[7px] text-[#2e3345] uppercase tracking-widest">Research & Content</div>
-      <div style={{ position: "absolute", left: 30 * CELL, top: 28 * CELL, zIndex: 0 }} className="text-[7px] text-[#2e3345] uppercase tracking-widest">Finance & Engineering</div>
+      <div style={{ position: "absolute", left: 25 * CELL, top: 7 * CELL, zIndex: 0 }} className="text-[7px] text-[#2e3345] uppercase tracking-widest">Content & Leadership</div>
+      <div style={{ position: "absolute", left: 25 * CELL, top: 28 * CELL, zIndex: 0 }} className="text-[7px] text-[#2e3345] uppercase tracking-widest">Research & Operations</div>
+      <div style={{ position: "absolute", left: 25 * CELL, top: 48 * CELL, zIndex: 0 }} className="text-[7px] text-[#2e3345] uppercase tracking-widest">Engineering</div>
 
       {/* Windows */}
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 18, zIndex: 2 }} className="bg-[#1a1d27] border-b border-[#2e3345] flex">
