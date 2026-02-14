@@ -22,6 +22,7 @@ const ALLOWED = new Set([
   "wallet-weekly.json",
   "content-feedback.json",
   "crm.json",
+  "publishing-queue.json",
 ]);
 
 export async function GET(req: NextRequest) {
