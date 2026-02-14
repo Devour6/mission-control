@@ -146,26 +146,28 @@ export default function CRMTab() {
       <div>
         <button
           onClick={() => setSelected(null)}
-          className="text-sm text-indigo-400 hover:text-indigo-300 mb-4 flex items-center gap-1"
+          className="text-sm text-indigo-400 hover:text-indigo-300 mb-4 flex items-center gap-1 min-h-[44px] px-2 py-2 -mx-2 rounded-lg hover:bg-indigo-500/5"
         >
           ← Back to contacts
         </button>
 
         <div className="bg-[#1e2130] rounded-xl border border-[#2e3345] p-6 mb-4">
-          <div className="flex items-start justify-between flex-wrap gap-2">
-            <div>
-              <h2 className="text-xl font-bold text-[#e4e6ed]">{selected.name}</h2>
+          <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
+            <div className="min-w-0 flex-1">
+              <h2 className="text-lg md:text-xl font-bold text-[#e4e6ed] break-words">{selected.name}</h2>
               {selected.role && selected.company && (
-                <p className="text-sm text-[#8b8fa3] mt-1">{selected.role} at {selected.company}</p>
+                <p className="text-sm text-[#8b8fa3] mt-1 break-words">{selected.role} at {selected.company}</p>
               )}
               {!selected.role && selected.company && (
-                <p className="text-sm text-[#8b8fa3] mt-1">{selected.company}</p>
+                <p className="text-sm text-[#8b8fa3] mt-1 break-words">{selected.company}</p>
               )}
             </div>
-            <QualityBadge score={selected.qualityScore} />
+            <div className="shrink-0">
+              <QualityBadge score={selected.qualityScore} />
+            </div>
           </div>
 
-          <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
             <div>
               <span className="text-[#8b8fa3]">Email</span>
               <div className="text-[#e4e6ed] mt-0.5">
@@ -232,26 +234,24 @@ export default function CRMTab() {
   // List view
   return (
     <div>
-      <div className="flex items-center justify-between flex-wrap gap-3 mb-4">
-        <div>
-          <h2 className="text-lg font-bold text-[#e4e6ed]">👤 CRM</h2>
-          <p className="text-xs text-[#8b8fa3]">{contacts.length} contacts · Updated nightly by Pam</p>
-        </div>
+      <div className="mb-4">
+        <h2 className="text-lg md:text-xl font-bold text-[#e4e6ed]">👤 CRM</h2>
+        <p className="text-xs text-[#8b8fa3]">{contacts.length} contacts · Updated nightly by Pam</p>
       </div>
 
       {/* Filters */}
-      <div className="flex flex-wrap gap-2 mb-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 mb-4">
         <input
           type="text"
           placeholder="Search name, company, email, tag..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="bg-[#242836] border border-[#2e3345] rounded-lg px-3 py-2 text-sm text-[#e4e6ed] placeholder-[#8b8fa3] focus:outline-none focus:border-indigo-500 flex-1 min-w-[200px]"
+          className="bg-[#242836] border border-[#2e3345] rounded-lg px-3 py-2 text-sm text-[#e4e6ed] placeholder-[#8b8fa3] focus:outline-none focus:border-indigo-500 sm:col-span-2 min-h-[44px]"
         />
         <select
           value={filterTag}
           onChange={(e) => setFilterTag(e.target.value)}
-          className="bg-[#242836] border border-[#2e3345] rounded-lg px-3 py-2 text-sm text-[#e4e6ed]"
+          className="bg-[#242836] border border-[#2e3345] rounded-lg px-3 py-2 text-sm text-[#e4e6ed] min-h-[44px]"
         >
           <option value="all">All tags</option>
           {allTags.map((t) => (
@@ -261,7 +261,7 @@ export default function CRMTab() {
         <select
           value={filterQuality}
           onChange={(e) => setFilterQuality(Number(e.target.value))}
-          className="bg-[#242836] border border-[#2e3345] rounded-lg px-3 py-2 text-sm text-[#e4e6ed]"
+          className="bg-[#242836] border border-[#2e3345] rounded-lg px-3 py-2 text-sm text-[#e4e6ed] min-h-[44px]"
         >
           <option value={0}>All quality</option>
           <option value={5}>★★★★★ Key only</option>
@@ -271,7 +271,7 @@ export default function CRMTab() {
         <select
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
-          className="bg-[#242836] border border-[#2e3345] rounded-lg px-3 py-2 text-sm text-[#e4e6ed]"
+          className="bg-[#242836] border border-[#2e3345] rounded-lg px-3 py-2 text-sm text-[#e4e6ed] min-h-[44px]"
         >
           <option value="lastTouch">Last touched</option>
           <option value="touchCount">Most interactions</option>

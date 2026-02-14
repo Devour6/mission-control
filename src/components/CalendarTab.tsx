@@ -111,9 +111,9 @@ export default function CalendarTab() {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-bold">📅 Calendar</h2>
-        <div className="flex items-center gap-2">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
+        <h2 className="text-xl md:text-2xl font-bold">📅 Calendar</h2>
+        <div className="flex flex-wrap items-center gap-2">
           {Object.entries(typeColors).map(([k, v]) => (
             <span key={k} className={`text-[10px] px-2 py-0.5 rounded-full ${v.bg} ${v.text}`}>
               {v.label}
@@ -123,9 +123,9 @@ export default function CalendarTab() {
       </div>
 
       <div className="flex items-center justify-between mb-4">
-        <button onClick={prevMonth} className="p-2 hover:bg-[#242836] rounded-lg text-[#8b8fa3]">←</button>
+        <button onClick={prevMonth} className="p-3 hover:bg-[#242836] rounded-lg text-[#8b8fa3] min-h-[44px] min-w-[44px]">←</button>
         <h3 className="text-lg font-semibold">{monthName} {year}</h3>
-        <button onClick={nextMonth} className="p-2 hover:bg-[#242836] rounded-lg text-[#8b8fa3]">→</button>
+        <button onClick={nextMonth} className="p-3 hover:bg-[#242836] rounded-lg text-[#8b8fa3] min-h-[44px] min-w-[44px]">→</button>
       </div>
 
       <div className="grid grid-cols-7 gap-px bg-[#2e3345] rounded-xl overflow-hidden">
@@ -164,26 +164,26 @@ export default function CalendarTab() {
 
       {selectedDay !== null && (
         <div className="mt-4 bg-[#1a1d27] border border-[#2e3345] rounded-xl p-4">
-          <div className="flex justify-between items-center mb-3">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
             <h4 className="font-semibold">{monthName} {selectedDay}, {year}</h4>
-            <button onClick={() => setShowForm(!showForm)} className="text-xs px-3 py-1 bg-indigo-500 hover:bg-indigo-600 rounded-lg transition-colors">+ Add Event</button>
+            <button onClick={() => setShowForm(!showForm)} className="text-sm px-3 py-2 bg-indigo-500 hover:bg-indigo-600 rounded-lg transition-colors min-h-[44px]">+ Add Event</button>
           </div>
 
           {showForm && (
-            <div className="space-y-2 mb-4 p-3 bg-[#242836] rounded-lg">
-              <input placeholder="Event title" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} className="w-full bg-[#1a1d27] border border-[#2e3345] rounded-lg px-3 py-2 text-sm outline-none" />
-              <div className="flex gap-2">
-                <select value={form.type} onChange={(e) => setForm({ ...form, type: e.target.value as EventType })} className="bg-[#1a1d27] border border-[#2e3345] rounded-lg px-3 py-2 text-sm outline-none">
+            <div className="space-y-3 mb-4 p-3 bg-[#242836] rounded-lg">
+              <input placeholder="Event title" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} className="w-full bg-[#1a1d27] border border-[#2e3345] rounded-lg px-3 py-2 text-sm outline-none min-h-[44px]" />
+              <div className="flex flex-col sm:flex-row gap-2">
+                <select value={form.type} onChange={(e) => setForm({ ...form, type: e.target.value as EventType })} className="bg-[#1a1d27] border border-[#2e3345] rounded-lg px-3 py-2 text-sm outline-none min-h-[44px]">
                   <option value="brandon">Brandon</option>
                   <option value="george">George</option>
                   <option value="shared">Shared</option>
                 </select>
-                <input type="time" value={form.startTime} onChange={(e) => setForm({ ...form, startTime: e.target.value })} className="bg-[#1a1d27] border border-[#2e3345] rounded-lg px-3 py-2 text-sm outline-none" />
-                <input type="time" value={form.endTime} onChange={(e) => setForm({ ...form, endTime: e.target.value })} className="bg-[#1a1d27] border border-[#2e3345] rounded-lg px-3 py-2 text-sm outline-none" />
+                <input type="time" value={form.startTime} onChange={(e) => setForm({ ...form, startTime: e.target.value })} className="bg-[#1a1d27] border border-[#2e3345] rounded-lg px-3 py-2 text-sm outline-none min-h-[44px]" placeholder="Start time" />
+                <input type="time" value={form.endTime} onChange={(e) => setForm({ ...form, endTime: e.target.value })} className="bg-[#1a1d27] border border-[#2e3345] rounded-lg px-3 py-2 text-sm outline-none min-h-[44px]" placeholder="End time" />
               </div>
-              <div className="flex gap-2">
-                <input placeholder="Description" value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} className="flex-1 bg-[#1a1d27] border border-[#2e3345] rounded-lg px-3 py-2 text-sm outline-none" />
-                <button onClick={addEvent} className="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 rounded-lg text-sm transition-colors">Add</button>
+              <div className="flex flex-col sm:flex-row gap-2">
+                <input placeholder="Description" value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} className="flex-1 bg-[#1a1d27] border border-[#2e3345] rounded-lg px-3 py-2 text-sm outline-none min-h-[44px]" />
+                <button onClick={addEvent} className="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 rounded-lg text-sm transition-colors min-h-[44px]">Add</button>
               </div>
             </div>
           )}

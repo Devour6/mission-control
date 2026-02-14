@@ -99,14 +99,14 @@ export default function ContentTab() {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-bold">📝 Content</h2>
-        <div className="flex gap-1 bg-[#1a1d27] border border-[#2e3345] rounded-lg p-1">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
+        <h2 className="text-xl md:text-2xl font-bold">📝 Content</h2>
+        <div className="flex gap-1 bg-[#1a1d27] border border-[#2e3345] rounded-lg p-1 w-full sm:w-auto">
           {(["drafts", "posted"] as const).map((v) => (
             <button
               key={v}
               onClick={() => setView(v)}
-              className={`px-4 py-1.5 rounded-md text-xs font-medium transition-colors capitalize ${
+              className={`flex-1 sm:flex-none px-4 py-2 rounded-md text-xs font-medium transition-colors capitalize min-h-[44px] ${
                 view === v ? "bg-indigo-500/20 text-indigo-400" : "text-[#8b8fa3] hover:text-[#e4e6ed]"
               }`}
             >
@@ -136,25 +136,25 @@ export default function ContentTab() {
                       <p className="text-sm text-[#e4e6ed] whitespace-pre-wrap mb-2 bg-[#242836] rounded-lg p-3">{d.text}</p>
                       {(d.rationale || d.angle) && <p className="text-xs text-[#8b8fa3] italic mb-3">💡 {d.rationale || d.angle}</p>}
                       {d.source && <p className="text-[10px] text-[#8b8fa3] mb-3">📎 Source: {d.source}</p>}
-                      <div className="space-y-2">
-                        <div className="flex gap-2">
-                          <button onClick={() => handleAction(d.id, "approved")} className="px-4 py-1.5 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 rounded-lg text-xs font-medium transition-colors">✓ Approve</button>
-                          <button onClick={() => { setDenyingId(denyingId === d.id ? null : d.id); setDenyFeedback(""); }} className="px-4 py-1.5 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg text-xs font-medium transition-colors">✕ Deny</button>
+                      <div className="space-y-3">
+                        <div className="flex flex-col sm:flex-row gap-2">
+                          <button onClick={() => handleAction(d.id, "approved")} className="px-4 py-2 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 rounded-lg text-sm font-medium transition-colors min-h-[44px]">✓ Approve</button>
+                          <button onClick={() => { setDenyingId(denyingId === d.id ? null : d.id); setDenyFeedback(""); }} className="px-4 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg text-sm font-medium transition-colors min-h-[44px]">✕ Deny</button>
                         </div>
                         {denyingId === d.id && (
-                          <div className="flex gap-2">
+                          <div className="flex flex-col sm:flex-row gap-2">
                             <input
                               type="text"
                               value={denyFeedback}
                               onChange={(e) => setDenyFeedback(e.target.value)}
                               onKeyDown={(e) => { if (e.key === "Enter" && denyFeedback.trim()) handleAction(d.id, "denied", denyFeedback.trim()); }}
                               placeholder="Why? (helps Kelly/Rachel improve)"
-                              className="flex-1 bg-[#242836] border border-red-500/30 rounded-lg px-3 py-1.5 text-xs text-[#e4e6ed] placeholder-[#8b8fa3] focus:outline-none focus:border-red-500/60"
+                              className="flex-1 bg-[#242836] border border-red-500/30 rounded-lg px-3 py-2 text-sm text-[#e4e6ed] placeholder-[#8b8fa3] focus:outline-none focus:border-red-500/60 min-h-[44px]"
                               autoFocus
                             />
                             <button
                               onClick={() => { if (denyFeedback.trim()) handleAction(d.id, "denied", denyFeedback.trim()); }}
-                              className="px-3 py-1.5 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg text-xs font-medium transition-colors"
+                              className="px-4 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg text-sm font-medium transition-colors min-h-[44px]"
                             >Send</button>
                           </div>
                         )}
@@ -169,10 +169,10 @@ export default function ContentTab() {
                   <div className="space-y-2">
                     {resolvedDrafts.map((d) => (
                       <div key={d.id} className={`bg-[#1a1d27] border rounded-lg p-3 ${d.status === "approved" ? "border-emerald-500/20" : "border-red-500/20"}`}>
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-2">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                          <div className="flex items-center gap-2 min-w-0 flex-1">
                             <span className={`text-xs font-bold ${platformColor(d.platform)}`}>{platformIcon(d.platform)}</span>
-                            <span className="text-sm truncate max-w-md">{d.text.slice(0, 80)}{d.text.length > 80 ? "…" : ""}</span>
+                            <span className="text-sm truncate">{d.text.slice(0, 80)}{d.text.length > 80 ? "…" : ""}</span>
                           </div>
                           <div className="flex items-center gap-2 shrink-0">
                             <span className="text-xs text-[#8b8fa3]">{d.authorEmoji} {d.author}</span>

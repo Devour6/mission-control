@@ -61,12 +61,12 @@ function MarkdownModal({ isOpen, onClose, title, content, loading }: MarkdownMod
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-[#1a1d27] border border-[#2e3345] rounded-xl max-w-4xl max-h-[80vh] overflow-hidden flex flex-col">
+      <div className="bg-[#1a1d27] border border-[#2e3345] rounded-xl w-full max-w-4xl max-h-[80vh] overflow-hidden flex flex-col">
         <div className="flex items-center justify-between p-4 border-b border-[#2e3345]">
-          <h2 className="text-lg font-semibold text-[#e4e6ed]">{title}</h2>
+          <h2 className="text-lg font-semibold text-[#e4e6ed] truncate pr-2">{title}</h2>
           <button
             onClick={onClose}
-            className="text-[#8b8fa3] hover:text-[#e4e6ed] text-xl font-bold"
+            className="text-[#8b8fa3] hover:text-[#e4e6ed] text-xl font-bold min-h-[44px] min-w-[44px] flex items-center justify-center"
           >
             ×
           </button>
@@ -139,7 +139,7 @@ export default function DocsTab() {
   return (
     <>
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-2xl font-bold mb-6">📄 Docs</h2>
+        <h2 className="text-xl md:text-2xl font-bold mb-6">📄 Docs</h2>
 
         {data.days.length === 0 ? (
           <div className="bg-[#1a1d27] border border-[#2e3345] rounded-xl p-8 text-center text-[#8b8fa3] text-sm">

@@ -119,22 +119,22 @@ export default function TasksTab() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-bold">📋 Task Board</h2>
-        <div className="flex gap-2">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
+        <h2 className="text-xl md:text-2xl font-bold">📋 Task Board</h2>
+        <div className="flex flex-wrap gap-2">
           {(["all", "Brandon", "George"] as const).map((f) => (
-            <button key={f} onClick={() => setFilter(f)} className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${filter === f ? "bg-indigo-500/20 text-indigo-400" : "text-[#8b8fa3] hover:bg-[#242836]"}`}>
+            <button key={f} onClick={() => setFilter(f)} className={`px-3 py-2 rounded-lg text-xs font-medium transition-colors min-h-[44px] ${filter === f ? "bg-indigo-500/20 text-indigo-400" : "text-[#8b8fa3] hover:bg-[#242836]"}`}>
               {f === "all" ? "All" : f}
             </button>
           ))}
-          <button onClick={() => setShowForm(!showForm)} className="px-3 py-1.5 bg-indigo-500 hover:bg-indigo-600 rounded-lg text-xs font-medium transition-colors ml-2">+ New Task</button>
+          <button onClick={() => setShowForm(!showForm)} className="px-3 py-2 bg-indigo-500 hover:bg-indigo-600 rounded-lg text-xs font-medium transition-colors min-h-[44px]">+ New Task</button>
         </div>
       </div>
 
       {/* Time view toggle */}
-      <div className="flex gap-1 bg-[#1a1d27] border border-[#2e3345] rounded-lg p-1 mb-6 w-fit">
+      <div className="flex flex-wrap gap-1 bg-[#1a1d27] border border-[#2e3345] rounded-lg p-1 mb-6 w-full sm:w-fit">
         {([["daily", "Daily"], ["weekly", "Weekly"], ["monthly", "Monthly"], ["board", "All"]] as const).map(([v, label]) => (
-          <button key={v} onClick={() => setTimeView(v)} className={`px-4 py-1.5 rounded-md text-xs font-medium transition-colors ${timeView === v ? "bg-indigo-500/20 text-indigo-400" : "text-[#8b8fa3] hover:text-[#e4e6ed]"}`}>
+          <button key={v} onClick={() => setTimeView(v)} className={`flex-1 sm:flex-none px-4 py-2 rounded-md text-xs font-medium transition-colors min-h-[44px] ${timeView === v ? "bg-indigo-500/20 text-indigo-400" : "text-[#8b8fa3] hover:text-[#e4e6ed]"}`}>
             {label}
           </button>
         ))}
@@ -144,13 +144,13 @@ export default function TasksTab() {
         <div className="bg-[#1a1d27] border border-[#2e3345] rounded-xl p-4 mb-6 space-y-3">
           <input placeholder="Task title" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} className="w-full bg-[#242836] border border-[#2e3345] rounded-lg px-3 py-2 text-sm outline-none focus:border-indigo-500/50" />
           <textarea placeholder="Description" value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} className="w-full bg-[#242836] border border-[#2e3345] rounded-lg px-3 py-2 text-sm outline-none resize-none min-h-[60px] focus:border-indigo-500/50" />
-          <div className="flex gap-3">
-            <select value={form.assignee} onChange={(e) => setForm({ ...form, assignee: e.target.value as Assignee })} className="bg-[#242836] border border-[#2e3345] rounded-lg px-3 py-2 text-sm outline-none">
+          <div className="flex flex-col sm:flex-row gap-3">
+            <select value={form.assignee} onChange={(e) => setForm({ ...form, assignee: e.target.value as Assignee })} className="bg-[#242836] border border-[#2e3345] rounded-lg px-3 py-2 text-sm outline-none min-h-[44px]">
               <option value="Brandon">Brandon</option>
               <option value="George">George</option>
             </select>
-            <input type="date" value={form.dueDate} onChange={(e) => setForm({ ...form, dueDate: e.target.value })} className="bg-[#242836] border border-[#2e3345] rounded-lg px-3 py-2 text-sm outline-none" />
-            <button onClick={addTask} className="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 rounded-lg text-sm font-medium transition-colors">Add</button>
+            <input type="date" value={form.dueDate} onChange={(e) => setForm({ ...form, dueDate: e.target.value })} className="bg-[#242836] border border-[#2e3345] rounded-lg px-3 py-2 text-sm outline-none min-h-[44px]" />
+            <button onClick={addTask} className="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 rounded-lg text-sm font-medium transition-colors min-h-[44px]">Add</button>
           </div>
         </div>
       )}

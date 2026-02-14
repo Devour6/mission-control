@@ -23,8 +23,8 @@ export default function Home() {
   return (
     <div className="flex min-h-screen">
       <Sidebar active={tab} onNavigate={setTab} />
-      {/* pt-16 on mobile for fixed top bar, p-8 on desktop */}
-      <main className="flex-1 p-4 pt-16 md:p-8 md:pt-8 overflow-auto min-w-0">
+      {/* pt-16 on mobile for fixed top bar, responsive padding */}
+      <main className="flex-1 p-3 pt-16 sm:p-6 md:p-8 md:pt-8 overflow-auto min-w-0">
         {tab === "tasks" && <TasksTab />}
         {tab === "approvals" && <ApprovalsTab />}
         {tab === "content" && <ContentTab />}

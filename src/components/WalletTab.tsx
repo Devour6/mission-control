@@ -58,7 +58,7 @@ export default function WalletTab() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h2 className="text-2xl font-bold text-[#e4e6ed] flex items-center gap-2">
+        <h2 className="text-xl md:text-2xl font-bold text-[#e4e6ed] flex items-center gap-2">
           💰 Wallet
         </h2>
         <p className="text-sm text-[#8b8fa3] mt-1">Solana • Trading Journal</p>
@@ -164,32 +164,34 @@ export default function WalletTab() {
           </div>
         ) : (
           <div className="bg-[#1a1d27] border border-[#2e3345] rounded-xl overflow-hidden">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-[#2e3345] text-[#8b8fa3] text-xs uppercase tracking-wider">
-                  <th className="text-left p-3">Date</th>
-                  <th className="text-left p-3">Action</th>
-                  <th className="text-left p-3">Token(s)</th>
-                  <th className="text-right p-3">Amount</th>
-                  <th className="text-right p-3">USD</th>
-                  <th className="text-left p-3">Notes</th>
-                </tr>
-              </thead>
-              <tbody>
-                {wallet.trades.map((t) => (
-                  <tr key={t.id} className="border-b border-[#2e3345]/50 hover:bg-[#242836] transition-colors">
-                    <td className="p-3 text-[#8b8fa3] font-mono text-xs">{t.date}</td>
-                    <td className={`p-3 font-semibold uppercase text-xs ${actionColor(t.action)}`}>{t.action}</td>
-                    <td className="p-3 text-[#e4e6ed]">{t.tokens.join(" / ")}</td>
-                    <td className="p-3 text-right text-[#e4e6ed] font-mono">{t.amount}</td>
-                    <td className={`p-3 text-right font-mono ${t.usdValue >= 0 ? "text-emerald-400" : "text-red-400"}`}>
-                      ${Math.abs(t.usdValue).toFixed(2)}
-                    </td>
-                    <td className="p-3 text-[#8b8fa3] text-xs max-w-[200px] truncate">{t.notes || "—"}</td>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm min-w-[640px]">
+                <thead>
+                  <tr className="border-b border-[#2e3345] text-[#8b8fa3] text-xs uppercase tracking-wider">
+                    <th className="text-left p-3 whitespace-nowrap">Date</th>
+                    <th className="text-left p-3 whitespace-nowrap">Action</th>
+                    <th className="text-left p-3 whitespace-nowrap">Token(s)</th>
+                    <th className="text-right p-3 whitespace-nowrap">Amount</th>
+                    <th className="text-right p-3 whitespace-nowrap">USD</th>
+                    <th className="text-left p-3 whitespace-nowrap">Notes</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {wallet.trades.map((t) => (
+                    <tr key={t.id} className="border-b border-[#2e3345]/50 hover:bg-[#242836] transition-colors">
+                      <td className="p-3 text-[#8b8fa3] font-mono text-xs whitespace-nowrap">{t.date}</td>
+                      <td className={`p-3 font-semibold uppercase text-xs ${actionColor(t.action)} whitespace-nowrap`}>{t.action}</td>
+                      <td className="p-3 text-[#e4e6ed] whitespace-nowrap">{t.tokens.join(" / ")}</td>
+                      <td className="p-3 text-right text-[#e4e6ed] font-mono whitespace-nowrap">{t.amount}</td>
+                      <td className={`p-3 text-right font-mono ${t.usdValue >= 0 ? "text-emerald-400" : "text-red-400"} whitespace-nowrap`}>
+                        ${Math.abs(t.usdValue).toFixed(2)}
+                      </td>
+                      <td className="p-3 text-[#8b8fa3] text-xs max-w-[200px] truncate">{t.notes || "—"}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         )}
       </div>
