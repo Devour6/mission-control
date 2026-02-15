@@ -80,17 +80,6 @@ export default function StandupHistoryTab() {
     return "📋";
   };
 
-  const getAgentEmoji = (agentName: string) => {
-    if (agentName.includes("🧠") || agentName.includes("George")) return "🧠";
-    if (agentName.includes("🔍") || agentName.includes("Dwight")) return "🔍";
-    if (agentName.includes("🐦") || agentName.includes("Kelly")) return "🐦";
-    if (agentName.includes("💼") || agentName.includes("Rachel")) return "💼";
-    if (agentName.includes("📈") || agentName.includes("John")) return "📈";
-    if (agentName.includes("⚙️") || agentName.includes("Ross")) return "⚙️";
-    if (agentName.includes("📋") || agentName.includes("Pam")) return "📋";
-    return "🤖";
-  };
-
   const formatStandupTitle = (standup: StandupOutcome) => {
     const typeFormatted = standup.type.charAt(0).toUpperCase() + 
       standup.type.slice(1).replace('-', ' ');
@@ -368,100 +357,13 @@ export default function StandupHistoryTab() {
                         </div>
                       </div>
 
-                      {/* Expanded Details */}
+                      {/* Expanded Details — Narrative Summary */}
                       {isExpanded && (
                         <div className="border-t border-[#2e3345] bg-[#16192a]">
-                          <div className="p-6 space-y-6">
-                            
-                            {/* Agent Discussion */}
-                            {standup.discussion && standup.discussion.length > 0 && (
-                              <div>
-                                <h5 className="text-sm font-medium text-cyan-400 uppercase tracking-wider mb-4 flex items-center gap-2">
-                                  💬 Agent Discussion
-                                </h5>
-                                <div className="space-y-4">
-                                  {standup.discussion.map((d, i) => (
-                                    <div key={i} className="flex gap-3 items-start">
-                                      <div className="w-8 h-8 rounded-full bg-[#242836] flex items-center justify-center text-sm shrink-0">
-                                        {d.emoji || getAgentEmoji(d.agent)}
-                                      </div>
-                                      <div className="min-w-0 flex-1">
-                                        <p className="text-sm font-medium text-[#e4e6ed] mb-1">{d.agent}</p>
-                                        <p className="text-sm text-[#9b9fb3] leading-relaxed">{d.said}</p>
-                                      </div>
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                            )}
-
-                            {/* Key Decisions */}
-                            {standup.keyDecisions.length > 0 && (
-                              <div>
-                                <h5 className="text-sm font-medium text-amber-400 uppercase tracking-wider mb-3 flex items-center gap-2">
-                                  ⚖️ Key Decisions
-                                </h5>
-                                <div className="space-y-2">
-                                  {standup.keyDecisions.map((decision, i) => (
-                                    <div key={i} className="flex items-start gap-3 p-3 bg-amber-500/5 border border-amber-500/10 rounded-lg">
-                                      <div className="w-2 h-2 rounded-full bg-amber-400 mt-2 shrink-0"></div>
-                                      <p className="text-sm text-[#e4e6ed]">{decision}</p>
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                            )}
-
-                            {/* Completed Action Items */}
-                            {completedItems.length > 0 && (
-                              <div>
-                                <h5 className="text-sm font-medium text-emerald-400 uppercase tracking-wider mb-3 flex items-center gap-2">
-                                  ✅ Confirmed Completed ({completedItems.length})
-                                </h5>
-                                <div className="space-y-2">
-                                  {completedItems.map((item, i) => (
-                                    <div key={i} className="flex items-start gap-3 p-3 bg-emerald-500/5 border border-emerald-500/10 rounded-lg">
-                                      <div className="w-2 h-2 rounded-full bg-emerald-400 mt-2 shrink-0"></div>
-                                      <p className="text-sm text-emerald-300">{item}</p>
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                            )}
-
-                            {/* Started Action Items */}
-                            {startedItems.length > 0 && (
-                              <div>
-                                <h5 className="text-sm font-medium text-blue-400 uppercase tracking-wider mb-3 flex items-center gap-2">
-                                  ▶️ Confirmed Started ({startedItems.length})
-                                </h5>
-                                <div className="space-y-2">
-                                  {startedItems.map((item, i) => (
-                                    <div key={i} className="flex items-start gap-3 p-3 bg-blue-500/5 border border-blue-500/10 rounded-lg">
-                                      <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 shrink-0"></div>
-                                      <p className="text-sm text-blue-300">{item}</p>
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                            )}
-
-                            {/* Quality Audit Findings */}
-                            {standup.improvements.length > 0 && (
-                              <div>
-                                <h5 className="text-sm font-medium text-emerald-400 uppercase tracking-wider mb-3 flex items-center gap-2">
-                                  🔍 Quality Audit Findings
-                                </h5>
-                                <div className="space-y-2">
-                                  {standup.improvements.map((improvement, i) => (
-                                    <div key={i} className="flex items-start gap-3 p-3 bg-emerald-500/5 border border-emerald-500/10 rounded-lg">
-                                      <div className="w-2 h-2 rounded-full bg-emerald-400 mt-2 shrink-0"></div>
-                                      <p className="text-sm text-[#e4e6ed]">{improvement}</p>
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                            )}
+                          <div className="p-6">
+                            <div className="prose prose-invert max-w-none">
+                              <NarrativeSummary standup={standup} />
+                            </div>
                           </div>
                         </div>
                       )}
@@ -523,6 +425,78 @@ export default function StandupHistoryTab() {
   );
 }
 
+
+function NarrativeSummary({ standup }: { standup: StandupOutcome }) {
+  const getAgentName = (raw: string) => {
+    // Strip emoji prefixes like "🔍 Dwight" → "Dwight"
+    return raw.replace(/^[^\w]+/, '').trim().split(' ')[0];
+  };
+
+  const paragraphs: string[] = [];
+
+  // Opening — what the standup covered
+  if (standup.summary) {
+    paragraphs.push(standup.summary);
+  }
+
+  // Agent discussion as narrative
+  if (standup.discussion && standup.discussion.length > 0) {
+    const agentNotes = standup.discussion.map(d => {
+      const name = getAgentName(d.agent);
+      return `${name} reported: ${d.said}`;
+    });
+    paragraphs.push(agentNotes.join(' '));
+  }
+
+  // Key decisions as narrative
+  if (standup.keyDecisions.length > 0) {
+    const decisionText = standup.keyDecisions.length === 1
+      ? `The team decided: ${standup.keyDecisions[0]}`
+      : `Key decisions made: ${standup.keyDecisions.join('. ')}.`;
+    paragraphs.push(decisionText);
+  }
+
+  // Completed items
+  const completedItems = standup.completedActionItems || [];
+  if (completedItems.length > 0) {
+    const completedText = completedItems.length === 1
+      ? `Since the last standup, the team completed: ${completedItems[0]}.`
+      : `Since the last standup, the team completed ${completedItems.length} items: ${completedItems.join('; ')}.`;
+    paragraphs.push(completedText);
+  }
+
+  // Started items
+  const startedItems = standup.startedActionItems || [];
+  if (startedItems.length > 0) {
+    const startedText = startedItems.length === 1
+      ? `Work in progress: ${startedItems[0]}.`
+      : `Currently in progress: ${startedItems.join('; ')}.`;
+    paragraphs.push(startedText);
+  }
+
+  // Next action items
+  if (standup.actionItems && standup.actionItems.length > 0) {
+    const items = standup.actionItems.map(item => 
+      typeof item === 'string' ? item : (item.task || '')
+    ).filter(Boolean);
+    if (items.length > 0) {
+      paragraphs.push(`Next up, the team is tackling: ${items.join('; ')}.`);
+    }
+  }
+
+  // Improvements / audit
+  if (standup.improvements.length > 0) {
+    paragraphs.push(`Quality audit notes: ${standup.improvements.join('. ')}.`);
+  }
+
+  return (
+    <div className="space-y-4">
+      {paragraphs.map((p, i) => (
+        <p key={i} className="text-sm text-[#c4c7d4] leading-relaxed">{p}</p>
+      ))}
+    </div>
+  );
+}
 
 function OutcomesView({ 
   standups, 
