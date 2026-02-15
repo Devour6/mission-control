@@ -30,12 +30,20 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: "Invalid file" }, { status: 400 });
   }
 
+  const GITHUB_TOKEN = process.env.GITHUB_TOKEN || process.env.VERCEL_GITHUB_TOKEN || "";
+
   try {
+    const headers: Record<string, string> = {
+      Accept: "application/vnd.github.v3.raw",
+      "User-Agent": "MissionControl/1.0",
+    };
+    // Authenticate to bypass GitHub's aggressive caching on public repos
+    if (GITHUB_TOKEN) {
+      headers["Authorization"] = `Bearer ${GITHUB_TOKEN}`;
+    }
+
     const res = await fetch(`${BASE}/${file}?ref=${BRANCH}`, {
-      headers: {
-        Accept: "application/vnd.github.v3.raw",
-        "User-Agent": "MissionControl/1.0",
-      },
+      headers,
       // No cache — always fresh from GitHub
       cache: "no-store",
     });
