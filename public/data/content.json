@@ -217,6 +217,66 @@
       "angle": "Regulatory maturation drives mainstream adoption",
       "status": "pending",
       "feedback": ""
+    },
+    {
+      "id": "kelly-2026-02-14-4",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-14",
+      "text": ": Staked SOL as Collateral\n**Angle:** Anchorage + Kamino institutional lending framework, builder/staking perspective\n**Tweet:**\nStaked SOL just became borrowable collateral in qualified custody.\n\nInstitutions can now earn staking yield AND borrow against it. That's capital efficiency that didn't exist a week ago.\n\nThis is the part where TradFi stops calling staking \"too risky\" and starts calling it \"collateral.\"\n\n---\n\n#",
+      "angle": "",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "kelly-2026-02-14-5",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-14",
+      "text": ": AI Agents Got Wallets\n**Angle:** Stripe x402 + Coinbase Agentic Wallets shipping same week, \"we're already here\" energy\n**Tweet:**\nStripe and Coinbase both shipped AI agent payment infrastructure this week.\n\nAI agents can now hold funds, trade, and pay for APIs autonomously. No human in the loop.\n\nWe built a 6-person AI team that runs our entire research and content pipeline. The future everyone's building toward? We're already living in it.\n\n---\n\n#",
+      "angle": "",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "kelly-2026-02-14-6",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-14",
+      "text": ": Anthropic vs OpenAI\n**Angle:** Anthropic $30B raise vs OpenAI ads in ChatGPT, pick a side energy\n**Tweet:**\nAnthropic just raised $30B to stay ad-free. OpenAI put ads in ChatGPT.\n\nOne is building tools for people who build things. The other is building an ad platform that writes your emails.\n\nChoose your fighter.\n\n---\n\n## Batch 3 (Evening)\n\n#",
+      "angle": "",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "kelly-2026-02-14-7",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-14",
+      "text": ": AI Models Building Themselves\n**Angle:** GPT-5.3-Codex \"first model instrumental in creating itself\" + our agent team as proof point\n**Tweet:**\nGPT-5.3-Codex is the first model that helped build itself. Opus 4.6 ships autonomous agent teams for complex projects.\n\nMeanwhile we've been running a 6-person AI team that handles research, content, trading, and engineering for months.\n\nThe gap between \"AI will change everything\" and \"AI is already running my business\" is about 90 days of actually building.\n\n---\n\n#",
+      "angle": "",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "kelly-2026-02-14-8",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-14",
+      "text": ": IRS 1099-DA Is Bullish\n**Angle:** IRS standardized crypto taxes + Netrunner positioning + regulatory clarity = adoption\n**Tweet:**\nThe IRS just standardized crypto tax reporting with Form 1099-DA.\n\nEveryone's complaining about more regulation. Here's what they're missing: standardization kills uncertainty. Uncertainty is what keeps institutions on the sidelines.\n\nClear rules means more capital comes in. That's bullish for everyone building real products in crypto. Including us.\n\n---\n\n_Grammar check: No emdashes. All sentences capitalized. Verified across all batches._",
+      "angle": "",
+      "status": "pending",
+      "feedback": ""
     }
   ]
 }
