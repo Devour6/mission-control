@@ -192,8 +192,9 @@
       "text": "Anthropic just raised $30B at a $380B valuation with a clear message: \"We'll never put ads in Claude.\"\n\nThis was a direct shot at OpenAI's new ad-supported ChatGPT model announced last month. The AI industry is splitting into two camps - premium subscription models versus ad-funded freemium.\n\nAnthropic's Super Bowl ad campaign \"A Time and a Place\" drove their site visits up 6.5%. They're betting that enterprise customers and power users will pay premium prices to avoid ads, data harvesting, and potential bias from advertising algorithms.\n\nOpenAI counters that ads make AI accessible to billions who can't afford $20/month subscriptions. Both approaches have merit, but they create fundamentally different AI ecosystems.\n\n• Premium AI serves enterprise and prosumers willing to pay for \"pure\" responses\n\n• Ad-supported AI democratizes access but introduces commercial influence\n\n• Your choice of AI partner now reflects your business values and risk tolerance\n\nAt Phase Labs, we use premium AI models specifically because our decision-making can't be influenced by advertising algorithms. When you're managing infrastructure and capital, you need AI that serves your interests, not advertisers'.\n\nThe AI divide isn't just about business models - it's about trust. Which side of the fence will your company land on?",
       "angle": "Takes the Anthropic funding story and frames it as a strategic business decision rather than just financial news. Connects to Brandon's actual AI usage at Phase Labs. Positions him as someone who understands the implications of different AI business models for enterprise users. Professional tone with clear value proposition for business leaders.",
       "source": "Daily draft batch",
-      "status": "pending",
-      "feedback": ""
+      "status": "denied",
+      "feedback": "its phase... not phase labs",
+      "resolvedAt": "2026-02-15T21:18:26.392Z"
     },
     {
       "id": "rachel-2026-02-14-7",
