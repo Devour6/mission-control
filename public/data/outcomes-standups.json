@@ -1114,6 +1114,17 @@
       "George: Validator performance review via SVT API",
       "Pam: Full week schedule Feb 16-22",
       "George: Spawn verification script (automation)"
+    ],
+    "completedActionItems": [
+      "Wallet balance script created and automated (scripts/update-wallet-mc.sh)",
+      "All 5 standup crons updated with project-first framing",
+      "Standup outcomes spec updated with completedActionItems/startedActionItems fields",
+      "Mission Control wallet.json updated with live onchain data ($314.50)"
+    ],
+    "startedActionItems": [
+      "Ross fixing MC: removing Agent Health tab + standups outcomes view",
+      "SOL price automated validation gate for Dwight sweeps",
+      "Vercel stale cache resolution \u2014 pushed fresh commit to trigger redeploy"
     ]
   }
 ]

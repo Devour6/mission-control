@@ -37,7 +37,8 @@ export default function StandupHistoryTab() {
   const [data, setData] = useState<CombinedData>({ standups: [], decisions: [] });
   const [expanded, setExpanded] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
-  const [filter, setFilter] = useState<"all" | "standups" | "decisions">("all");
+  const [filter, setFilter] = useState<"standups">("standups");
+  const [view, setView] = useState<"standups" | "outcomes">("standups");
   const [dateFilter, setDateFilter] = useState<"all" | "today" | "week" | "month">("all");
   const [startDate, setStartDate] = useState<string>("");
   const [endDate, setEndDate] = useState<string>("");
@@ -220,17 +221,17 @@ export default function StandupHistoryTab() {
 
   const pending = filteredData.decisions.filter(d => d.outcome === "pending");
   const resolved = filteredData.decisions.filter(d => d.outcome !== "pending");
-  const showStandups = filter === "all" || filter === "standups";
-  const showDecisions = filter === "all" || filter === "decisions";
+  const showStandups = true; // Always show standups
+  const showDecisions = false; // Never show decisions
 
   return (
     <div className="max-w-4xl mx-auto">
       <div className="mb-6">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-xl md:text-2xl font-bold">📝 Standups & Decisions</h2>
+            <h2 className="text-xl md:text-2xl font-bold">📝 Standups</h2>
             <p className="text-xs md:text-sm text-[#8b8fa3] mt-1">
-              Complete history of team standups, decisions, and outcomes — with accountability tracking for action items.
+              Complete history of team standups and outcomes — with accountability tracking for action items.
             </p>
           </div>
           <div className="flex items-center gap-2">
@@ -249,14 +250,24 @@ export default function StandupHistoryTab() {
         </div>
       </div>
 
-      {/* Filter tabs */}
+      {/* View tabs */}
       <div className="flex flex-wrap gap-2 mb-4">
-        {(["all", "standups", "decisions"] as const).map(f => (
-          <button key={f} onClick={() => setFilter(f)}
-            className={`text-sm px-4 py-2 rounded-lg font-medium transition-colors min-h-[44px] ${filter === f ? "bg-indigo-500/20 text-indigo-400" : "text-[#8b8fa3] hover:bg-[#242836]"}`}>
-            {f === "all" ? "All" : f === "standups" ? "Standups" : "Decisions"}
-          </button>
-        ))}
+        <button 
+          onClick={() => setView("standups")}
+          className={`text-sm px-4 py-2 rounded-lg font-medium transition-colors ${
+            view === "standups" ? "bg-indigo-500/20 text-indigo-400" : "text-[#8b8fa3] hover:bg-[#242836]"
+          }`}
+        >
+          Standups
+        </button>
+        <button 
+          onClick={() => setView("outcomes")}
+          className={`text-sm px-4 py-2 rounded-lg font-medium transition-colors ${
+            view === "outcomes" ? "bg-indigo-500/20 text-indigo-400" : "text-[#8b8fa3] hover:bg-[#242836]"
+          }`}
+        >
+          Outcomes & Action Items
+        </button>
       </div>
 
       {/* Date filtering */}
@@ -337,8 +348,11 @@ export default function StandupHistoryTab() {
         </div>
       )}
 
-      {/* Standup cards */}
-      {showStandups && filteredData.standups.length > 0 && (
+      {/* Standups View */}
+      {view === "standups" && (
+        <>
+          {/* Standup cards */}
+          {showStandups && filteredData.standups.length > 0 && (
         <div className="mb-8">
           <h3 className="text-sm font-semibold text-cyan-400 uppercase tracking-wider mb-3">
             Standups ({filteredData.standups.length}) 
@@ -534,6 +548,17 @@ export default function StandupHistoryTab() {
            dateFilter !== "all" || startDate || endDate ? "No items found for the selected date range." :
            "No standups or decisions yet."}
         </div>
+      )}
+        </>
+      )}
+
+      {/* Outcomes & Action Items View */}
+      {view === "outcomes" && (
+        <OutcomesView 
+          standups={filteredData.standups}
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+        />
       )}
 
       {/* Summary stats */}
