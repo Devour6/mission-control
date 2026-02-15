@@ -285,6 +285,42 @@
       "source": "GitHub Agentic Workflows technical preview (GitHub Blog)",
       "status": "denied",
       "feedback": "No emdashes ever. Use regular dashes or rewrite the sentence."
+    },
+    {
+      "id": "kelly-2026-02-15-1",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-15",
+      "text": "X is about to let 1 billion users trade crypto without leaving the app. No new downloads, no KYC friction, just tap a ticker and buy. That's more distribution than every ETF approval combined.",
+      "angle": "** X crypto trading is the biggest story today. Frames it from a builder's distribution lens, which is Brandon's natural angle. Bold closing take backed by the scale numbers.\n\n---",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "kelly-2026-02-15-2",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-15",
+      "text": "Anatoly is now on the CFTC's crypto advisory panel alongside Brian Armstrong and Hayden Adams. Solana doesn't just have a token. It has a seat at the regulatory table. That matters more than any price target.",
+      "angle": "** CFTC panel news positions Solana as institutionally legitimate. Builder/founder framing. Punchy closer that separates signal from noise.\n\n---",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "kelly-2026-02-15-3",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-15",
+      "text": "21Shares is paying staking rewards on their Solana ETF starting Monday. You can now earn yield on SOL through your brokerage account. The line between TradFi and DeFi is gone.",
+      "angle": "** Directly relevant to Phase's staking business. Short, factual, bold conclusion. Timely since the payout is Feb 17 (tomorrow).\n\n---\n\n_Pre-submit checks: No emdashes (—) found. All sentences capitalized. No hashtags. All grounded in Dwight's intel._",
+      "status": "pending",
+      "feedback": ""
     }
   ]
 }
