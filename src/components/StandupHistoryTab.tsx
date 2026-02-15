@@ -36,34 +36,6 @@ interface CombinedData {
 }
 
 // Categorize action items for accountability sections
-function categorizeActionItems(actionItems: (string | StandupActionItem)[]) {
-  const completed: (string | StandupActionItem)[] = [];
-  const started: (string | StandupActionItem)[] = [];
-  const ongoing: (string | StandupActionItem)[] = [];
-
-  actionItems.forEach(item => {
-    if (typeof item === "string") {
-      if (item.toLowerCase().includes("completed") || item.toLowerCase().includes("done")) {
-        completed.push(item);
-      } else if (item.toLowerCase().includes("started") || item.toLowerCase().includes("begin")) {
-        started.push(item);
-      } else {
-        ongoing.push(item);
-      }
-    } else {
-      const status = item.status?.toLowerCase() || "";
-      if (status.includes("completed") || status.includes("done")) {
-        completed.push(item);
-      } else if (status.includes("started") || status.includes("begin") || status.includes("in progress")) {
-        started.push(item);
-      } else {
-        ongoing.push(item);
-      }
-    }
-  });
-
-  return { completed, started, ongoing };
-}
 
 export default function StandupHistoryTab() {
   const [data, setData] = useState<CombinedData>({ standups: [], decisions: [] });
@@ -340,7 +312,6 @@ export default function StandupHistoryTab() {
                 {filteredData.standups.map(standup => {
                   const completedItems = standup.completedActionItems || [];
                   const startedItems = standup.startedActionItems || [];
-                  const totalActions = completedItems.length + startedItems.length;
                   const keyDecisionCount = standup.keyDecisions.length;
                   const isExpanded = expandedStandup === standup.id;
                   
@@ -528,10 +499,10 @@ export default function StandupHistoryTab() {
               <p className="text-xs text-[#8b8fa3]">Standups</p>
             </div>
             <div>
-              <p className="text-xl font-bold text-indigo-400">
-                {filteredData.standups.reduce((sum, s) => sum + s.actionItems.length, 0)}
+              <p className="text-xl font-bold text-blue-400">
+                {filteredData.standups.reduce((sum, s) => sum + (s.startedActionItems || []).length, 0)}
               </p>
-              <p className="text-xs text-[#8b8fa3]">Action Items</p>
+              <p className="text-xs text-[#8b8fa3]">Started</p>
             </div>
             <div>
               <p className="text-xl font-bold text-amber-400">
@@ -541,10 +512,7 @@ export default function StandupHistoryTab() {
             </div>
             <div>
               <p className="text-xl font-bold text-emerald-400">
-                {filteredData.standups.reduce((sum, s) => {
-                  const categories = categorizeActionItems(s.actionItems);
-                  return sum + categories.completed.length;
-                }, 0)}
+                {filteredData.standups.reduce((sum, s) => sum + (s.completedActionItems || []).length, 0)}
               </p>
               <p className="text-xs text-[#8b8fa3]">Completed</p>
             </div>
@@ -555,32 +523,6 @@ export default function StandupHistoryTab() {
   );
 }
 
-function ActionItemDisplay({ 
-  item, 
-  colorClass 
-}: {
-  item: string | StandupActionItem;
-  colorClass: string;
-}) {
-  const itemText = typeof item === 'string' ? item : item.task || 'Unknown task';
-  const itemAgent = typeof item === 'object' && item.agent ? item.agent : null;
-  const itemStatus = typeof item === 'object' && item.status ? item.status : null;
-
-  return (
-    <div className={`flex items-start gap-3 p-3 rounded-lg border ${colorClass}`}>
-      <div className="w-2 h-2 rounded-full bg-current mt-2 shrink-0 opacity-60"></div>
-      <div className="min-w-0 flex-1">
-        <p className="text-sm">{itemText}</p>
-        {(itemAgent || itemStatus) && (
-          <div className="flex items-center gap-3 mt-1 text-xs opacity-70">
-            {itemAgent && <span>→ {itemAgent}</span>}
-            {itemStatus && <span>({itemStatus})</span>}
-          </div>
-        )}
-      </div>
-    </div>
-  );
-}
 
 function OutcomesView({ 
   standups, 
@@ -703,10 +645,7 @@ function OutcomesView({
                       {outcomes.map((outcome, i) => {
                         const itemText = typeof outcome.item === 'string' 
                           ? outcome.item 
-                          : outcome.item.task || 'Unknown task';
-                        const itemAgent = typeof outcome.item === 'object' && outcome.item.agent 
-                          ? outcome.item.agent 
-                          : null;
+                          : String(outcome.item);
 
                         return (
                           <div key={i} className={`flex items-start gap-3 p-3 rounded-lg border ${getOutcomeColor(outcome.type)}`}>
@@ -715,9 +654,6 @@ function OutcomesView({
                             </div>
                             <div className="flex-1 min-w-0">
                               <p className="text-sm">{itemText}</p>
-                              {itemAgent && (
-                                <p className="text-xs opacity-70 mt-1">→ {itemAgent}</p>
-                              )}
                             </div>
                           </div>
                         );
