@@ -8,7 +8,7 @@ function truncateAddr(addr: string) {
   return addr.slice(0, 6) + "…" + addr.slice(-4);
 }
 
-function actionColor(action: Trade["action"]) {
+function actionColor(action: string) {
   if (action === "buy" || action === "stake") return "text-emerald-400";
   if (action === "sell") return "text-red-400";
   return "text-amber-400";
@@ -31,8 +31,10 @@ export default function WalletTab() {
       fetchData<WalletWeeklyData>("wallet-weekly.json").catch(() => null),
     ]).then(([w, wk]) => {
       if (!w) return;
-      // Sort trades by date
-      const sortedTrades = w.trades.sort((a: Trade, b: Trade) => new Date(b.date).getTime() - new Date(a.date).getTime());
+      // Sort trades by date (new format uses timestamp, old format uses date)
+      const sortedTrades = w.trades.sort((a: Trade, b: Trade) => 
+        new Date(b.timestamp || b.date || '').getTime() - new Date(a.timestamp || a.date || '').getTime()
+      );
       setWallet({ ...w, trades: sortedTrades });
       if (wk) setWeekly(wk);
     });
@@ -172,18 +174,55 @@ export default function WalletTab() {
                   </tr>
                 </thead>
                 <tbody>
-                  {wallet.trades.map((t) => (
-                    <tr key={t.id} className="border-b border-[#2e3345]/50 hover:bg-[#242836] transition-colors">
-                      <td className="p-3 text-[#8b8fa3] font-mono text-xs whitespace-nowrap">{t.date}</td>
-                      <td className={`p-3 font-semibold uppercase text-xs ${actionColor(t.action)} whitespace-nowrap`}>{t.action}</td>
-                      <td className="p-3 text-[#e4e6ed] whitespace-nowrap">{t.tokens.join(" / ")}</td>
-                      <td className="p-3 text-right text-[#e4e6ed] font-mono whitespace-nowrap">{t.amount}</td>
-                      <td className={`p-3 text-right font-mono ${t.usdValue >= 0 ? "text-emerald-400" : "text-red-400"} whitespace-nowrap`}>
-                        ${Math.abs(t.usdValue).toFixed(2)}
-                      </td>
-                      <td className="p-3 text-[#8b8fa3] text-xs max-w-[200px] truncate">{t.notes || "—"}</td>
-                    </tr>
-                  ))}
+                  {wallet.trades.map((t, index) => {
+                    // Handle both new and old trade formats
+                    const date = t.timestamp || t.date || '';
+                    const action = t.type || t.action || '';
+                    const tokens = t.from && t.to 
+                      ? `${t.from.token} → ${t.to.token}`
+                      : t.tokens?.join(" / ") || '';
+                    const amount = t.from?.amount || t.amount || 0;
+                    const notes = t.signature 
+                      ? `${t.signature.slice(0, 8)}...${t.signature.slice(-8)}`
+                      : t.notes || "—";
+                    
+                    return (
+                      <tr key={t.signature || t.id || index} className="border-b border-[#2e3345]/50 hover:bg-[#242836] transition-colors">
+                        <td className="p-3 text-[#8b8fa3] font-mono text-xs whitespace-nowrap">
+                          {date ? new Date(date).toLocaleDateString() : '—'}
+                        </td>
+                        <td className={`p-3 font-semibold uppercase text-xs ${actionColor(action)} whitespace-nowrap`}>
+                          {action}
+                        </td>
+                        <td className="p-3 text-[#e4e6ed] whitespace-nowrap">
+                          {tokens}
+                        </td>
+                        <td className="p-3 text-right text-[#e4e6ed] font-mono whitespace-nowrap">
+                          {amount}
+                        </td>
+                        <td className={`p-3 text-right font-mono ${t.usdValue >= 0 ? "text-emerald-400" : "text-red-400"} whitespace-nowrap`}>
+                          ${Math.abs(t.usdValue).toFixed(2)}
+                        </td>
+                        <td className="p-3 text-[#8b8fa3] text-xs max-w-[200px] truncate">
+                          {t.explorer ? (
+                            <div className="flex items-center gap-2">
+                              <span>{notes}</span>
+                              <a 
+                                href={t.explorer} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="text-indigo-400 hover:text-indigo-300 transition-colors"
+                              >
+                                🔗
+                              </a>
+                            </div>
+                          ) : (
+                            notes
+                          )}
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>

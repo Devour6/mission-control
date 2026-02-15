@@ -22,13 +22,33 @@ export interface Task {
 
 // Wallet types
 export interface Trade {
-  id: string;
-  date: string;
-  action: "buy" | "sell" | "stake" | "swap";
-  tokens: string[];
-  amount: number;
-  usdValue: number;
+  // New format fields (from jup-trade.mjs)
+  timestamp?: string; // ISO string
+  type?: "swap";
+  from?: {
+    token: string;
+    amount: number;
+    mint: string;
+  };
+  to?: {
+    token: string;
+    amount: number;
+    mint: string;
+  };
+  priceImpact?: number;
+  signature?: string;
+  explorer?: string;
+  
+  // Old format fields (backward compatibility)
+  id?: string;
+  date?: string;
+  action?: "buy" | "sell" | "stake" | "swap";
+  tokens?: string[];
+  amount?: number;
   notes?: string;
+  
+  // Shared fields
+  usdValue: number;
 }
 
 export interface WalletData {
