@@ -594,11 +594,18 @@
         "type": "meeting",
         "summary": "Brandon (30 min) with Adam Carter",
         "direction": "bidirectional"
+      },
+      {
+        "date": "2026-02-14",
+        "type": "email",
+        "direction": "inbound",
+        "subject": "Accepted: Brandon (30 min) (Tim Garcia) @ Tue Feb 17, 2026",
+        "summary": "Accepted meeting with Tim Garcia scheduled for Feb 17"
       }
     ],
     "qualityScore": 5,
-    "touchCount": 4,
-    "lastTouch": "2026-02-12",
+    "touchCount": 5,
+    "lastTouch": "2026-02-14",
     "firstSeen": "2026-01-22"
   },
   {
@@ -4166,5 +4173,37 @@
     "touchCount": 1,
     "lastTouch": "2026-02-04",
     "firstSeen": "2026-02-04"
+  },
+  {
+    "id": "0398ab46-0dd1-42c9-b6f8-dbbbcc357f5d",
+    "name": "Max Sherwood",
+    "email": "max@h2o-nodes.com",
+    "emails": [
+      "max@h2o-nodes.com"
+    ],
+    "company": "H2O Nodes",
+    "role": "",
+    "category": "partner",
+    "relationship": "moderate",
+    "lastContact": "2026-02-14",
+    "source": "phase-inbox",
+    "notes": "H2O Nodes team member. Participates in Layer 33 Group Calls.",
+    "interactions": [],
+    "tags": [
+      "partner"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-14",
+        "type": "email",
+        "direction": "inbound",
+        "subject": "Accepted: Layer 33 Group Call @ Mon Feb 16, 2026",
+        "summary": "Accepted Layer 33 Group Call for February 16"
+      }
+    ],
+    "qualityScore": 3,
+    "touchCount": 1,
+    "lastTouch": "2026-02-14",
+    "firstSeen": "2026-02-14"
   }
 ]
