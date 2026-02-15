@@ -539,5 +539,126 @@
         "task": "CRM pipeline audit & contact enrichment"
       }
     ]
+  },
+  {
+    "id": "standup-2026-02-14-latenight",
+    "date": "2026-02-14",
+    "time": "11:00 PM",
+    "type": "latenight",
+    "summary": "Full day close. Dwight A (19+ stories, 3 sweeps). Kelly A- (8 drafts, pipeline bug). Rachel A- (7 drafts, zero emdashes). John C (FAILED \u2014 $10K trade on $315 wallet). Ross B+ (aggregator fixes). Pam B+ (clean CRM run). George B (caught 2 issues, 2 bad grades from incomplete data). 6 overnight tasks spawned.",
+    "discussion": [
+      {
+        "agent": "Dwight",
+        "grade": "A",
+        "summary": "3 sweeps, 19+ sourced stories, excellent trend analysis. Gold standard day."
+      },
+      {
+        "agent": "Kelly",
+        "grade": "A-",
+        "summary": "8 drafts across 3 batches. Clean grammar, sharp angles. Draft file sync broken \u2014 fix spawned."
+      },
+      {
+        "agent": "Rachel",
+        "grade": "A-",
+        "summary": "7 LinkedIn drafts, zero emdashes. Best day yet. Strong institutional hooks."
+      },
+      {
+        "agent": "John",
+        "grade": "C",
+        "summary": "TA structure improved but proposed $10K trade on $315 wallet. Critical violation. Balance guard spawned."
+      },
+      {
+        "agent": "Ross",
+        "grade": "B+",
+        "summary": "Price aggregator 4/6 sources, LaunchAgent, expense audit. 2 sources still broken."
+      },
+      {
+        "agent": "Pam",
+        "grade": "B+",
+        "summary": "Clean CRM ingestion: 2 contacts processed, 39 noise emails filtered. Daily digest delivered."
+      },
+      {
+        "agent": "George",
+        "grade": "B",
+        "summary": "6 standups today. Caught draft sync bug + John violation. Premature grading in evening standup."
+      }
+    ],
+    "qualityAudit": [
+      {
+        "agent": "Dwight",
+        "result": "PASS",
+        "finding": "All sources credible, trend analysis substantive, risk flags cite specific data."
+      },
+      {
+        "agent": "Kelly",
+        "result": "PASS",
+        "finding": "Voice guide compliant, grammar clean, original angles. File sync pipeline broken."
+      },
+      {
+        "agent": "Rachel",
+        "result": "PASS",
+        "finding": "Professional tone, substance not fluff, natural Phase mentions, zero emdashes."
+      },
+      {
+        "agent": "John",
+        "result": "FAIL",
+        "finding": "$10K trade proposal on $315 wallet. Repeat violation. Hard enforcement being built."
+      },
+      {
+        "agent": "Ross",
+        "result": "PASS",
+        "finding": "Code works, aggregator serving data, LaunchAgent functional."
+      },
+      {
+        "agent": "Pam",
+        "result": "PASS",
+        "finding": "CRM accurate, noise filtering excellent, calendar complete, digest useful."
+      },
+      {
+        "agent": "George",
+        "result": "PARTIAL",
+        "finding": "Good issue detection but graded agents on incomplete data in evening standup."
+      }
+    ],
+    "keyDecisions": [
+      "John trade proposals will be hard-blocked by automated wallet balance verification",
+      "Kelly draft pipeline needs file sync fix \u2014 Discord is source of truth until resolved"
+    ],
+    "improvements": [
+      "Grade agents across ALL surfaces (Discord + files) before scoring \u2014 avoid premature grades",
+      "Build guardrails not guidelines \u2014 enforcement scripts beat documented rules for repeat violations"
+    ],
+    "actionItems": [
+      {
+        "task": "Fix Kelly draft file sync pipeline",
+        "assignee": "George",
+        "status": "spawned"
+      },
+      {
+        "task": "John wallet balance guard script",
+        "assignee": "George",
+        "status": "spawned"
+      },
+      {
+        "task": "HSDT earnings preview for Monday briefing",
+        "assignee": "Dwight",
+        "status": "spawned"
+      },
+      {
+        "task": "Phase $10M revenue roadmap analysis",
+        "assignee": "Dwight",
+        "status": "spawned"
+      },
+      {
+        "task": "Austin house savings plan + market research",
+        "assignee": "George",
+        "status": "spawned"
+      },
+      {
+        "task": "Netrunner growth analysis (1099-DA opportunity)",
+        "assignee": "Dwight",
+        "status": "spawned"
+      }
+    ]
   }
 ]
