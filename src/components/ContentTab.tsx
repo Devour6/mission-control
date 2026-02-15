@@ -127,42 +127,7 @@ export default function ContentTab() {
     }
   };
 
-  const handleRevoke = async (draftId: string) => {
-    if (!confirm("Revoke approval and move back to pending?")) return;
-
-    setLoading(true);
-    try {
-      const response = await fetch("/api/content-approval", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ draftId, action: "revoke" }),
-      });
-
-      if (!response.ok) throw new Error("Revoke failed");
-
-      // Optimistic update with SWR
-      if (contentData) {
-        await refreshContent({
-          ...contentData,
-          drafts: contentData.drafts.map(d => 
-            d.id === draftId ? { ...d, status: "pending", resolvedAt: undefined, feedback: "" } : d
-          ),
-        }, false);
-      }
-      
-      // Refresh from server after a short delay
-      setTimeout(() => {
-        refreshContent();
-      }, 1000);
-    } catch (error) {
-      console.error("Revoke failed:", error);
-      alert("Revoke failed. Please try again.");
-      // Refresh from server on error
-      refreshContent();
-    } finally {
-      setLoading(false);
-    }
-  };
+  // handleRevoke removed — draft-only mode, no queue
 
   const toggleDraftSelection = (draftId: string) => {
     const newSelection = new Set(selectedDrafts);
