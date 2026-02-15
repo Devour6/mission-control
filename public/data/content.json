@@ -52,8 +52,9 @@
       "text": "Staked SOL just became borrowable collateral in qualified custody.\n\nInstitutions can now earn staking yield AND borrow against it. That's capital efficiency that didn't exist a week ago.\n\nThis is the part where TradFi stops calling staking \"too risky\" and starts calling it \"collateral.\"",
       "angle": "Anchorage + Kamino institutional lending framework, builder/staking perspective",
       "source": "Daily draft batch",
-      "status": "pending",
-      "feedback": ""
+      "status": "approved",
+      "feedback": "",
+      "resolvedAt": "2026-02-15T20:17:08.054Z"
     },
     {
       "id": "kelly-2026-02-14-5",
