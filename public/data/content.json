@@ -378,6 +378,48 @@
       "status": "denied",
       "feedback": "we manage over 3m SOL in AUM",
       "resolvedAt": "2026-02-15T21:22:12.625Z"
+    },
+    {
+      "id": "kelly-2026-02-15-1",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Batch 1 (Midday)",
+      "date": "Feb 15, 2026 — Midday",
+      "text": "X is about to let 1 billion people trade crypto without leaving the app. Smart Cashtags rolling out in weeks. Tap a ticker, see the chart, place the trade. No exchange account needed. That's more distribution than every ETF approval combined.",
+      "angle": "X crypto trading launch. Massive distribution story.",
+      "source": "Daily draft batch",
+      "status": "pending",
+      "feedback": "",
+      "resolvedAt": ""
+    },
+    {
+      "id": "kelly-2026-02-15-2",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Batch 1 (Midday)",
+      "date": "Feb 15, 2026 — Midday",
+      "text": "Anatoly is on the CFTC's new crypto advisory panel. Same table as Brian Armstrong, Brad Garlinghouse, and the Winklevoss twins. Solana doesn't just have a token. It has a seat in the room where policy gets written.",
+      "angle": "CFTC panel. Regulatory legitimacy.",
+      "source": "Daily draft batch",
+      "status": "pending",
+      "feedback": "",
+      "resolvedAt": ""
+    },
+    {
+      "id": "kelly-2026-02-15-3",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Batch 1 (Midday)",
+      "date": "Feb 15, 2026 — Midday",
+      "text": "Three frontier AI models dropped in the same week. Anthropic raised $30B to keep building. The coding assistant wars just went nuclear. We run our entire operation on a mix of different models, pulling the best from each. The companies treating AI as a single vendor decision are already behind.",
+      "angle": "AI arms race + multi-model approach.",
+      "source": "Daily draft batch",
+      "status": "pending",
+      "feedback": "",
+      "resolvedAt": ""
     }
   ]
 }
