@@ -2,7 +2,7 @@
   {
     "id": "b-t30",
     "title": "Cancel Suno subscription",
-    "description": "Monthly music AI sub \u2014 $10/mo savings",
+    "description": "Monthly music AI sub — $10/mo savings",
     "assignee": "Brandon",
     "dueDate": "2026-02-15",
     "status": "completed",
@@ -11,7 +11,7 @@
   {
     "id": "b-t31",
     "title": "Cancel Replit subscription",
-    "description": "$51/mo \u2014 not using with local dev setup",
+    "description": "$51/mo — not using with local dev setup",
     "assignee": "Brandon",
     "dueDate": "2026-02-15",
     "status": "completed",
@@ -29,7 +29,7 @@
   {
     "id": "b-t33",
     "title": "Cancel Google Workspace for devourservices.com",
-    "description": "Keep gojira.holdings only \u2014 ~$18/mo savings",
+    "description": "Keep gojira.holdings only — ~$18/mo savings",
     "assignee": "Brandon",
     "dueDate": "2026-02-15",
     "status": "completed",
@@ -37,7 +37,7 @@
   },
   {
     "id": "b-t34",
-    "title": "Review all domains \u2014 audit registrar payments",
+    "title": "Review all domains — audit registrar payments",
     "description": "Audit what you're paying for across all registrars",
     "assignee": "Brandon",
     "dueDate": "2026-02-15",
@@ -96,7 +96,7 @@
   },
   {
     "id": "r-t1",
-    "title": "Full Mission Control audit \u2014 all tabs, data accuracy, mobile layout",
+    "title": "Full Mission Control audit — all tabs, data accuracy, mobile layout",
     "assignee": "Ross",
     "dueDate": "2026-02-14",
     "status": "in_progress",
@@ -160,7 +160,7 @@
   },
   {
     "id": "b-t22",
-    "title": "Fix Newsy \u2014 10 days stories max",
+    "title": "Fix Newsy — 10 days stories max",
     "assignee": "Brandon",
     "dueDate": "2026-02-14",
     "status": "completed",
@@ -320,5 +320,149 @@
     "dueDate": "2026-02-15",
     "status": "todo",
     "createdAt": "2026-02-15T18:00:15.113Z"
+  },
+  {
+    "id": "auto-b-11811",
+    "title": "Watch Matthew Berman video",
+    "description": "https://x.com/matthewberman/status/2021669868366598632",
+    "assignee": "Brandon",
+    "status": "todo",
+    "createdAt": "2026-02-15T19:45:11.810Z"
+  },
+  {
+    "id": "auto-b-11812",
+    "title": "Cancel Lovable subscription ✅",
+    "description": "",
+    "assignee": "Brandon",
+    "status": "completed",
+    "createdAt": "2026-02-15T19:45:11.810Z"
+  },
+  {
+    "id": "auto-b-11813",
+    "title": "Cancel Suno subscription ✅",
+    "description": "",
+    "assignee": "Brandon",
+    "status": "completed",
+    "createdAt": "2026-02-15T19:45:11.810Z"
+  },
+  {
+    "id": "auto-b-11814",
+    "title": "Remove QuickNode ($79/mo) ✅",
+    "description": "",
+    "assignee": "Brandon",
+    "status": "completed",
+    "createdAt": "2026-02-15T19:45:11.810Z"
+  },
+  {
+    "id": "auto-b-11815",
+    "title": "Cancel Google Workspace for devourservices.com ✅",
+    "description": "",
+    "assignee": "Brandon",
+    "status": "completed",
+    "createdAt": "2026-02-15T19:45:11.810Z"
+  },
+  {
+    "id": "auto-b-11816",
+    "title": "Review all domains",
+    "description": "",
+    "assignee": "Brandon",
+    "status": "completed",
+    "createdAt": "2026-02-15T19:45:11.810Z"
+  },
+  {
+    "id": "auto-b-11817",
+    "title": "Replit",
+    "description": "",
+    "assignee": "Brandon",
+    "status": "completed",
+    "createdAt": "2026-02-15T19:45:11.810Z"
+  },
+  {
+    "id": "auto-g-11818",
+    "title": "Automate live-actions.json updates (g-t9)",
+    "description": "",
+    "assignee": "George",
+    "status": "completed",
+    "createdAt": "2026-02-15T19:45:11.810Z"
+  },
+  {
+    "id": "auto-g-11819",
+    "title": "Auto-create review tasks when drafts land (g-t16)",
+    "description": "",
+    "assignee": "George",
+    "status": "completed",
+    "createdAt": "2026-02-15T19:45:11.810Z"
+  },
+  {
+    "id": "auto-g-11820",
+    "title": "Build Dwight, Kelly, Rachel, John, Ross, Pam",
+    "description": "",
+    "assignee": "George",
+    "status": "completed",
+    "createdAt": "2026-02-15T19:45:11.810Z"
+  },
+  {
+    "id": "auto-g-11821",
+    "title": "Mission Control V2 deployed",
+    "description": "",
+    "assignee": "George",
+    "status": "completed",
+    "createdAt": "2026-02-15T19:45:11.810Z"
+  },
+  {
+    "id": "auto-g-11822",
+    "title": "6x daily standups",
+    "description": "",
+    "assignee": "George",
+    "status": "completed",
+    "createdAt": "2026-02-15T19:45:11.810Z"
+  },
+  {
+    "id": "auto-g-11823",
+    "title": "Morning + Afternoon autonomous work crons",
+    "description": "",
+    "assignee": "George",
+    "status": "completed",
+    "createdAt": "2026-02-15T19:45:11.810Z"
+  },
+  {
+    "id": "auto-g-11824",
+    "title": "Fix standup crons to auto-write outcomes",
+    "description": "",
+    "assignee": "George",
+    "status": "completed",
+    "createdAt": "2026-02-15T19:45:11.810Z"
+  },
+  {
+    "id": "auto-g-11825",
+    "title": "Create Discord channels (#research, #x-drafts, #linkedin-drafts, #trades)",
+    "description": "",
+    "assignee": "George",
+    "status": "completed",
+    "createdAt": "2026-02-15T19:45:11.810Z"
+  },
+  {
+    "id": "auto-g-11826",
+    "title": "Research Phase products (phaseSOL, pdSOL)",
+    "description": "",
+    "assignee": "George",
+    "status": "completed",
+    "createdAt": "2026-02-15T19:45:11.810Z"
+  },
+  {
+    "id": "auto-g-11827",
+    "title": "GitHub 2FA, Bill Phase CC, Fix Newsy, Verify OpenAI org, Renew X API",
+    "description": "",
+    "assignee": "George",
+    "status": "completed",
+    "createdAt": "2026-02-15T19:45:11.810Z"
+  },
+  {
+    "id": "auto-g-11828",
+    "title": "memorySearch configured",
+    "description": "",
+    "assignee": "George",
+    "status": "completed",
+    "createdAt": "2026-02-15T19:45:11.810Z"
   }
 ]
