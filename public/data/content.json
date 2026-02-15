@@ -93,8 +93,9 @@
       "text": "GPT-5.3-Codex is the first model that helped build itself. Opus 4.6 ships autonomous agent teams for complex projects.\n\nMeanwhile we've been running a 6-person AI team that handles research, content, trading, and engineering for months.\n\nThe gap between \"AI will change everything\" and \"AI is already running my business\" is about 90 days of actually building.",
       "angle": "GPT-5.3-Codex \"first model instrumental in creating itself\" + our agent team as proof point",
       "source": "Daily draft batch",
-      "status": "pending",
-      "feedback": ""
+      "status": "denied",
+      "feedback": "say stuff like we are using a bunch of different models and getting the best from each",
+      "resolvedAt": "2026-02-15T21:07:17.421Z"
     },
     {
       "id": "kelly-2026-02-14-8",
