@@ -43,7 +43,7 @@
     "id": "ross",
     "agent": "Ross",
     "agentEmoji": "\u2699\ufe0f",
-    "action": "Idle \u2014 MFC awaiting API keys, MC updates shipped",
+    "action": "Merging Agent Health into Office tab, removing standalone tab",
     "time": "11:56 AM",
     "color": "#f59e0b"
   },
