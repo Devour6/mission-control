@@ -428,5 +428,14 @@
     "dueDate": "2026-02-15",
     "status": "todo",
     "createdAt": "2026-02-15T18:00:15.113Z"
+  },
+  {
+    "id": "auto-b-101",
+    "title": "Watch Matthew Berman video",
+    "description": "https://x.com/matthewberman/status/2021669868366598632",
+    "assignee": "Brandon",
+    "dueDate": "2026-02-15",
+    "status": "todo",
+    "createdAt": "2026-02-15T19:39:24.513Z"
   }
 ]
