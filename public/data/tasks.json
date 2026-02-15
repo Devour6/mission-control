@@ -1,5 +1,50 @@
 [
   {
+    "id": "b-t30",
+    "title": "Cancel Suno subscription",
+    "description": "Monthly music AI sub — $10/mo savings",
+    "assignee": "Brandon",
+    "dueDate": "2026-02-15",
+    "status": "todo",
+    "createdAt": "2026-02-14T00:00:00.000Z"
+  },
+  {
+    "id": "b-t31",
+    "title": "Cancel Replit subscription",
+    "description": "$51/mo — not using with local dev setup",
+    "assignee": "Brandon",
+    "dueDate": "2026-02-15",
+    "status": "todo",
+    "createdAt": "2026-02-14T00:00:00.000Z"
+  },
+  {
+    "id": "b-t32",
+    "title": "Remove QuickNode",
+    "description": "$79/mo savings",
+    "assignee": "Brandon",
+    "dueDate": "2026-02-15",
+    "status": "todo",
+    "createdAt": "2026-02-14T00:00:00.000Z"
+  },
+  {
+    "id": "b-t33",
+    "title": "Cancel Google Workspace for devourservices.com",
+    "description": "Keep gojira.holdings only — ~$18/mo savings",
+    "assignee": "Brandon",
+    "dueDate": "2026-02-15",
+    "status": "todo",
+    "createdAt": "2026-02-14T00:00:00.000Z"
+  },
+  {
+    "id": "b-t34",
+    "title": "Review all domains — audit registrar payments",
+    "description": "Audit what you're paying for across all registrars",
+    "assignee": "Brandon",
+    "dueDate": "2026-02-15",
+    "status": "todo",
+    "createdAt": "2026-02-14T00:00:00.000Z"
+  },
+  {
     "id": "b-t20",
     "title": "Watch Matthew Berman video",
     "description": "https://x.com/matthewberman/status/2021669868366598632",
@@ -41,52 +86,21 @@
     "createdAt": "2026-02-13T00:00:00.000Z"
   },
   {
+    "id": "g-review-rachel-1771088529",
+    "title": "Review Rachel's 3 new drafts",
+    "description": "Review and approve new drafts",
+    "assignee": "Brandon",
+    "dueDate": "2026-02-14",
+    "status": "todo",
+    "createdAt": "2026-02-14T00:00:00.000Z"
+  },
+  {
     "id": "r-t1",
     "title": "Full Mission Control audit — all tabs, data accuracy, mobile layout",
     "assignee": "Ross",
     "dueDate": "2026-02-14",
     "status": "in_progress",
     "createdAt": "2026-02-13T21:43:00.000Z"
-  },
-  {
-    "id": "k-t1",
-    "title": "Evening X draft batch",
-    "assignee": "Kelly",
-    "dueDate": "2026-02-14",
-    "status": "todo",
-    "createdAt": "2026-02-13T00:00:00.000Z"
-  },
-  {
-    "id": "r2-t1",
-    "title": "Evening LinkedIn draft batch",
-    "assignee": "Rachel",
-    "dueDate": "2026-02-14",
-    "status": "todo",
-    "createdAt": "2026-02-13T00:00:00.000Z"
-  },
-  {
-    "id": "d-t1",
-    "title": "Weekly research sweep — emerging AI trends",
-    "assignee": "Dwight",
-    "dueDate": "2026-02-14",
-    "status": "todo",
-    "createdAt": "2026-02-13T00:00:00.000Z"
-  },
-  {
-    "id": "j-t1",
-    "title": "Portfolio rebalancing review",
-    "assignee": "John",
-    "dueDate": "2026-02-14",
-    "status": "todo",
-    "createdAt": "2026-02-13T00:00:00.000Z"
-  },
-  {
-    "id": "p-t1",
-    "title": "CRM data sync and contact updates",
-    "assignee": "Pam",
-    "dueDate": "2026-02-14",
-    "status": "todo",
-    "createdAt": "2026-02-13T00:00:00.000Z"
   },
   {
     "id": "b-t1",
@@ -279,14 +293,5 @@
     "dueDate": "2026-02-14",
     "status": "completed",
     "createdAt": "2026-02-13T00:00:00.000Z"
-  },
-  {
-    "id": "g-review-rachel-1771088529",
-    "title": "Review Rachel's 3 new drafts",
-    "description": "Review and approve new drafts",
-    "assignee": "Brandon",
-    "dueDate": "2026-02-14",
-    "status": "todo",
-    "createdAt": "2026-02-14T00:00:00.000Z"
   }
 ]
