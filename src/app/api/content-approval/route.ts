@@ -63,6 +63,41 @@ async function updateFileContent<T>(filePath: string, content: T, sha: string | 
   return res.ok;
 }
 
+const FEEDBACK_FILE = "public/data/content-feedback.json";
+
+interface FeedbackEntry {
+  id: string;
+  author: string;
+  platform: string;
+  status: "approved" | "denied";
+  feedback: string;
+  reviewedAt: string;
+}
+
+async function syncToFeedbackFile(draft: { id: string; author: string; platform: string; status: string; feedback?: string }, reviewedAt: string): Promise<void> {
+  try {
+    const { content: feedbackEntries, sha } = await getFileContent<FeedbackEntry[]>(FEEDBACK_FILE).catch(() => ({ content: [] as FeedbackEntry[], sha: null }));
+    
+    const entry: FeedbackEntry = {
+      id: draft.id,
+      author: draft.author,
+      platform: draft.platform,
+      status: draft.status as "approved" | "denied",
+      feedback: draft.feedback || "",
+      reviewedAt,
+    };
+
+    const idx = feedbackEntries.findIndex(e => e.id === draft.id);
+    if (idx >= 0) feedbackEntries[idx] = entry;
+    else feedbackEntries.push(entry);
+
+    await updateFileContent(FEEDBACK_FILE, feedbackEntries, sha, `Sync feedback for ${draft.id}`);
+  } catch (error) {
+    console.error("Failed to sync feedback file:", error);
+    // Non-blocking — content.json is the source of truth
+  }
+}
+
 // Scheduling removed - draft-only mode
 
 export async function POST(req: NextRequest) {
@@ -106,6 +141,9 @@ export async function POST(req: NextRequest) {
         if (!contentUpdateOk) {
           return NextResponse.json({ error: "Failed to update content file" }, { status: 502 });
         }
+
+        // Sync to feedback file for agent consumption
+        await syncToFeedbackFile(draft, now);
         
         break;
 
@@ -124,6 +162,9 @@ export async function POST(req: NextRequest) {
         if (!denyUpdateOk) {
           return NextResponse.json({ error: "Failed to update content file" }, { status: 502 });
         }
+
+        // Sync to feedback file for agent consumption
+        await syncToFeedbackFile(draft, now);
         
         break;
 
@@ -235,6 +276,14 @@ export async function PATCH(req: NextRequest) {
 
     if (!contentUpdateOk) {
       return NextResponse.json({ error: "Failed to update content file" }, { status: 502 });
+    }
+
+    // Sync all reviewed drafts to feedback file
+    for (const draftId of draftIds) {
+      const draft = contentData.drafts.find(d => d.id === draftId);
+      if (draft && (draft.status === "approved" || draft.status === "denied")) {
+        await syncToFeedbackFile(draft, now);
+      }
     }
 
     return NextResponse.json({ ok: true, results });

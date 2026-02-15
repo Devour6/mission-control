@@ -1,9 +1,226 @@
 [
-  {"id": "kelly-2026-02-13-1", "author": "Kelly", "platform": "x", "status": "denied", "feedback": "Grammar: capitalize after periods. No emdashes ever.", "reviewedAt": "2026-02-14T01:00:00.000Z"},
-  {"id": "kelly-2026-02-13-2", "author": "Kelly", "platform": "x", "status": "denied", "feedback": "Grammar: capitalize after periods. No emdashes ever.", "reviewedAt": "2026-02-14T01:00:00.000Z"},
-  {"id": "kelly-2026-02-13-3", "author": "Kelly", "platform": "x", "status": "denied", "feedback": "Grammar: capitalize after periods. No emdashes ever.", "reviewedAt": "2026-02-14T01:00:00.000Z"},
-  {"id": "kelly-2026-02-13-4", "author": "Kelly", "platform": "x", "status": "denied", "feedback": "Grammar: capitalize after periods. No emdashes ever.", "reviewedAt": "2026-02-14T01:00:00.000Z"},
-  {"id": "kelly-2026-02-13-5", "author": "Kelly", "platform": "x", "status": "denied", "feedback": "Grammar: capitalize after periods. No emdashes ever.", "reviewedAt": "2026-02-14T01:00:00.000Z"},
-  {"id": "rachel-2026-02-13-1", "author": "Rachel", "platform": "linkedin", "status": "denied", "feedback": "No emdashes ever. Use regular dashes or rewrite the sentence.", "reviewedAt": "2026-02-14T01:00:00.000Z"},
-  {"id": "rachel-2026-02-13-2", "author": "Rachel", "platform": "linkedin", "status": "denied", "feedback": "No emdashes ever. Use regular dashes or rewrite the sentence.", "reviewedAt": "2026-02-14T01:00:00.000Z"}
+  {
+    "id": "kelly-2026-02-14-1",
+    "author": "Kelly",
+    "platform": "x",
+    "status": "approved",
+    "feedback": "",
+    "reviewedAt": ""
+  },
+  {
+    "id": "kelly-2026-02-14-2",
+    "author": "Kelly",
+    "platform": "x",
+    "status": "denied",
+    "feedback": "I like it but how can we speak for all solana og's? some may love memecoins",
+    "reviewedAt": ""
+  },
+  {
+    "id": "kelly-2026-02-14-3",
+    "author": "Kelly",
+    "platform": "x",
+    "status": "denied",
+    "feedback": "up 7% isnt ripping",
+    "reviewedAt": ""
+  },
+  {
+    "id": "kelly-2026-02-14-4",
+    "author": "Kelly",
+    "platform": "x",
+    "status": "approved",
+    "feedback": "",
+    "reviewedAt": ""
+  },
+  {
+    "id": "kelly-2026-02-14-5",
+    "author": "Kelly",
+    "platform": "x",
+    "status": "approved",
+    "feedback": "",
+    "reviewedAt": ""
+  },
+  {
+    "id": "kelly-2026-02-14-6",
+    "author": "Kelly",
+    "platform": "x",
+    "status": "approved",
+    "feedback": "",
+    "reviewedAt": ""
+  },
+  {
+    "id": "kelly-2026-02-14-7",
+    "author": "Kelly",
+    "platform": "x",
+    "status": "denied",
+    "feedback": "say stuff like we are using a bunch of different models and getting the best from each",
+    "reviewedAt": ""
+  },
+  {
+    "id": "kelly-2026-02-14-8",
+    "author": "Kelly",
+    "platform": "x",
+    "status": "approved",
+    "feedback": "",
+    "reviewedAt": ""
+  },
+  {
+    "id": "rachel-2026-02-14-1",
+    "author": "Rachel",
+    "platform": "linkedin",
+    "status": "denied",
+    "feedback": "not phase labs. phase",
+    "reviewedAt": ""
+  },
+  {
+    "id": "rachel-2026-02-14-2",
+    "author": "Rachel",
+    "platform": "linkedin",
+    "status": "denied",
+    "feedback": "its not phase labs, its phase",
+    "reviewedAt": ""
+  },
+  {
+    "id": "rachel-2026-02-14-3",
+    "author": "Rachel",
+    "platform": "linkedin",
+    "status": "denied",
+    "feedback": "its phase, not phase labs",
+    "reviewedAt": ""
+  },
+  {
+    "id": "rachel-2026-02-14-4",
+    "author": "Rachel",
+    "platform": "linkedin",
+    "status": "denied",
+    "feedback": "again, its phase... not phase labs",
+    "reviewedAt": ""
+  },
+  {
+    "id": "rachel-2026-02-14-5",
+    "author": "Rachel",
+    "platform": "linkedin",
+    "status": "denied",
+    "feedback": "too personal. dont say the agents names",
+    "reviewedAt": ""
+  },
+  {
+    "id": "rachel-2026-02-14-6",
+    "author": "Rachel",
+    "platform": "linkedin",
+    "status": "denied",
+    "feedback": "its phase... not phase labs",
+    "reviewedAt": ""
+  },
+  {
+    "id": "rachel-2026-02-14-7",
+    "author": "Rachel",
+    "platform": "linkedin",
+    "status": "denied",
+    "feedback": "phase... not phase labs",
+    "reviewedAt": ""
+  },
+  {
+    "id": "kelly-2026-02-13-1",
+    "author": "Kelly",
+    "platform": "x",
+    "status": "denied",
+    "feedback": "Grammar: capitalize after periods. No emdashes ever.",
+    "reviewedAt": ""
+  },
+  {
+    "id": "kelly-2026-02-13-2",
+    "author": "Kelly",
+    "platform": "x",
+    "status": "denied",
+    "feedback": "Grammar: capitalize after periods. No emdashes ever.",
+    "reviewedAt": ""
+  },
+  {
+    "id": "kelly-2026-02-13-3",
+    "author": "Kelly",
+    "platform": "x",
+    "status": "denied",
+    "feedback": "Grammar: capitalize after periods. No emdashes ever.",
+    "reviewedAt": ""
+  },
+  {
+    "id": "kelly-2026-02-13-4",
+    "author": "Kelly",
+    "platform": "x",
+    "status": "denied",
+    "feedback": "Grammar: capitalize after periods. No emdashes ever.",
+    "reviewedAt": ""
+  },
+  {
+    "id": "kelly-2026-02-13-5",
+    "author": "Kelly",
+    "platform": "x",
+    "status": "denied",
+    "feedback": "Grammar: capitalize after periods. No emdashes ever.",
+    "reviewedAt": ""
+  },
+  {
+    "id": "rachel-2026-02-13-1",
+    "author": "Rachel",
+    "platform": "linkedin",
+    "status": "denied",
+    "feedback": "No emdashes ever. Use regular dashes or rewrite the sentence.",
+    "reviewedAt": ""
+  },
+  {
+    "id": "rachel-2026-02-13-2",
+    "author": "Rachel",
+    "platform": "linkedin",
+    "status": "denied",
+    "feedback": "No emdashes ever. Use regular dashes or rewrite the sentence.",
+    "reviewedAt": ""
+  },
+  {
+    "id": "kelly-2026-02-15-1",
+    "author": "Kelly",
+    "platform": "x",
+    "status": "denied",
+    "feedback": "its not trading, its smart cashtags",
+    "reviewedAt": ""
+  },
+  {
+    "id": "kelly-2026-02-15-2",
+    "author": "Kelly",
+    "platform": "x",
+    "status": "approved",
+    "feedback": "",
+    "reviewedAt": ""
+  },
+  {
+    "id": "kelly-2026-02-15-3",
+    "author": "Kelly",
+    "platform": "x",
+    "status": "denied",
+    "feedback": "the line isnt gone. but its blurring",
+    "reviewedAt": ""
+  },
+  {
+    "id": "rachel-2026-02-15-1",
+    "author": "Rachel",
+    "platform": "linkedin",
+    "status": "denied",
+    "feedback": "are you sure you can trade?",
+    "reviewedAt": ""
+  },
+  {
+    "id": "rachel-2026-02-15-2",
+    "author": "Rachel",
+    "platform": "linkedin",
+    "status": "denied",
+    "feedback": "dont say we operate 30+ validators, thats sensitive information",
+    "reviewedAt": ""
+  },
+  {
+    "id": "rachel-2026-02-15-3",
+    "author": "Rachel",
+    "platform": "linkedin",
+    "status": "denied",
+    "feedback": "we manage over 3m SOL in AUM",
+    "reviewedAt": ""
+  }
 ]
