@@ -177,6 +177,37 @@ export interface ProjectsData {
   divisions: Record<string, Division>;
 }
 
+// Active Projects (new structure)
+export interface ProjectMetrics {
+  target?: string;
+  current?: string;
+  progress?: string;
+}
+
+export interface ProjectWorkItem {
+  id: string;
+  title: string;
+  description?: string;
+  status: "todo" | "in_progress" | "completed";
+  assignee?: string;
+  dueDate?: string;
+}
+
+export interface ActiveProject {
+  id: string;
+  name: string;
+  description: string;
+  emoji: string;
+  metrics?: ProjectMetrics;
+  recentProgress: string[];
+  activeWorkItems: ProjectWorkItem[];
+  nextSteps: string[];
+}
+
+export interface ActiveProjectsData {
+  projects: ActiveProject[];
+}
+
 // Docs
 export interface DocEntry {
   id: string;

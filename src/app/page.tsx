@@ -8,7 +8,6 @@ const TasksTab = dynamic(() => import("@/components/TasksTab"), { ssr: false });
 const CalendarTab = dynamic(() => import("@/components/CalendarTab"), { ssr: false });
 const WalletTab = dynamic(() => import("@/components/WalletTab"), { ssr: false });
 const ContentTab = dynamic(() => import("@/components/ContentTab"), { ssr: false });
-const CouncilTab = dynamic(() => import("@/components/CouncilTab"), { ssr: false });
 const ProjectsTab = dynamic(() => import("@/components/ProjectsTab"), { ssr: false });
 const DocsTab = dynamic(() => import("@/components/DocsTab"), { ssr: false });
 const TeamTab = dynamic(() => import("@/components/TeamTab"), { ssr: false });
@@ -27,7 +26,6 @@ export default function Home() {
       <main className="flex-1 p-3 pt-16 sm:p-6 md:p-8 md:pt-8 overflow-auto min-w-0">
         {tab === "tasks" && <TasksTab />}
         {tab === "content" && <ContentTab />}
-        {tab === "outcomes" && <CouncilTab />}
         {tab === "standups" && <StandupHistoryTab />}
         {tab === "projects" && <ProjectsTab />}
         {tab === "docs" && <DocsTab />}
