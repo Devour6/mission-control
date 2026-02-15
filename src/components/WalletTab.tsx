@@ -32,9 +32,11 @@ export default function WalletTab() {
     ]).then(([w, wk]) => {
       if (!w) return;
       // Sort trades by date (new format uses timestamp, old format uses date)
-      const sortedTrades = w.trades.sort((a: Trade, b: Trade) => 
-        new Date(b.timestamp || b.date || '').getTime() - new Date(a.timestamp || a.date || '').getTime()
-      );
+      const sortedTrades = w.trades.sort((a: Trade, b: Trade) => {
+        const dateA = a.timestamp || a.date || '0';
+        const dateB = b.timestamp || b.date || '0';
+        return new Date(dateB).getTime() - new Date(dateA).getTime();
+      });
       setWallet({ ...w, trades: sortedTrades });
       if (wk) setWeekly(wk);
     });
