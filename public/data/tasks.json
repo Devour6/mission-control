@@ -319,7 +319,8 @@
     "assignee": "Brandon",
     "dueDate": "2026-02-15",
     "status": "todo",
-    "createdAt": "2026-02-15T18:00:15.113Z"
+    "createdAt": "2026-02-15T18:00:15.113Z",
+    "project": "personal"
   },
   {
     "id": "auto-b-11812",
