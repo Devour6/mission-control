@@ -62,10 +62,8 @@ export default function ContentTab() {
       setFeedback("");
       setDenyFeedback(prev => { const n = { ...prev }; delete n[draftId]; return n; });
       
-      // Refresh from server after a short delay to get the real state
-      setTimeout(() => {
-        refreshContent();
-      }, 1000);
+      // Trust optimistic update — SWR revalidates every 15s + on focus
+      // Removed setTimeout refresh that caused race condition with GitHub API propagation
     } catch (error) {
       console.error("Action failed:", error);
       alert("Action failed. Please try again.");
@@ -113,10 +111,7 @@ export default function ContentTab() {
       setSelectedDrafts(new Set());
       setFeedback("");
       
-      // Refresh from server after a short delay
-      setTimeout(() => {
-        refreshContent();
-      }, 1000);
+      // Trust optimistic update — SWR revalidates every 15s + on focus
     } catch (error) {
       console.error("Batch action failed:", error);
       alert("Batch action failed. Please try again.");
