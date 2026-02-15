@@ -1,11 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { CalendarEvent, EventType } from "@/lib/types";
-import { getItem, setItem } from "@/lib/storage";
+import { CalendarEvent } from "@/lib/types";
 import { fetchData } from "@/lib/dataFetch";
-
-const KEY = "mc_events";
 
 const typeColors: Record<string, { bg: string; text: string; label: string }> = {
   brandon: { bg: "bg-indigo-500/20", text: "text-indigo-400", label: "Brandon" },
@@ -40,25 +37,14 @@ export default function CalendarTab() {
   const now = new Date();
   const [year, setYear] = useState(now.getFullYear());
   const [month, setMonth] = useState(now.getMonth());
-  const [seedEvents, setSeedEvents] = useState<CalendarEvent[]>([]);
-  const [localEvents, setLocalEvents] = useState<CalendarEvent[]>([]);
+  const [events, setEvents] = useState<CalendarEvent[]>([]);
   const [selectedDay, setSelectedDay] = useState<number | null>(null);
-  const [showForm, setShowForm] = useState(false);
-  const [form, setForm] = useState({ title: "", type: "brandon" as EventType, description: "", startTime: "", endTime: "" });
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setLocalEvents(getItem<CalendarEvent[]>(KEY, []));
-    fetchData<CalendarEvent[]>("calendar.json").then((data) => setSeedEvents(data.map((e) => ({ ...e, _source: "seed" as const })))).catch(() => {});
+    fetchData<CalendarEvent[]>("calendar.json").then((data) => setEvents(data)).catch(() => {});
     setMounted(true);
   }, []);
-
-  const events = [...seedEvents, ...localEvents];
-
-  const persistLocal = (next: CalendarEvent[]) => {
-    setLocalEvents(next);
-    setItem(KEY, next);
-  };
 
   const daysInMonth = getDaysInMonth(year, month);
   const firstDay = getFirstDayOfWeek(year, month);
@@ -80,28 +66,6 @@ export default function CalendarTab() {
     events
       .filter((e) => e.date === dateStr(day))
       .sort((a, b) => (a.startTime || "").localeCompare(b.startTime || ""));
-
-  const addEvent = () => {
-    if (!form.title.trim() || selectedDay === null) return;
-    const ev: CalendarEvent = {
-      id: crypto.randomUUID(),
-      title: form.title.trim(),
-      date: dateStr(selectedDay),
-      type: form.type,
-      description: form.description,
-      startTime: form.startTime || undefined,
-      endTime: form.endTime || undefined,
-      _source: "local",
-    };
-    persistLocal([...localEvents, ev]);
-    setForm({ title: "", type: "brandon", description: "", startTime: "", endTime: "" });
-    setShowForm(false);
-  };
-
-  const removeEvent = (id: string) => {
-    // Only allow removing local events
-    persistLocal(localEvents.filter((e) => e.id !== id));
-  };
 
   if (!mounted) return null;
 
@@ -141,7 +105,7 @@ export default function CalendarTab() {
           return (
             <div
               key={day}
-              onClick={() => { setSelectedDay(day); setShowForm(false); }}
+              onClick={() => { setSelectedDay(day); }}
               className={`bg-[#0f1117] p-2 min-h-[80px] cursor-pointer hover:bg-[#1a1d27] transition-colors ${selectedDay === day ? "ring-1 ring-indigo-500" : ""}`}
             >
               <span className={`text-xs font-medium ${isToday(day) ? "bg-indigo-500 text-white w-5 h-5 rounded-full inline-flex items-center justify-center" : "text-[#8b8fa3]"}`}>
@@ -166,34 +130,14 @@ export default function CalendarTab() {
         <div className="mt-4 bg-[#1a1d27] border border-[#2e3345] rounded-xl p-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
             <h4 className="font-semibold">{monthName} {selectedDay}, {year}</h4>
-            <button onClick={() => setShowForm(!showForm)} className="text-sm px-3 py-2 bg-indigo-500 hover:bg-indigo-600 rounded-lg transition-colors min-h-[44px]">+ Add Event</button>
           </div>
-
-          {showForm && (
-            <div className="space-y-3 mb-4 p-3 bg-[#242836] rounded-lg">
-              <input placeholder="Event title" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} className="w-full bg-[#1a1d27] border border-[#2e3345] rounded-lg px-3 py-2 text-sm outline-none min-h-[44px]" />
-              <div className="flex flex-col sm:flex-row gap-2">
-                <select value={form.type} onChange={(e) => setForm({ ...form, type: e.target.value as EventType })} className="bg-[#1a1d27] border border-[#2e3345] rounded-lg px-3 py-2 text-sm outline-none min-h-[44px]">
-                  <option value="brandon">Brandon</option>
-                  <option value="george">George</option>
-                  <option value="shared">Shared</option>
-                </select>
-                <input type="time" value={form.startTime} onChange={(e) => setForm({ ...form, startTime: e.target.value })} className="bg-[#1a1d27] border border-[#2e3345] rounded-lg px-3 py-2 text-sm outline-none min-h-[44px]" placeholder="Start time" />
-                <input type="time" value={form.endTime} onChange={(e) => setForm({ ...form, endTime: e.target.value })} className="bg-[#1a1d27] border border-[#2e3345] rounded-lg px-3 py-2 text-sm outline-none min-h-[44px]" placeholder="End time" />
-              </div>
-              <div className="flex flex-col sm:flex-row gap-2">
-                <input placeholder="Description" value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} className="flex-1 bg-[#1a1d27] border border-[#2e3345] rounded-lg px-3 py-2 text-sm outline-none min-h-[44px]" />
-                <button onClick={addEvent} className="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 rounded-lg text-sm transition-colors min-h-[44px]">Add</button>
-              </div>
-            </div>
-          )}
 
           <div className="space-y-2">
             {eventsForDay(selectedDay).length === 0 && (
               <p className="text-sm text-[#8b8fa3]">No events this day.</p>
             )}
             {eventsForDay(selectedDay).map((ev) => (
-              <div key={ev.id} className={`flex justify-between items-center p-3 rounded-lg border ${(typeColors[ev.type] || fallbackColor).bg} border-transparent group`}>
+              <div key={ev.id} className={`flex justify-between items-center p-3 rounded-lg border ${(typeColors[ev.type] || fallbackColor).bg} border-transparent`}>
                 <div>
                   <div className="flex items-center gap-2">
                     {ev.startTime && (
@@ -205,14 +149,16 @@ export default function CalendarTab() {
                   </div>
                   {ev.description && <p className="text-xs text-[#8b8fa3] mt-0.5">{ev.description}</p>}
                 </div>
-                {ev._source !== "seed" && (
-                  <button onClick={() => removeEvent(ev.id)} className="text-xs text-red-400/50 hover:text-red-400 opacity-0 group-hover:opacity-100">✕</button>
-                )}
               </div>
             ))}
           </div>
         </div>
       )}
+
+      {/* Read-only notice */}
+      <div className="mt-4 p-3 bg-blue-500/10 border border-blue-500/20 rounded-lg">
+        <p className="text-xs text-blue-400">📅 Calendar events are managed by Pam and loaded from calendar.json</p>
+      </div>
     </div>
   );
 }

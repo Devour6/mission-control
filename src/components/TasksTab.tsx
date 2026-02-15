@@ -2,24 +2,13 @@
 
 import { useState, useEffect } from "react";
 import { Task, Assignee, TaskStatus } from "@/lib/types";
-import { getItem, setItem } from "@/lib/storage";
 import { fetchData } from "@/lib/dataFetch";
-import {
-  DragDropContext,
-  Droppable,
-  Draggable,
-  DropResult,
-} from "@hello-pangea/dnd";
-
-const KEY = "mc_tasks";
 
 const columns: { id: TaskStatus; label: string }[] = [
   { id: "todo", label: "To Do" },
   { id: "inProgress", label: "In Progress" },
   { id: "completed", label: "Completed" },
 ];
-
-const emptyTask = { title: "", description: "", assignee: "Brandon" as Assignee, dueDate: "" };
 
 type TimeView = "board" | "daily" | "weekly" | "monthly";
 
@@ -49,64 +38,16 @@ function isInRange(dateStr: string, start: Date, end: Date): boolean {
 }
 
 export default function TasksTab() {
-  const [seedTasks, setSeedTasks] = useState<Task[]>([]);
-  const [localTasks, setLocalTasks] = useState<Task[]>([]);
+  const [tasks, setTasks] = useState<Task[]>([]);
   const [filter, setFilter] = useState<"all" | Assignee>("all");
   const [timeView, setTimeView] = useState<TimeView>("daily");
-  const [showForm, setShowForm] = useState(false);
-  const [form, setForm] = useState(emptyTask);
   const [mounted, setMounted] = useState(false);
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
-  const [seedOverrides, setSeedOverrides] = useState<Record<string, TaskStatus>>({});
 
   useEffect(() => {
-    setLocalTasks(getItem<Task[]>(KEY, []));
-    setSeedOverrides(getItem<Record<string, TaskStatus>>("mc_tasks_seed_overrides", {}));
-    fetchData<Task[]>("tasks.json").then((data) => setSeedTasks(data.map((t) => ({ ...t, _source: "seed" as const })))).catch(() => {});
+    fetchData<Task[]>("tasks.json").then((data) => setTasks(data)).catch(() => {});
     setMounted(true);
   }, []);
-
-  const tasks = [
-    ...seedTasks.map((t) => ({ ...t, status: seedOverrides[t.id] || t.status })),
-    ...localTasks,
-  ];
-
-  const persistLocal = (next: Task[]) => { setLocalTasks(next); setItem(KEY, next); };
-  const persistOverrides = (next: Record<string, TaskStatus>) => { setSeedOverrides(next); setItem("mc_tasks_seed_overrides", next); };
-
-  const addTask = () => {
-    if (!form.title.trim()) return;
-    const task: Task = { id: crypto.randomUUID(), ...form, status: "todo", createdAt: new Date().toISOString(), _source: "local" };
-    persistLocal([task, ...localTasks]);
-    setForm(emptyTask);
-    setShowForm(false);
-  };
-
-  const deleteTask = (id: string) => persistLocal(localTasks.filter((t) => t.id !== id));
-
-  const toggleComplete = (id: string) => {
-    if (seedTasks.some((t) => t.id === id)) {
-      const current = seedOverrides[id] || seedTasks.find((t) => t.id === id)?.status || "todo";
-      const newStatus: TaskStatus = current === "completed" ? "todo" : "completed";
-      persistOverrides({ ...seedOverrides, [id]: newStatus });
-    } else {
-      persistLocal(localTasks.map((t) => {
-        if (t.id !== id) return t;
-        return { ...t, status: t.status === "completed" ? "todo" : "completed" };
-      }));
-    }
-  };
-
-  const onDragEnd = (result: DropResult) => {
-    if (!result.destination) return;
-    const id = result.draggableId;
-    const newStatus = result.destination.droppableId as TaskStatus;
-    if (seedTasks.some((t) => t.id === id)) {
-      persistOverrides({ ...seedOverrides, [id]: newStatus });
-    } else {
-      persistLocal(localTasks.map((t) => (t.id === id ? { ...t, status: newStatus } : t)));
-    }
-  };
 
   const filtered = tasks.filter((t) => filter === "all" || t.assignee === filter);
 
@@ -127,7 +68,6 @@ export default function TasksTab() {
               {f === "all" ? "All" : f}
             </button>
           ))}
-          <button onClick={() => setShowForm(!showForm)} className="px-3 py-2 bg-indigo-500 hover:bg-indigo-600 rounded-lg text-xs font-medium transition-colors min-h-[44px]">+ New Task</button>
         </div>
       </div>
 
@@ -139,21 +79,6 @@ export default function TasksTab() {
           </button>
         ))}
       </div>
-
-      {showForm && (
-        <div className="bg-[#1a1d27] border border-[#2e3345] rounded-xl p-4 mb-6 space-y-3">
-          <input placeholder="Task title" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} className="w-full bg-[#242836] border border-[#2e3345] rounded-lg px-3 py-2 text-sm outline-none focus:border-indigo-500/50" />
-          <textarea placeholder="Description" value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} className="w-full bg-[#242836] border border-[#2e3345] rounded-lg px-3 py-2 text-sm outline-none resize-none min-h-[60px] focus:border-indigo-500/50" />
-          <div className="flex flex-col sm:flex-row gap-3">
-            <select value={form.assignee} onChange={(e) => setForm({ ...form, assignee: e.target.value as Assignee })} className="bg-[#242836] border border-[#2e3345] rounded-lg px-3 py-2 text-sm outline-none min-h-[44px]">
-              <option value="Brandon">Brandon</option>
-              <option value="George">George</option>
-            </select>
-            <input type="date" value={form.dueDate} onChange={(e) => setForm({ ...form, dueDate: e.target.value })} className="bg-[#242836] border border-[#2e3345] rounded-lg px-3 py-2 text-sm outline-none min-h-[44px]" />
-            <button onClick={addTask} className="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 rounded-lg text-sm font-medium transition-colors min-h-[44px]">Add</button>
-          </div>
-        </div>
-      )}
 
       {/* Date range label + progress for filtered views */}
       {timeView !== "board" && (
@@ -169,52 +94,36 @@ export default function TasksTab() {
         </div>
       )}
 
-      {/* Kanban Board — all views */}
-      <DragDropContext onDragEnd={onDragEnd}>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {columns.map((col) => {
-            const colTasks = visibleTasks.filter((t) => t.status === col.id);
-            return (
-              <div key={col.id}>
-                <h3 className="text-sm font-semibold text-[#8b8fa3] mb-3 uppercase tracking-wider">
-                  {col.label} <span className="text-xs">({colTasks.length})</span>
-                </h3>
-                <Droppable droppableId={col.id}>
-                  {(provided, snapshot) => (
-                    <div ref={provided.innerRef} {...provided.droppableProps} className={`min-h-[200px] rounded-xl p-2 space-y-2 transition-colors ${snapshot.isDraggingOver ? "bg-indigo-500/5" : "bg-[#1a1d27]/50"}`}>
-                      {colTasks.map((task, idx) => (
-                        <Draggable key={task.id} draggableId={task.id} index={idx}>
-                          {(prov) => (
-                            <div ref={prov.innerRef} {...prov.draggableProps} {...prov.dragHandleProps} onClick={() => setSelectedTask(task)} className={`bg-[#242836] border rounded-lg p-3 group cursor-pointer hover:bg-[#2a2e3e] transition-colors ${task.assignee === "Brandon" ? "border-indigo-500/30" : "border-cyan-400/30"}`}>
-                              <div className="flex justify-between items-start">
-                                <div className="flex items-start gap-2">
-                                  <button onClick={(e) => { e.stopPropagation(); toggleComplete(task.id); }} className={`mt-0.5 w-4 h-4 rounded border flex items-center justify-center text-[10px] transition-colors ${task.status === "completed" ? "bg-emerald-500/30 border-emerald-500 text-emerald-400" : "border-[#8b8fa3]/30 hover:border-emerald-500/50"}`}>
-                                    {task.status === "completed" && "✓"}
-                                  </button>
-                                  <h4 className={`text-sm font-medium ${task.status === "completed" ? "line-through text-[#8b8fa3]" : ""}`}>{task.title}</h4>
-                                </div>
-                                {task._source !== "seed" && (
-                                  <button onClick={(e) => { e.stopPropagation(); deleteTask(task.id); }} className="text-xs text-red-400/50 hover:text-red-400 opacity-0 group-hover:opacity-100">✕</button>
-                                )}
-                              </div>
-                              {task.description && <p className="text-xs text-[#8b8fa3] mt-1 ml-6 line-clamp-2">{task.description}</p>}
-                              <div className="flex items-center justify-between mt-2 ml-6">
-                                <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${task.assignee === "Brandon" ? "bg-indigo-500/20 text-indigo-400" : "bg-cyan-400/20 text-cyan-400"}`}>{task.assignee}</span>
-                                {task.dueDate && <span className="text-[10px] text-orange-400/80">📅 Due {task.dueDate}</span>}
-                              </div>
-                            </div>
-                          )}
-                        </Draggable>
-                      ))}
-                      {provided.placeholder}
+      {/* Static Board Display — read-only */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {columns.map((col) => {
+          const colTasks = visibleTasks.filter((t) => t.status === col.id);
+          return (
+            <div key={col.id}>
+              <h3 className="text-sm font-semibold text-[#8b8fa3] mb-3 uppercase tracking-wider">
+                {col.label} <span className="text-xs">({colTasks.length})</span>
+              </h3>
+              <div className="min-h-[200px] rounded-xl p-2 space-y-2 bg-[#1a1d27]/50">
+                {colTasks.map((task) => (
+                  <div key={task.id} onClick={() => setSelectedTask(task)} className={`bg-[#242836] border rounded-lg p-3 cursor-pointer hover:bg-[#2a2e3e] transition-colors ${task.assignee === "Brandon" ? "border-indigo-500/30" : "border-cyan-400/30"}`}>
+                    <div className="flex items-start gap-2">
+                      <div className={`mt-0.5 w-4 h-4 rounded border flex items-center justify-center text-[10px] ${task.status === "completed" ? "bg-emerald-500/30 border-emerald-500 text-emerald-400" : "border-[#8b8fa3]/30"}`}>
+                        {task.status === "completed" && "✓"}
+                      </div>
+                      <h4 className={`text-sm font-medium ${task.status === "completed" ? "line-through text-[#8b8fa3]" : ""}`}>{task.title}</h4>
                     </div>
-                  )}
-                </Droppable>
+                    {task.description && <p className="text-xs text-[#8b8fa3] mt-1 ml-6 line-clamp-2">{task.description}</p>}
+                    <div className="flex items-center justify-between mt-2 ml-6">
+                      <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${task.assignee === "Brandon" ? "bg-indigo-500/20 text-indigo-400" : "bg-cyan-400/20 text-cyan-400"}`}>{task.assignee}</span>
+                      {task.dueDate && <span className="text-[10px] text-orange-400/80">📅 Due {task.dueDate}</span>}
+                    </div>
+                  </div>
+                ))}
               </div>
-            );
-          })}
-        </div>
-      </DragDropContext>
+            </div>
+          );
+        })}
+      </div>
 
       {/* Task detail modal */}
       {selectedTask && (
@@ -235,6 +144,11 @@ export default function TasksTab() {
           </div>
         </div>
       )}
+      
+      {/* Read-only notice */}
+      <div className="mt-4 p-3 bg-blue-500/10 border border-blue-500/20 rounded-lg">
+        <p className="text-xs text-blue-400">📚 Tasks are managed by agents and loaded from tasks.json</p>
+      </div>
     </div>
   );
 }

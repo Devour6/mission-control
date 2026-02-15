@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import type { WalletData, WalletWeeklyData, Trade } from "@/lib/types";
 import { fetchData } from "@/lib/dataFetch";
 
-const LS_KEY = "mission-control-wallet-trades";
-
 function truncateAddr(addr: string) {
   return addr.slice(0, 6) + "…" + addr.slice(-4);
 }
@@ -33,12 +31,9 @@ export default function WalletTab() {
       fetchData<WalletWeeklyData>("wallet-weekly.json").catch(() => null),
     ]).then(([w, wk]) => {
       if (!w) return;
-      // merge localStorage trades
-      const local: Trade[] = JSON.parse(localStorage.getItem(LS_KEY) || "[]");
-      const seedIds = new Set((w.trades as Trade[]).map((t: Trade) => t.id));
-      const merged = [...w.trades, ...local.filter((t: Trade) => !seedIds.has(t.id))];
-      merged.sort((a: Trade, b: Trade) => new Date(b.date).getTime() - new Date(a.date).getTime());
-      setWallet({ ...w, trades: merged });
+      // Sort trades by date
+      const sortedTrades = w.trades.sort((a: Trade, b: Trade) => new Date(b.date).getTime() - new Date(a.date).getTime());
+      setWallet({ ...w, trades: sortedTrades });
       if (wk) setWeekly(wk);
     });
   }, []);
@@ -194,6 +189,11 @@ export default function WalletTab() {
             </div>
           </div>
         )}
+      </div>
+
+      {/* Read-only notice */}
+      <div className="mt-6 p-3 bg-blue-500/10 border border-blue-500/20 rounded-lg">
+        <p className="text-xs text-blue-400">💰 Wallet data is managed by John&#39;s scans and loaded from wallet.json</p>
       </div>
     </div>
   );
