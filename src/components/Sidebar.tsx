@@ -18,7 +18,6 @@ const tabs = [
   { id: "wallet", label: "Wallet", icon: "💰" },
   { id: "crm", label: "CRM", icon: "👤" },
   { id: "team", label: "Team", icon: "👥" },
-  { id: "health", label: "Agent Health", icon: "💚" },
 ];
 
 export default function Sidebar({ active, onNavigate }: Props) {

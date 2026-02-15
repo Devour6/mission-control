@@ -14,7 +14,6 @@ const TeamTab = dynamic(() => import("@/components/TeamTab"), { ssr: false });
 const OfficeTab = dynamic(() => import("@/components/OfficeTab"), { ssr: false });
 const CRMTab = dynamic(() => import("@/components/CRMTab"), { ssr: false });
 const StandupHistoryTab = dynamic(() => import("@/components/StandupHistoryTab"), { ssr: false });
-const AgentHealthTab = dynamic(() => import("@/components/AgentHealthTab"), { ssr: false });
 
 export default function Home() {
   const [tab, setTab] = useState("office");
@@ -34,7 +33,6 @@ export default function Home() {
         {tab === "team" && <TeamTab />}
         {tab === "office" && <OfficeTab />}
         {tab === "crm" && <CRMTab />}
-        {tab === "health" && <AgentHealthTab />}
       </main>
     </div>
   );

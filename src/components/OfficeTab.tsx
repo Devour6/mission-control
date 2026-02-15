@@ -57,6 +57,38 @@ interface AgentState {
 
 interface LiveAction { id: string; agent: string; agentEmoji: string; action: string; time: string; color: string }
 
+// --- Health Status Helper ---
+function getHealthStatus(timeStr: string): 'green' | 'yellow' | 'red' {
+  try {
+    // Parse time format like "11:56 AM" and assume it's today's time
+    const match = timeStr.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
+    if (!match) return 'red';
+    
+    const hours = parseInt(match[1]);
+    const minutes = parseInt(match[2]);
+    const period = match[3].toUpperCase();
+    
+    // Convert to 24-hour format
+    let h24 = hours;
+    if (period === 'PM' && h24 !== 12) h24 += 12;
+    if (period === 'AM' && h24 === 12) h24 = 0;
+    
+    // Create date object for today with parsed time
+    const actionTime = new Date();
+    actionTime.setHours(h24, minutes, 0, 0);
+    
+    const now = new Date();
+    const diffMs = now.getTime() - actionTime.getTime();
+    const diffHours = diffMs / (1000 * 60 * 60);
+    
+    if (diffHours < 4) return 'green';
+    if (diffHours < 12) return 'yellow';
+    return 'red';
+  } catch {
+    return 'red';
+  }
+}
+
 // --- Layout ---
 const CELL = 7;
 const OFFICE_W = 120;
@@ -565,20 +597,32 @@ export default function OfficeTab() {
               <div className="p-3 text-center text-xs text-[#8b8fa3]">No recent activity</div>
             ) : (
               <div className="divide-y divide-[#2e3345]">
-                {liveActions.map(a => (
-                  <div key={a.id} className="px-3 py-2.5 hover:bg-[#242836] transition-colors">
-                    <div className="flex items-start gap-2">
-                      <span className="text-sm mt-0.5">{a.agentEmoji}</span>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-xs text-[#e4e6ed] break-words">
-                          <span className="font-semibold" style={{ color: a.color }}>{a.agent}</span>
-                          {" — "}{a.action}
-                        </p>
-                        <p className="text-[10px] text-[#8b8fa3] mt-0.5">{a.time}</p>
+                {liveActions.map(a => {
+                  const healthStatus = getHealthStatus(a.time);
+                  const healthColor = healthStatus === 'green' ? 'bg-green-500' : 
+                                     healthStatus === 'yellow' ? 'bg-yellow-500' : 'bg-red-500';
+                  
+                  return (
+                    <div key={a.id} className="px-3 py-2.5 hover:bg-[#242836] transition-colors">
+                      <div className="flex items-start gap-2">
+                        <span className="text-sm mt-0.5">{a.agentEmoji}</span>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <p className="text-xs text-[#e4e6ed] break-words">
+                              <span className="font-semibold" style={{ color: a.color }}>{a.agent}</span>
+                              {" — "}{a.action}
+                            </p>
+                            <div className={`w-2 h-2 rounded-full ${healthColor} shrink-0`} title={
+                              healthStatus === 'green' ? 'Active (< 4h)' :
+                              healthStatus === 'yellow' ? 'Stale (4-12h)' : 'Offline (> 12h)'
+                            }></div>
+                          </div>
+                          <p className="text-[10px] text-[#8b8fa3] mt-0.5">{a.time}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             )}
           </div>
