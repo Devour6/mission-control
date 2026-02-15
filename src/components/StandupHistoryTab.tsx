@@ -569,25 +569,7 @@ function OutcomesView({
     return `${standupIcon(standup.type)} ${typeFormatted} Standup`;
   };
 
-  const getOutcomeIcon = (type: string) => {
-    switch (type) {
-      case 'completed': return "✅";
-      case 'started': return "▶️";
-      case 'next': return "📋";
-      case 'decision': return "⚖️";
-      default: return "•";
-    }
-  };
 
-  const getOutcomeColor = (type: string) => {
-    switch (type) {
-      case 'completed': return "text-emerald-400 bg-emerald-500/10 border-emerald-500/20";
-      case 'started': return "text-blue-400 bg-blue-500/10 border-blue-500/20";
-      case 'next': return "text-indigo-400 bg-indigo-500/10 border-indigo-500/20";
-      case 'decision': return "text-amber-400 bg-amber-500/10 border-amber-500/20";
-      default: return "text-[#8b8fa3] bg-[#242836] border-[#2e3345]";
-    }
-  };
 
   if (standupGroups.length === 0) {
     return (
@@ -637,28 +619,60 @@ function OutcomesView({
                 </div>
               </div>
 
-              {/* Expanded Outcomes */}
+              {/* Expanded Outcomes — grouped by type with headers */}
               {isExpanded && (
                 <div className="border-t border-[#2e3345] bg-[#16192a]">
-                  <div className="p-5">
-                    <div className="space-y-3">
-                      {outcomes.map((outcome, i) => {
-                        const itemText = typeof outcome.item === 'string' 
-                          ? outcome.item 
-                          : String(outcome.item);
+                  <div className="p-5 space-y-5">
+                    {/* Confirmed Completed */}
+                    {outcomes.filter(o => o.type === 'completed').length > 0 && (
+                      <div>
+                        <h6 className="text-xs font-semibold text-emerald-400 uppercase tracking-wider mb-3">
+                          ✅ Confirmed Completed
+                        </h6>
+                        <div className="space-y-2">
+                          {outcomes.filter(o => o.type === 'completed').map((outcome, i) => (
+                            <div key={i} className="flex items-start gap-3 p-3 rounded-lg border border-emerald-500/20 bg-emerald-500/10">
+                              <div className="w-2 h-2 rounded-full bg-emerald-400 mt-2 shrink-0"></div>
+                              <p className="text-sm text-emerald-300">{typeof outcome.item === 'string' ? outcome.item : String(outcome.item)}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
-                        return (
-                          <div key={i} className={`flex items-start gap-3 p-3 rounded-lg border ${getOutcomeColor(outcome.type)}`}>
-                            <div className="w-6 h-6 rounded-full bg-current/10 flex items-center justify-center text-xs shrink-0 mt-0.5">
-                              {getOutcomeIcon(outcome.type)}
+                    {/* Confirmed Started */}
+                    {outcomes.filter(o => o.type === 'started').length > 0 && (
+                      <div>
+                        <h6 className="text-xs font-semibold text-blue-400 uppercase tracking-wider mb-3">
+                          ▶️ Confirmed Started
+                        </h6>
+                        <div className="space-y-2">
+                          {outcomes.filter(o => o.type === 'started').map((outcome, i) => (
+                            <div key={i} className="flex items-start gap-3 p-3 rounded-lg border border-blue-500/20 bg-blue-500/10">
+                              <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 shrink-0"></div>
+                              <p className="text-sm text-blue-300">{typeof outcome.item === 'string' ? outcome.item : String(outcome.item)}</p>
                             </div>
-                            <div className="flex-1 min-w-0">
-                              <p className="text-sm">{itemText}</p>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Key Decisions */}
+                    {outcomes.filter(o => o.type === 'decision').length > 0 && (
+                      <div>
+                        <h6 className="text-xs font-semibold text-amber-400 uppercase tracking-wider mb-3">
+                          ⚖️ Key Decisions
+                        </h6>
+                        <div className="space-y-2">
+                          {outcomes.filter(o => o.type === 'decision').map((outcome, i) => (
+                            <div key={i} className="flex items-start gap-3 p-3 rounded-lg border border-amber-500/20 bg-amber-500/10">
+                              <div className="w-2 h-2 rounded-full bg-amber-400 mt-2 shrink-0"></div>
+                              <p className="text-sm text-amber-300">{typeof outcome.item === 'string' ? outcome.item : String(outcome.item)}</p>
                             </div>
-                          </div>
-                        );
-                      })}
-                    </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               )}
