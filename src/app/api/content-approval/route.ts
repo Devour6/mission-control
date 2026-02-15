@@ -63,6 +63,43 @@ async function updateFileContent<T>(filePath: string, content: T, sha: string | 
   return res.ok;
 }
 
+async function deduplicateContentFile(): Promise<void> {
+  try {
+    const { content: contentData, sha } = await getFileContent<ContentData>(CONTENT_FILE);
+    
+    // Check for duplicate IDs
+    const seenIds = new Set<string>();
+    const deduplicated: typeof contentData.drafts = [];
+    let hasDuplicates = false;
+    
+    for (const draft of contentData.drafts) {
+      if (seenIds.has(draft.id)) {
+        hasDuplicates = true;
+        console.warn(`Removing duplicate ID: ${draft.id}`);
+        // Keep the resolved version over pending
+        const existing = deduplicated.find(d => d.id === draft.id);
+        if (existing && existing.status === 'pending' && draft.status !== 'pending') {
+          // Replace pending with resolved
+          const index = deduplicated.findIndex(d => d.id === draft.id);
+          deduplicated[index] = draft;
+        }
+        // Otherwise keep the first occurrence
+      } else {
+        seenIds.add(draft.id);
+        deduplicated.push(draft);
+      }
+    }
+    
+    if (hasDuplicates) {
+      await updateFileContent(CONTENT_FILE, { drafts: deduplicated }, sha, "Deduplicate content IDs after approval update");
+      console.log("Content file deduplicated successfully");
+    }
+  } catch (error) {
+    console.error("Failed to deduplicate content file:", error);
+    // Non-blocking - the main update already succeeded
+  }
+}
+
 const FEEDBACK_FILE = "public/data/content-feedback.json";
 
 interface FeedbackEntry {
@@ -142,6 +179,9 @@ export async function POST(req: NextRequest) {
           return NextResponse.json({ error: "Failed to update content file" }, { status: 502 });
         }
 
+        // Safety check: deduplicate if needed
+        await deduplicateContentFile();
+
         // Sync to feedback file for agent consumption
         await syncToFeedbackFile(draft, now);
         
@@ -162,6 +202,9 @@ export async function POST(req: NextRequest) {
         if (!denyUpdateOk) {
           return NextResponse.json({ error: "Failed to update content file" }, { status: 502 });
         }
+
+        // Safety check: deduplicate if needed
+        await deduplicateContentFile();
 
         // Sync to feedback file for agent consumption
         await syncToFeedbackFile(draft, now);
@@ -187,6 +230,9 @@ export async function POST(req: NextRequest) {
         if (!editUpdateOk) {
           return NextResponse.json({ error: "Failed to update content file" }, { status: 502 });
         }
+
+        // Safety check: deduplicate if needed
+        await deduplicateContentFile();
         
         break;
 
@@ -206,6 +252,9 @@ export async function POST(req: NextRequest) {
         if (!revokeContentOk) {
           return NextResponse.json({ error: "Failed to update content file" }, { status: 502 });
         }
+
+        // Safety check: deduplicate if needed
+        await deduplicateContentFile();
         
         break;
 
@@ -277,6 +326,9 @@ export async function PATCH(req: NextRequest) {
     if (!contentUpdateOk) {
       return NextResponse.json({ error: "Failed to update content file" }, { status: 502 });
     }
+
+    // Safety check: deduplicate if needed
+    await deduplicateContentFile();
 
     // Sync all reviewed drafts to feedback file
     for (const draftId of draftIds) {
