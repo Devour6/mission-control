@@ -26,6 +26,8 @@ interface StandupOutcome {
   keyDecisions: string[];
   improvements: string[];
   actionItems: (string | StandupActionItem)[];
+  completedActionItems?: string[];
+  startedActionItems?: string[];
 }
 
 interface CombinedData {
@@ -336,8 +338,9 @@ export default function StandupHistoryTab() {
               </h3>
               <div className="space-y-4">
                 {filteredData.standups.map(standup => {
-                  const actionCategories = categorizeActionItems(standup.actionItems);
-                  const totalActions = standup.actionItems.length;
+                  const completedItems = standup.completedActionItems || [];
+                  const startedItems = standup.startedActionItems || [];
+                  const totalActions = completedItems.length + startedItems.length;
                   const keyDecisionCount = standup.keyDecisions.length;
                   const isExpanded = expandedStandup === standup.id;
                   
@@ -369,9 +372,14 @@ export default function StandupHistoryTab() {
                                   💬 {standup.discussion.length}
                                 </span>
                               )}
-                              {totalActions > 0 && (
-                                <span className="text-xs bg-indigo-500/15 text-indigo-400 px-2.5 py-1 rounded-full">
-                                  ✓ {totalActions} tasks
+                              {completedItems.length > 0 && (
+                                <span className="text-xs bg-emerald-500/15 text-emerald-400 px-2.5 py-1 rounded-full">
+                                  ✅ {completedItems.length} done
+                                </span>
+                              )}
+                              {startedItems.length > 0 && (
+                                <span className="text-xs bg-blue-500/15 text-blue-400 px-2.5 py-1 rounded-full">
+                                  ▶️ {startedItems.length} started
                                 </span>
                               )}
                               {keyDecisionCount > 0 && (
@@ -433,54 +441,37 @@ export default function StandupHistoryTab() {
                               </div>
                             )}
 
-                            {/* Action Items by Category */}
-                            {(actionCategories.completed.length > 0 || actionCategories.started.length > 0 || actionCategories.ongoing.length > 0) && (
+                            {/* Completed Action Items */}
+                            {completedItems.length > 0 && (
                               <div>
-                                <h5 className="text-sm font-medium text-indigo-400 uppercase tracking-wider mb-4 flex items-center gap-2">
-                                  ✓ Action Items
+                                <h5 className="text-sm font-medium text-emerald-400 uppercase tracking-wider mb-3 flex items-center gap-2">
+                                  ✅ Confirmed Completed ({completedItems.length})
                                 </h5>
-                                
-                                {/* Completed Items */}
-                                {actionCategories.completed.length > 0 && (
-                                  <div className="mb-4">
-                                    <h6 className="text-xs text-emerald-400 font-medium mb-2 uppercase tracking-wider">
-                                      ✅ Completed ({actionCategories.completed.length})
-                                    </h6>
-                                    <div className="space-y-2">
-                                      {actionCategories.completed.map((item, i) => (
-                                        <ActionItemDisplay key={i} item={item} colorClass="text-emerald-300 bg-emerald-500/5 border-emerald-500/10" />
-                                      ))}
+                                <div className="space-y-2">
+                                  {completedItems.map((item, i) => (
+                                    <div key={i} className="flex items-start gap-3 p-3 bg-emerald-500/5 border border-emerald-500/10 rounded-lg">
+                                      <div className="w-2 h-2 rounded-full bg-emerald-400 mt-2 shrink-0"></div>
+                                      <p className="text-sm text-emerald-300">{item}</p>
                                     </div>
-                                  </div>
-                                )}
+                                  ))}
+                                </div>
+                              </div>
+                            )}
 
-                                {/* Started Items */}
-                                {actionCategories.started.length > 0 && (
-                                  <div className="mb-4">
-                                    <h6 className="text-xs text-blue-400 font-medium mb-2 uppercase tracking-wider">
-                                      ▶️ Started ({actionCategories.started.length})
-                                    </h6>
-                                    <div className="space-y-2">
-                                      {actionCategories.started.map((item, i) => (
-                                        <ActionItemDisplay key={i} item={item} colorClass="text-blue-300 bg-blue-500/5 border-blue-500/10" />
-                                      ))}
+                            {/* Started Action Items */}
+                            {startedItems.length > 0 && (
+                              <div>
+                                <h5 className="text-sm font-medium text-blue-400 uppercase tracking-wider mb-3 flex items-center gap-2">
+                                  ▶️ Confirmed Started ({startedItems.length})
+                                </h5>
+                                <div className="space-y-2">
+                                  {startedItems.map((item, i) => (
+                                    <div key={i} className="flex items-start gap-3 p-3 bg-blue-500/5 border border-blue-500/10 rounded-lg">
+                                      <div className="w-2 h-2 rounded-full bg-blue-400 mt-2 shrink-0"></div>
+                                      <p className="text-sm text-blue-300">{item}</p>
                                     </div>
-                                  </div>
-                                )}
-
-                                {/* Next/Ongoing Items */}
-                                {actionCategories.ongoing.length > 0 && (
-                                  <div>
-                                    <h6 className="text-xs text-indigo-400 font-medium mb-2 uppercase tracking-wider">
-                                      📋 Next ({actionCategories.ongoing.length})
-                                    </h6>
-                                    <div className="space-y-2">
-                                      {actionCategories.ongoing.map((item, i) => (
-                                        <ActionItemDisplay key={i} item={item} colorClass="text-indigo-300 bg-indigo-500/5 border-indigo-500/10" />
-                                      ))}
-                                    </div>
-                                  </div>
-                                )}
+                                  ))}
+                                </div>
                               </div>
                             )}
 
@@ -613,12 +604,12 @@ function OutcomesView({
   // Group outcomes by standup session
   const standupGroups = useMemo(() => {
     return standups.map(standup => {
-      const actionCategories = categorizeActionItems(standup.actionItems);
+      const completed = (standup.completedActionItems || []).map(item => ({ type: 'completed' as const, item }));
+      const started = (standup.startedActionItems || []).map(item => ({ type: 'started' as const, item }));
       
       const outcomes = [
-        ...actionCategories.completed.map(item => ({ type: 'completed' as const, item })),
-        ...actionCategories.started.map(item => ({ type: 'started' as const, item })),
-        ...actionCategories.ongoing.map(item => ({ type: 'next' as const, item })),
+        ...completed,
+        ...started,
         ...standup.keyDecisions.map(decision => ({ type: 'decision' as const, item: decision }))
       ];
 
