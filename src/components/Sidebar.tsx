@@ -10,7 +10,6 @@ interface Props {
 const tabs = [
   { id: "office", label: "Office", icon: "🏢" },
   { id: "tasks", label: "Tasks", icon: "📋" },
-  { id: "approvals", label: "Approvals", icon: "✅" },
   { id: "content", label: "Content", icon: "📝" },
   { id: "outcomes", label: "Outcomes", icon: "🏛️" },
   { id: "standups", label: "Standup History", icon: "📝" },
@@ -18,9 +17,9 @@ const tabs = [
   { id: "docs", label: "Docs", icon: "📄" },
   { id: "calendar", label: "Calendar", icon: "📅" },
   { id: "wallet", label: "Wallet", icon: "💰" },
-  { id: "memory", label: "Memory", icon: "🧠" },
   { id: "crm", label: "CRM", icon: "👤" },
   { id: "team", label: "Team", icon: "👥" },
+  { id: "health", label: "Agent Health", icon: "💚" },
 ];
 
 export default function Sidebar({ active, onNavigate }: Props) {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { CouncilDecision, CouncilData } from "@/lib/types";
 import { fetchData } from "@/lib/dataFetch";
 
@@ -31,6 +31,9 @@ export default function CouncilTab() {
   const [data, setData] = useState<OutcomesData>({ decisions: [], standups: [] });
   const [expanded, setExpanded] = useState<string | null>(null);
   const [filter, setFilter] = useState<"all" | "decisions" | "standups">("all");
+  const [dateFilter, setDateFilter] = useState<"all" | "today" | "week" | "month">("all");
+  const [startDate, setStartDate] = useState<string>("");
+  const [endDate, setEndDate] = useState<string>("");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -43,8 +46,66 @@ export default function CouncilTab() {
     setMounted(true);
   }, []);
 
-  const pending = data.decisions.filter(d => d.outcome === "pending");
-  const resolved = data.decisions.filter(d => d.outcome !== "pending");
+  // Sort and filter data
+  const filteredData = useMemo(() => {
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const weekAgo = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
+    const monthAgo = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000);
+
+    const filterByDate = (item: { date: string }) => {
+      const itemDate = new Date(item.date);
+      
+      if (dateFilter === "today") return itemDate >= today;
+      if (dateFilter === "week") return itemDate >= weekAgo;
+      if (dateFilter === "month") return itemDate >= monthAgo;
+      
+      // Custom date range
+      if (startDate && endDate) {
+        const start = new Date(startDate);
+        const end = new Date(endDate);
+        end.setHours(23, 59, 59, 999); // Include end date
+        return itemDate >= start && itemDate <= end;
+      }
+      if (startDate) {
+        const start = new Date(startDate);
+        return itemDate >= start;
+      }
+      if (endDate) {
+        const end = new Date(endDate);
+        end.setHours(23, 59, 59, 999);
+        return itemDate <= end;
+      }
+      
+      return true;
+    };
+
+    // Sort standups by date descending (newest first)
+    const sortedStandups = [...data.standups]
+      .filter(filterByDate)
+      .sort((a, b) => {
+        const dateA = new Date(a.date + (a.time ? ` ${a.time}` : ''));
+        const dateB = new Date(b.date + (b.time ? ` ${b.time}` : ''));
+        return dateB.getTime() - dateA.getTime();
+      });
+
+    // Sort decisions by date descending (newest first)
+    const sortedDecisions = [...data.decisions]
+      .filter(filterByDate)
+      .sort((a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+        return dateB.getTime() - dateA.getTime();
+      });
+
+    return {
+      standups: sortedStandups,
+      decisions: sortedDecisions
+    };
+  }, [data, dateFilter, startDate, endDate]);
+
+  const pending = filteredData.decisions.filter(d => d.outcome === "pending");
+  const resolved = filteredData.decisions.filter(d => d.outcome !== "pending");
 
   const voteColor = (v: string) => {
     if (v === "for") return "text-emerald-400 bg-emerald-500/20";
@@ -75,13 +136,56 @@ export default function CouncilTab() {
       </div>
 
       {/* Filter tabs */}
-      <div className="flex flex-wrap gap-2 mb-6">
+      <div className="flex flex-wrap gap-2 mb-4">
         {(["all", "decisions", "standups"] as const).map(f => (
           <button key={f} onClick={() => setFilter(f)}
             className={`text-sm px-4 py-2 rounded-lg font-medium transition-colors min-h-[44px] ${filter === f ? "bg-indigo-500/20 text-indigo-400" : "text-[#8b8fa3] hover:bg-[#242836]"}`}>
             {f === "all" ? "All" : f === "decisions" ? "Decisions" : "Standups"}
           </button>
         ))}
+      </div>
+
+      {/* Date filtering */}
+      <div className="mb-6 p-4 bg-[#1a1d27] border border-[#2e3345] rounded-xl">
+        <h3 className="text-sm font-semibold text-[#e4e6ed] mb-3">📅 Date Filter</h3>
+        
+        <div className="flex flex-wrap gap-2 mb-3">
+          {(["all", "today", "week", "month"] as const).map(f => (
+            <button key={f} onClick={() => setDateFilter(f)}
+              className={`text-xs px-3 py-2 rounded-lg font-medium transition-colors ${dateFilter === f ? "bg-cyan-500/20 text-cyan-400" : "text-[#8b8fa3] hover:bg-[#242836]"}`}>
+              {f === "all" ? "All Time" : f === "today" ? "Today" : f === "week" ? "Past Week" : "Past Month"}
+            </button>
+          ))}
+        </div>
+
+        <div className="flex flex-wrap gap-3 items-center">
+          <div className="flex items-center gap-2">
+            <label className="text-xs text-[#8b8fa3]">From:</label>
+            <input 
+              type="date" 
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+              className="px-2 py-1 text-xs bg-[#242836] border border-[#2e3345] rounded text-[#e4e6ed] focus:border-cyan-500 focus:outline-none"
+            />
+          </div>
+          <div className="flex items-center gap-2">
+            <label className="text-xs text-[#8b8fa3]">To:</label>
+            <input 
+              type="date" 
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+              className="px-2 py-1 text-xs bg-[#242836] border border-[#2e3345] rounded text-[#e4e6ed] focus:border-cyan-500 focus:outline-none"
+            />
+          </div>
+          {(startDate || endDate) && (
+            <button 
+              onClick={() => { setStartDate(""); setEndDate(""); setDateFilter("all"); }}
+              className="text-xs px-3 py-1 bg-red-500/20 text-red-400 rounded-lg hover:bg-red-500/30 transition-colors"
+            >
+              Clear
+            </button>
+          )}
+        </div>
       </div>
 
       {/* Active votes */}
@@ -97,11 +201,14 @@ export default function CouncilTab() {
       )}
 
       {/* Standup outcomes */}
-      {showStandups && data.standups.length > 0 && (
+      {showStandups && filteredData.standups.length > 0 && (
         <div className="mb-8">
-          <h3 className="text-sm font-semibold text-cyan-400 uppercase tracking-wider mb-3">Standup Outcomes ({data.standups.length})</h3>
+          <h3 className="text-sm font-semibold text-cyan-400 uppercase tracking-wider mb-3">
+            Standup Outcomes ({filteredData.standups.length}) 
+            <span className="text-xs text-[#8b8fa3] ml-2">newest first</span>
+          </h3>
           <div className="space-y-3">
-            {data.standups.map(s => (
+            {filteredData.standups.map(s => (
               <div key={s.id} className="bg-[#1a1d27] border border-[#2e3345] rounded-xl cursor-pointer transition-colors hover:border-[#3e4155]"
                 onClick={() => setExpanded(expanded === s.id ? null : s.id)}>
                 <div className="p-4 md:p-5">
@@ -174,7 +281,10 @@ export default function CouncilTab() {
       {/* Past decisions */}
       {showDecisions && resolved.length > 0 && (
         <div>
-          <h3 className="text-sm font-semibold text-[#8b8fa3] uppercase tracking-wider mb-3">Past Decisions ({resolved.length})</h3>
+          <h3 className="text-sm font-semibold text-[#8b8fa3] uppercase tracking-wider mb-3">
+            Past Decisions ({resolved.length})
+            <span className="text-xs text-[#8b8fa3] ml-2">newest first</span>
+          </h3>
           <div className="space-y-3">
             {resolved.map(d => (
               <DecisionCard key={d.id} decision={d} expanded={expanded === d.id} onToggle={() => setExpanded(expanded === d.id ? null : d.id)} voteColor={voteColor} />
@@ -183,9 +293,13 @@ export default function CouncilTab() {
         </div>
       )}
 
-      {data.decisions.length === 0 && data.standups.length === 0 && (
+      {filteredData.decisions.length === 0 && filteredData.standups.length === 0 && (
         <div className="bg-[#1a1d27] border border-[#2e3345] rounded-xl p-8 text-center text-[#8b8fa3] text-sm">
-          No outcomes yet — the team is getting started.
+          {dateFilter !== "all" || startDate || endDate ? (
+            <>No outcomes found for the selected date range.</>
+          ) : (
+            <>No outcomes yet — the team is getting started.</>
+          )}
         </div>
       )}
     </div>

@@ -4,11 +4,9 @@ import { useState } from "react";
 import dynamic from "next/dynamic";
 import Sidebar from "@/components/Sidebar";
 
-const MemoryTab = dynamic(() => import("@/components/MemoryTab"), { ssr: false });
 const TasksTab = dynamic(() => import("@/components/TasksTab"), { ssr: false });
 const CalendarTab = dynamic(() => import("@/components/CalendarTab"), { ssr: false });
 const WalletTab = dynamic(() => import("@/components/WalletTab"), { ssr: false });
-const ApprovalsTab = dynamic(() => import("@/components/ApprovalsTab"), { ssr: false });
 const ContentTab = dynamic(() => import("@/components/ContentTab"), { ssr: false });
 const CouncilTab = dynamic(() => import("@/components/CouncilTab"), { ssr: false });
 const ProjectsTab = dynamic(() => import("@/components/ProjectsTab"), { ssr: false });
@@ -27,7 +25,6 @@ export default function Home() {
       {/* pt-16 on mobile for fixed top bar, responsive padding */}
       <main className="flex-1 p-3 pt-16 sm:p-6 md:p-8 md:pt-8 overflow-auto min-w-0">
         {tab === "tasks" && <TasksTab />}
-        {tab === "approvals" && <ApprovalsTab />}
         {tab === "content" && <ContentTab />}
         {tab === "outcomes" && <CouncilTab />}
         {tab === "standups" && <StandupHistoryTab />}
@@ -35,7 +32,6 @@ export default function Home() {
         {tab === "docs" && <DocsTab />}
         {tab === "calendar" && <CalendarTab />}
         {tab === "wallet" && <WalletTab />}
-        {tab === "memory" && <MemoryTab />}
         {tab === "team" && <TeamTab />}
         {tab === "office" && <OfficeTab />}
         {tab === "crm" && <CRMTab />}
