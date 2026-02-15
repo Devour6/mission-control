@@ -110,7 +110,7 @@ export default function Sidebar({ active, onNavigate }: Props) {
         ))}
       </nav>
       <div className="p-4 border-t border-[#2e3345] text-xs text-[#8b8fa3]">
-        v2.0 • Local Storage
+        v2.1 • Git-Synced
       </div>
     </aside>
   );
