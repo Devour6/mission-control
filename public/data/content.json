@@ -193,6 +193,30 @@
       "angle": "Practical AI implementation beyond the hype",
       "status": "pending",
       "feedback": ""
+    },
+    {
+      "id": "rachel-2026-02-14-6",
+      "platform": "linkedin",
+      "author": "Rachel",
+      "authorEmoji": "💼",
+      "batch": "Auto-synced",
+      "date": "2026-02-14",
+      "text": "Anthropic just raised $30B at a $380B valuation with a clear message: \"We'll never put ads in Claude.\"\n\nThis was a direct shot at OpenAI's new ad-supported ChatGPT model announced last month. The AI industry is splitting into two camps - premium subscription models versus ad-funded freemium.",
+      "angle": "Strategic positioning in AI business models",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "rachel-2026-02-14-7",
+      "platform": "linkedin",
+      "author": "Rachel",
+      "authorEmoji": "💼",
+      "batch": "Auto-synced",
+      "date": "2026-02-14",
+      "text": "Form 1099-DA just went live. The IRS finally standardized crypto tax reporting.\n\nStarting with 2025 tax filings (due April 15, 2026), major exchanges like Coinbase are issuing 1099-DA forms that clearly report your crypto gains, losses, and transactions in a format CPAs actually understand.",
+      "angle": "Regulatory maturation drives mainstream adoption",
+      "status": "pending",
+      "feedback": ""
     }
   ]
 }
