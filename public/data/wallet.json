@@ -8,13 +8,13 @@
   "monthlyTarget": 7.5,
   "currentBalance": {
     "sol": 0.761471525,
-    "usd": 201.15
+    "usd": 201.17
   },
   "holdings": [
     {
       "token": "SOL",
       "amount": 0.761471525,
-      "usd": 65.57
+      "usd": 65.59
     },
     {
       "token": "BLZE",
@@ -47,7 +47,7 @@
       "usd": 135.58
     }
   ],
-  "lastUpdated": "2026-02-15T21:25:45-08:00",
+  "lastUpdated": "2026-02-15T21:59:20-08:00",
   "trades": [
     {
       "timestamp": "2026-02-15T20:58:00Z",
