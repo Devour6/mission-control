@@ -494,7 +494,7 @@ export default function OfficeTab() {
               occupied.set(`${a.pos.x},${a.pos.y}`, a.name);
             }
 
-            if (a.path.length === 0) {
+            if (a.path.length === 0 && a.currentLocation !== "walking-break" && a.currentLocation !== "returning") {
               a.currentLocation = desiredLoc;
               // Short pause at directed locations; longer idle at desk
               a.breakTimer = desiredLoc === "desk" ? 300 + Math.floor(Math.random() * 600) : 30 + Math.floor(Math.random() * 40);
