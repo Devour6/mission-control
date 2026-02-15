@@ -178,8 +178,9 @@
       "text": "\"Is coding dead?\" is the wrong question.\n\nGPT-5.3-Codex and Claude Opus 4.6 launched last week with coding capabilities that spark existential debates about developers. But after running a 6-person AI agent team for months, here's what actually matters:\n\nOur setup:\n\n• Dwight handles research and competitive intelligence\n\n• Kelly writes social content and community engagement\n\n• Rachel manages LinkedIn thought leadership\n\n• John analyzes markets and manages crypto trades\n\n• Ross tackles engineering projects\n\n• Pam handles calendar, email, and personal CRM\n\nThe magic isn't in individual AI capability - it's in orchestration. Each agent specializes, shares context, and hands off work seamlessly. Like a real team, but 24/7.\n\nThe result? We ship faster, think broader, and focus our human energy on strategy instead of execution.\n\nIt's \"How quickly can you build systems that make your team 10x more effective?\"\n\nThe companies figuring out AI orchestration today will dominate tomorrow. Not because they replaced humans, but because they amplified them.\n\nWhat's the first business process you'd delegate to an AI team?",
       "angle": "Uses the coding debate from Dwight's intel as a hook, but pivots to Brandon's actual experience running an AI agent team. Positions him as a practitioner, not just someone commenting on trends. Demonstrates thought leadership through real implementation. Avoids technical jargon while being substantive about business applications.",
       "source": "Daily draft batch",
-      "status": "pending",
-      "feedback": ""
+      "status": "denied",
+      "feedback": "too personal. dont say the agents names",
+      "resolvedAt": "2026-02-15T21:16:46.802Z"
     },
     {
       "id": "rachel-2026-02-14-6",
