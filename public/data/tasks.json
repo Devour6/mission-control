@@ -295,75 +295,12 @@
     "createdAt": "2026-02-13T00:00:00.000Z"
   },
   {
-    "id": "auto-b-101",
-    "title": "Cancel Replit subscription ($51/mo)",
-    "description": "",
-    "assignee": "Brandon",
-    "dueDate": "2026-02-15",
-    "status": "completed",
-    "createdAt": "2026-02-15T07:18:14.569Z"
-  },
-  {
-    "id": "auto-b-102",
-    "title": "Remove QuickNode ($79/mo)",
-    "description": "",
-    "assignee": "Brandon",
-    "dueDate": "2026-02-15",
-    "status": "completed",
-    "createdAt": "2026-02-15T07:18:14.569Z"
-  },
-  {
-    "id": "auto-b-103",
-    "title": "Cancel Google Workspace for devourservices.com (keep gojira.holdings only)",
-    "description": "",
-    "assignee": "Brandon",
-    "dueDate": "2026-02-15",
-    "status": "completed",
-    "createdAt": "2026-02-15T07:18:14.569Z"
-  },
-  {
     "id": "auto-b-104",
     "title": "Review all domains",
     "description": "",
     "assignee": "Brandon",
     "dueDate": "2026-02-15",
     "status": "completed",
-    "createdAt": "2026-02-15T07:18:14.569Z"
-  },
-  {
-    "id": "auto-b-106",
-    "title": "Release Borrowed Light Single #1 (Feb 16)",
-    "description": "",
-    "assignee": "Brandon",
-    "dueDate": "2026-02-15",
-    "status": "todo",
-    "createdAt": "2026-02-15T07:18:14.569Z"
-  },
-  {
-    "id": "auto-b-107",
-    "title": "Release Borrowed Light Single #2 (Feb 23)",
-    "description": "",
-    "assignee": "Brandon",
-    "dueDate": "2026-02-15",
-    "status": "todo",
-    "createdAt": "2026-02-15T07:18:14.569Z"
-  },
-  {
-    "id": "auto-b-108",
-    "title": "Release Borrowed Light Single #3 (Mar 2)",
-    "description": "",
-    "assignee": "Brandon",
-    "dueDate": "2026-02-15",
-    "status": "todo",
-    "createdAt": "2026-02-15T07:18:14.569Z"
-  },
-  {
-    "id": "auto-b-109",
-    "title": "Release Borrowed Light EP (Mar 9)",
-    "description": "",
-    "assignee": "Brandon",
-    "dueDate": "2026-02-15",
-    "status": "todo",
     "createdAt": "2026-02-15T07:18:14.569Z"
   },
   {
