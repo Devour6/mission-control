@@ -958,5 +958,162 @@
       "LaunchAgent persistence verification + API key audit (Ross)",
       "Automated spawn verification scripts (George)"
     ]
+  },
+  {
+    "id": "standup-2026-02-15-midday",
+    "date": "2026-02-15",
+    "time": "12:00 PM",
+    "type": "midday",
+    "summary": "Midday standup. Dwight A (deep research, real sources). Kelly B+ (CFTC TPS needs fact-check). Rachel A- (verify 1M SOL claim). John C (ETH proposal REJECTED \u2014 no real analysis). Ross B (MFC shipped but no test evidence). Pam B+ (accurate expense tracking). 6 autonomous tasks spawned: pricing research, MFC edge cases, bear market playbook, validator review, weekly schedule, spawn verifier script.",
+    "discussion": [
+      {
+        "agent": "George",
+        "status": "B+",
+        "summary": "Morning standup solid. Building spawn verification automation. Need to catch factual errors in content."
+      },
+      {
+        "agent": "Dwight",
+        "status": "A",
+        "summary": "Phase M competitive edge, DoubleZero/TSOL analysis, STKE earnings preview. Gold standard research with real sources."
+      },
+      {
+        "agent": "Kelly",
+        "status": "B+",
+        "summary": "2 Feb 15 drafts (Smart Cashtags thread, CFTC tweet). CFTC TPS claim needs fact-check. Smart Cashtags angle strong."
+      },
+      {
+        "agent": "Rachel",
+        "status": "A-",
+        "summary": "3 TSOL ETF drafts. Professional, data-backed, zero emdashes. Flag: verify 1M SOL claim. Needs topic diversity."
+      },
+      {
+        "agent": "John",
+        "status": "C",
+        "summary": "ETH buy REJECTED. Single paragraph \"analysis\" with no S/R levels, no indicators, no catalysts. Bear market playbook spawned."
+      },
+      {
+        "agent": "Ross",
+        "status": "B",
+        "summary": "MFC Phase 1+2 complete (backend, fight algorithm). Architecture solid but zero test evidence. Waiting on Auth0/Stripe keys."
+      },
+      {
+        "agent": "Pam",
+        "status": "B+",
+        "summary": "Expense updates logged accurately. CRM ingestion clean. Gap: proactive calendar surfacing."
+      }
+    ],
+    "qualityAudit": [
+      {
+        "agent": "Dwight",
+        "finding": "Sources verified, URLs return 200. Analysis includes implications, not just headlines. SOL Strategies earnings preview identifies P0 catalyst."
+      },
+      {
+        "agent": "Kelly",
+        "finding": "CFTC tweet claims 4000 TPS \u2014 potentially stale. Smart Cashtags thread well-structured. No emdashes/hashtags."
+      },
+      {
+        "agent": "Rachel",
+        "finding": "Draft 1 claims Phase processed 1M SOL \u2014 unverified. All 3 drafts on same TSOL topic. Tone and hooks excellent."
+      },
+      {
+        "agent": "John",
+        "finding": "REJECTED ETH proposal. No technical analysis, no S/R levels, no indicators. \"Mean reversion likely\" is not analysis."
+      },
+      {
+        "agent": "Ross",
+        "finding": "MFC architecture follows Brandon rules (training-driven, 5-95% upset range). But zero test output or deployment proof."
+      },
+      {
+        "agent": "Pam",
+        "finding": "Expense reclassification correct (Replit \u2192 Phase). CRM dedup working. Calendar proactiveness gap."
+      },
+      {
+        "agent": "George",
+        "finding": "Morning standup executed well. Spawn verification still manual \u2014 automation in progress."
+      }
+    ],
+    "keyDecisions": [
+      "John ETH buy REJECTED \u2014 insufficient analysis. Must include S/R levels, indicators, catalysts.",
+      "Kelly CFTC draft flagged for TPS fact-check. Rachel 1M SOL claim needs verification.",
+      "Spawn verification automation being built (scripts/verify-spawn.sh)."
+    ],
+    "improvements": [
+      "Content fact-check pipeline: mandatory verifiable data points in all drafts.",
+      "Spawn verification automation: script to check session completion + output file existence.",
+      "John analytical framework: bear market playbook establishing baseline for all proposals."
+    ],
+    "selfImprovement": {
+      "perAgent": [
+        {
+          "agent": "George",
+          "mistakes": "Manual spawn verification. Missed Kelly TPS issue in morning.",
+          "fixes": "verify-spawn.sh automation",
+          "gap": "Factual error detection in content",
+          "nextImprovement": "Add fact-check step to content review"
+        },
+        {
+          "agent": "Dwight",
+          "mistakes": "None significant",
+          "fixes": "X API token refresh automation",
+          "gap": "SOL price accuracy",
+          "nextImprovement": "Price validation API call at top of sweeps"
+        },
+        {
+          "agent": "Kelly",
+          "mistakes": "TPS claim potentially outdated",
+          "fixes": "Fact-check checklist in draft template",
+          "gap": "Thin standalone tweets",
+          "nextImprovement": "Min 1 verifiable data point per tweet"
+        },
+        {
+          "agent": "Rachel",
+          "mistakes": "Unverified 1M SOL claim",
+          "fixes": "Cross-reference Phase stats",
+          "gap": "Topic diversity",
+          "nextImprovement": "Min 2 different topics per batch"
+        },
+        {
+          "agent": "John",
+          "mistakes": "Proposal with zero technical analysis",
+          "fixes": "Mandatory analysis template",
+          "gap": "Massive \u2014 no analytical rigor",
+          "nextImprovement": "Bear market playbook as baseline framework"
+        },
+        {
+          "agent": "Ross",
+          "mistakes": "No test evidence for shipped code",
+          "fixes": "Test output required in every log",
+          "gap": "Verification gap",
+          "nextImprovement": "Smoke test results in daily logs"
+        },
+        {
+          "agent": "Pam",
+          "mistakes": "Didn't surface tomorrow's meetings proactively",
+          "fixes": "Auto-surface next-day meetings",
+          "gap": "Reactive calendar",
+          "nextImprovement": "Tomorrow preview in nightly digest"
+        }
+      ],
+      "teamWorkflow": [
+        {
+          "issue": "Unverified claims in content drafts",
+          "solution": "Mandatory fact-check fields in draft templates",
+          "implemented": false
+        },
+        {
+          "issue": "Fire-and-forget spawned tasks",
+          "solution": "scripts/verify-spawn.sh automation",
+          "implemented": true
+        }
+      ]
+    },
+    "actionItems": [
+      "Dwight: Institutional staking pricing comparison (Phase M)",
+      "Ross: MFC fight algorithm edge case audit",
+      "John: Bear market playbook for portfolio protection",
+      "George: Validator performance review via SVT API",
+      "Pam: Full week schedule Feb 16-22",
+      "George: Spawn verification script (automation)"
+    ]
   }
 ]
