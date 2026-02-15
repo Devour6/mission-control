@@ -43,8 +43,8 @@
     "id": "ross",
     "agent": "Ross",
     "agentEmoji": "\u2699\ufe0f",
-    "action": "Idle \u2014 MFC Phase 3 next",
-    "time": "12:17 PM",
+    "action": "Removing all localStorage from Mission Control",
+    "time": "12:20 PM",
     "color": "#f59e0b"
   },
   {
