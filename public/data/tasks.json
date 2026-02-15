@@ -2,7 +2,7 @@
   {
     "id": "b-t30",
     "title": "Cancel Suno subscription",
-    "description": "Monthly music AI sub \u2014 $10/mo savings",
+    "description": "Monthly music AI sub — $10/mo savings",
     "assignee": "Brandon",
     "dueDate": "2026-02-15",
     "status": "completed",
@@ -11,7 +11,7 @@
   {
     "id": "b-t31",
     "title": "Cancel Replit subscription",
-    "description": "$51/mo \u2014 not using with local dev setup",
+    "description": "$51/mo — not using with local dev setup",
     "assignee": "Brandon",
     "dueDate": "2026-02-15",
     "status": "completed",
@@ -29,7 +29,7 @@
   {
     "id": "b-t33",
     "title": "Cancel Google Workspace for devourservices.com",
-    "description": "Keep gojira.holdings only \u2014 ~$18/mo savings",
+    "description": "Keep gojira.holdings only — ~$18/mo savings",
     "assignee": "Brandon",
     "dueDate": "2026-02-15",
     "status": "completed",
@@ -37,7 +37,7 @@
   },
   {
     "id": "b-t34",
-    "title": "Review all domains \u2014 audit registrar payments",
+    "title": "Review all domains — audit registrar payments",
     "description": "Audit what you're paying for across all registrars",
     "assignee": "Brandon",
     "dueDate": "2026-02-15",
@@ -96,7 +96,7 @@
   },
   {
     "id": "r-t1",
-    "title": "Full Mission Control audit \u2014 all tabs, data accuracy, mobile layout",
+    "title": "Full Mission Control audit — all tabs, data accuracy, mobile layout",
     "assignee": "Ross",
     "dueDate": "2026-02-14",
     "status": "in_progress",
@@ -160,7 +160,7 @@
   },
   {
     "id": "b-t22",
-    "title": "Fix Newsy \u2014 10 days stories max",
+    "title": "Fix Newsy — 10 days stories max",
     "assignee": "Brandon",
     "dueDate": "2026-02-14",
     "status": "completed",
@@ -324,7 +324,7 @@
   },
   {
     "id": "auto-b-11812",
-    "title": "Cancel Lovable subscription \u2705",
+    "title": "Cancel Lovable subscription ✅",
     "description": "",
     "assignee": "Brandon",
     "status": "completed",
@@ -332,7 +332,7 @@
   },
   {
     "id": "auto-b-11813",
-    "title": "Cancel Suno subscription \u2705",
+    "title": "Cancel Suno subscription ✅",
     "description": "",
     "assignee": "Brandon",
     "status": "completed",
@@ -340,7 +340,7 @@
   },
   {
     "id": "auto-b-11814",
-    "title": "Remove QuickNode ($79/mo) \u2705",
+    "title": "Remove QuickNode ($79/mo) ✅",
     "description": "",
     "assignee": "Brandon",
     "status": "completed",
@@ -348,7 +348,7 @@
   },
   {
     "id": "auto-b-11815",
-    "title": "Cancel Google Workspace for devourservices.com \u2705",
+    "title": "Cancel Google Workspace for devourservices.com ✅",
     "description": "",
     "assignee": "Brandon",
     "status": "completed",
@@ -425,5 +425,61 @@
     "assignee": "George",
     "status": "completed",
     "createdAt": "2026-02-15T19:45:11.810Z"
+  },
+  {
+    "id": "auto-b-82037",
+    "title": "Set up MFC credentials: Auth0, Stripe, Solana treasury wallet",
+    "description": "",
+    "assignee": "Brandon",
+    "status": "todo",
+    "createdAt": "2026-02-15T20:16:22.036Z"
+  },
+  {
+    "id": "auto-b-82038",
+    "title": "Watch Matthew Berman video",
+    "description": "https://x.com/matthewberman/status/2021669868366598632",
+    "assignee": "Brandon",
+    "status": "todo",
+    "createdAt": "2026-02-15T20:16:22.037Z"
+  },
+  {
+    "id": "auto-b-82039",
+    "title": "Review all domains",
+    "description": "",
+    "assignee": "Brandon",
+    "status": "completed",
+    "createdAt": "2026-02-15T20:16:22.037Z"
+  },
+  {
+    "id": "auto-b-82040",
+    "title": "Replit",
+    "description": "",
+    "assignee": "Brandon",
+    "status": "completed",
+    "createdAt": "2026-02-15T20:16:22.037Z"
+  },
+  {
+    "id": "auto-g-82041",
+    "title": "Automate live-actions.json updates (g-t9)",
+    "description": "",
+    "assignee": "George",
+    "status": "completed",
+    "createdAt": "2026-02-15T20:16:22.037Z"
+  },
+  {
+    "id": "auto-g-82042",
+    "title": "Auto-create review tasks when drafts land (g-t16)",
+    "description": "",
+    "assignee": "George",
+    "status": "completed",
+    "createdAt": "2026-02-15T20:16:22.037Z"
+  },
+  {
+    "id": "auto-g-82043",
+    "title": "Research Phase products ($YIELD, pdSOL)",
+    "description": "",
+    "assignee": "George",
+    "status": "completed",
+    "createdAt": "2026-02-15T20:16:22.037Z"
   }
 ]
