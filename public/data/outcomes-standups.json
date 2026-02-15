@@ -325,5 +325,109 @@
         "task": "Savings projection dashboard \u2014 house down payment timeline"
       }
     ]
+  },
+  {
+    "id": "standup-2026-02-14-afternoon",
+    "date": "2026-02-14",
+    "time": "4:00 PM",
+    "type": "afternoon",
+    "summary": "Quality audit deep dive. Dwight A (12 stories, all sourced). Kelly B (grammar fixed, originality improving). Rachel C+ (content strong but 7 emdashes = repeat violation #3). John D+ (zero technical depth in analysis). Ross A- (revoke feature shipped, trust rebuilding). Pam B+ (reliable monitoring). 6 tasks spawned: competitive matrix, bear market playbook, emdash fixes, TA template, auto-stripper script, house savings model.",
+    "discussion": [
+      {
+        "agent": "George",
+        "emoji": "\ud83e\uddbe",
+        "score": 8,
+        "status": "Verification discipline improving. Ran 3 standups today, documented 3 mistakes, added verification rules."
+      },
+      {
+        "agent": "Dwight",
+        "emoji": "\ud83d\udd0d",
+        "score": 9,
+        "status": "12 stories today across 2 sweeps. All sourced with live links. Strategic analysis quality high. X API 401 flag."
+      },
+      {
+        "agent": "Kelly",
+        "emoji": "\ud83d\udc26",
+        "score": 7,
+        "status": "6 drafts today. Grammar compliance solid (0 emdashes in X drafts). 1/6 denied for clich\u00e9. Originality improving but not yet sharp."
+      },
+      {
+        "agent": "Rachel",
+        "emoji": "\ud83d\udcbc",
+        "score": 6,
+        "status": "5 LinkedIn drafts, content quality strong. BUT 7 emdashes in body text \u2014 repeat violation #3. Automated fix deployed."
+      },
+      {
+        "agent": "John",
+        "emoji": "\ud83d\udcc8",
+        "score": 5,
+        "status": "2 scans, 2 MEDIUM proposals. Zero technical depth \u2014 no charts, RSI, support/resistance, or volume. Price check \u2260 analysis."
+      },
+      {
+        "agent": "Ross",
+        "emoji": "\u2699\ufe0f",
+        "score": 8,
+        "status": "Revoke feature shipped and working. Clean code, proper docs. Trust rebuilding after morning's incomplete delivery."
+      },
+      {
+        "agent": "Pam",
+        "emoji": "\ud83d\udccb",
+        "score": 7,
+        "status": "Consistent email monitoring. No urgents. CRM ingestion cron active for 10 PM. Calendar tracking accurate."
+      }
+    ],
+    "qualityAudit": [
+      {
+        "agent": "George",
+        "grade": "B+",
+        "finding": "Verification discipline improving after 3 documented mistakes today. Must verify afternoon spawns."
+      },
+      {
+        "agent": "Dwight",
+        "grade": "A",
+        "finding": "Stripe x402 source verified live (200 OK). All stories have real links and strategic 'So what' analysis."
+      },
+      {
+        "agent": "Kelly",
+        "grade": "B",
+        "finding": "Zero body-text emdashes. 1/6 denied (clich\u00e9 angle). Midday batch stronger than morning."
+      },
+      {
+        "agent": "Rachel",
+        "grade": "C+",
+        "finding": "7 emdashes in body text despite rule. Content quality good but formatting discipline absent."
+      },
+      {
+        "agent": "John",
+        "grade": "D+",
+        "finding": "3-line price snapshots, no real TA. Proposals lack charts, RSI, support/resistance. Template being created."
+      },
+      {
+        "agent": "Ross",
+        "grade": "A-",
+        "finding": "Revoke feature works in production. Proper error handling, confirmation dialogs, git persistence."
+      },
+      {
+        "agent": "Pam",
+        "grade": "B+",
+        "finding": "Structured email summaries, police check included, timestamps accurate. CRM audit pending tonight."
+      }
+    ],
+    "keyDecisions": [
+      "Rachel gets automated emdash stripping via Ross's script \u2014 no more relying on self-compliance",
+      "John MUST produce structured daily TA memos with real technical analysis \u2014 template being enforced"
+    ],
+    "improvements": [
+      "Automated formatting quality gates (emdash stripper first, extend to other rules)",
+      "Structured analysis templates enforced at cron level for John"
+    ],
+    "actionItems": [
+      "Dwight: Phase Delegation competitive matrix vs top 5 staking competitors",
+      "Kelly: Bear market content playbook with 15 archetypes",
+      "Rachel: Fix emdashes in today's drafts + create pre-publish checklist",
+      "John: Proper daily TA memo with RSI/MACD/support-resistance",
+      "Ross: Emdash auto-stripper script integrated into sync pipeline",
+      "John: House savings projection model (3 scenarios, Austin $900K)"
+    ]
   }
 ]
