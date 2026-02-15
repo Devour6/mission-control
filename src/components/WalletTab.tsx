@@ -193,7 +193,7 @@ export default function WalletTab() {
 
       {/* Read-only notice */}
       <div className="mt-6 p-3 bg-blue-500/10 border border-blue-500/20 rounded-lg">
-        <p className="text-xs text-blue-400">💰 Wallet data is managed by John&#39;s scans and loaded from wallet.json</p>
+        <p className="text-xs text-blue-400">💰 Wallet data is managed by John&apos;s scans and loaded from wallet.json</p>
       </div>
     </div>
   );
