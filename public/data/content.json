@@ -66,8 +66,9 @@
       "text": "Stripe and Coinbase both shipped AI agent payment infrastructure this week.\n\nAI agents can now hold funds, trade, and pay for APIs autonomously. No human in the loop.\n\nWe built a 6-person AI team that runs our entire research and content pipeline. The future everyone's building toward? We're already living in it.",
       "angle": "Stripe x402 + Coinbase Agentic Wallets shipping same week, \"we're already here\" energy",
       "source": "Daily draft batch",
-      "status": "pending",
-      "feedback": ""
+      "status": "approved",
+      "feedback": "",
+      "resolvedAt": "2026-02-15T21:01:39.509Z"
     },
     {
       "id": "kelly-2026-02-14-6",
