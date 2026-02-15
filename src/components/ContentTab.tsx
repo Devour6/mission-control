@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ContentData, PublishingQueueData } from "@/lib/types";
+import { ContentData } from "@/lib/types";
 import { useData, RefreshIntervals } from "@/hooks/useData";
 
 export default function ContentTab() {
@@ -10,12 +10,8 @@ export default function ContentTab() {
     "content.json", 
     RefreshIntervals.HIGH_ACTIVITY
   );
-  const { data: queueData, isLoading: isLoadingQueue, mutate: refreshQueue } = useData<PublishingQueueData>(
-    "publishing-queue.json", 
-    RefreshIntervals.HIGH_ACTIVITY
-  );
 
-  const [view, setView] = useState<"pending" | "queue" | "history">("pending");
+  const [view, setView] = useState<"pending" | "history">("pending");
   const [selectedDrafts, setSelectedDrafts] = useState<Set<string>>(new Set());
   const [feedback, setFeedback] = useState("");
   const [denyFeedback, setDenyFeedback] = useState<Record<string, string>>({});
@@ -28,11 +24,9 @@ export default function ContentTab() {
 
   // Provide default values if data is still loading
   const safeContentData = contentData || { drafts: [], posted: [] };
-  const safeQueueData = queueData || { queue: [] };
 
   const pendingDrafts = safeContentData.drafts.filter(d => d.status === "pending");
   const resolvedDrafts = safeContentData.drafts.filter(d => ["approved", "denied"].includes(d.status));
-  const queuedPosts = safeQueueData.queue.filter(q => q.status === "queued");
 
   const handleSingleAction = async (draftId: string, action: "approve" | "deny") => {
     setLoading(true);
@@ -63,26 +57,6 @@ export default function ContentTab() {
               : d
           ),
         }, false); // false = don't revalidate immediately
-
-        if (action === "approve" && queueData) {
-          const draft = contentData.drafts.find(d => d.id === draftId);
-          if (draft) {
-            await refreshQueue({
-              ...queueData,
-              queue: [...queueData.queue, {
-                id: `queue-${Date.now()}`,
-                draftId: draft.id,
-                platform: draft.platform,
-                text: draft.text,
-                author: draft.author,
-                authorEmoji: draft.authorEmoji,
-                scheduledFor: now,
-                queuedAt: now,
-                status: "queued" as const,
-              }],
-            }, false);
-          }
-        }
       }
 
       setFeedback("");
@@ -91,14 +65,12 @@ export default function ContentTab() {
       // Refresh from server after a short delay to get the real state
       setTimeout(() => {
         refreshContent();
-        refreshQueue();
       }, 1000);
     } catch (error) {
       console.error("Action failed:", error);
       alert("Action failed. Please try again.");
       // Refresh from server on error
       refreshContent();
-      refreshQueue();
     } finally {
       setLoading(false);
     }
@@ -136,24 +108,6 @@ export default function ContentTab() {
               : d
           ),
         }, false);
-
-        if (action === "approve" && queueData) {
-          const approvedDrafts = contentData.drafts.filter(d => idSet.has(d.id));
-          await refreshQueue({
-            ...queueData,
-            queue: [...queueData.queue, ...approvedDrafts.map(draft => ({
-              id: `queue-${Date.now()}-${draft.id}`,
-              draftId: draft.id,
-              platform: draft.platform,
-              text: draft.text,
-              author: draft.author,
-              authorEmoji: draft.authorEmoji,
-              scheduledFor: now,
-              queuedAt: now,
-              status: "queued" as const,
-            }))],
-          }, false);
-        }
       }
 
       setSelectedDrafts(new Set());
@@ -162,14 +116,12 @@ export default function ContentTab() {
       // Refresh from server after a short delay
       setTimeout(() => {
         refreshContent();
-        refreshQueue();
       }, 1000);
     } catch (error) {
       console.error("Batch action failed:", error);
       alert("Batch action failed. Please try again.");
       // Refresh from server on error
       refreshContent();
-      refreshQueue();
     } finally {
       setLoading(false);
     }
@@ -197,24 +149,16 @@ export default function ContentTab() {
           ),
         }, false);
       }
-      if (queueData) {
-        await refreshQueue({
-          ...queueData,
-          queue: queueData.queue.filter(q => q.draftId !== draftId),
-        }, false);
-      }
       
       // Refresh from server after a short delay
       setTimeout(() => {
         refreshContent();
-        refreshQueue();
       }, 1000);
     } catch (error) {
       console.error("Revoke failed:", error);
       alert("Revoke failed. Please try again.");
       // Refresh from server on error
       refreshContent();
-      refreshQueue();
     } finally {
       setLoading(false);
     }
@@ -249,15 +193,14 @@ export default function ContentTab() {
         <div className="flex items-center gap-4">
           <h2 className="text-xl md:text-2xl font-bold">📝 Content Approval</h2>
           <div className="flex items-center gap-2">
-            {(isLoadingContent || isLoadingQueue) && (
+            {isLoadingContent && (
               <div className="w-4 h-4 border-2 border-indigo-400 border-t-transparent rounded-full animate-spin"></div>
             )}
             <button
               onClick={() => {
                 refreshContent();
-                refreshQueue();
               }}
-              disabled={isLoadingContent || isLoadingQueue}
+              disabled={isLoadingContent}
               className="px-3 py-1 text-xs bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-400 rounded-md transition-colors disabled:opacity-50"
               title="Refresh data"
             >
@@ -269,7 +212,6 @@ export default function ContentTab() {
         <div className="flex gap-1 bg-[#1a1d27] border border-[#2e3345] rounded-lg p-1">
           {([
             { key: "pending", label: `Pending (${pendingDrafts.length})` },
-            { key: "queue", label: `Queue (${queuedPosts.length})` },
             { key: "history", label: "History" }
           ] as const).map(({ key, label }) => (
             <button
@@ -409,7 +351,7 @@ export default function ContentTab() {
                             disabled={loading}
                             className="px-4 py-2 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 rounded-lg text-sm font-medium transition-colors disabled:opacity-50 min-h-[44px]"
                           >
-                            ✓ Approve & Queue
+                            ✓ Approve
                           </button>
                           <div className="flex flex-1 gap-2">
                             <input
@@ -440,46 +382,7 @@ export default function ContentTab() {
         </div>
       )}
 
-      {view === "queue" && (
-        <div className="space-y-3">
-          {queuedPosts.length === 0 ? (
-            <div className="bg-[#1a1d27] border border-[#2e3345] rounded-xl p-8 text-center text-[#8b8fa3] text-sm">
-              No posts queued for publishing.
-            </div>
-          ) : (
-            queuedPosts.map((item) => (
-              <div key={item.id} className="bg-[#1a1d27] border border-emerald-500/30 rounded-xl p-5">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
-                    item.platform === "x" ? "border-white/20 bg-white/5 text-white" : "border-blue-400/30 bg-blue-400/10 text-blue-400"
-                  }`}>
-                    {platformIcon(item.platform)} {item.platform === "x" ? "X" : "LinkedIn"}
-                  </span>
-                  <span className="text-sm font-medium text-[#e4e6ed]">{item.authorEmoji} {item.author}</span>
-                  <span className="text-xs text-emerald-400">
-                    📅 {new Date(item.scheduledFor).toLocaleString()}
-                  </span>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400">
-                    Queued
-                  </span>
-                </div>
-                <div className="bg-[#242836] rounded-lg p-3 mb-3">
-                  <p className="text-sm text-[#e4e6ed] whitespace-pre-wrap">{item.text}</p>
-                </div>
-                <div className="flex justify-end">
-                  <button
-                    onClick={() => handleRevoke(item.draftId)}
-                    disabled={loading}
-                    className="px-4 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg text-sm font-medium transition-colors disabled:opacity-50"
-                  >
-                    ❌ Revoke
-                  </button>
-                </div>
-              </div>
-            ))
-          )}
-        </div>
-      )}
+      {/* Queue view removed - draft-only mode */}
 
       {view === "history" && (
         <div className="space-y-2">
@@ -514,15 +417,6 @@ export default function ContentTab() {
                     }`}>
                       {draft.status}
                     </span>
-                    {draft.status === "approved" && (
-                      <button
-                        onClick={() => handleRevoke(draft.id)}
-                        disabled={loading}
-                        className="px-2 py-1 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded text-[10px] font-medium transition-colors disabled:opacity-50"
-                      >
-                        Revoke Approval
-                      </button>
-                    )}
                   </div>
                 </div>
                 {draft.feedback && (

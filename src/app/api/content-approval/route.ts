@@ -1,10 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import { ContentData, PublishingQueueData, PublishingQueueItem } from "@/lib/types";
+import { ContentData } from "@/lib/types";
 
 const REPO = "Devour6/mission-control";
 const BRANCH = "main";
 const CONTENT_FILE = "public/data/content.json";
-const QUEUE_FILE = "public/data/publishing-queue.json";
 const API_BASE = `https://api.github.com/repos/${REPO}/contents`;
 
 // GitHub token from env (server-side only)
@@ -64,24 +63,7 @@ async function updateFileContent<T>(filePath: string, content: T, sha: string | 
   return res.ok;
 }
 
-function calculateScheduledTime(): string {
-  // Auto-schedule for next available slot based on current time
-  const now = new Date();
-  const hours = now.getHours();
-  
-  // Schedule for next publishing window (morning 9am, midday 1pm, evening 6pm PST)
-  const windows = [9, 13, 18];
-  let nextWindow = windows.find(h => h > hours);
-  
-  if (!nextWindow) {
-    // Schedule for tomorrow morning
-    nextWindow = 9;
-    now.setDate(now.getDate() + 1);
-  }
-  
-  now.setHours(nextWindow, 0, 0, 0);
-  return now.toISOString();
-}
+// Scheduling removed - draft-only mode
 
 export async function POST(req: NextRequest) {
   if (!GITHUB_TOKEN) {
@@ -114,24 +96,6 @@ export async function POST(req: NextRequest) {
         draft.resolvedAt = now;
         if (request.feedback) draft.feedback = request.feedback;
         
-        // Auto-queue for publishing
-        const { content: queueData, sha: queueSha } = await getFileContent<PublishingQueueData>(QUEUE_FILE);
-        
-        const queueItem: PublishingQueueItem = {
-          id: `queue-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-          draftId: draft.id,
-          platform: draft.platform,
-          text: draft.editedText || draft.text,
-          author: draft.author,
-          authorEmoji: draft.authorEmoji,
-          scheduledFor: request.scheduleFor || calculateScheduledTime(),
-          queuedAt: now,
-          status: "queued"
-        };
-        
-        queueData.queue.push(queueItem);
-        
-        // Update both files
         const contentUpdateOk = await updateFileContent(
           CONTENT_FILE,
           contentData,
@@ -139,15 +103,8 @@ export async function POST(req: NextRequest) {
           `Approve draft ${draft.id} by ${draft.author}`
         );
         
-        const queueUpdateOk = await updateFileContent(
-          QUEUE_FILE,
-          queueData,
-          queueSha,
-          `Queue approved post ${draft.id} for publishing`
-        );
-        
-        if (!contentUpdateOk || !queueUpdateOk) {
-          return NextResponse.json({ error: "Failed to update files" }, { status: 502 });
+        if (!contentUpdateOk) {
+          return NextResponse.json({ error: "Failed to update content file" }, { status: 502 });
         }
         
         break;
@@ -193,20 +150,11 @@ export async function POST(req: NextRequest) {
         break;
 
       case "revoke":
-        // Move back to pending status and remove from queue
+        // Move back to pending status
         draft.status = "pending";
         draft.resolvedAt = undefined;
         draft.feedback = "";
         
-        // Remove from publishing queue
-        const { content: revokeQueueData, sha: revokeQueueSha } = await getFileContent<PublishingQueueData>(QUEUE_FILE);
-        const originalQueueLength = revokeQueueData.queue.length;
-        
-        // Filter out any queue items for this draft
-        revokeQueueData.queue = revokeQueueData.queue.filter(item => item.draftId !== draft.id);
-        const removedFromQueue = revokeQueueData.queue.length < originalQueueLength;
-        
-        // Update content file
         const revokeContentOk = await updateFileContent(
           CONTENT_FILE,
           contentData,
@@ -214,18 +162,8 @@ export async function POST(req: NextRequest) {
           `Revoke approval for draft ${draft.id} by ${draft.author}`
         );
         
-        // Update queue file if we removed something
-        const revokeQueueOk = removedFromQueue 
-          ? await updateFileContent(
-              QUEUE_FILE,
-              revokeQueueData,
-              revokeQueueSha,
-              `Remove revoked draft ${draft.id} from publishing queue`
-            )
-          : true;
-        
-        if (!revokeContentOk || !revokeQueueOk) {
-          return NextResponse.json({ error: "Failed to update files" }, { status: 502 });
+        if (!revokeContentOk) {
+          return NextResponse.json({ error: "Failed to update content file" }, { status: 502 });
         }
         
         break;
@@ -261,7 +199,6 @@ export async function PATCH(req: NextRequest) {
     }
 
     const { content: contentData, sha: contentSha } = await getFileContent<ContentData>(CONTENT_FILE);
-    const { content: queueData, sha: queueSha } = await getFileContent<PublishingQueueData>(QUEUE_FILE);
     
     const now = new Date().toISOString();
     const results: Array<{ draftId: string; success: boolean; error?: string }> = [];
@@ -279,21 +216,6 @@ export async function PATCH(req: NextRequest) {
         draft.status = "approved";
         draft.resolvedAt = now;
         if (feedback) draft.feedback = feedback;
-
-        // Add to publishing queue
-        const queueItem: PublishingQueueItem = {
-          id: `queue-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-          draftId: draft.id,
-          platform: draft.platform,
-          text: draft.editedText || draft.text,
-          author: draft.author,
-          authorEmoji: draft.authorEmoji,
-          scheduledFor: calculateScheduledTime(),
-          queuedAt: now,
-          status: "queued"
-        };
-        
-        queueData.queue.push(queueItem);
       } else {
         draft.status = "denied";
         draft.resolvedAt = now;
@@ -303,7 +225,7 @@ export async function PATCH(req: NextRequest) {
       results.push({ draftId, success: true });
     }
 
-    // Update files
+    // Update content file
     const contentUpdateOk = await updateFileContent(
       CONTENT_FILE,
       contentData,
@@ -311,12 +233,8 @@ export async function PATCH(req: NextRequest) {
       `Batch ${action} ${draftIds.length} drafts`
     );
 
-    const queueUpdateOk = action === "approve" 
-      ? await updateFileContent(QUEUE_FILE, queueData, queueSha, `Batch queue ${draftIds.length} approved posts`)
-      : true;
-
-    if (!contentUpdateOk || !queueUpdateOk) {
-      return NextResponse.json({ error: "Failed to update files" }, { status: 502 });
+    if (!contentUpdateOk) {
+      return NextResponse.json({ error: "Failed to update content file" }, { status: 502 });
     }
 
     return NextResponse.json({ ok: true, results });
