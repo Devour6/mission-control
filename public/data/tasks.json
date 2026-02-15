@@ -401,5 +401,32 @@
     "dueDate": "2026-02-15",
     "status": "todo",
     "createdAt": "2026-02-15T17:10:14.404Z"
+  },
+  {
+    "id": "auto-b-101",
+    "title": "Set up MFC credentials: Auth0 (domain, client ID, secret), Stripe (test + live keys, webhook secret), Solana treasury wallet",
+    "description": "",
+    "assignee": "Brandon",
+    "dueDate": "2026-02-15",
+    "status": "todo",
+    "createdAt": "2026-02-15T18:00:15.113Z"
+  },
+  {
+    "id": "auto-b-102",
+    "title": "Review all domains",
+    "description": "",
+    "assignee": "Brandon",
+    "dueDate": "2026-02-15",
+    "status": "todo",
+    "createdAt": "2026-02-15T18:00:15.113Z"
+  },
+  {
+    "id": "auto-b-103",
+    "title": "Watch Matthew Berman video",
+    "description": "https://x.com/matthewberman/status/2021669868366598632",
+    "assignee": "Brandon",
+    "dueDate": "2026-02-15",
+    "status": "todo",
+    "createdAt": "2026-02-15T18:00:15.113Z"
   }
 ]
