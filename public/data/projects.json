@@ -2,53 +2,220 @@
   "divisions": {
     "executive": {
       "name": "Executive",
-      "members": ["Brandon", "George"],
+      "members": [
+        "Brandon",
+        "George"
+      ],
       "projects": [
-        {"id": "ex-1", "name": "Mission Control Dashboard", "status": "active", "description": "Central dashboard for team operations, approvals, content, and office view", "members": ["George", "Ross"]},
-        {"id": "ex-2", "name": "Agent Team Orchestration", "status": "active", "description": "Managing and optimizing the full 6-agent AI squad — standups, calibration, autonomous work", "members": ["George"]},
-        {"id": "ex-3", "name": "Daily Autonomous Work", "status": "active", "description": "Twice-daily self-ideated high-impact tasks across professional and personal goals", "members": ["George"]}
+        {
+          "id": "ex-1",
+          "name": "Mission Control Dashboard",
+          "status": "active",
+          "description": "Central dashboard for team operations, approvals, content, and office view",
+          "members": [
+            "George",
+            "Ross"
+          ]
+        },
+        {
+          "id": "ex-2",
+          "name": "Agent Team Orchestration",
+          "status": "active",
+          "description": "Managing and optimizing the full 6-agent AI squad \u2014 standups, calibration, autonomous work",
+          "members": [
+            "George"
+          ]
+        },
+        {
+          "id": "ex-3",
+          "name": "Daily Autonomous Work",
+          "status": "active",
+          "description": "Twice-daily self-ideated high-impact tasks across professional and personal goals",
+          "members": [
+            "George"
+          ]
+        }
       ]
     },
     "research": {
       "name": "Research Division",
       "lead": "Dwight",
       "projects": [
-        {"id": "r-1", "name": "3x Daily Intel Sweeps", "status": "active", "description": "Morning, midday, evening research sweeps — X, crypto markets, AI news, Solana ecosystem", "members": ["Dwight"]},
-        {"id": "r-2", "name": "Competitor Monitoring", "status": "active", "description": "Tracking Phase/Netrunner/Radiants competitors for intel briefs", "members": ["Dwight"]}
+        {
+          "id": "r-1",
+          "name": "3x Daily Intel Sweeps",
+          "status": "active",
+          "description": "Morning, midday, evening research sweeps \u2014 X, crypto markets, AI news, Solana ecosystem",
+          "members": [
+            "Dwight"
+          ]
+        },
+        {
+          "id": "r-2",
+          "name": "Competitor Monitoring",
+          "status": "active",
+          "description": "Tracking Phase/Netrunner/Radiants competitors for intel briefs",
+          "members": [
+            "Dwight"
+          ]
+        }
       ]
     },
     "financial": {
       "name": "Financial Division",
       "lead": "John",
       "projects": [
-        {"id": "f-1", "name": "Portfolio Management", "status": "active", "description": "24/7 market scanning every 2 hours — CoinGecko Pro API, TradingView TA, CT sentiment analysis", "members": ["John"]},
-        {"id": "f-2", "name": "Bear Market Accumulation", "status": "active", "description": "Executing stacking strategy toward asset targets: 20 ETH, 2 BTC, 3oz Oro, NFTs", "members": ["John"]},
-        {"id": "f-3", "name": "Validator Income Tracking", "status": "active", "description": "Weekly income reports for Ded Monkes, Gojira, Nebula, Kisetsu validators", "members": ["John", "George"]}
+        {
+          "id": "f-1",
+          "name": "Portfolio Management",
+          "status": "active",
+          "description": "24/7 market scanning every 2 hours \u2014 CoinGecko Pro API, TradingView TA, CT sentiment analysis",
+          "members": [
+            "John"
+          ]
+        },
+        {
+          "id": "f-2",
+          "name": "Bear Market Accumulation",
+          "status": "active",
+          "description": "Executing stacking strategy toward asset targets: 20 ETH, 2 BTC, 3oz Oro, NFTs",
+          "members": [
+            "John"
+          ]
+        },
+        {
+          "id": "f-3",
+          "name": "Validator Income Tracking",
+          "status": "active",
+          "description": "Weekly income reports for Ded Monkes, Gojira, Nebula, Kisetsu validators",
+          "members": [
+            "John",
+            "George"
+          ]
+        }
       ]
     },
     "content": {
       "name": "Content Division",
-      "members": ["Kelly", "Rachel"],
+      "members": [
+        "Kelly",
+        "Rachel"
+      ],
       "projects": [
-        {"id": "c-1", "name": "X Voice Calibration", "status": "active", "description": "Daily tweet batches for @DEVOUR_ — heavy feedback phase to nail Brandon's voice", "members": ["Kelly"]},
-        {"id": "c-2", "name": "LinkedIn Voice Calibration", "status": "active", "description": "Daily LinkedIn draft batches — calibrating Brandon + Jeff Newman blended voice", "members": ["Rachel"]},
-        {"id": "c-3", "name": "Content Performance Tracking", "status": "planned", "description": "Tracking engagement on posted content to optimize what works — activates post-calibration", "members": ["Kelly", "Rachel"]}
+        {
+          "id": "c-1",
+          "name": "X Voice Calibration",
+          "status": "active",
+          "description": "Daily tweet batches for @DEVOUR_ \u2014 heavy feedback phase to nail Brandon's voice",
+          "members": [
+            "Kelly"
+          ]
+        },
+        {
+          "id": "c-2",
+          "name": "LinkedIn Voice Calibration",
+          "status": "active",
+          "description": "Daily LinkedIn draft batches \u2014 calibrating Brandon + Jeff Newman blended voice",
+          "members": [
+            "Rachel"
+          ]
+        },
+        {
+          "id": "c-3",
+          "name": "Content Performance Tracking",
+          "status": "planned",
+          "description": "Tracking engagement on posted content to optimize what works \u2014 activates post-calibration",
+          "members": [
+            "Kelly",
+            "Rachel"
+          ]
+        }
       ]
     },
     "engineering": {
       "name": "Engineering Dept",
       "lead": "Ross",
       "projects": [
-        {"id": "e-1", "name": "Mission Control Fixes", "status": "active", "description": "Bug fixes, data accuracy, mobile optimization for the team dashboard", "members": ["Ross"]},
-        {"id": "e-2", "name": "Personal Repos", "status": "active", "description": "Task-driven engineering work on Brandon's personal repositories via Codex CLI", "members": ["Ross"]}
+        {
+          "id": "e-1",
+          "name": "Mission Control Fixes",
+          "status": "active",
+          "description": "Bug fixes, data accuracy, mobile optimization for the team dashboard",
+          "members": [
+            "Ross"
+          ]
+        },
+        {
+          "id": "e-2",
+          "name": "Personal Repos",
+          "status": "active",
+          "description": "Task-driven engineering work on Brandon's personal repositories via Codex CLI",
+          "members": [
+            "Ross"
+          ]
+        },
+        {
+          "id": "eng-3",
+          "name": "Molt Fighting Championship (MFC)",
+          "status": "active",
+          "description": "AI fighter simulation with prediction markets. Current state: core backend built (auth, DB, fight algorithm, training, bets), but frontend needs major work \u2014 fighters don't visually fight, UI glitches, dead buttons, boring to watch. Priority: make fights entertaining + fix all broken UI.",
+          "members": [
+            "Ross",
+            "George"
+          ],
+          "url": "https://mfc-app.vercel.app",
+          "repo": "github.com/Devour6/mfc-app",
+          "milestones": [
+            {
+              "name": "Phase 1-2: Backend + Auth",
+              "status": "done"
+            },
+            {
+              "name": "Phase 3: Fix fight visuals \u2014 make fights actually entertaining to watch",
+              "status": "in-progress"
+            },
+            {
+              "name": "Phase 3: Fix all dead buttons and non-reactive sections",
+              "status": "in-progress"
+            },
+            {
+              "name": "Phase 3: UI polish \u2014 fix glitches",
+              "status": "in-progress"
+            },
+            {
+              "name": "Phase 4: Monetization \u2014 Stripe + Solana wallet",
+              "status": "planned"
+            },
+            {
+              "name": "Phase 5: Retention \u2014 tournaments, achievements, daily rewards",
+              "status": "planned"
+            }
+          ]
+        }
       ]
     },
     "personalAssistant": {
       "name": "Personal Assistant",
       "lead": "Pam",
       "projects": [
-        {"id": "p-1", "name": "Personal CRM", "status": "active", "description": "Nightly ingestion across 3 inboxes + calendars — contact extraction, dedup, classification, timeline", "members": ["Pam"]},
-        {"id": "p-2", "name": "Calendar & Email Management", "status": "active", "description": "Meeting prep, follow-ups, travel coordination, expense tracking", "members": ["Pam"]}
+        {
+          "id": "p-1",
+          "name": "Personal CRM",
+          "status": "active",
+          "description": "Nightly ingestion across 3 inboxes + calendars \u2014 contact extraction, dedup, classification, timeline",
+          "members": [
+            "Pam"
+          ]
+        },
+        {
+          "id": "p-2",
+          "name": "Calendar & Email Management",
+          "status": "active",
+          "description": "Meeting prep, follow-ups, travel coordination, expense tracking",
+          "members": [
+            "Pam"
+          ]
+        }
       ]
     }
   }

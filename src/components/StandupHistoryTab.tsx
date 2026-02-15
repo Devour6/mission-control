@@ -599,6 +599,209 @@ export default function StandupHistoryTab() {
   );
 }
 
+function OutcomesView({ 
+  standups, 
+  searchQuery, 
+  setSearchQuery 
+}: {
+  standups: StandupOutcome[];
+  searchQuery: string;
+  setSearchQuery: (query: string) => void;
+}) {
+  // Extract all outcomes from standups, sorted newest first
+  const allOutcomes = useMemo(() => {
+    const outcomes: Array<{
+      type: 'completed' | 'started' | 'next' | 'decision';
+      item: string | StandupActionItem;
+      standup: { date: string; time: string; type: string };
+    }> = [];
+
+    standups.forEach(standup => {
+      const actionCategories = categorizeActionItems(standup.actionItems);
+      
+      // Completed action items
+      actionCategories.completed.forEach(item => {
+        outcomes.push({
+          type: 'completed',
+          item,
+          standup: { date: standup.date, time: standup.time, type: standup.type }
+        });
+      });
+
+      // Started action items  
+      actionCategories.started.forEach(item => {
+        outcomes.push({
+          type: 'started', 
+          item,
+          standup: { date: standup.date, time: standup.time, type: standup.type }
+        });
+      });
+
+      // Next action items (ongoing)
+      actionCategories.ongoing.forEach(item => {
+        outcomes.push({
+          type: 'next',
+          item, 
+          standup: { date: standup.date, time: standup.time, type: standup.type }
+        });
+      });
+
+      // Key decisions
+      standup.keyDecisions.forEach(decision => {
+        outcomes.push({
+          type: 'decision',
+          item: decision,
+          standup: { date: standup.date, time: standup.time, type: standup.type }
+        });
+      });
+    });
+
+    // Sort by standup date/time newest first
+    outcomes.sort((a, b) => {
+      const dateA = new Date(`${a.standup.date} ${a.standup.time}`);
+      const dateB = new Date(`${b.standup.date} ${b.standup.time}`);
+      return dateB.getTime() - dateA.getTime();
+    });
+
+    return outcomes;
+  }, [standups]);
+
+  // Filter outcomes by search query
+  const filteredOutcomes = useMemo(() => {
+    if (!searchQuery) return allOutcomes;
+    
+    const query = searchQuery.toLowerCase();
+    return allOutcomes.filter(outcome => {
+      const itemText = typeof outcome.item === 'string' 
+        ? outcome.item 
+        : outcome.item.task || '';
+      const agentText = typeof outcome.item === 'object' && outcome.item.agent 
+        ? outcome.item.agent 
+        : '';
+      
+      return itemText.toLowerCase().includes(query) ||
+             agentText.toLowerCase().includes(query) ||
+             outcome.standup.date.toLowerCase().includes(query) ||
+             outcome.standup.type.toLowerCase().includes(query);
+    });
+  }, [allOutcomes, searchQuery]);
+
+  const standupIcon = (type: string) => {
+    if (type === "early-morning") return "🌅";
+    if (type === "morning") return "🌄";
+    if (type === "midday") return "☀️";
+    if (type === "afternoon") return "🌤️";
+    if (type === "evening") return "🌙";
+    if (type === "latenight") return "🌚";
+    return "📋";
+  };
+
+  const getItemIcon = (type: string) => {
+    switch (type) {
+      case 'completed': return "✅";
+      case 'started': return "▶️";
+      case 'next': return "📋";
+      case 'decision': return "⚖️";
+      default: return "•";
+    }
+  };
+
+  const getItemColor = (type: string) => {
+    switch (type) {
+      case 'completed': return "text-emerald-400 bg-emerald-500/10";
+      case 'started': return "text-blue-400 bg-blue-500/10"; 
+      case 'next': return "text-indigo-400 bg-indigo-500/10";
+      case 'decision': return "text-amber-400 bg-amber-500/10";
+      default: return "text-[#8b8fa3] bg-[#242836]";
+    }
+  };
+
+  const getItemLabel = (type: string) => {
+    switch (type) {
+      case 'completed': return "Completed Action Items";
+      case 'started': return "Started Action Items";
+      case 'next': return "Next Action Items";
+      case 'decision': return "Key Decisions";
+      default: return "Items";
+    }
+  };
+
+  return (
+    <div>
+      {/* Search input */}
+      <div className="mb-6">
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <span className="text-[#8b8fa3] text-sm">🔍</span>
+          </div>
+          <input
+            type="text"
+            placeholder="Search outcomes by item, agent, or standup..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full pl-10 pr-4 py-3 bg-[#1a1d27] border border-[#2e3345] rounded-xl text-[#e4e6ed] placeholder-[#8b8fa3] focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500/40 transition-colors"
+          />
+        </div>
+        {searchQuery && (
+          <p className="text-xs text-[#8b8fa3] mt-2">
+            Found {filteredOutcomes.length} outcome{filteredOutcomes.length !== 1 ? 's' : ''}
+          </p>
+        )}
+      </div>
+
+      {/* Outcomes grid */}
+      {filteredOutcomes.length > 0 ? (
+        <div className="space-y-3">
+          {filteredOutcomes.map((outcome, index) => {
+            const itemText = typeof outcome.item === 'string' 
+              ? outcome.item 
+              : outcome.item.task || 'Unknown task';
+            const itemAgent = typeof outcome.item === 'object' && outcome.item.agent 
+              ? outcome.item.agent 
+              : null;
+
+            return (
+              <div key={index} className="bg-[#1a1d27] border border-[#2e3345] rounded-xl p-4 hover:border-[#3e4155] transition-colors">
+                <div className="flex items-start gap-3">
+                  {/* Icon */}
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm ${getItemColor(outcome.type)}`}>
+                    {getItemIcon(outcome.type)}
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-start justify-between mb-1">
+                      <span className={`text-xs uppercase font-medium tracking-wider ${getItemColor(outcome.type).split(' ')[0]}`}>
+                        {getItemLabel(outcome.type)}
+                      </span>
+                      <div className="flex items-center gap-2 text-xs text-[#8b8fa3]">
+                        <span>{standupIcon(outcome.standup.type)}</span>
+                        <span>{outcome.standup.date}</span>
+                        <span>•</span>
+                        <span>{outcome.standup.time}</span>
+                      </div>
+                    </div>
+                    
+                    <p className="text-sm text-[#e4e6ed] mb-1">{itemText}</p>
+                    
+                    {itemAgent && (
+                      <p className="text-xs text-indigo-400">→ {itemAgent}</p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      ) : (
+        <div className="bg-[#1a1d27] border border-[#2e3345] rounded-xl p-8 text-center text-[#8b8fa3] text-sm">
+          {searchQuery ? "No outcomes match your search criteria." : "No outcomes found in recent standups."}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function DecisionCard({ decision: d, expanded, onToggle, voteColor }: { 
   decision: CouncilDecision; 
   expanded: boolean; 
