@@ -2,11 +2,19 @@
 
 import { useState, useEffect } from "react";
 import { ContentData, PublishingQueueData } from "@/lib/types";
-import { fetchData } from "@/lib/dataFetch";
+import { useData, RefreshIntervals } from "@/hooks/useData";
 
 export default function ContentTab() {
-  const [contentData, setContentData] = useState<ContentData>({ drafts: [], posted: [] });
-  const [queueData, setQueueData] = useState<PublishingQueueData>({ queue: [] });
+  // Auto-refreshing data with SWR (high activity - refreshes every 15s)
+  const { data: contentData, isLoading: isLoadingContent, mutate: refreshContent } = useData<ContentData>(
+    "content.json", 
+    RefreshIntervals.HIGH_ACTIVITY
+  );
+  const { data: queueData, isLoading: isLoadingQueue, mutate: refreshQueue } = useData<PublishingQueueData>(
+    "publishing-queue.json", 
+    RefreshIntervals.HIGH_ACTIVITY
+  );
+
   const [view, setView] = useState<"pending" | "queue" | "history">("pending");
   const [selectedDrafts, setSelectedDrafts] = useState<Set<string>>(new Set());
   const [feedback, setFeedback] = useState("");
@@ -15,26 +23,16 @@ export default function ContentTab() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    loadData();
     setMounted(true);
   }, []);
 
-  const loadData = async () => {
-    try {
-      const [content, queue] = await Promise.all([
-        fetchData<ContentData>("content.json"),
-        fetchData<PublishingQueueData>("publishing-queue.json").catch(() => ({ queue: [] }))
-      ]);
-      setContentData(content);
-      setQueueData(queue);
-    } catch (error) {
-      console.error("Failed to load data:", error);
-    }
-  };
+  // Provide default values if data is still loading
+  const safeContentData = contentData || { drafts: [], posted: [] };
+  const safeQueueData = queueData || { queue: [] };
 
-  const pendingDrafts = contentData.drafts.filter(d => d.status === "pending");
-  const resolvedDrafts = contentData.drafts.filter(d => ["approved", "denied"].includes(d.status));
-  const queuedPosts = queueData.queue.filter(q => q.status === "queued");
+  const pendingDrafts = safeContentData.drafts.filter(d => d.status === "pending");
+  const resolvedDrafts = safeContentData.drafts.filter(d => ["approved", "denied"].includes(d.status));
+  const queuedPosts = safeQueueData.queue.filter(q => q.status === "queued");
 
   const handleSingleAction = async (draftId: string, action: "approve" | "deny") => {
     setLoading(true);
@@ -54,43 +52,53 @@ export default function ContentTab() {
         throw new Error("Action failed");
       }
 
-      // Optimistic update — don't wait for GitHub propagation
+      // Optimistic update with SWR
       const now = new Date().toISOString();
-      setContentData(prev => ({
-        ...prev,
-        drafts: prev.drafts.map(d => 
-          d.id === draftId 
-            ? { ...d, status: action === "approve" ? "approved" : "denied", resolvedAt: now, feedback: itemFeedback || d.feedback }
-            : d
-        ),
-      }));
+      if (contentData) {
+        await refreshContent({
+          ...contentData,
+          drafts: contentData.drafts.map(d => 
+            d.id === draftId 
+              ? { ...d, status: action === "approve" ? "approved" : "denied", resolvedAt: now, feedback: itemFeedback || d.feedback }
+              : d
+          ),
+        }, false); // false = don't revalidate immediately
 
-      if (action === "approve") {
-        const draft = contentData.drafts.find(d => d.id === draftId);
-        if (draft) {
-          setQueueData(prev => ({
-            ...prev,
-            queue: [...prev.queue, {
-              id: `queue-${Date.now()}`,
-              draftId: draft.id,
-              platform: draft.platform,
-              text: draft.text,
-              author: draft.author,
-              authorEmoji: draft.authorEmoji,
-              scheduledFor: now,
-              queuedAt: now,
-              status: "queued" as const,
-            }],
-          }));
+        if (action === "approve" && queueData) {
+          const draft = contentData.drafts.find(d => d.id === draftId);
+          if (draft) {
+            await refreshQueue({
+              ...queueData,
+              queue: [...queueData.queue, {
+                id: `queue-${Date.now()}`,
+                draftId: draft.id,
+                platform: draft.platform,
+                text: draft.text,
+                author: draft.author,
+                authorEmoji: draft.authorEmoji,
+                scheduledFor: now,
+                queuedAt: now,
+                status: "queued" as const,
+              }],
+            }, false);
+          }
         }
       }
 
       setFeedback("");
       setDenyFeedback(prev => { const n = { ...prev }; delete n[draftId]; return n; });
+      
+      // Refresh from server after a short delay to get the real state
+      setTimeout(() => {
+        refreshContent();
+        refreshQueue();
+      }, 1000);
     } catch (error) {
       console.error("Action failed:", error);
       alert("Action failed. Please try again.");
-      await loadData(); // Revert on error
+      // Refresh from server on error
+      refreshContent();
+      refreshQueue();
     } finally {
       setLoading(false);
     }
@@ -116,42 +124,52 @@ export default function ContentTab() {
         throw new Error("Batch action failed");
       }
 
-      // Optimistic update
+      // Optimistic update with SWR
       const now = new Date().toISOString();
       const idSet = new Set(ids);
-      setContentData(prev => ({
-        ...prev,
-        drafts: prev.drafts.map(d => 
-          idSet.has(d.id) 
-            ? { ...d, status: action === "approve" ? "approved" : "denied", resolvedAt: now, feedback: feedback.trim() || d.feedback }
-            : d
-        ),
-      }));
+      if (contentData) {
+        await refreshContent({
+          ...contentData,
+          drafts: contentData.drafts.map(d => 
+            idSet.has(d.id) 
+              ? { ...d, status: action === "approve" ? "approved" : "denied", resolvedAt: now, feedback: feedback.trim() || d.feedback }
+              : d
+          ),
+        }, false);
 
-      if (action === "approve") {
-        const approvedDrafts = contentData.drafts.filter(d => idSet.has(d.id));
-        setQueueData(prev => ({
-          ...prev,
-          queue: [...prev.queue, ...approvedDrafts.map(draft => ({
-            id: `queue-${Date.now()}-${draft.id}`,
-            draftId: draft.id,
-            platform: draft.platform,
-            text: draft.text,
-            author: draft.author,
-            authorEmoji: draft.authorEmoji,
-            scheduledFor: now,
-            queuedAt: now,
-            status: "queued" as const,
-          }))],
-        }));
+        if (action === "approve" && queueData) {
+          const approvedDrafts = contentData.drafts.filter(d => idSet.has(d.id));
+          await refreshQueue({
+            ...queueData,
+            queue: [...queueData.queue, ...approvedDrafts.map(draft => ({
+              id: `queue-${Date.now()}-${draft.id}`,
+              draftId: draft.id,
+              platform: draft.platform,
+              text: draft.text,
+              author: draft.author,
+              authorEmoji: draft.authorEmoji,
+              scheduledFor: now,
+              queuedAt: now,
+              status: "queued" as const,
+            }))],
+          }, false);
+        }
       }
 
       setSelectedDrafts(new Set());
       setFeedback("");
+      
+      // Refresh from server after a short delay
+      setTimeout(() => {
+        refreshContent();
+        refreshQueue();
+      }, 1000);
     } catch (error) {
       console.error("Batch action failed:", error);
       alert("Batch action failed. Please try again.");
-      await loadData();
+      // Refresh from server on error
+      refreshContent();
+      refreshQueue();
     } finally {
       setLoading(false);
     }
@@ -170,21 +188,33 @@ export default function ContentTab() {
 
       if (!response.ok) throw new Error("Revoke failed");
 
-      // Optimistic update
-      setContentData(prev => ({
-        ...prev,
-        drafts: prev.drafts.map(d => 
-          d.id === draftId ? { ...d, status: "pending", resolvedAt: undefined, feedback: "" } : d
-        ),
-      }));
-      setQueueData(prev => ({
-        ...prev,
-        queue: prev.queue.filter(q => q.draftId !== draftId),
-      }));
+      // Optimistic update with SWR
+      if (contentData) {
+        await refreshContent({
+          ...contentData,
+          drafts: contentData.drafts.map(d => 
+            d.id === draftId ? { ...d, status: "pending", resolvedAt: undefined, feedback: "" } : d
+          ),
+        }, false);
+      }
+      if (queueData) {
+        await refreshQueue({
+          ...queueData,
+          queue: queueData.queue.filter(q => q.draftId !== draftId),
+        }, false);
+      }
+      
+      // Refresh from server after a short delay
+      setTimeout(() => {
+        refreshContent();
+        refreshQueue();
+      }, 1000);
     } catch (error) {
       console.error("Revoke failed:", error);
       alert("Revoke failed. Please try again.");
-      await loadData();
+      // Refresh from server on error
+      refreshContent();
+      refreshQueue();
     } finally {
       setLoading(false);
     }
@@ -216,7 +246,25 @@ export default function ContentTab() {
   return (
     <div className="max-w-6xl mx-auto">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
-        <h2 className="text-xl md:text-2xl font-bold">📝 Content Approval</h2>
+        <div className="flex items-center gap-4">
+          <h2 className="text-xl md:text-2xl font-bold">📝 Content Approval</h2>
+          <div className="flex items-center gap-2">
+            {(isLoadingContent || isLoadingQueue) && (
+              <div className="w-4 h-4 border-2 border-indigo-400 border-t-transparent rounded-full animate-spin"></div>
+            )}
+            <button
+              onClick={() => {
+                refreshContent();
+                refreshQueue();
+              }}
+              disabled={isLoadingContent || isLoadingQueue}
+              className="px-3 py-1 text-xs bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-400 rounded-md transition-colors disabled:opacity-50"
+              title="Refresh data"
+            >
+              🔄
+            </button>
+          </div>
+        </div>
         
         <div className="flex gap-1 bg-[#1a1d27] border border-[#2e3345] rounded-lg p-1">
           {([

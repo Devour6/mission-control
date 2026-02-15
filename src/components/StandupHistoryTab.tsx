@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { fetchData } from "@/lib/dataFetch";
+import { useData, RefreshIntervals } from "@/hooks/useData";
 
 interface StandupDiscussion {
   agent: string;
@@ -27,17 +27,22 @@ interface StandupOutcome {
 }
 
 export default function StandupHistoryTab() {
-  const [data, setData] = useState<StandupOutcome[]>([]);
+  // Auto-refreshing data with SWR (low activity - refreshes every 60s)
+  const { data, isLoading, mutate: refreshData } = useData<StandupOutcome[]>(
+    "outcomes-standups.json", 
+    RefreshIntervals.LOW_ACTIVITY
+  );
+  
   const [expanded, setExpanded] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    fetchData<StandupOutcome[]>("outcomes-standups.json")
-      .then(setData)
-      .catch(() => setData([]));
     setMounted(true);
   }, []);
+
+  // Provide default value if data is still loading
+  const safeData = data || [];
 
   const standupIcon = (type: string) => {
     if (type === "early-morning") return "🌅";
@@ -60,7 +65,7 @@ export default function StandupHistoryTab() {
     return "🤖";
   };
 
-  const filteredData = data.filter(standup => {
+  const filteredData = safeData.filter(standup => {
     if (!searchQuery) return true;
     const query = searchQuery.toLowerCase();
     
@@ -96,10 +101,27 @@ export default function StandupHistoryTab() {
   return (
     <div className="max-w-4xl mx-auto">
       <div className="mb-6">
-        <h2 className="text-xl md:text-2xl font-bold">📝 Standup History</h2>
-        <p className="text-xs md:text-sm text-[#8b8fa3] mt-1">
-          Complete history of all team standups — discussion, decisions, improvements, and action items.
-        </p>
+        <div className="flex items-center justify-between">
+          <div>
+            <h2 className="text-xl md:text-2xl font-bold">📝 Standup History</h2>
+            <p className="text-xs md:text-sm text-[#8b8fa3] mt-1">
+              Complete history of all team standups — discussion, decisions, improvements, and action items.
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
+            {isLoading && (
+              <div className="w-4 h-4 border-2 border-indigo-400 border-t-transparent rounded-full animate-spin"></div>
+            )}
+            <button
+              onClick={() => refreshData()}
+              disabled={isLoading}
+              className="px-3 py-1 text-xs bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-400 rounded-md transition-colors disabled:opacity-50"
+              title="Refresh standup history"
+            >
+              🔄
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Search input */}
