@@ -27,8 +27,8 @@
     "id": "rachel",
     "agent": "Rachel",
     "agentEmoji": "\ud83d\udcbc",
-    "action": "In 12PM standup",
-    "time": "12:01 PM",
+    "action": "Idle \u2014 next scheduled task",
+    "time": "12:03 PM",
     "color": "#3b82f6"
   },
   {
