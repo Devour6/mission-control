@@ -33,11 +33,40 @@ interface CombinedData {
   decisions: CouncilDecision[];
 }
 
+// Categorize action items for accountability sections
+function categorizeActionItems(actionItems: (string | StandupActionItem)[]) {
+  const completed: (string | StandupActionItem)[] = [];
+  const started: (string | StandupActionItem)[] = [];
+  const ongoing: (string | StandupActionItem)[] = [];
+
+  actionItems.forEach(item => {
+    if (typeof item === "string") {
+      if (item.toLowerCase().includes("completed") || item.toLowerCase().includes("done")) {
+        completed.push(item);
+      } else if (item.toLowerCase().includes("started") || item.toLowerCase().includes("begin")) {
+        started.push(item);
+      } else {
+        ongoing.push(item);
+      }
+    } else {
+      const status = item.status?.toLowerCase() || "";
+      if (status.includes("completed") || status.includes("done")) {
+        completed.push(item);
+      } else if (status.includes("started") || status.includes("begin") || status.includes("in progress")) {
+        started.push(item);
+      } else {
+        ongoing.push(item);
+      }
+    }
+  });
+
+  return { completed, started, ongoing };
+}
+
 export default function StandupHistoryTab() {
   const [data, setData] = useState<CombinedData>({ standups: [], decisions: [] });
   const [expanded, setExpanded] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
-  const [filter, setFilter] = useState<"standups">("standups");
   const [view, setView] = useState<"standups" | "outcomes">("standups");
   const [dateFilter, setDateFilter] = useState<"all" | "today" | "week" | "month">("all");
   const [startDate, setStartDate] = useState<string>("");
@@ -171,36 +200,6 @@ export default function StandupHistoryTab() {
 
     return { standups: filteredStandups, decisions: filteredDecisions };
   }, [data, searchQuery, dateFilter, startDate, endDate]);
-
-  // Categorize action items for accountability sections
-  const categorizeActionItems = (actionItems: (string | StandupActionItem)[]) => {
-    const completed: (string | StandupActionItem)[] = [];
-    const started: (string | StandupActionItem)[] = [];
-    const ongoing: (string | StandupActionItem)[] = [];
-
-    actionItems.forEach(item => {
-      if (typeof item === "string") {
-        if (item.toLowerCase().includes("completed") || item.toLowerCase().includes("done")) {
-          completed.push(item);
-        } else if (item.toLowerCase().includes("started") || item.toLowerCase().includes("begin")) {
-          started.push(item);
-        } else {
-          ongoing.push(item);
-        }
-      } else {
-        const status = item.status?.toLowerCase() || "";
-        if (status.includes("completed") || status.includes("done")) {
-          completed.push(item);
-        } else if (status.includes("started") || status.includes("begin") || status.includes("in progress")) {
-          started.push(item);
-        } else {
-          ongoing.push(item);
-        }
-      }
-    });
-
-    return { completed, started, ongoing };
-  };
 
   const refreshData = async () => {
     setIsLoading(true);
