@@ -429,5 +429,115 @@
       "Ross: Emdash auto-stripper script integrated into sync pipeline",
       "John: House savings projection model (3 scenarios, Austin $900K)"
     ]
+  },
+  {
+    "id": "standup-2026-02-14-evening",
+    "date": "2026-02-14",
+    "time": "8:00 PM",
+    "type": "evening",
+    "summary": "Full EOD review. Dwight A (19 sourced stories, 3 sweeps). Kelly B+ (clean drafts but only 1/3 batches). Rachel A- (4 drafts, zero emdashes, best day). John B+ (proper TA memo, structured analysis). Ross A- (price aggregator fixed, 4/6 sources). Pam C (zero visible output). George B+ (P0 fix, 4 post-mortems, still fire-and-forget on batch monitoring).",
+    "discussion": [
+      {
+        "agent": "Dwight",
+        "grade": "A",
+        "summary": "3 intel sweeps, 19 sourced stories, strong analysis connecting to Phase. Late-breaking: 21Shares TSOL staking payouts, CFTC committee with Toly, BTC bear signals."
+      },
+      {
+        "agent": "Kelly",
+        "grade": "B+",
+        "summary": "3 clean drafts (zero emdashes, punchy voice), but only morning batch produced. Midday and evening batches missing \u2014 66% of expected output absent."
+      },
+      {
+        "agent": "Rachel",
+        "grade": "A-",
+        "summary": "4 drafts (exceeded minimum), zero emdashes first time ever, pre-publish checklist working. Institutional staked SOL draft especially strong."
+      },
+      {
+        "agent": "John",
+        "grade": "B+",
+        "summary": "Full TA memo with proper charts/indicators/on-chain metrics. Using new template. Bear market playbook + house savings projection completed. Medium conviction \u2014 improving."
+      },
+      {
+        "agent": "Ross",
+        "grade": "A-",
+        "summary": "Price aggregator fixed (4/6 sources, 24h change data working). Added CryptoCompare + KuCoin. Expense audit: $400-450/mo savings possible with Mac Studio. Emdash script built."
+      },
+      {
+        "agent": "Pam",
+        "grade": "C",
+        "summary": "Zero visible output today. No daily notes, no CRM activity, no email summaries, no calendar pulls. 10PM CRM cron may produce tonight."
+      },
+      {
+        "agent": "George",
+        "grade": "B+",
+        "summary": "Fixed P0 draft sync, documented 4 mistakes with post-mortems, 4 standups today. Still fire-and-forget on Kelly batch monitoring."
+      }
+    ],
+    "qualityAudit": [
+      {
+        "agent": "Kelly",
+        "finding": "Only 1/3 draft batches produced \u2014 midday/evening missing",
+        "severity": "HIGH"
+      },
+      {
+        "agent": "Pam",
+        "finding": "Zero visible output for entire day",
+        "severity": "HIGH"
+      },
+      {
+        "agent": "John",
+        "finding": "Medium conviction on both trade proposals",
+        "severity": "LOW"
+      },
+      {
+        "agent": "Ross",
+        "finding": "2/6 price sources still broken (Birdeye, CoinMarketCap)",
+        "severity": "MEDIUM"
+      },
+      {
+        "agent": "Rachel",
+        "finding": "Clean \u2014 best day yet, zero emdashes",
+        "severity": "NONE"
+      },
+      {
+        "agent": "Dwight",
+        "finding": "Clean \u2014 consistently excellent",
+        "severity": "NONE"
+      }
+    ],
+    "keyDecisions": [
+      "Investigate Kelly midday/evening cron failures \u2014 determine if crons ran but produced nothing vs didn't execute",
+      "Define Pam daily productivity baseline \u2014 minimum outputs per day"
+    ],
+    "improvements": [
+      "Add automated batch completion monitoring for Kelly/Rachel cron outputs",
+      "Create Pam daily checklist: 1 email summary, 1 calendar pull, CRM maintenance minimum"
+    ],
+    "actionItems": [
+      {
+        "agent": "Dwight",
+        "task": "SOL Strategies (HSDT) earnings preview for Monday"
+      },
+      {
+        "agent": "Kelly",
+        "task": "Weekend X engagement analysis \u2014 optimize content hit rate"
+      },
+      {
+        "agent": "Rachel",
+        "task": "LinkedIn algorithm optimization research"
+      },
+      {
+        "agent": "John",
+        "task": "Monday catalyst playbook with specific trade setups per scenario"
+      },
+      {
+        "agent": "Ross",
+        "task": "Mission Control health audit + auto-refresh implementation"
+      },
+      {
+        "agent": "Pam",
+        "task": "CRM pipeline audit & contact enrichment"
+      }
+    ]
   }
 ]
