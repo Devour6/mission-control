@@ -404,6 +404,138 @@
       "status": "denied",
       "feedback": "NOT PHASE LABS... its PHASE!",
       "resolvedAt": "2026-02-15T22:40:39.791Z"
+    },
+    {
+      "id": "kelly-2026-02-15-4",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-15",
+      "text": "X is about to let 1 billion users trade crypto without leaving the app. No new downloads, no KYC friction, just tap a ticker and buy. That's more distribution than every ETF approval combined.",
+      "angle": "** X crypto trading is the biggest story today. Frames it from a builder's distribution lens, which is Brandon's natural angle. Bold closing take backed by the scale numbers.\n\n---",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "kelly-2026-02-15-5",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-15",
+      "text": "Anatoly is now on the CFTC's crypto advisory panel alongside Brian Armstrong and Hayden Adams. Solana doesn't just have a token. It has a seat at the regulatory table. That matters more than any price target.",
+      "angle": "** CFTC panel news positions Solana as institutionally legitimate. Builder/founder framing. Punchy closer that separates signal from noise.\n\n---",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "kelly-2026-02-15-6",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-15",
+      "text": "21Shares is paying staking rewards on their Solana ETF starting Monday. You can now earn yield on SOL through your brokerage account. The line between TradFi and DeFi is gone.",
+      "angle": "** Directly relevant to Phase's staking business. Short, factual, bold conclusion. Timely since the payout is Feb 17 (tomorrow).\n\n---\n\n_Pre-submit checks: No emdashes (—) found. All sentences capitalized. No hashtags. All grounded in Dwight's intel._\n\n---\n\n# Batch 2 (Evening) | By Kelly\n\n---",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "kelly-2026-02-15-7",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-15",
+      "text": "Fear & Greed Index hit Extreme Fear below 10. BTC back at $70K anyway. The best buying signals happen when retail is panicking and builders keep building.\n\n**Angle:** Extreme Fear index as buying signal. Contrarian take backed by real data from Dwight's intel.",
+      "angle": "",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "kelly-2026-02-15-8",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-15",
+      "text": "21,000 AI agents launched under ERC-8004 across Ethereum, BNB, and Solana this week. That's not a pilot program. That's production scale infrastructure for autonomous economic activity.\n\n**Angle:** 21K AI agents under ERC-8004. Frames it as infrastructure maturity rather than experimental tech.",
+      "angle": "",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "kelly-2026-02-15-9",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-15",
+      "text": "Jupiter just proposed going to zero net JUP emissions. They'd rather burn tokens than inflate. DEX revenues can sustain operations without printing more supply.\n\n**Angle:** Jupiter \"Going Green\" zero emissions proposal. Builder sustainability angle that shows DEX maturity.\n\n---\n\n_Evening batch pre-submit checks: No emdashes (—) found. All sentences capitalized. No hashtags. Fact-checked against Dwight's intel._",
+      "angle": "",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "rachel-2026-02-15-6",
+      "platform": "linkedin",
+      "author": "Rachel",
+      "authorEmoji": "💼",
+      "batch": "Auto-synced",
+      "date": "2026-02-15",
+      "text": "The app where 1 billion people doomscroll is about to become the app where they trade crypto.\n\nX just confirmed their \"Smart Cashtags\" feature drops in a couple weeks. Tap $BTC on your timeline. See live prices, charts. Trade without leaving the app.\n\nThis isn't just another exchange launch. This is 1B+ users getting native crypto access with zero friction.\n\nRemember when Robinhood democratized stock trading? This could be 10x bigger.\n\nAt Phase Labs, we've seen institutional demand explode through ETF approvals. But retail accessibility was still fragmented across dozens of apps and exchanges.\n\nX changes the game entirely.\n\nEvery crypto project should be preparing for what happens when the world's largest social platform becomes a trading platform too.\n\nThe question isn't whether this drives adoption. It's whether you're ready for the volume.\n\n---",
+      "angle": "",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "rachel-2026-02-15-7",
+      "platform": "linkedin",
+      "author": "Rachel",
+      "authorEmoji": "💼",
+      "batch": "Auto-synced",
+      "date": "2026-02-15",
+      "text": "Solana just earned a seat at the regulatory table that matters most.\n\nThe CFTC announced their new 35-member crypto advisory panel this week. Among the crypto heavyweights: Anatoly Yakovenko from Solana Labs.\n\nWhy does this matter?\n\nThe CFTC has traditionally been more crypto-friendly than the SEC. If crypto regulation shifts toward CFTC jurisdiction (which many hope), having Anatoly's voice in those conversations is huge for the entire Solana ecosystem.\n\nThis isn't just about token prices. It's about legitimacy at the highest levels of US financial policy.\n\nAt Phase Labs, we operate 30+ Solana validators. We've seen firsthand how regulatory clarity drives institutional adoption.\n\nWhen major funds can stake SOL through their brokerage accounts (21Shares just announced SOL ETF staking rewards), when enterprises can build on Solana without regulatory uncertainty, when developers can ship without legal risk - that's when real growth happens.\n\nRegulation isn't the enemy of innovation. Bad regulation is.\n\nHaving builders like Anatoly shaping policy instead of just reacting to it? That's how we get it right.\n\n---",
+      "angle": "",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "rachel-2026-02-15-8",
+      "platform": "linkedin",
+      "author": "Rachel",
+      "authorEmoji": "💼",
+      "batch": "Auto-synced",
+      "date": "2026-02-15",
+      "text": "You can now earn crypto staking rewards through your traditional brokerage account.\n\n21Shares just announced they're paying SOL staking rewards to TSOL ETF holders on February 17. $0.316871 per share.\n\nThis is a massive shift. For years, institutions wanted crypto exposure but couldn't access native yields. You could buy BTC through an ETF, but you couldn't stake it.\n\nThat limitation just disappeared for Solana.\n\nNow pension funds, family offices, and retail investors can earn 6-8% APY on SOL through their existing brokerage relationship. No need to learn validator selection, delegation, or custody.\n\nAt Phase Labs, we manage over 1 million SOL in delegation. We've watched institutional interest grow as compliance barriers dropped.\n\nBut yield access was the missing piece. Traditional investors understand dividends and bond yields. They don't understand staking - until it shows up as a line item on their quarterly statement.\n\nThis is how crypto goes mainstream. Not through flashy marketing campaigns, but through familiar financial products that reduce friction to zero.\n\nThe line between traditional finance and DeFi isn't blurring. It's disappearing entirely.\n\n---\n\n---",
+      "angle": "",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "rachel-2026-02-15-9",
+      "platform": "linkedin",
+      "author": "Rachel",
+      "authorEmoji": "💼",
+      "batch": "Auto-synced",
+      "date": "2026-02-15",
+      "text": "$30 billion raised in a single round. The AI arms race just went nuclear.\n\nAnthropic closed one of the largest private funding rounds in tech history this week. $380 billion post-money valuation. All earmarked for compute, talent, and frontier model training.\n\nThis happened the same week OpenAI shipped GPT-5.3-Codex-Spark and Google countered with Gemini 3 Deep Think. Three major model releases in 7 days.\n\nThe message is clear: whoever builds the best AI infrastructure wins everything.\n\nWhat does this mean for the rest of us?\n\nFirst, talent is about to get extremely expensive. Every AI engineer just became 10x more valuable overnight. If you're building an AI company, your biggest risk isn't technical - it's recruitment.\n\nSecond, the infrastructure layer becomes critical. All this compute has to run somewhere. All these models need to interface with real economic systems. The winners will be platforms that can handle massive scale and micropayments.\n\nAt Phase Labs, we're watching this play out in real time with our AI agent team. Our agents execute trades, write content, and manage operations. But they need reliable infrastructure to function at scale.\n\nThe companies that solve AI infrastructure - not just the models themselves - are going to capture enormous value as this arms race intensifies.\n\nThe question isn't whether AI will transform business. It's whether your infrastructure can handle what's coming.\n\n---",
+      "angle": "",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "rachel-2026-02-15-10",
+      "platform": "linkedin",
+      "author": "Rachel",
+      "authorEmoji": "💼",
+      "batch": "Auto-synced",
+      "date": "2026-02-15",
+      "text": "You can now borrow against your staked crypto without unstaking it.\n\nAnchorage Digital, Kamino, and Solana Company just launched a tri-party custody framework that lets institutions use natively staked SOL as collateral for loans.\n\nHere's why this matters: traditional finance has always struggled with crypto staking. You want the yield, but you also need liquidity. Until now, you had to choose.\n\nThis solves that completely.\n\nPension funds can stake SOL, earn 6-8% APY, and still access that capital for other investments. Family offices can maintain staking positions while funding operations. Treasuries can optimize yield without sacrificing flexibility.\n\nAt Phase Labs, we manage staking for clients who've faced exactly this dilemma. They want validator rewards, but they can't lock up 100% of their SOL indefinitely.\n\nStaked SOL lending changes the entire institutional adoption curve. You're not just buying crypto - you're putting idle assets to work while maintaining operational capital.\n\nThe crypto native community has had this functionality through DeFi protocols for years. Now traditional finance has it too, with institutional-grade custody and compliance.\n\nThis is how real adoption happens. Not through price speculation, but through solving actual treasury management problems for sophisticated institutions.\n\nThe line between traditional finance and DeFi staking isn't blurring anymore. It's gone.\n\n---",
+      "angle": "",
+      "status": "pending",
+      "feedback": ""
     }
   ]
 }
