@@ -1628,5 +1628,177 @@
       "Pam: Full expense audit Google Sheet with recommendations",
       "George: Daily quality scorecard automation script"
     ]
+  },
+  {
+    "id": "standup-2026-02-16-morning",
+    "date": "2026-02-16",
+    "time": "7:45 AM",
+    "type": "morning",
+    "summary": "Monday morning standup. 4AM sprint produced 2 Google Docs (Phase competitive analysis x2), John executed 4 trades (net -$28, aggressive cumulative exposure flagged), Ross shipped 5 MFC commits overnight, Kelly delivered strong engagement-optimized drafts. Rachel missing Feb 16 output. Radiants project neglected \u2014 0 deliverables. 6 autonomous tasks spawned focusing on Radiants revenue gap, wallet rebalance, MFC test evidence.",
+    "discussion": [
+      {
+        "agent": "Dwight",
+        "grade": "A-",
+        "summary": "Phase competitive analysis Google Doc delivered (4AM sprint). Delegation moat doc from overnight. No fresh Feb 16 morning intel file found \u2014 possible cron miss."
+      },
+      {
+        "agent": "Kelly",
+        "grade": "B+",
+        "summary": "5 engagement-optimized X drafts. Best quality batch yet \u2014 data-grounded, varied formats, no emdashes/hashtags. Anchorage/Kamino claim needs fact-check."
+      },
+      {
+        "agent": "Rachel",
+        "grade": "C",
+        "summary": "Zero Feb 16 output. Last batch was Feb 15 evening. 'Phase Labs' error recurring in yesterday's morning drafts. Dispatched on Monday LinkedIn batch."
+      },
+      {
+        "agent": "John",
+        "grade": "C+",
+        "summary": "4 trades executed (3 buys + 1 sell). Correct Solana tokens but market cap data inflated (ORCA $270M vs actual $47M). Cumulative exposure 34% violates spirit of 15% rule. Buy-then-sell pattern shows unclear thesis."
+      },
+      {
+        "agent": "Ross",
+        "grade": "B",
+        "summary": "5 MFC commits: CSS fix (missing Tailwind directives), Phase 4 UX, TypeScript fixes, micro-betting, navigation. Productive but no test evidence. Dispatched for test suite."
+      },
+      {
+        "agent": "Pam",
+        "grade": "B+",
+        "summary": "Morning brief delivered with calendar conflicts, email triage, week-ahead preview. QuickNode alert genuinely urgent. CRM updates accurate."
+      },
+      {
+        "agent": "George",
+        "grade": "B",
+        "summary": "Phase competitive analysis doc produced but duplicated Dwight's work. gog OAuth still broken. Need better coordination before starting deliverables."
+      }
+    ],
+    "qualityAudit": [
+      {
+        "agent": "Dwight",
+        "finding": "Research quality strong. Citations real. No Feb 16 intel file \u2014 freshness gap."
+      },
+      {
+        "agent": "Kelly",
+        "finding": "Voice guide compliant. Angles sharp and original. Draft 1 Anchorage/Kamino claim needs source verification."
+      },
+      {
+        "agent": "Rachel",
+        "finding": "No output to audit. Last batch (Feb 15 evening) was professional but 'Phase Labs' error persists in earlier work."
+      },
+      {
+        "agent": "John",
+        "finding": "ORCA market cap listed as $270M (actual ~$47M). 4 trades in rapid succession show no clear directional thesis. Cumulative risk management absent."
+      },
+      {
+        "agent": "Ross",
+        "finding": "5 commits look productive. CSS root cause was real (missing Tailwind directives). No test evidence or live site verification."
+      },
+      {
+        "agent": "Pam",
+        "finding": "Brief accurate and useful. QuickNode 'already addressed' lacks specifics on who addressed it and current status."
+      },
+      {
+        "agent": "George",
+        "finding": "Duplicate work on competitive analysis. Should check deliverables-log.md before starting new deliverables."
+      }
+    ],
+    "keyDecisions": [
+      "Flag John's cumulative daily exposure pattern \u2014 need daily max exposure check in trade pipeline",
+      "Prioritize Radiants deliverables \u2014 project has zero content or strategy docs, neglected vs Phase"
+    ],
+    "improvements": [
+      "Build cumulative daily exposure tracking into jup-trade.mjs to prevent >30% daily allocation",
+      "Add cron health check to verify expected output files exist within 30 min of scheduled time"
+    ],
+    "selfImprovement": {
+      "perAgent": [
+        {
+          "agent": "Dwight",
+          "mistakes": "No Feb 16 morning intel file",
+          "fixes": "Verify sweep cron fired; check file naming",
+          "gap": "Intel freshness",
+          "nextImprovement": "Automate file existence check post-sweep"
+        },
+        {
+          "agent": "Kelly",
+          "mistakes": "Unverified Anchorage/Kamino claim",
+          "fixes": "Add source URL requirement to every draft",
+          "gap": "Fact-checking",
+          "nextImprovement": "Mandatory source links in draft template"
+        },
+        {
+          "agent": "Rachel",
+          "mistakes": "Zero Feb 16 output; Phase Labs recurring",
+          "fixes": "Verify morning draft cron fired",
+          "gap": "Output consistency",
+          "nextImprovement": "Add Phase Labs grep to pre-submit script"
+        },
+        {
+          "agent": "John",
+          "mistakes": "Inflated market cap; cumulative position >15%",
+          "fixes": "Add cumulative tracking to trade pipeline",
+          "gap": "Data accuracy + risk mgmt",
+          "nextImprovement": "Max daily exposure check in jup-trade.mjs"
+        },
+        {
+          "agent": "Ross",
+          "mistakes": "No test evidence for 5 commits",
+          "fixes": "Require test output in completion announcement",
+          "gap": "Verification",
+          "nextImprovement": "Test-run step in SOUL.md completion checklist"
+        },
+        {
+          "agent": "Pam",
+          "mistakes": "QuickNode alert lacks action specifics",
+          "fixes": "Require action-taken details",
+          "gap": "Specificity",
+          "nextImprovement": "Alert template: Alert \u2192 Action \u2192 Status \u2192 Next step"
+        },
+        {
+          "agent": "George",
+          "mistakes": "Duplicate competitive analysis doc",
+          "fixes": "Check deliverables-log before starting work",
+          "gap": "Coordination",
+          "nextImprovement": "Dedup check in autonomous work cron prompt"
+        }
+      ],
+      "teamWorkflow": [
+        {
+          "issue": "John's cumulative daily exposure can silently exceed safe limits",
+          "solution": "Add daily cumulative cap (30%) to jup-trade.mjs",
+          "implemented": false
+        },
+        {
+          "issue": "Rachel's crons may silently fail with no output files",
+          "solution": "Build cron output verification script",
+          "implemented": false
+        }
+      ]
+    },
+    "completedActionItems": [
+      "Phase Competitive Analysis Google Doc created (Dwight + George)",
+      "Delegation Competitive Moat Analysis Google Doc (Dwight overnight)",
+      "MFC CSS fix + Phase 4 UX + micro-betting + navigation shipped (Ross 5 commits)",
+      "Kelly engagement-optimized draft batch (5 drafts)",
+      "Pam Monday morning briefing with calendar + email triage",
+      "John 4 trades executed via jup-trade.mjs pipeline",
+      "Full expense audit Google Sheet (Pam overnight)"
+    ],
+    "startedActionItems": [
+      "Radiants revenue strategy doc (Dwight \u2014 just spawned)",
+      "Radiants X draft batch (Kelly \u2014 just spawned)",
+      "Wallet rebalance analysis (John \u2014 just spawned)",
+      "Monday LinkedIn drafts (Rachel \u2014 just spawned)",
+      "MFC test evidence (Ross \u2014 just spawned)",
+      "Expense optimization audit refresh (Pam \u2014 queued, spawn limit)"
+    ],
+    "actionItems": [
+      "Dwight: Radiants Revenue Strategy Google Doc \u2014 creator economy monetization, competitor landscape, $2M pathway",
+      "Kelly: 3 Radiants-focused X drafts \u2014 hackathon, creator cadre, validator infrastructure",
+      "John: Wallet rebalance analysis \u2014 CRT exposure, USDC reserves, bear market DCA readiness",
+      "Rachel: 2 Monday LinkedIn drafts \u2014 Phase institutional staking + Radiants creator economy",
+      "Ross: MFC E2E test suite \u2014 build evidence, verify Tailwind CSS, screenshot live site",
+      "Pam: Expense optimization audit refresh \u2014 new savings, QuickNode status, Latitude.sh costs"
+    ]
   }
 ]

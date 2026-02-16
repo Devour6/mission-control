@@ -3,8 +3,8 @@
     "id": "george",
     "agent": "George",
     "agentEmoji": "\ud83e\uddbe",
-    "action": "Running 7:45AM standup",
-    "time": "11:35 AM",
+    "action": "Post-standup: monitoring spawned tasks",
+    "time": "11:36 AM",
     "color": "#6366f1"
   },
   {
