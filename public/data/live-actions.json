@@ -51,8 +51,8 @@
     "id": "pam",
     "agent": "Pam",
     "agentEmoji": "\ud83d\udccb",
-    "action": "Idle \u2014 next CRM ingestion at 10PM",
-    "time": "4:02 PM",
+    "action": "In 8PM standup",
+    "time": "8:00 PM",
     "color": "#f472b6"
   }
 ]
