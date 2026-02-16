@@ -10,8 +10,8 @@
   },
   {
     "id": "b-t31",
-    "title": "Cancel Replit subscription",
-    "description": "$51/mo — not using with local dev setup",
+    "title": "Reduce Replit to $25/mo",
+    "description": "Reduced from $51/mo — keeping for published Phase apps",
     "assignee": "Brandon",
     "dueDate": "2026-02-15",
     "status": "completed",
@@ -57,7 +57,7 @@
     "id": "b-t15",
     "title": "Release Borrowed Light Single #1",
     "assignee": "Brandon",
-    "dueDate": "2026-02-16",
+    "dueDate": "2026-02-23",
     "status": "todo",
     "createdAt": "2026-02-13T00:00:00.000Z"
   },
@@ -65,7 +65,7 @@
     "id": "b-t16",
     "title": "Release Borrowed Light Single #2",
     "assignee": "Brandon",
-    "dueDate": "2026-02-23",
+    "dueDate": "2026-03-02",
     "status": "todo",
     "createdAt": "2026-02-13T00:00:00.000Z"
   },
@@ -73,7 +73,7 @@
     "id": "b-t17",
     "title": "Release Borrowed Light Single #3",
     "assignee": "Brandon",
-    "dueDate": "2026-03-02",
+    "dueDate": "2026-03-09",
     "status": "todo",
     "createdAt": "2026-02-13T00:00:00.000Z"
   },
@@ -81,7 +81,7 @@
     "id": "b-t18",
     "title": "Release Borrowed Light EP",
     "assignee": "Brandon",
-    "dueDate": "2026-03-09",
+    "dueDate": "2026-03-16",
     "status": "todo",
     "createdAt": "2026-02-13T00:00:00.000Z"
   },
