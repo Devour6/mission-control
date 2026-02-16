@@ -51,8 +51,8 @@
     "id": "pam",
     "agent": "Pam",
     "agentEmoji": "\ud83d\udccb",
-    "action": "Preparing Monday calendar + CRM briefing",
-    "time": "9:10 PM",
+    "action": "Idle \u2014 next task at 10PM CRM ingestion",
+    "time": "9:12 PM",
     "color": "#f472b6"
   }
 ]
