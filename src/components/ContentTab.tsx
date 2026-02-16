@@ -291,11 +291,16 @@ export default function ContentTab() {
                         <p className="text-sm text-[#e4e6ed] whitespace-pre-wrap">{draft.text}</p>
                       </div>
 
-                      {/* Meta info */}
+                      {/* Meta info — visually separated from draft content */}
                       {(draft.angle || draft.rationale) && (
-                        <p className="text-xs text-[#8b8fa3] italic mb-2">
-                          💡 {draft.angle || draft.rationale}
-                        </p>
+                        <details className="mb-2 group">
+                          <summary className="text-[10px] text-[#5a5e72] cursor-pointer hover:text-[#8b8fa3] select-none">
+                            💡 Why this angle
+                          </summary>
+                          <p className="text-xs text-[#5a5e72] italic mt-1 pl-4">
+                            {draft.angle || draft.rationale}
+                          </p>
+                        </details>
                       )}
                       {draft.source && (
                         <p className="text-[10px] text-[#8b8fa3] mb-3">
