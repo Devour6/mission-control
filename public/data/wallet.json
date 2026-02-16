@@ -7,19 +7,19 @@
   },
   "monthlyTarget": 7.5,
   "currentBalance": {
-    "sol": 0.761471525,
-    "usd": 315.82
+    "sol": 0.76147777,
+    "usd": 314.88
   },
   "holdings": [
     {
       "token": "SOL",
-      "amount": 0.761471525,
-      "usd": 65.84
+      "amount": 0.76147777,
+      "usd": 65.3
     },
     {
       "token": "BLZE",
       "amount": 576.27254524,
-      "usd": 0.06
+      "usd": 0
     },
     {
       "token": "ET9AeE6e",
@@ -33,8 +33,8 @@
     },
     {
       "token": "USDC",
-      "amount": 114.093155,
-      "usd": 114.09
+      "amount": 0.006553,
+      "usd": 0
     },
     {
       "token": "5Y3obR5a",
@@ -43,29 +43,10 @@
     },
     {
       "token": "CRT",
-      "amount": 1.189318443,
-      "usd": 135.83
+      "amount": 2.189318443,
+      "usd": 249.58
     }
   ],
-  "lastUpdated": "2026-02-15T22:49:24-08:00",
-  "trades": [
-    {
-      "timestamp": "2026-02-15T20:58:00Z",
-      "type": "swap",
-      "from": {
-        "token": "CRT",
-        "amount": 1.0,
-        "mint": "CRTx1JouZhzSU6XytsE42UQraoGqiHgxabocVfARTy2s"
-      },
-      "to": {
-        "token": "USDC",
-        "amount": 114.09,
-        "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
-      },
-      "usdValue": 114.09,
-      "priceImpact": -0.002,
-      "signature": "hrxddnwuQu3iQuB13j8rrnNoLa8udV4DsVvhtjb2xja7UGdo83YQNUdnEk5fydY5D5qdfF88pnMpi9NDv4XaHaj",
-      "explorer": "https://solscan.io/tx/hrxddnwuQu3iQuB13j8rrnNoLa8udV4DsVvhtjb2xja7UGdo83YQNUdnEk5fydY5D5qdfF88pnMpi9NDv4XaHaj"
-    }
-  ]
+  "lastUpdated": "2026-02-15T20:51:36-08:00",
+  "trades": []
 }
