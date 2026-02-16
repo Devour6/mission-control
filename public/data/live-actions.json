@@ -3,8 +3,8 @@
     "id": "george",
     "agent": "George",
     "agentEmoji": "\ud83e\uddbe",
-    "action": "In 4PM standup",
-    "time": "4:00 PM",
+    "action": "Post-standup: monitoring 6 spawned tasks",
+    "time": "4:03 PM",
     "color": "#6366f1"
   },
   {

@@ -1126,5 +1126,179 @@
       "SOL price automated validation gate for Dwight sweeps",
       "Vercel stale cache resolution \u2014 pushed fresh commit to trigger redeploy"
     ]
+  },
+  {
+    "id": "standup-2026-02-15-afternoon",
+    "date": "2026-02-15",
+    "time": "4:00 PM",
+    "type": "afternoon",
+    "summary": "Afternoon standup. Dwight A (great research, SOL price still stale \u2014 automation fix spawned). Kelly B+ (feedback applied, TPS needs verify). Rachel B+ (topic diversity improved). John B- (standing aside correctly, playbook under audit). Ross B (MFC sprint in progress, no test evidence). Pam B+ (expense tracking, schedule built). George B+ (MC overhaul, trade pipeline, missed SOL price error). 6 tasks spawned: evening sweep/drafts, SOL price validator, playbook audit, fact-check template.",
+    "discussion": [
+      {
+        "agent": "George",
+        "status": "B+",
+        "summary": "MC overhaul shipped (localStorage removed, standups rebuilt, wallet automation, trade pipeline). Missed SOL price error in Dwight sweep. Building automation fixes."
+      },
+      {
+        "agent": "Dwight",
+        "status": "A",
+        "summary": "Institutional pricing analysis delivered. Midday sweep excellent. SOL price posted as ~ vs actual ~ \u2014 Brandon caught it. X API 401 still open."
+      },
+      {
+        "agent": "Kelly",
+        "status": "B+",
+        "summary": "3 midday X drafts. No emdashes/hashtags. CFTC TPS claim needs fact-check. Smart Cashtags thread strong."
+      },
+      {
+        "agent": "Rachel",
+        "status": "B+",
+        "summary": "5 LinkedIn drafts total. Midday batch diversified topics. Morning batch was 3x same TSOL topic. 1M SOL claim unverified."
+      },
+      {
+        "agent": "John",
+        "status": "B-",
+        "summary": "Market scans on schedule. Correctly standing aside in choppy market. Bear market playbook delivered, under audit. No fantasy trades since pipeline enforcement."
+      },
+      {
+        "agent": "Ross",
+        "status": "B",
+        "summary": "MFC sprint in progress (evolution, tournaments, achievements). Still no test evidence in logs. Waiting on Auth0/Stripe keys."
+      },
+      {
+        "agent": "Pam",
+        "status": "B+",
+        "summary": "Expense cancellations tracked. Next week schedule built (19 events). Google Workspace cancellation flagged. Calendar conflict proactiveness gap."
+      }
+    ],
+    "qualityAudit": [
+      {
+        "agent": "Dwight",
+        "finding": "Research quality excellent. SOL price accuracy STILL failing \u2014 posted ~ vs actual ~. Automation fix being built."
+      },
+      {
+        "agent": "Kelly",
+        "finding": "Feedback applied (no emdashes/hashtags). CFTC TPS 4000 claim needs verification. Smart Cashtags angle original."
+      },
+      {
+        "agent": "Rachel",
+        "finding": "Morning: 3 drafts same topic + unverified 1M SOL claim. Midday: improved diversity. Fact-check template being created."
+      },
+      {
+        "agent": "John",
+        "finding": "No longer proposing fantasy trades. Standing aside correctly. Bear market playbook needs historical data verification."
+      },
+      {
+        "agent": "Ross",
+        "finding": "Self-reports \"major success\" without test evidence. Must include smoke test output in every build log."
+      },
+      {
+        "agent": "Pam",
+        "finding": "Expense tracking accurate. Schedule comprehensive. Discord alerting gap when messaging unavailable."
+      },
+      {
+        "agent": "George",
+        "finding": "Shipped MC overhaul + trade pipeline. Failed to catch SOL price error before Brandon. Automation > manual review."
+      }
+    ],
+    "keyDecisions": [
+      "Building automated SOL price validation script to prevent stale prices in research output",
+      "Creating mandatory content fact-check template for Kelly and Rachel",
+      "John correctly standing aside in choppy market \u2014 no forced trades on small wallet"
+    ],
+    "improvements": [
+      "SOL price validation automation (scripts/validate-sol-price.sh) \u2014 catches stale prices before they reach content/research",
+      "Content fact-check template (agents/content-fact-check-template.md) \u2014 mandatory verification fields for all drafts",
+      "Bear market playbook audit \u2014 verifying historical claims before using as trading framework"
+    ],
+    "selfImprovement": {
+      "perAgent": [
+        {
+          "agent": "George",
+          "mistakes": "Missed SOL price error in Dwight sweep before Brandon saw it",
+          "fixes": "Automated price validation script",
+          "gap": "Manual review misses data errors",
+          "nextImprovement": "Integrate price validator into sweep pipeline"
+        },
+        {
+          "agent": "Dwight",
+          "mistakes": "SOL price recycled from stale search results ( vs )",
+          "fixes": "Price validation script + mandatory live check",
+          "gap": "X API 401 unresolved",
+          "nextImprovement": "Fix X API tokens"
+        },
+        {
+          "agent": "Kelly",
+          "mistakes": "TPS claim unverified in CFTC draft",
+          "fixes": "Fact-check template mandatory",
+          "gap": "Standalone tweets vs threads",
+          "nextImprovement": "Default to thread format for depth"
+        },
+        {
+          "agent": "Rachel",
+          "mistakes": "Same topic 3x in morning + unverified Phase claims",
+          "fixes": "Min 2 topics per batch + fact-check template",
+          "gap": "Phase data verification",
+          "nextImprovement": "Cross-reference Phase stats before claiming numbers"
+        },
+        {
+          "agent": "John",
+          "mistakes": "None this cycle \u2014 improved from midday",
+          "fixes": "Trade pipeline enforcing balance limits",
+          "gap": "Playbook claims need verification",
+          "nextImprovement": "Include source links in all analysis"
+        },
+        {
+          "agent": "Ross",
+          "mistakes": "No test evidence in build logs",
+          "fixes": "Test output required in every commit log",
+          "gap": "Verification gap",
+          "nextImprovement": "Screenshot or test log with every PR"
+        },
+        {
+          "agent": "Pam",
+          "mistakes": "Could not alert Brandon via Discord about urgent email",
+          "fixes": "Escalation path when messaging unavailable",
+          "gap": "Proactive calendar conflict resolution",
+          "nextImprovement": "Suggest conflict resolutions in schedule"
+        }
+      ],
+      "teamWorkflow": [
+        {
+          "issue": "SOL price errors reaching external channels",
+          "solution": "Automated price validation script integrated into sweep pipeline",
+          "implemented": true
+        },
+        {
+          "issue": "Unverified claims in content drafts",
+          "solution": "Mandatory content fact-check template for Kelly + Rachel",
+          "implemented": true
+        }
+      ]
+    },
+    "completedActionItems": [
+      "MC overhaul: localStorage removed, standups tab rebuilt, wallet automation deployed",
+      "Trade execution pipeline built (jup-trade.mjs) \u2014 balance enforcement, MC sync, Discord logging",
+      "Wallet balance script fixed (USDC pricing + CRT API User-Agent)",
+      "Content approval pipeline: approve/deny flows to content-feedback.json automatically",
+      "Institutional staking pricing research delivered (Figment, Blockdaemon, Chorus One, Kiln)",
+      "Bear market playbook delivered by John",
+      "Next week schedule built by Pam (Feb 16-22, 19 events)",
+      "Brandon expense cancellations tracked (Suno, QuickNode, GWS devourservices, Lovable)"
+    ],
+    "startedActionItems": [
+      "SOL price validation script (spawned this standup)",
+      "Content fact-check template (spawned this standup)",
+      "Bear market playbook audit (spawned this standup)",
+      "MFC Phase 3 sprint (fighter evolution, tournaments, achievements)",
+      "X API token refresh (flagged twice, not yet resolved)"
+    ],
+    "actionItems": [
+      "Dwight: Evening sweep with mandatory live price verification",
+      "Kelly: Evening X drafts (3 new tweets, different topics from midday)",
+      "Rachel: Evening LinkedIn drafts (2 new, diversified from TSOL)",
+      "George: SOL price validation script + integration into sweep pipeline",
+      "George: Content fact-check template for Kelly + Rachel",
+      "George: Audit John bear market playbook historical claims"
+    ]
   }
 ]
