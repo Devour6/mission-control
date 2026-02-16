@@ -51,8 +51,8 @@
     "id": "pam",
     "agent": "Pam",
     "agentEmoji": "\ud83d\udccb",
-    "action": "Queued: expense audit (spawn limit hit)",
-    "time": "11:35 AM",
+    "action": "Queued: expense audit refresh",
+    "time": "11:36 AM",
     "color": "#f472b6"
   }
 ]
