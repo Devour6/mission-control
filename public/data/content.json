@@ -436,6 +436,42 @@
       "angle": "",
       "status": "pending",
       "feedback": ""
+    },
+    {
+      "id": "kelly-2026-02-16-7",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-16",
+      "text": "Solana's RWA ecosystem just hit $1.66B. All-time high. Citi is tokenizing on-chain. Spot and futures taker CVD both buy-dominant for 90 days straight. The institutional rails are being built in real time. You're just not paying attention because the price is red.",
+      "angle": "** RWA ATH is a fresh data point from today's midday intel. Citi tokenizing adds institutional credibility. CVD data adds depth. Closing line is punchy and contrarian without exaggerating.\n\n---\n\n#",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "kelly-2026-02-16-8",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-16",
+      "text": "SOL ETFs just posted their best inflows in a month. $8.4M while the price is at $85. Institutions are accumulating. Retail is panicking. Pick a side.",
+      "angle": "** ETF inflow data is fresh (today's intel). Short, punchy, contrarian. \"Pick a side\" is a strong closer. No exaggeration, all numbers verified.\n\n---\n\n#",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "kelly-2026-02-16-9",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-16",
+      "text": "Every major AI CEO is in India right now. Altman, Pichai, Amodei, Hassabis. India just committed $1.1B to a state-backed AI fund. 100M+ weekly ChatGPT users there, second only to the US. The AI race isn't US vs China anymore. It's global.",
+      "angle": "** India AI Summit is today's biggest non-crypto story. Specific names and numbers add authority. Bold reframing of the AI competition narrative. Relevant to Brandon's AI interests.\n\n---\n\n_Pre-submit checks: No emdashes found. All sentences capitalized. No hashtags. All grounded in Dwight's midday intel. All facts verified._",
+      "status": "pending",
+      "feedback": ""
     }
   ]
 }
