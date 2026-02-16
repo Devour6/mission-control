@@ -1,6 +1,20 @@
 {
   "days": [
     {
+      "date": "2026-02-16",
+      "docs": [
+        {
+          "id": "d-16-1",
+          "title": "Expense Optimization Analysis - February 2026",
+          "author": "George",
+          "authorEmoji": "🦾",
+          "type": "analysis",
+          "description": "Comprehensive expense optimization analysis identifying $2,847/month ($34,164/year) in savings opportunities. Covers cloud infrastructure, AI costs, SaaS subscriptions, and business operations with actionable implementation plans.",
+          "url": "https://docs.google.com/document/d/1Y-Ii4ir1GYLCtFS4yuETHXyvyo-EawOJbvNzM3kYxZ4/edit"
+        }
+      ]
+    },
+    {
       "date": "2026-02-15",
       "docs": [
         {
