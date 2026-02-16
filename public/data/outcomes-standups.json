@@ -1451,5 +1451,182 @@
       "Pam: Monday morning prep brief \u2014 emails, calendar, admin items",
       "George: Wire price validator + grep guard into agent workflows"
     ]
+  },
+  {
+    "id": "standup-2026-02-15-latenight",
+    "date": "2026-02-15",
+    "time": "11:00 PM",
+    "type": "latenight",
+    "summary": "Late night standup. Brandon rated team 0.5/10 at 8PM \u2014 full restructuring executed: 6\u21923+1 standups, work sprints, idle dispatcher, scorecard system, deliverables tracking. 11 real deliverables logged today. 6 overnight tasks spawned: delegation moat doc, bear DCA strategy, MFC E2E tests, engagement analysis, expense audit, quality scorecard automation.",
+    "discussion": [
+      {
+        "agent": "Dwight",
+        "grade": "A-",
+        "summary": "3 sweeps + 2 research docs (competitive pricing, SOL Strategies earnings). SOL price inconsistency persists."
+      },
+      {
+        "agent": "Kelly",
+        "grade": "B+",
+        "summary": "8 drafts, feedback applied, no emdashes/hashtags. TPS claim still unverified."
+      },
+      {
+        "agent": "Rachel",
+        "grade": "B",
+        "summary": "6 drafts, evening strongest. 'Phase Labs' in 3/5 morning drafts \u2014 unacceptable recurring error."
+      },
+      {
+        "agent": "John",
+        "grade": "B+",
+        "summary": "Zero fantasy trades. 2 research docs (CRT analysis, yield opportunities). Found 114 USDC idle. Standing aside correctly."
+      },
+      {
+        "agent": "Ross",
+        "grade": "B",
+        "summary": "MFC Phase 3 + HTML reset deployed. Fight algo verified. Frontend errors, API needs Auth0. E2E tests spawned."
+      },
+      {
+        "agent": "Pam",
+        "grade": "B+",
+        "summary": "Monday prep brief delivered. CRM ingestion clean. Expense cancellations tracked. Discord alert gap."
+      },
+      {
+        "agent": "George",
+        "grade": "B+",
+        "summary": "Full restructuring: standups, work sprints, trade pipeline, MC overhaul. Fire-and-forget pattern on spawned tasks."
+      }
+    ],
+    "qualityAudit": [
+      {
+        "agent": "Dwight",
+        "finding": "SOL price $5+ off between sweeps. Price validator built but not integrated into pipeline."
+      },
+      {
+        "agent": "Kelly",
+        "finding": "CFTC TPS claim (4000 TPS) unverified all day. Fact-check template not delivered."
+      },
+      {
+        "agent": "Rachel",
+        "finding": "'Phase Labs' in 3/5 morning drafts despite 15+ prior corrections. Grep guard built but not wired in."
+      },
+      {
+        "agent": "John",
+        "finding": "Research quality improved. CRT analysis data-backed. No fantasy trades. USDC idle at 0% yield."
+      },
+      {
+        "agent": "Ross",
+        "finding": "MFC fight algo verified (10 sims, proper variance). Frontend import errors. No self-initiated testing."
+      },
+      {
+        "agent": "Pam",
+        "finding": "Monday brief comprehensive. No Discord messaging capability for urgent alerts."
+      },
+      {
+        "agent": "George",
+        "finding": "Afternoon standup tasks not verified before evening. Scorecard automation spawned to fix."
+      }
+    ],
+    "keyDecisions": [
+      "Reduced standups from 6 to 3+1 \u2014 4AM/12PM now work sprints, 8PM hybrid",
+      "Daily target: 3+ deliverables beyond crons, tracked in deliverables-log.md",
+      "Built idle agent dispatcher, weekly scorecard, deliverables log as systemic fixes"
+    ],
+    "improvements": [
+      "Quality scorecard automation (scripts/daily-quality-scorecard.sh) being built overnight",
+      "validate-content.sh to be wired as mandatory post-processing in all content crons tomorrow"
+    ],
+    "selfImprovement": {
+      "perAgent": [
+        {
+          "agent": "Dwight",
+          "mistakes": "SOL price inconsistency",
+          "fixes": "Wire sol-price-validator.sh into sweep cron",
+          "gap": "Data accuracy",
+          "nextImprovement": "Mandatory price validation pre-step"
+        },
+        {
+          "agent": "Kelly",
+          "mistakes": "TPS claim unverified all day",
+          "fixes": "Fact-check template gates draft submission",
+          "gap": "Fact verification",
+          "nextImprovement": "Automated fact-check step"
+        },
+        {
+          "agent": "Rachel",
+          "mistakes": "'Phase Labs' 3x in morning",
+          "fixes": "validate-content.sh mandatory post-draft",
+          "gap": "Company name accuracy",
+          "nextImprovement": "Auto-reject batches with 'Phase Labs'"
+        },
+        {
+          "agent": "John",
+          "mistakes": "114 USDC idle at 0%",
+          "fixes": "Next scan must propose yield action",
+          "gap": "Capital efficiency",
+          "nextImprovement": "Yield deployment recommendation"
+        },
+        {
+          "agent": "Ross",
+          "mistakes": "No self-initiated testing",
+          "fixes": "Every PR requires test evidence",
+          "gap": "QA discipline",
+          "nextImprovement": "E2E test suite"
+        },
+        {
+          "agent": "Pam",
+          "mistakes": "Can't alert via Discord",
+          "fixes": "George relays urgent items",
+          "gap": "Communication channel",
+          "nextImprovement": "Alert relay pipeline"
+        },
+        {
+          "agent": "George",
+          "mistakes": "Fire-and-forget on spawned tasks",
+          "fixes": "Quality scorecard + 30-min verification",
+          "gap": "Follow-through",
+          "nextImprovement": "Automated verification"
+        }
+      ],
+      "teamWorkflow": [
+        {
+          "issue": "Spawned tasks verified hours late or never",
+          "solution": "Quality scorecard script automates post-task checks",
+          "implemented": true
+        },
+        {
+          "issue": "'Phase Labs' keeps appearing in content",
+          "solution": "Wire validate-content.sh as mandatory post-processing in content crons",
+          "implemented": false
+        }
+      ]
+    },
+    "completedActionItems": [
+      "Full org restructuring: 6\u21923+1 standups, work sprints, idle dispatcher",
+      "Trade pipeline built (jup-trade.mjs) \u2014 end-to-end swap execution + MC deploy",
+      "SOL Strategies earnings preview Google Doc created and verified",
+      "MFC Phase 3 deployed + HTML reset to Brandon's original design",
+      "MFC test evidence produced (fight algo verified, 10 simulations)",
+      "SOL price validator script built (scripts/sol-price-validator.sh)",
+      "Content validation script built (scripts/validate-content.sh)",
+      "Monday prep briefing delivered by Pam",
+      "CRM daily ingestion completed (zero new contacts)",
+      "X API 401 investigated \u2014 bearer token confirmed working",
+      "Weekly scorecard system built (scripts/weekly-scorecard.sh)"
+    ],
+    "startedActionItems": [
+      "Phase Delegation Moat Analysis Google Doc (Dwight \u2014 overnight)",
+      "Bear Market DCA Strategy document (John \u2014 overnight)",
+      "MFC E2E test suite (Ross \u2014 overnight)",
+      "Kelly engagement analysis + 5 new drafts (overnight)",
+      "Full expense audit Google Sheet (Pam \u2014 overnight)",
+      "Quality scorecard automation script (George \u2014 overnight)"
+    ],
+    "actionItems": [
+      "Dwight: Phase Delegation Competitive Moat Analysis Google Doc",
+      "John: Bear Market DCA Strategy with exact price levels",
+      "Ross: MFC E2E test suite proving app functionality",
+      "Kelly: Top 20 Solana tweet engagement analysis + 5 drafts",
+      "Pam: Full expense audit Google Sheet with recommendations",
+      "George: Daily quality scorecard automation script"
+    ]
   }
 ]
