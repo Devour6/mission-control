@@ -1300,5 +1300,156 @@
       "George: Content fact-check template for Kelly + Rachel",
       "George: Audit John bear market playbook historical claims"
     ]
+  },
+  {
+    "id": "standup-2026-02-15-evening",
+    "date": "2026-02-15",
+    "time": "8:00 PM",
+    "type": "evening",
+    "summary": "Day-end review. 3 projects assessed. SOL price validator + fact-check template + Phase Labs grep guard built. 6 overnight tasks spawned (competitive pricing doc, CRT research, X API fix, MFC test evidence, Monday prep brief, company name guard). Key risks: SOL treasury liquidation ($1.4B), X API still 401, Rachel's persistent 'Phase Labs' error.",
+    "discussion": [
+      {
+        "agent": "Dwight",
+        "grade": "A-",
+        "summary": "3 sweeps completed, all sourced. Institutional pricing research was gold. SOL price still $5+ off ($90 vs $85). X API 401 all day."
+      },
+      {
+        "agent": "Kelly",
+        "grade": "B+",
+        "summary": "8 drafts, 3 batches. Evening strongest (Brazil BTC reserve, regulatory momentum). Feedback applied. TPS claim still unverified."
+      },
+      {
+        "agent": "Rachel",
+        "grade": "B",
+        "summary": "6 drafts. Evening AI infrastructure piece strong. 'Phase Labs' error in 3/5 morning drafts \u2014 15+ corrections and still happening."
+      },
+      {
+        "agent": "John",
+        "grade": "B",
+        "summary": "6+ scans, correctly standing aside. Bear market playbook had recovery times off by 3-5x (corrected). CRT pricing opaque."
+      },
+      {
+        "agent": "Ross",
+        "grade": "B-",
+        "summary": "MFC Phase 1+2 claimed complete. ZERO test evidence after 3 standups flagging it. Test evidence task spawned."
+      },
+      {
+        "agent": "Pam",
+        "grade": "B+",
+        "summary": "Expense cancellations tracked. Next week schedule built (19 events). Google Workspace flagged appropriately. Discord alert gap."
+      },
+      {
+        "agent": "George",
+        "grade": "B",
+        "summary": "MC overhaul + trade pipeline shipped. SOL price validator and fact-check template from 4PM standup never built \u2014 fixed now. Fire-and-forget pattern persists."
+      }
+    ],
+    "qualityAudit": [
+      "Dwight: SOL price $5+ discrepancy between sweep ($90.50) and John's scan ($85.39). Price validator now built.",
+      "Kelly: TPS claim (4000) in CFTC draft unverified. Fact-check template now created.",
+      "Rachel: 'Phase Labs' in 3/5 morning drafts despite 15+ corrections. Automated grep guard now built.",
+      "John: Bear market playbook recovery times wrong by 3-5x. Data corrected in memory.",
+      "Ross: No test evidence after 3 standups. Spawned mandatory evidence task.",
+      "George: 2 tasks spawned at 4PM never delivered. Built them manually this standup."
+    ],
+    "keyDecisions": [
+      "Built SOL price validator script (scripts/sol-price-validator.sh) for automated cross-checking",
+      "Built 'Phase Labs' grep guard (scripts/check-phase-labs.sh) for automated draft rejection",
+      "Created content fact-check template (scripts/content-fact-check.md) as mandatory pre-submit checklist"
+    ],
+    "improvements": [
+      "SOL price validation automated \u2014 script cross-checks CoinGecko + Jupiter, flags >3% discrepancy",
+      "Rachel company name guard \u2014 automated grep for 'Phase Labs' before draft submission"
+    ],
+    "selfImprovement": {
+      "perAgent": [
+        {
+          "agent": "George",
+          "mistakes": "SOL price validator + fact-check template spawned 4h ago, never built",
+          "fixes": "Built both manually. Must verify spawned tasks within 30 min.",
+          "gap": "Fire-and-forget pattern",
+          "nextImprovement": "Add spawn verification step to every standup"
+        },
+        {
+          "agent": "Dwight",
+          "mistakes": "SOL price $5+ off, X API 401 all day",
+          "fixes": "Price validator script built, X API fix task spawned",
+          "gap": "Operational reliability",
+          "nextImprovement": "Integrate price validator into sweep workflow"
+        },
+        {
+          "agent": "Kelly",
+          "mistakes": "TPS claim unverified",
+          "fixes": "Fact-check template created",
+          "gap": "Source verification",
+          "nextImprovement": "Must cite source for every numerical claim"
+        },
+        {
+          "agent": "Rachel",
+          "mistakes": "'Phase Labs' in 3/5 morning drafts",
+          "fixes": "Grep guard script built",
+          "gap": "Basic company name accuracy",
+          "nextImprovement": "Wire grep guard into draft submission workflow"
+        },
+        {
+          "agent": "John",
+          "mistakes": "Recovery times wrong by 3-5x in playbook",
+          "fixes": "Corrected data written to memory",
+          "gap": "Data accuracy in analysis",
+          "nextImprovement": "Always cross-reference historical claims against multiple sources"
+        },
+        {
+          "agent": "Ross",
+          "mistakes": "Zero test evidence for 3 standups",
+          "fixes": "Mandatory test evidence task spawned",
+          "gap": "Verification culture",
+          "nextImprovement": "Every claimed deliverable must include test output"
+        },
+        {
+          "agent": "Pam",
+          "mistakes": "Couldn't alert Brandon via Discord",
+          "fixes": "Escalation path needed",
+          "gap": "Cross-channel alerting",
+          "nextImprovement": "Build fallback alert mechanism"
+        }
+      ],
+      "teamWorkflow": [
+        {
+          "issue": "SOL price inconsistency across agents",
+          "solution": "Built sol-price-validator.sh for automated cross-checking",
+          "implemented": true
+        },
+        {
+          "issue": "Rachel keeps using 'Phase Labs' despite corrections",
+          "solution": "Built check-phase-labs.sh grep guard for automated rejection",
+          "implemented": true
+        }
+      ]
+    },
+    "completedActionItems": [
+      "SOL price validation script built (scripts/sol-price-validator.sh)",
+      "Content fact-check template created (scripts/content-fact-check.md)",
+      "'Phase Labs' grep guard built (scripts/check-phase-labs.sh)",
+      "Kelly evening drafts delivered (2 drafts, batch 3)",
+      "Rachel evening draft delivered (AI infrastructure piece)",
+      "Dwight evening sweep completed with SOL treasury risk flag",
+      "John bear market playbook audited and corrected",
+      "MC overhaul shipped (localStorage removed, standups rebuilt, wallet automation)"
+    ],
+    "startedActionItems": [
+      "X API 401 bearer token fix investigation (spawned)",
+      "Phase competitive pricing one-pager (Dwight, spawned)",
+      "CRT token pricing/liquidity research (John, spawned)",
+      "MFC test evidence collection (Ross, spawned)",
+      "Monday morning prep brief (Pam, spawned)"
+    ],
+    "actionItems": [
+      "Dwight: Phase competitive pricing one-pager from institutional research",
+      "John: CRT token pricing/liquidity research \u2014 find reliable price feeds",
+      "George: Fix X API 401 bearer token for Dwight CT sentiment",
+      "Ross: MFC test evidence \u2014 run every endpoint, show fight variance, capture output",
+      "Pam: Monday morning prep brief \u2014 emails, calendar, admin items",
+      "George: Wire price validator + grep guard into agent workflows"
+    ]
   }
 ]
