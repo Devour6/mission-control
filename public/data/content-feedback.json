@@ -238,5 +238,13 @@
     "status": "denied",
     "feedback": "NOT PHASE LABS... its PHASE!",
     "reviewedAt": "2026-02-15T22:40:39.791Z"
+  },
+  {
+    "id": "kelly-2026-02-15-4",
+    "author": "Kelly",
+    "platform": "x",
+    "status": "denied",
+    "feedback": "this isnt true. it just links to an external exchange",
+    "reviewedAt": "2026-02-16T21:12:16.988Z"
   }
 ]
