@@ -265,8 +265,9 @@
       "date": "2026-02-15",
       "text": "X is about to let 1 billion users trade crypto without leaving the app. No new downloads, no KYC friction, just tap a ticker and buy. That's more distribution than every ETF approval combined.",
       "angle": "** X crypto trading is the biggest story today. Frames it from a builder's distribution lens, which is Brandon's natural angle. Bold closing take backed by the scale numbers.\n\n---",
-      "status": "pending",
-      "feedback": ""
+      "status": "denied",
+      "feedback": "this isnt true. it just links to an external exchange",
+      "resolvedAt": "2026-02-16T21:12:16.988Z"
     },
     {
       "id": "kelly-2026-02-15-5",
