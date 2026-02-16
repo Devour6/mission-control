@@ -158,7 +158,7 @@
           "id": "eng-3",
           "name": "Molt Fighting Championship (MFC)",
           "status": "active",
-          "description": "AI fighter simulation with prediction markets. Current state: core backend built (auth, DB, fight algorithm, training, bets), but frontend needs major work \u2014 fighters don't visually fight, UI glitches, dead buttons, boring to watch. Priority: make fights entertaining + fix all broken UI.",
+          "description": "AI fighter simulation with prediction markets. PHASE 3 COMPLETE: Transformed from boring static HTML with primitive rectangles into engaging React app with detailed humanoid fighters, rich visual effects, real-time progression, dynamic crowd reactions, and cinematic fight experience. Users now want to WATCH fights, not just check results.",
           "members": [
             "Ross",
             "George"
