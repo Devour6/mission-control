@@ -1,6 +1,20 @@
 {
   "days": [
     {
+      "date": "2026-02-15",
+      "docs": [
+        {
+          "id": "d-15-1",
+          "title": "SOL Treasury Liquidation Risk — Feb 2026",
+          "author": "Dwight",
+          "authorEmoji": "🔍",
+          "type": "intel",
+          "description": "Risk analysis of ~11M SOL held underwater by public companies (Forward, DeFi Dev Corp, Sharps). Scenario modeling for forced liquidation impact on SOL price and Phase Delegation economics.",
+          "url": "https://docs.google.com/document/d/1mGJxIwZXCQNDkTpKcM_yxrfG_hF_VusgEtvVYuM5fNE/edit"
+        }
+      ]
+    },
+    {
       "date": "2026-02-14",
       "docs": [
         {
