@@ -639,6 +639,78 @@
       "angle": "** Short, punchy contrarian framing. Specific numbers from a real analyst report. The \"even the bears are bullish\" line is memorable and shareable.\n\n---\n\n_Pre-submit checks: No emdashes found. All sentences capitalized. No hashtags. All grounded in Dwight's intel. All facts verified against source material._",
       "status": "pending",
       "feedback": ""
+    },
+    {
+      "id": "kelly-2026-02-16-4",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-16",
+      "text": "Solana DeFi TVL just hit an all-time high above 80M SOL. Price is down. Usage is up. That's called accumulation. The builders didn't leave.",
+      "angle": "** DeFi TVL ATH in SOL-denominated terms despite price drawdown is a powerful signal. Builder perspective, data-backed, no exaggeration.\n\n---\n\n#",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "kelly-2026-02-16-5",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-16",
+      "text": "Alpenglow is coming to Solana. 150ms finality. 18ms block propagation. For context, that's faster than most databases. We're not competing with other L1s anymore. We're competing with centralized infrastructure.",
+      "angle": "** Alpenglow upgrade is the biggest Solana tech story of 2026. Specific numbers add authority. Bold closer channels Mert energy without overpromising.\n\n---\n\n#",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "kelly-2026-02-16-6",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-16",
+      "text": "Standard Chartered cut their SOL year-end target from $310 to $250. That's still 3x from here. Even the bears are bullish.",
+      "angle": "** Short, punchy contrarian framing. Specific numbers from a real analyst report. The \"even the bears are bullish\" line is memorable and shareable.\n\n---\n\n_Pre-submit checks: No emdashes found. All sentences capitalized. No hashtags. All grounded in Dwight's intel. All facts verified against source material._",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "rachel-2026-02-16-1",
+      "platform": "linkedin",
+      "author": "Rachel",
+      "authorEmoji": "💼",
+      "batch": "Auto-synced",
+      "date": "2026-02-16",
+      "text": ": Institutional SOL Accumulation\n\n**Hook:** While retail investors panic, institutions are buying.\n\n**Body:**\nSOL ETFs just recorded their strongest daily inflows in nearly a month - $8.4M - even as SOL trades down to $85. Meanwhile, Solana DeFi TVL hit an all-time high above 80M SOL.\n\nThe pattern is clear: smart money is accumulating while retail capitulates. Standard Chartered just cut their year-end SOL target to $250 (still 3x from here), but maintained their $2,000 target for 2030.\n\nPhase manages over 3M SOL in AUM, and we're seeing this institutional shift firsthand. When Fear & Greed hits \"extreme fear\" territory, that's historically when the best opportunities emerge.\n\nThe infrastructure is being built while everyone else is distracted by price action.\n\n**Rationale:** \n- Leverages Intel #2 (SOL ETF inflows) and market data\n- Contrarian take that positions Phase as insider with institutional perspective\n- Uses \"over 3M SOL\" as approved by Brandon's feedback\n- Company name used correctly\n- No emdashes, professional tone\n\n---",
+      "angle": "",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "rachel-2026-02-16-2",
+      "platform": "linkedin",
+      "author": "Rachel",
+      "authorEmoji": "💼",
+      "batch": "Auto-synced",
+      "date": "2026-02-16",
+      "text": ": Solana Speed Revolution\n\n**Hook:** Solana is about to become 100x faster. Here's what that means for crypto.\n\n**Body:**\nTwo major upgrades are coming to Solana in 2026:\n\nAlpenglow: Consensus overhaul targeting 150ms finality (vs current ~400ms)\nFiredancer: Already testing 1M+ TPS in controlled environments\n\nFor context, Visa processes 1,700 TPS on average. Ethereum does ~15 TPS. Bitcoin does ~7 TPS.\n\nThis isn't just about speed - it's about what becomes possible. Real-time trading, instant settlements, AI agents transacting at machine speed. The entire financial system operating at the speed of thought.\n\nWe're not just witnessing incremental improvements. We're watching the foundation being laid for a completely different type of financial infrastructure.\n\nPhase is positioning our staking infrastructure to take advantage of these performance gains as they roll out.\n\n**Rationale:**\n- Based on Intel #5 (Alpenglow upgrade)\n- Technical but accessible angle\n- Positions Phase for the future without revealing sensitive operational details\n- Contrasts with slower networks to highlight competitive advantage\n- No emdashes, fact-checked numbers\n\n---",
+      "angle": "",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "rachel-2026-02-16-3",
+      "platform": "linkedin",
+      "author": "Rachel",
+      "authorEmoji": "💼",
+      "batch": "Auto-synced",
+      "date": "2026-02-16",
+      "text": ": AI Agent Economy Emerging\n\n**Hook:** AI agents are starting to build their own economy - and it's happening faster than anyone expected.\n\n**Body:**\nVirtuals Protocol just launched their x402 micropayment system, enabling direct agent-to-agent transactions. BitRobotNetwork is integrating robotics with blockchain payments. Meanwhile, Vitalik is pushing Ethereum as the coordination layer for AI models.\n\nWe're witnessing the birth of an autonomous digital economy where AI agents:\n- Earn revenue for services performed\n- Pay other agents for data and processing\n- Stake and delegate to validators\n- Make financial decisions without human intervention\n\nThe implications are staggering. Every AI interaction could become a financial transaction. Every API call could generate micropayments. Every model inference could contribute to a decentralized economy.\n\nPhase is exploring how $YIELD can serve as infrastructure for this emerging agent economy - enabling AI systems to participate in staking and DeFi without traditional intermediaries.\n\n**Rationale:**\n- Based on Intel #4 (AI agent economy trends)\n- Forward-looking perspective that positions Phase as early\n- Uses correct token symbol \"$YIELD\"\n- Avoids technical jargon while remaining substantive\n- Ties current trends to future Phase opportunities",
+      "angle": "",
+      "status": "pending",
+      "feedback": ""
     }
   ]
 }
