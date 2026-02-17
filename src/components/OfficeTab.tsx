@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { TeamData } from "@/lib/types";
 import { fetchData } from "@/lib/dataFetch";
+import PriceWidget from "./PriceWidget";
 
 // --- Timezone Conversion Helper ---
 function convertPSTToLocal(pstTime: string): string {
@@ -582,9 +583,16 @@ export default function OfficeTab() {
         </div>
       </div>
 
-      {/* Live Actions — side on desktop, below on mobile */}
+      {/* Right Sidebar — Price Widget + Live Actions */}
       <div className="w-full xl:w-64 shrink-0">
-        <div className="bg-[#1a1d27] border border-[#2e3345] rounded-xl overflow-hidden xl:sticky xl:top-8">
+        <div className="space-y-6">
+          {/* Price Widget */}
+          <div className="xl:sticky xl:top-8">
+            <PriceWidget />
+          </div>
+          
+          {/* Live Actions */}
+          <div className="bg-[#1a1d27] border border-[#2e3345] rounded-xl overflow-hidden xl:sticky xl:top-[calc(2rem+280px)]">
           <div className="px-3 py-2.5 border-b border-[#2e3345] flex items-center gap-2">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
@@ -626,6 +634,7 @@ export default function OfficeTab() {
               </div>
             )}
           </div>
+        </div>
         </div>
       </div>
     </div>
