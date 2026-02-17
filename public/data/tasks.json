@@ -1,59 +1,5 @@
 [
   {
-    "id": "b-t30",
-    "title": "Cancel Suno subscription",
-    "description": "Monthly music AI sub — $10/mo savings",
-    "assignee": "Brandon",
-    "dueDate": "2026-02-15",
-    "status": "completed",
-    "createdAt": "2026-02-14T00:00:00.000Z"
-  },
-  {
-    "id": "b-t31",
-    "title": "Reduce Replit to $25/mo",
-    "description": "Reduced from $51/mo — keeping for published Phase apps",
-    "assignee": "Brandon",
-    "dueDate": "2026-02-15",
-    "status": "completed",
-    "createdAt": "2026-02-14T00:00:00.000Z"
-  },
-  {
-    "id": "b-t32",
-    "title": "Remove QuickNode",
-    "description": "$79/mo savings",
-    "assignee": "Brandon",
-    "dueDate": "2026-02-15",
-    "status": "completed",
-    "createdAt": "2026-02-14T00:00:00.000Z"
-  },
-  {
-    "id": "b-t33",
-    "title": "Cancel Google Workspace for devourservices.com",
-    "description": "Keep gojira.holdings only — ~$18/mo savings",
-    "assignee": "Brandon",
-    "dueDate": "2026-02-15",
-    "status": "completed",
-    "createdAt": "2026-02-14T00:00:00.000Z"
-  },
-  {
-    "id": "b-t34",
-    "title": "Review all domains — audit registrar payments",
-    "description": "Audit what you're paying for across all registrars",
-    "assignee": "Brandon",
-    "dueDate": "2026-02-15",
-    "status": "completed",
-    "createdAt": "2026-02-14T00:00:00.000Z"
-  },
-  {
-    "id": "b-t20",
-    "title": "Watch Matthew Berman video",
-    "description": "https://x.com/matthewberman/status/2021669868366598632",
-    "assignee": "Brandon",
-    "dueDate": "2026-02-14",
-    "status": "todo",
-    "createdAt": "2026-02-13T00:00:00.000Z"
-  },
-  {
     "id": "b-t15",
     "title": "Release Borrowed Light Single #1",
     "assignee": "Brandon",
@@ -86,391 +32,97 @@
     "createdAt": "2026-02-13T00:00:00.000Z"
   },
   {
-    "id": "g-review-rachel-1771088529",
-    "title": "Review Rachel's 3 new drafts",
-    "description": "Review and approve new drafts",
-    "assignee": "Brandon",
-    "dueDate": "2026-02-14",
+    "id": "g-t17",
+    "title": "Phase Delegation Site — Real-time validator performance dashboards",
+    "description": "Add live validator performance dashboards using SVT data. Show per-validator epoch performance, leader slots, rewards. Delegators want transparency.",
+    "assignee": "Ross",
     "status": "todo",
-    "createdAt": "2026-02-14T00:00:00.000Z"
+    "createdAt": "2026-02-17T16:00:00.000Z"
+  },
+  {
+    "id": "g-t18",
+    "title": "Reddit Pain Point Finder — Product Brief + Prototype",
+    "description": "Crypto/DeFi-specific pain point scanner monitoring r/solana, r/defi, CT. Feed into Phase product roadmap. Brief shared with jeff@phaselabs.io.",
+    "assignee": "Dwight",
+    "status": "in_progress",
+    "createdAt": "2026-02-17T16:00:00.000Z"
+  },
+  {
+    "id": "g-t19",
+    "title": "Deliverable verification system",
+    "description": "DELIVERABLE-RULES.md + verify-deliverables.sh + updated cron prompts. No more local .md as deliverables.",
+    "assignee": "George",
+    "status": "completed",
+    "createdAt": "2026-02-17T15:40:00.000Z"
+  },
+  {
+    "id": "b-t20",
+    "title": "Watch Matthew Berman video",
+    "assignee": "Brandon",
+    "status": "completed",
+    "createdAt": "2026-02-13T00:00:00.000Z"
+  },
+  {
+    "id": "b-t35",
+    "title": "Review Bilesimo work report",
+    "assignee": "Brandon",
+    "status": "completed",
+    "createdAt": "2026-02-17T00:00:00.000Z"
+  },
+  {
+    "id": "b-t36",
+    "title": "Review Dan Trilo Jan validator financial statement",
+    "assignee": "Brandon",
+    "status": "completed",
+    "createdAt": "2026-02-17T00:00:00.000Z"
+  },
+  {
+    "id": "b-t37",
+    "title": "Respond to Preston Michaels (YoungStartup)",
+    "assignee": "Brandon",
+    "status": "completed",
+    "createdAt": "2026-02-17T00:00:00.000Z"
   },
   {
     "id": "r-t1",
-    "title": "Full Mission Control audit — all tabs, data accuracy, mobile layout",
+    "title": "Mission Control audit — all tabs, data accuracy, mobile layout",
     "assignee": "Ross",
-    "dueDate": "2026-02-14",
     "status": "in_progress",
     "createdAt": "2026-02-13T21:43:00.000Z"
   },
   {
-    "id": "b-t1",
-    "title": "Read and enact Shubham Saboo's X post",
+    "id": "b-t30",
+    "title": "Cancel Suno subscription",
     "assignee": "Brandon",
-    "dueDate": "2026-02-12",
     "status": "completed",
-    "createdAt": "2026-02-12T00:00:00.000Z"
+    "createdAt": "2026-02-14T00:00:00.000Z"
   },
   {
-    "id": "b-t2",
-    "title": "Answer agent team questions + build first agent",
+    "id": "b-t31",
+    "title": "Reduce Replit to $25/mo",
     "assignee": "Brandon",
-    "dueDate": "2026-02-13",
     "status": "completed",
-    "createdAt": "2026-02-13T00:00:00.000Z"
+    "createdAt": "2026-02-14T00:00:00.000Z"
   },
   {
-    "id": "b-t11",
-    "title": "Review Kelly's X draft batches",
+    "id": "b-t32",
+    "title": "Remove QuickNode ($79/mo)",
     "assignee": "Brandon",
-    "dueDate": "2026-02-13",
     "status": "completed",
-    "createdAt": "2026-02-13T00:00:00.000Z"
+    "createdAt": "2026-02-14T00:00:00.000Z"
   },
   {
-    "id": "b-t13",
-    "title": "Renew X API bearer token",
+    "id": "b-t33",
+    "title": "Cancel Google Workspace for devourservices.com",
     "assignee": "Brandon",
-    "dueDate": "2026-02-14",
     "status": "completed",
-    "createdAt": "2026-02-13T00:00:00.000Z"
+    "createdAt": "2026-02-14T00:00:00.000Z"
   },
   {
-    "id": "b-t14",
-    "title": "Verify OpenAI org",
-    "assignee": "Brandon",
-    "dueDate": "2026-02-14",
-    "status": "completed",
-    "createdAt": "2026-02-13T00:00:00.000Z"
-  },
-  {
-    "id": "b-t19",
-    "title": "Set up GitHub 2FA for Devour6",
-    "assignee": "Brandon",
-    "dueDate": "2026-02-13",
-    "status": "completed",
-    "createdAt": "2026-02-13T00:00:00.000Z"
-  },
-  {
-    "id": "b-t21",
-    "title": "Bill Phase for personal CC refunds",
-    "assignee": "Brandon",
-    "dueDate": "2026-02-14",
-    "status": "completed",
-    "createdAt": "2026-02-13T00:00:00.000Z"
-  },
-  {
-    "id": "b-t22",
-    "title": "Fix Newsy — 10 days stories max",
-    "assignee": "Brandon",
-    "dueDate": "2026-02-14",
-    "status": "completed",
-    "createdAt": "2026-02-13T00:00:00.000Z"
-  },
-  {
-    "id": "g-t1",
-    "title": "Build Dwight (Research Agent)",
-    "assignee": "George",
-    "dueDate": "2026-02-13",
-    "status": "completed",
-    "createdAt": "2026-02-13T00:00:00.000Z"
-  },
-  {
-    "id": "g-t2",
-    "title": "Build Kelly (X Content Agent)",
-    "assignee": "George",
-    "dueDate": "2026-02-13",
-    "status": "completed",
-    "createdAt": "2026-02-13T00:00:00.000Z"
-  },
-  {
-    "id": "g-t3",
-    "title": "Build Rachel (LinkedIn Agent)",
-    "assignee": "George",
-    "dueDate": "2026-02-13",
-    "status": "completed",
-    "createdAt": "2026-02-13T00:00:00.000Z"
-  },
-  {
-    "id": "g-t4",
-    "title": "Build John (Trader Agent)",
-    "assignee": "George",
-    "dueDate": "2026-02-13",
-    "status": "completed",
-    "createdAt": "2026-02-13T00:00:00.000Z"
-  },
-  {
-    "id": "g-t5",
-    "title": "Mission Control V2",
-    "assignee": "George",
-    "dueDate": "2026-02-13",
-    "status": "completed",
-    "createdAt": "2026-02-13T00:00:00.000Z"
-  },
-  {
-    "id": "g-t6",
-    "title": "Set up 6x daily standups",
-    "assignee": "George",
-    "dueDate": "2026-02-13",
-    "status": "completed",
-    "createdAt": "2026-02-13T00:00:00.000Z"
-  },
-  {
-    "id": "g-t7",
-    "title": "Build Ross (Engineering Agent)",
-    "assignee": "George",
-    "dueDate": "2026-02-14",
-    "status": "completed",
-    "createdAt": "2026-02-13T00:00:00.000Z"
-  },
-  {
-    "id": "g-t8",
-    "title": "Build Pam (Personal Assistant + CRM)",
-    "assignee": "George",
-    "dueDate": "2026-02-13",
-    "status": "completed",
-    "createdAt": "2026-02-13T00:00:00.000Z"
-  },
-  {
-    "id": "g-t9",
-    "title": "Automate live-actions.json updates",
-    "assignee": "George",
-    "dueDate": "2026-02-14",
-    "status": "completed",
-    "createdAt": "2026-02-13T00:00:00.000Z"
-  },
-  {
-    "id": "g-t10",
-    "title": "Content feedback pipeline",
-    "assignee": "George",
-    "dueDate": "2026-02-13",
-    "status": "completed",
-    "createdAt": "2026-02-13T00:00:00.000Z"
-  },
-  {
-    "id": "g-t11",
-    "title": "Wire Kelly/Rachel feedback to memory",
-    "assignee": "George",
-    "dueDate": "2026-02-14",
-    "status": "completed",
-    "createdAt": "2026-02-13T00:00:00.000Z"
-  },
-  {
-    "id": "g-t12",
-    "title": "Create Discord channels per agent",
-    "assignee": "George",
-    "dueDate": "2026-02-14",
-    "status": "completed",
-    "createdAt": "2026-02-13T00:00:00.000Z"
-  },
-  {
-    "id": "g-t13",
-    "title": "Google Drive setup",
-    "assignee": "George",
-    "dueDate": "2026-02-14",
-    "status": "completed",
-    "createdAt": "2026-02-13T00:00:00.000Z"
-  },
-  {
-    "id": "g-t14",
-    "title": "Research Phase products ($YIELD, pdSOL)",
-    "assignee": "George",
-    "dueDate": "2026-02-14",
-    "status": "completed",
-    "createdAt": "2026-02-13T00:00:00.000Z"
-  },
-  {
-    "id": "g-t15",
-    "title": "Fix memorySearch embedding provider",
-    "assignee": "George",
-    "dueDate": "2026-02-14",
-    "status": "completed",
-    "createdAt": "2026-02-13T00:00:00.000Z"
-  },
-  {
-    "id": "g-t16",
-    "title": "Auto-create review tasks when drafts land",
-    "assignee": "George",
-    "dueDate": "2026-02-14",
-    "status": "completed",
-    "createdAt": "2026-02-13T00:00:00.000Z"
-  },
-  {
-    "id": "auto-b-104",
+    "id": "b-t34",
     "title": "Review all domains",
-    "description": "",
-    "assignee": "Brandon",
-    "dueDate": "2026-02-15",
-    "status": "completed",
-    "createdAt": "2026-02-15T07:18:14.569Z"
-  },
-  {
-    "id": "auto-b-101",
-    "title": "Cancel Lovable subscription",
-    "description": "",
-    "assignee": "Brandon",
-    "dueDate": "2026-02-15",
-    "status": "completed",
-    "createdAt": "2026-02-15T17:10:14.404Z"
-  },
-  {
-    "id": "auto-b-11812",
-    "title": "Cancel Lovable subscription ✅",
-    "description": "",
     "assignee": "Brandon",
     "status": "completed",
-    "createdAt": "2026-02-15T19:45:11.810Z"
-  },
-  {
-    "id": "auto-b-11813",
-    "title": "Cancel Suno subscription ✅",
-    "description": "",
-    "assignee": "Brandon",
-    "status": "completed",
-    "createdAt": "2026-02-15T19:45:11.810Z"
-  },
-  {
-    "id": "auto-b-11814",
-    "title": "Remove QuickNode ($79/mo) ✅",
-    "description": "",
-    "assignee": "Brandon",
-    "status": "completed",
-    "createdAt": "2026-02-15T19:45:11.810Z"
-  },
-  {
-    "id": "auto-b-11815",
-    "title": "Cancel Google Workspace for devourservices.com ✅",
-    "description": "",
-    "assignee": "Brandon",
-    "status": "completed",
-    "createdAt": "2026-02-15T19:45:11.810Z"
-  },
-  {
-    "id": "auto-b-11817",
-    "title": "Replit",
-    "description": "",
-    "assignee": "Brandon",
-    "status": "completed",
-    "createdAt": "2026-02-15T19:45:11.810Z"
-  },
-  {
-    "id": "auto-g-11820",
-    "title": "Build Dwight, Kelly, Rachel, John, Ross, Pam",
-    "description": "",
-    "assignee": "George",
-    "status": "completed",
-    "createdAt": "2026-02-15T19:45:11.810Z"
-  },
-  {
-    "id": "auto-g-11821",
-    "title": "Mission Control V2 deployed",
-    "description": "",
-    "assignee": "George",
-    "status": "completed",
-    "createdAt": "2026-02-15T19:45:11.810Z"
-  },
-  {
-    "id": "auto-g-11822",
-    "title": "6x daily standups",
-    "description": "",
-    "assignee": "George",
-    "status": "completed",
-    "createdAt": "2026-02-15T19:45:11.810Z"
-  },
-  {
-    "id": "auto-g-11823",
-    "title": "Morning + Afternoon autonomous work crons",
-    "description": "",
-    "assignee": "George",
-    "status": "completed",
-    "createdAt": "2026-02-15T19:45:11.810Z"
-  },
-  {
-    "id": "auto-g-11824",
-    "title": "Fix standup crons to auto-write outcomes",
-    "description": "",
-    "assignee": "George",
-    "status": "completed",
-    "createdAt": "2026-02-15T19:45:11.810Z"
-  },
-  {
-    "id": "auto-g-11825",
-    "title": "Create Discord channels (#research, #x-drafts, #linkedin-drafts, #trades)",
-    "description": "",
-    "assignee": "George",
-    "status": "completed",
-    "createdAt": "2026-02-15T19:45:11.810Z"
-  },
-  {
-    "id": "auto-g-11827",
-    "title": "GitHub 2FA, Bill Phase CC, Fix Newsy, Verify OpenAI org, Renew X API",
-    "description": "",
-    "assignee": "George",
-    "status": "completed",
-    "createdAt": "2026-02-15T19:45:11.810Z"
-  },
-  {
-    "id": "auto-g-11828",
-    "title": "memorySearch configured",
-    "description": "",
-    "assignee": "George",
-    "status": "completed",
-    "createdAt": "2026-02-15T19:45:11.810Z"
-  },
-  {
-    "id": "auto-g-86130",
-    "title": "Compare John + Dwight performance on Price Aggregator vs CoinGecko Pro (Feb 16)",
-    "description": "",
-    "assignee": "George",
-    "status": "todo",
-    "createdAt": "2026-02-15T20:54:46.129Z",
-    "dueDate": "2026-02-16"
-  },
-  {
-    "id": "auto-b-86131",
-    "title": "Watch Matthew Berman video",
-    "description": "https://x.com/matthewberman/status/2021669868366598632",
-    "assignee": "Brandon",
-    "status": "todo",
-    "createdAt": "2026-02-15T20:54:46.130Z"
-  },
-  {
-    "id": "auto-b-86132",
-    "title": "Review all domains",
-    "description": "",
-    "assignee": "Brandon",
-    "status": "completed",
-    "createdAt": "2026-02-15T20:54:46.130Z"
-  },
-  {
-    "id": "auto-b-86133",
-    "title": "Replit",
-    "description": "",
-    "assignee": "Brandon",
-    "status": "completed",
-    "createdAt": "2026-02-15T20:54:46.130Z"
-  },
-  {
-    "id": "auto-g-86134",
-    "title": "Automate live-actions.json updates (g-t9)",
-    "description": "",
-    "assignee": "George",
-    "status": "completed",
-    "createdAt": "2026-02-15T20:54:46.130Z"
-  },
-  {
-    "id": "auto-g-86135",
-    "title": "Auto-create review tasks when drafts land (g-t16)",
-    "description": "",
-    "assignee": "George",
-    "status": "completed",
-    "createdAt": "2026-02-15T20:54:46.130Z"
-  },
-  {
-    "id": "auto-g-86136",
-    "title": "Research Phase products ($YIELD, pdSOL)",
-    "description": "",
-    "assignee": "George",
-    "status": "completed",
-    "createdAt": "2026-02-15T20:54:46.130Z"
+    "createdAt": "2026-02-14T00:00:00.000Z"
   }
 ]
