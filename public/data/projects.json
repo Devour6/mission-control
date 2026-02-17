@@ -21,7 +21,7 @@
           "id": "ex-2",
           "name": "Agent Team Orchestration",
           "status": "active",
-          "description": "Managing and optimizing the full 6-agent AI squad \u2014 standups, calibration, autonomous work",
+          "description": "Lean ops mode — 3 standups, 2 work blocks, token-efficient on Claude Max plan until Mac Studio arrives (~Mar 28)",
           "members": [
             "George"
           ]
@@ -30,7 +30,7 @@
           "id": "ex-3",
           "name": "Daily Autonomous Work",
           "status": "active",
-          "description": "Twice-daily self-ideated high-impact tasks across professional and personal goals",
+          "description": "10AM + 3PM autonomous work blocks producing Google Docs with real data. No local .md deliverables.",
           "members": [
             "George"
           ]
@@ -45,7 +45,7 @@
           "id": "r-1",
           "name": "3x Daily Intel Sweeps",
           "status": "active",
-          "description": "Morning, midday, evening research sweeps \u2014 X, crypto markets, AI news, Solana ecosystem",
+          "description": "Morning, midday, evening research sweeps — X, crypto markets, AI news, Solana ecosystem",
           "members": [
             "Dwight"
           ]
@@ -69,7 +69,7 @@
           "id": "f-1",
           "name": "Portfolio Management",
           "status": "active",
-          "description": "24/7 market scanning every 2 hours \u2014 CoinGecko Pro API, TradingView TA, CT sentiment analysis",
+          "description": "30-min market scans 24/7 via OpenAI o4-mini. Trading frozen — no executions without approval.",
           "members": [
             "John"
           ]
@@ -106,7 +106,7 @@
           "id": "c-1",
           "name": "X Voice Calibration",
           "status": "active",
-          "description": "Daily tweet batches for @DEVOUR_ \u2014 heavy feedback phase to nail Brandon's voice",
+          "description": "Daily tweet batches for @DEVOUR_ — heavy feedback phase to nail Brandon's voice",
           "members": [
             "Kelly"
           ]
@@ -115,7 +115,7 @@
           "id": "c-2",
           "name": "LinkedIn Voice Calibration",
           "status": "active",
-          "description": "Daily LinkedIn draft batches \u2014 calibrating Brandon + Jeff Newman blended voice",
+          "description": "Daily LinkedIn draft batches — calibrating Brandon + Jeff Newman blended voice",
           "members": [
             "Rachel"
           ]
@@ -124,7 +124,7 @@
           "id": "c-3",
           "name": "Content Performance Tracking",
           "status": "planned",
-          "description": "Tracking engagement on posted content to optimize what works \u2014 activates post-calibration",
+          "description": "Tracking engagement on posted content to optimize what works — activates post-calibration",
           "members": [
             "Kelly",
             "Rachel"
@@ -155,41 +155,21 @@
           ]
         },
         {
-          "id": "eng-3",
-          "name": "Molt Fighting Championship (MFC)",
-          "status": "active",
-          "description": "AI fighter simulation with prediction markets. PHASE 3 COMPLETE: Transformed from boring static HTML with primitive rectangles into engaging React app with detailed humanoid fighters, rich visual effects, real-time progression, dynamic crowd reactions, and cinematic fight experience. Users now want to WATCH fights, not just check results.",
+          "id": "e-3",
+          "name": "Price Aggregator Widget",
+          "status": "completed",
+          "description": "Live SOL/BTC/ETH price feed in Mission Control using our local price aggregator with CoinGecko fallback",
           "members": [
-            "Ross",
-            "George"
-          ],
-          "url": "https://mfc-app.vercel.app",
-          "repo": "github.com/Devour6/mfc-app",
-          "milestones": [
-            {
-              "name": "Phase 1-2: Backend + Auth",
-              "status": "done"
-            },
-            {
-              "name": "Phase 3: Fix fight visuals \u2014 make fights actually entertaining to watch",
-              "status": "in-progress"
-            },
-            {
-              "name": "Phase 3: Fix all dead buttons and non-reactive sections",
-              "status": "in-progress"
-            },
-            {
-              "name": "Phase 3: UI polish \u2014 fix glitches",
-              "status": "in-progress"
-            },
-            {
-              "name": "Phase 4: Monetization \u2014 Stripe + Solana wallet",
-              "status": "planned"
-            },
-            {
-              "name": "Phase 5: Retention \u2014 tournaments, achievements, daily rewards",
-              "status": "planned"
-            }
+            "Ross"
+          ]
+        },
+        {
+          "id": "e-4",
+          "name": "Phase Delegation Site — Validator Performance Dashboards",
+          "status": "planned",
+          "description": "Real-time validator performance dashboards using SVT data. Per-validator epoch performance, leader slots, rewards. Transparency for delegators.",
+          "members": [
+            "Ross"
           ]
         }
       ]
@@ -202,7 +182,7 @@
           "id": "p-1",
           "name": "Personal CRM",
           "status": "active",
-          "description": "Nightly ingestion across 3 inboxes + calendars \u2014 contact extraction, dedup, classification, timeline",
+          "description": "Nightly ingestion across 3 inboxes + calendars — contact extraction, dedup, classification, timeline",
           "members": [
             "Pam"
           ]

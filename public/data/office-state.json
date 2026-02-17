@@ -1,12 +1,68 @@
 {
-  "updatedAt": "2026-02-14T04:26:00.000Z",
+  "updatedAt": "2026-02-17T17:10:00.000Z",
+  "mode": "lean-ops",
+  "modeDetail": "Claude Max $200/mo plan — token conservation until Mac Studio arrives (~Mar 28)",
   "agents": {
-    "George": { "activity": "working", "detail": "Fixing Mission Control data accuracy", "location": "desk" },
-    "Dwight": { "activity": "idle", "detail": "Evening sweep completed — next sweep tomorrow 7:30 AM", "location": "desk" },
-    "Kelly": { "activity": "idle", "detail": "Evening drafts completed — next batch tomorrow 9:00 AM", "location": "desk" },
-    "Rachel": { "activity": "idle", "detail": "Evening drafts completed — next batch tomorrow 9:00 AM", "location": "desk" },
-    "John": { "activity": "idle", "detail": "Next market scan ~10:00 PM", "location": "desk" },
-    "Ross": { "activity": "working", "detail": "Full Mission Control audit and fixes — checking every tab and data file", "location": "desk" },
-    "Pam": { "activity": "idle", "detail": "CRM ingestion runs at 10:00 PM", "location": "desk" }
+    "George": {
+      "activity": "working",
+      "detail": "Lean ops restructure — trimmed crons, cut costs 96%",
+      "location": "desk"
+    },
+    "Dwight": {
+      "activity": "working",
+      "detail": "Morning sweep complete — next sweep 1:00 PM",
+      "location": "desk"
+    },
+    "Kelly": {
+      "activity": "idle",
+      "detail": "Morning drafts complete — next batch 1:30 PM",
+      "location": "desk"
+    },
+    "Rachel": {
+      "activity": "idle",
+      "detail": "Morning + Tuesday LinkedIn drafts complete — next batch 1:30 PM",
+      "location": "desk"
+    },
+    "John": {
+      "activity": "working",
+      "detail": "Market scans every 30m — trading FROZEN, observation only",
+      "location": "desk"
+    },
+    "Ross": {
+      "activity": "idle",
+      "detail": "Shipped Price Aggregator widget for MC. Next: Validator performance dashboards",
+      "location": "desk"
+    },
+    "Pam": {
+      "activity": "idle",
+      "detail": "Morning prep complete. CRM ingestion at 10 PM. Email check at 8 PM.",
+      "location": "desk"
+    }
+  },
+  "schedule": {
+    "note": "Reduced from 25+ daily crons to ~15 for Claude Max plan conservation",
+    "active": [
+      {"time": "7:30 AM", "job": "Dwight Morning Sweep"},
+      {"time": "7:45 AM", "job": "Morning Standup (lean)"},
+      {"time": "8:00 AM", "job": "Morning Briefing + Email Check"},
+      {"time": "9:00 AM", "job": "Kelly + Rachel Morning Drafts"},
+      {"time": "10:00 AM", "job": "George Autonomous Work"},
+      {"time": "1:00 PM", "job": "Dwight Midday Sweep"},
+      {"time": "1:30 PM", "job": "Kelly + Rachel Midday Drafts"},
+      {"time": "3:00 PM", "job": "George Autonomous Work"},
+      {"time": "4:00 PM", "job": "Afternoon Standup (lean)"},
+      {"time": "5:00 PM", "job": "Kelly + Rachel Evening Drafts"},
+      {"time": "6:00 PM", "job": "Dwight Evening Sweep"},
+      {"time": "8:00 PM", "job": "Email Check"},
+      {"time": "10:00 PM", "job": "Pam CRM Ingestion"},
+      {"time": "11:00 PM", "job": "Late Night Standup (lean)"},
+      {"time": "24/7", "job": "John Market Scan (every 30m, OpenAI)"},
+      {"time": "Every 2h", "job": "Content Feedback Sync"}
+    ],
+    "disabled": [
+      "4 AM Early Morning Sprint",
+      "12 PM Midday Work Sprint",
+      "8 PM Evening Work Sprint + Standup"
+    ]
   }
 }
