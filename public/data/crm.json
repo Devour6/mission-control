@@ -340,10 +340,16 @@
     "role": "Finance / Validator Operations",
     "category": "employee",
     "relationship": "strong",
-    "lastContact": "2026-02-09",
+    "lastContact": "2026-02-16",
     "source": "phase-inbox",
     "notes": "Phase Labs finance/ops team member. Sends validator financial statements. Regular 1:1 meetings with Brandon (Dan x Devour).",
     "interactions": [
+      {
+        "date": "2026-02-16",
+        "type": "email",
+        "summary": "Validator Financial Statement January 2026",
+        "direction": "inbound"
+      },
       {
         "date": "2026-02-09",
         "type": "meeting",
@@ -380,6 +386,12 @@
     ],
     "timeline": [
       {
+        "date": "2026-02-16",
+        "type": "email",
+        "summary": "Validator Financial Statement January 2026",
+        "direction": "inbound"
+      },
+      {
         "date": "2026-02-09",
         "type": "meeting",
         "summary": "Dan x Devour 1:1",
@@ -411,8 +423,8 @@
       }
     ],
     "qualityScore": 5,
-    "touchCount": 5,
-    "lastTouch": "2026-02-09",
+    "touchCount": 6,
+    "lastTouch": "2026-02-16",
     "firstSeen": "2026-01-16"
   },
   {
@@ -719,10 +731,16 @@
     "role": "",
     "category": "community",
     "relationship": "moderate",
-    "lastContact": "2026-02-09",
+    "lastContact": "2026-02-16",
     "source": "phase-inbox",
     "notes": "Layer 33 community member. Attends weekly Layer 33 Group Calls. Read AI meeting reports generated under this name.",
     "interactions": [
+      {
+        "date": "2026-02-16",
+        "type": "email",
+        "summary": "Layer 33 Group Call meeting report via Read AI",
+        "direction": "inbound"
+      },
       {
         "date": "2026-02-09",
         "type": "meeting",
@@ -747,6 +765,12 @@
     ],
     "timeline": [
       {
+        "date": "2026-02-16",
+        "type": "email",
+        "summary": "Layer 33 Group Call meeting report via Read AI",
+        "direction": "inbound"
+      },
+      {
         "date": "2026-02-09",
         "type": "meeting",
         "summary": "Layer 33 Group Call + Read AI meeting report",
@@ -766,8 +790,8 @@
       }
     ],
     "qualityScore": 3,
-    "touchCount": 3,
-    "lastTouch": "2026-02-09",
+    "touchCount": 4,
+    "lastTouch": "2026-02-16",
     "firstSeen": "2026-02-02"
   },
   {
@@ -822,7 +846,7 @@
   },
   {
     "id": "87b73b4e-1284-351b-61c6-a2551bc30921",
-    "name": "Jo\u00e3o Gustavo",
+    "name": "João Gustavo",
     "email": "jota@doublezero.xyz",
     "emails": [
       "jota@doublezero.xyz"
@@ -831,10 +855,16 @@
     "role": "",
     "category": "partner",
     "relationship": "moderate",
-    "lastContact": "2026-02-04",
+    "lastContact": "2026-02-16",
     "source": "phase-inbox",
-    "notes": "DoubleZero protocol team. Organized DoubleZero x Layer 33 meeting. Part of monthly DoubleZero user calls.",
+    "notes": "DoubleZero protocol team. Organized DoubleZero x Layer 33 meeting. Part of monthly DoubleZero user calls. Attends Layer 33 Group Calls.",
     "interactions": [
+      {
+        "date": "2026-02-16",
+        "type": "meeting",
+        "summary": "Layer 33 Group Call (accepted invitation)",
+        "direction": "bidirectional"
+      },
       {
         "date": "2026-02-04",
         "type": "meeting",
@@ -859,6 +889,12 @@
     ],
     "timeline": [
       {
+        "date": "2026-02-16",
+        "type": "meeting",
+        "summary": "Layer 33 Group Call (accepted invitation)",
+        "direction": "bidirectional"
+      },
+      {
         "date": "2026-02-04",
         "type": "meeting",
         "summary": "Monthly DoubleZero User Call",
@@ -878,8 +914,8 @@
       }
     ],
     "qualityScore": 3,
-    "touchCount": 3,
-    "lastTouch": "2026-02-04",
+    "touchCount": 4,
+    "lastTouch": "2026-02-16",
     "firstSeen": "2026-02-02"
   },
   {
@@ -4205,5 +4241,119 @@
     "touchCount": 1,
     "lastTouch": "2026-02-14",
     "firstSeen": "2026-02-14"
+  },
+  {
+    "id": "2c29b58c-28d0-4759-b73e-c0371ad597a0",
+    "name": "Chris Alain",
+    "email": "chris.alain@artisanapptechnologies.com",
+    "emails": [
+      "chris.alain@artisanapptechnologies.com"
+    ],
+    "company": "Artisan App Technologies",
+    "role": "",
+    "category": "professional",
+    "relationship": "weak",
+    "lastContact": "2026-02-16",
+    "source": "phase-inbox",
+    "notes": "New contact from Artisan App Technologies. Reached out about replicating team success.",
+    "interactions": [
+      {
+        "date": "2026-02-16",
+        "type": "email",
+        "summary": "Replicate Team Success",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-16",
+        "type": "email",
+        "summary": "Replicate Team Success",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 2,
+    "touchCount": 1,
+    "lastTouch": "2026-02-16",
+    "firstSeen": "2026-02-16"
+  },
+  {
+    "id": "dddd2748-ca4b-40d3-af98-49e94aea8728",
+    "name": "Zachary Evans",
+    "email": "zachary.evans@scalepilot.info",
+    "emails": [
+      "zachary.evans@scalepilot.info"
+    ],
+    "company": "ScalePilot",
+    "role": "",
+    "category": "professional",
+    "relationship": "weak",
+    "lastContact": "2026-02-16",
+    "source": "phase-inbox",
+    "notes": "New contact from ScalePilot. Email flagged as IMPORTANT - sent 'Brandon - quick note' message.",
+    "interactions": [
+      {
+        "date": "2026-02-16",
+        "type": "email",
+        "summary": "Brandon - quick note (flagged IMPORTANT)",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-16",
+        "type": "email",
+        "summary": "Brandon - quick note (flagged IMPORTANT)",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 3,
+    "touchCount": 1,
+    "lastTouch": "2026-02-16",
+    "firstSeen": "2026-02-16"
+  },
+  {
+    "id": "eab2dc13-1170-4cd8-bb18-0af771b18a53",
+    "name": "Dan Vuckovic",
+    "email": "danv@getviralapp.com",
+    "emails": [
+      "danv@getviralapp.com"
+    ],
+    "company": "Viral App",
+    "role": "",
+    "category": "professional",
+    "relationship": "moderate",
+    "lastContact": "2026-02-16",
+    "source": "phase-inbox",
+    "notes": "New contact from Viral App. Active 3-message email thread about quick idea for Phase. Shows sustained interest.",
+    "interactions": [
+      {
+        "date": "2026-02-16",
+        "type": "email",
+        "summary": "Brandon - quick idea for Phase (3-message thread)",
+        "direction": "inbound"
+      }
+    ],
+    "tags": [
+      "professional"
+    ],
+    "timeline": [
+      {
+        "date": "2026-02-16",
+        "type": "email",
+        "summary": "Brandon - quick idea for Phase (3-message thread)",
+        "direction": "inbound"
+      }
+    ],
+    "qualityScore": 3,
+    "touchCount": 1,
+    "lastTouch": "2026-02-16",
+    "firstSeen": "2026-02-16"
   }
 ]
