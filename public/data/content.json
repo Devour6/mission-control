@@ -330,8 +330,9 @@
       "date": "2026-02-15",
       "text": "Three frontier AI models launched in one week. $30 billion raised in one round. The infrastructure wars just went nuclear.\n\nThis week alone: Anthropic closed a $30B Series G, OpenAI shipped GPT-5.3-Codex-Spark for developers, and Google countered with Gemini 3 Deep Think for complex reasoning.\n\nThe message is crystal clear: whoever controls AI infrastructure controls everything.\n\nThis isn't just about better chatbots. It's about compute, talent acquisition, and economic moats. Every AI engineer just became 10x more valuable. Every cloud provider just became strategic infrastructure.\n\nBut here's what most people are missing: the bottleneck isn't the models anymore. It's the economic rails underneath them.\n\nAI agents need to transact at scale. Millions of microtransactions per second. Legacy payment systems can't handle that volume. Traditional databases weren't built for autonomous economic activity.\n\nAt Phase, we manage over 3M SOL in AUM through our validator network. We're watching this infrastructure gap play out in real time. Our own AI operations require sub-second settlement and programmable money flows that only blockchain networks can provide.\n\nThe companies that solve AI economic infrastructure - not just training better models - are positioned to capture extraordinary value as this arms race intensifies.\n\nThe question isn't whether AI transforms business. It's whether your economic infrastructure can handle the volume that's coming.",
       "angle": "",
-      "status": "pending",
-      "feedback": ""
+      "status": "approved",
+      "feedback": "",
+      "resolvedAt": "2026-02-17T04:27:24.458Z"
     },
     {
       "id": "kelly-2026-02-16-1",
