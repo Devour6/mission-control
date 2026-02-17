@@ -7,14 +7,14 @@
   },
   "monthlyTarget": 7.5,
   "currentBalance": {
-    "sol": 1.208011372,
-    "usd": 195.26
+    "sol": 1.208021372,
+    "usd": 346.71
   },
   "holdings": [
     {
       "token": "SOL",
-      "amount": 1.208011372,
-      "usd": 103.49
+      "amount": 1.208021372,
+      "usd": 102.74
     },
     {
       "token": "",
@@ -24,7 +24,7 @@
     {
       "token": "BLZE",
       "amount": 576.27254524,
-      "usd": 0.07
+      "usd": 0.06
     },
     {
       "token": "ET9AeE6e",
@@ -38,21 +38,26 @@
     },
     {
       "token": "USDC",
-      "amount": 32.362232,
-      "usd": 32.36
+      "amount": 53.814727,
+      "usd": 53.81
     },
     {
       "token": "iEXPcSJ5",
       "amount": 2424442.398093,
-      "usd": 38.26
+      "usd": 33.07
     },
     {
       "token": "5Y3obR5a",
       "amount": 1.0,
       "usd": 0
+    },
+    {
+      "token": "CRT",
+      "amount": 1.189,
+      "usd": 135.95
     }
   ],
-  "lastUpdated": "2026-02-17T05:41:22-08:00",
+  "lastUpdated": "2026-02-17T12:02:45-08:00",
   "trades": [
     {
       "timestamp": "2026-02-16T07:10:51.334Z",
