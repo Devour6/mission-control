@@ -25,35 +25,21 @@ interface CoinDisplayProps {
 }
 
 // --- API Configuration ---
-const COINGECKO_DEMO_URL = "https://api.coingecko.com/api/v3/simple/price?ids=solana,bitcoin,ethereum&vs_currencies=usd&include_24hr_change=true";
-const LOCAL_AGGREGATOR_URL = "http://localhost:3001/api/v3/simple/price?ids=solana,bitcoin,ethereum&vs_currencies=usd&include_24hr_change=true";
+// Uses our local Price Aggregator ONLY. No paid CoinGecko fallback.
+// In prod, set NEXT_PUBLIC_PRICE_API_URL env var to the aggregator's public URL.
+const AGGREGATOR_URL = process.env.NEXT_PUBLIC_PRICE_API_URL || "http://localhost:3001";
+const PRICE_ENDPOINT = `${AGGREGATOR_URL}/api/v3/simple/price?ids=solana,bitcoin,ethereum&vs_currencies=usd&include_24hr_change=true`;
 
-// --- Fetcher with cascading fallback ---
+// --- Fetcher ---
 const fetcher = async (): Promise<PriceData> => {
-  const urls = process.env.NODE_ENV === "development"
-    ? [LOCAL_AGGREGATOR_URL, COINGECKO_DEMO_URL]
-    : [COINGECKO_DEMO_URL];
+  const response = await fetch(PRICE_ENDPOINT, {
+    method: "GET",
+    headers: { Accept: "application/json" },
+    signal: AbortSignal.timeout(5000),
+  });
 
-  let lastError: Error | null = null;
-
-  for (const url of urls) {
-    try {
-      const response = await fetch(url, {
-        method: "GET",
-        headers: { Accept: "application/json" },
-        signal: AbortSignal.timeout(5000),
-      });
-
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-
-      return await response.json();
-    } catch (err) {
-      lastError = err instanceof Error ? err : new Error(String(err));
-      console.warn(`Price fetch failed (${url}):`, lastError.message);
-    }
-  }
-
-  throw lastError ?? new Error("All price sources failed");
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  return await response.json();
 };
 
 // --- Coin Display Component ---
@@ -221,7 +207,7 @@ export default function PriceWidget() {
 
       <div className="px-3 py-2 border-t border-[#2e3345] bg-[#141620]/50">
         <div className="text-[9px] text-[#8b8fa3] text-center">
-          Updates every 30s • {isLocalhost ? "Price Aggregator" : "CoinGecko"}
+          Updates every 30s • Price Aggregator
         </div>
       </div>
     </div>
