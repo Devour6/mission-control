@@ -304,8 +304,9 @@
       "date": "2026-02-15",
       "text": "Brazil just reintroduced a bill to buy 1 million BTC as a sovereign reserve. $69 billion over 5 years. Even if it doesn't pass, the fact that nation-states are debating this changes the game for every asset on chain.",
       "angle": "Nation-state BTC accumulation. Zooms out from price action to structural macro shift. No exaggeration, just framing the Overton window move.",
-      "status": "pending",
-      "feedback": ""
+      "status": "approved",
+      "feedback": "",
+      "resolvedAt": "2026-02-17T04:23:54.332Z"
     },
     {
       "id": "kelly-2026-02-15-23",
