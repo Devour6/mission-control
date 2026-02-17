@@ -132,5 +132,14 @@
     "assignee": "Ross",
     "status": "in_progress",
     "createdAt": "2026-02-17T16:10:00.000Z"
+  },
+  {
+    "id": "g-review-kelly-1771347701",
+    "title": "Review Kelly's 3 new drafts",
+    "description": "Review and approve new drafts",
+    "assignee": "Brandon",
+    "dueDate": "2026-02-17",
+    "status": "todo",
+    "createdAt": "2026-02-17T00:00:00.000Z"
   }
 ]
