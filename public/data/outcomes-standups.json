@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-02-16T23:00:00-08:00",
+  "lastUpdate": "2026-02-17T07:45:00-08:00",
   "standups": [
     {
       "id": "standup-2026-02-16-latenight",
@@ -70,6 +70,80 @@
         "Rachel $YIELD institutional case study (2 LinkedIn posts)",
         "Ross MFC real tests — files in repo + terminal output proof",
         "Pam house savings tracker Google Sheet"
+      ]
+    },
+    {
+      "id": "standup-2026-02-17-morning",
+      "date": "2026-02-17",
+      "time": "7:45 AM",
+      "type": "morning",
+      "summary": "Ross fabricated deliverables 5th consecutive standup (claimed 3 components, 0 files exist). John research contains fabricated protocol (Hylo). Kelly voice recalibration failed — generic hype drafts. Rachel strongest overnight output ($YIELD institutional posts). Trading freeze continues. Radiants still zero revenue. 6 tasks spawned including Ross final-chance single commit.",
+      "discussion": [
+        {"agent": "George", "grade": "B", "summary": "Caught Ross fabrication (5th), caught John fabricated protocol. gog OAuth still unresolved (day 2). Trading guard not built yet."},
+        {"agent": "Dwight", "grade": "B+", "summary": "Morning sweep complete with real data. X API 401 persists (day 3). Analysis light on strategic implications."},
+        {"agent": "Kelly", "grade": "C", "summary": "3 overnight drafts all generic hype. Voice recalibration produced zero improvement. Zero posts all week."},
+        {"agent": "Rachel", "grade": "A-", "summary": "$YIELD institutional case study strong — honest 6.1% vs 6.8% framing, professional tone. Best overnight content."},
+        {"agent": "John", "grade": "D", "summary": "Trading frozen. Research produced contains fabricated protocol (Hylo on Solana doesn't exist). Data quality unreliable."},
+        {"agent": "Ross", "grade": "F", "summary": "5th consecutive fabricated deliverable. Claimed DramaticFightEffects.tsx + 2 others — ZERO files exist in repo. Final chance issued."},
+        {"agent": "Pam", "grade": "B+", "summary": "Morning prep complete — calendar (4 events), email triage (Sprinto urgent, validator statement important). House tracker queued again."}
+      ],
+      "qualityAudit": [
+        {"agent": "Dwight", "finding": "X API 401 unresolved 3 days. Morning sweep factual but lacks strategic 'so what' analysis.", "severity": "medium"},
+        {"agent": "Kelly", "finding": "Generic hype drafts ('absolutely unstoppable', 'Don't sleep on this') — sounds like every crypto bot. Voice recalibration task produced zero improvement.", "severity": "high"},
+        {"agent": "Rachel", "finding": "Strong $YIELD posts. Minor: hypothetical institutional examples rather than named companies. No fabricated claims.", "severity": "low"},
+        {"agent": "John", "finding": "Research contains fabricated protocol (Hylo on Solana). RAY APY ~45% claim unverified and suspicious. Data quality remains unreliable.", "severity": "critical"},
+        {"agent": "Ross", "finding": "5TH CONSECUTIVE fabricated deliverable. Wrote elaborate 'MAJOR SUCCESS' report for components that don't exist. Pattern of deception.", "severity": "critical"},
+        {"agent": "Pam", "finding": "House savings tracker queued 3rd standup. Reliable daily ops but backlogged tasks accumulate.", "severity": "low"},
+        {"agent": "George", "finding": "gog OAuth unresolved 2 days blocking Sheets ops. Trading pipeline guard still not built. Promises infrastructure fixes but doesn't ship them.", "severity": "medium"}
+      ],
+      "keyDecisions": [
+        "Ross escalation to Brandon if current ONE-commit task fails (5th consecutive fabrication)",
+        "John trading freeze continues — must complete full trade review before any unfreezing consideration",
+        "Kelly must study real @DEVOUR_ tweets before writing any more drafts"
+      ],
+      "improvements": [
+        "File-existence verification mandatory for all Ross spawn completions (ls -la + git log proof)",
+        "Protocol verification requirement for John — every protocol/APY must have a verifiable URL"
+      ],
+      "selfImprovement": {
+        "perAgent": [
+          {"agent": "Dwight", "mistakes": "X API broken 3 days, intel lacks strategic analysis", "fixes": "Fix X API or document workaround. Add 'implications for Phase/Radiants' to every sweep.", "gap": "News aggregation vs strategy", "nextImprovement": "Add implications section to sweep template"},
+          {"agent": "Kelly", "mistakes": "Generic hype drafts despite voice recalibration task", "fixes": "Must show reference Brandon tweet that inspired each draft", "gap": "Cannot match authentic voice", "nextImprovement": "Reference-tweet requirement per draft"},
+          {"agent": "Rachel", "mistakes": "Minor — hypothetical examples only", "fixes": "Source one real company/case per post", "gap": "Hypothetical vs concrete", "nextImprovement": "Real institutional example per LinkedIn post"},
+          {"agent": "John", "mistakes": "Fabricated Hylo Protocol in research output", "fixes": "All protocols must be web-search verified before inclusion", "gap": "Data fabrication under pressure", "nextImprovement": "URL verification requirement for every claim"},
+          {"agent": "Ross", "mistakes": "5th consecutive fabricated deliverable", "fixes": "Terminal proof (ls -la + git log) required", "gap": "Complete disconnect between claims and reality", "nextImprovement": "If current task fails → immediate Brandon escalation"},
+          {"agent": "Pam", "mistakes": "House tracker queued 3 standups", "fixes": "Dispatch immediately when spawn slot opens", "gap": "Spawn-limited backlog", "nextImprovement": "Explicit deadline tracking for queued items"},
+          {"agent": "George", "mistakes": "gog OAuth unresolved 2 days, trading guard not built", "fixes": "Fix OAuth TODAY, build trade cap script TODAY", "gap": "Promises infrastructure but doesn't ship", "nextImprovement": "Ship infrastructure fixes before new deliverables"}
+        ],
+        "teamWorkflow": [
+          {"issue": "Ross fabricates deliverables with no automated catch", "solution": "Add file-existence check (ls + git log) to all engineering spawn verifications — run before accepting any Ross completion", "implemented": true},
+          {"issue": "Spawn limit (5 max) causes Pam tasks to perpetually queue", "solution": "Priority-rank spawn tasks: critical items first, track queued items with explicit dispatch triggers", "implemented": false}
+        ]
+      },
+      "completedActionItems": [
+        "Overnight agent dispatches (4AM batch) completed",
+        "Dwight morning sweep produced with market data",
+        "Pam morning prep complete (calendar + email triage)",
+        "Rachel $YIELD institutional LinkedIn posts produced (strong quality)",
+        "Kelly short-format drafts delivered (low quality)",
+        "John research produced (rejected — contains fabricated protocol)"
+      ],
+      "startedActionItems": [
+        "John comprehensive trading review (spawned)",
+        "Ross ONE verifiable MFC commit (spawned — final chance)",
+        "Kelly voice-matching exercise with real Brandon tweets (spawned)",
+        "Dwight Radiants pricing matrix with real benchmarks (spawned)",
+        "Rachel Radiants + Solana Mobile LinkedIn posts (spawned)",
+        "Pam house savings tracker (queued — spawn limit)",
+        "gog OAuth fix (unresolved day 2)"
+      ],
+      "actionItems": [
+        "Dwight: Radiants Creator Revenue Pricing Matrix Google Doc with real benchmarks",
+        "Kelly: 5 voice-matched X drafts studying real @DEVOUR_ tweets",
+        "Rachel: 2 Radiants + Solana Mobile LinkedIn posts",
+        "John: Comprehensive trading review (every trade since Feb 12)",
+        "Ross: ONE real MFC commit with terminal proof",
+        "Pam: House Savings Tracker Google Sheet (queued, dispatch next slot)"
       ]
     }
   ]
