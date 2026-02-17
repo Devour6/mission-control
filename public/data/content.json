@@ -278,8 +278,9 @@
       "date": "2026-02-15",
       "text": "21,000 AI agents launched under ERC-8004 across Ethereum, BNB, and Solana this week. That's not a pilot program. That's production scale infrastructure for autonomous economic activity.",
       "angle": "21K AI agents under ERC-8004. Frames it as infrastructure maturity rather than experimental tech.",
-      "status": "pending",
-      "feedback": ""
+      "status": "denied",
+      "feedback": "lets not bullpost eth",
+      "resolvedAt": "2026-02-17T04:22:28.343Z"
     },
     {
       "id": "kelly-2026-02-15-9",
