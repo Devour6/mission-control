@@ -25,50 +25,35 @@ interface CoinDisplayProps {
 }
 
 // --- API Configuration ---
-const getApiUrl = (): string => {
-  // In development, try localhost first
-  if (process.env.NODE_ENV === "development") {
-    return "http://localhost:3001/api/v3/simple/price?ids=solana,bitcoin,ethereum&vs_currencies=usd";
-  }
-  
-  // In production, use CoinGecko public API as fallback
-  return "https://api.coingecko.com/api/v3/simple/price?ids=solana,bitcoin,ethereum&vs_currencies=usd";
-};
+const COINGECKO_DEMO_URL = "https://api.coingecko.com/api/v3/simple/price?ids=solana,bitcoin,ethereum&vs_currencies=usd&include_24hr_change=true";
+const LOCAL_AGGREGATOR_URL = "http://localhost:3001/api/v3/simple/price?ids=solana,bitcoin,ethereum&vs_currencies=usd&include_24hr_change=true";
 
-// --- Fetcher with fallback logic ---
-const fetcher = async (url: string): Promise<PriceData> => {
-  try {
-    // Try primary URL
-    const response = await fetch(url, { 
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-      },
-      // Add timeout for localhost requests
-      signal: AbortSignal.timeout(5000)
-    });
-    
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status}`);
+// --- Fetcher with cascading fallback ---
+const fetcher = async (): Promise<PriceData> => {
+  const urls = process.env.NODE_ENV === "development"
+    ? [LOCAL_AGGREGATOR_URL, COINGECKO_DEMO_URL]
+    : [COINGECKO_DEMO_URL];
+
+  let lastError: Error | null = null;
+
+  for (const url of urls) {
+    try {
+      const response = await fetch(url, {
+        method: "GET",
+        headers: { Accept: "application/json" },
+        signal: AbortSignal.timeout(5000),
+      });
+
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+      return await response.json();
+    } catch (err) {
+      lastError = err instanceof Error ? err : new Error(String(err));
+      console.warn(`Price fetch failed (${url}):`, lastError.message);
     }
-    
-    return await response.json();
-  } catch (error) {
-    // If localhost fails in dev, fallback to public API
-    if (process.env.NODE_ENV === "development" && url.includes("localhost")) {
-      console.warn("Localhost aggregator unavailable, falling back to CoinGecko:", error);
-      const fallbackUrl = "https://api.coingecko.com/api/v3/simple/price?ids=solana,bitcoin,ethereum&vs_currencies=usd";
-      const fallbackResponse = await fetch(fallbackUrl);
-      
-      if (!fallbackResponse.ok) {
-        throw new Error(`Fallback API failed: HTTP ${fallbackResponse.status}`);
-      }
-      
-      return await fallbackResponse.json();
-    }
-    
-    throw error;
   }
+
+  throw lastError ?? new Error("All price sources failed");
 };
 
 // --- Coin Display Component ---
@@ -159,11 +144,10 @@ function HealthStatus({ isError, isLoading }: { isError: boolean; isLoading: boo
 
 // --- Main Price Widget ---
 export default function PriceWidget() {
-  const apiUrl = getApiUrl();
-  const isLocalhost = apiUrl.includes("localhost");
+  const isLocalhost = process.env.NODE_ENV === "development";
   
   const { data, error, isLoading } = useSWR<PriceData>(
-    apiUrl,
+    "prices",
     fetcher,
     {
       refreshInterval: 30000, // 30 seconds
