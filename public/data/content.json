@@ -496,6 +496,30 @@
       "angle": "",
       "status": "pending",
       "feedback": ""
+    },
+    {
+      "id": "kelly-2026-02-16-16",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-16",
+      "text": "Vinod Khosla just said IT services and BPOs will \"almost completely disappear\" in 5 years. He said it at a summit with 250,000 people in the room. The HCL CEO basically agreed. We're watching the largest labor disruption since the industrial revolution get announced at a conference and nobody is panicking yet.",
+      "angle": "** Bold AI disruption take from today's India AI Summit. Vinod Khosla is a credible source. The \"nobody is panicking yet\" closer is punchy and shareable. Grounded in Dwight's midday intel.\n\n---\n\n#",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "kelly-2026-02-16-17",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-16",
+      "text": "Vitalik is trying to position Ethereum as the AI agent coordination layer. Decentralized tools for AI models to interact without Big Tech. Meanwhile Solana already has 80M SOL in DeFi, $1.66B in RWA, and actual throughput to handle agent-scale transactions. You don't win the AI race by writing blog posts. You win it by processing blocks.",
+      "angle": "** Competitive angle responding to Vitalik's ETH-as-AI-infra push. Backs up the Solana counter with real data from today's intel (DeFi TVL, RWA ATH). Builder energy. The \"blog posts vs blocks\" closer is memorable.\n\n---\n\n_Pre-submit checks: No emdashes found. All sentences capitalized. No hashtags. All grounded in Dwight's intel. All facts verified against source material._",
+      "status": "pending",
+      "feedback": ""
     }
   ]
 }
