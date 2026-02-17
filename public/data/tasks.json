@@ -124,5 +124,13 @@
     "assignee": "Brandon",
     "status": "completed",
     "createdAt": "2026-02-14T00:00:00.000Z"
+  },
+  {
+    "id": "r-t2",
+    "title": "Mission Control — Wire in Price Aggregator as live feed widget",
+    "description": "Use localhost:3001 price aggregator as a live price feed widget in MC dashboard. We built it, we should eat our own cooking.",
+    "assignee": "Ross",
+    "status": "in_progress",
+    "createdAt": "2026-02-17T16:10:00.000Z"
   }
 ]
