@@ -7,19 +7,24 @@
   },
   "monthlyTarget": 7.5,
   "currentBalance": {
-    "sol": 1.460132602,
-    "usd": 292.69
+    "sol": 1.208011372,
+    "usd": 195.26
   },
   "holdings": [
     {
       "token": "SOL",
-      "amount": 1.460132602,
-      "usd": 124.43
+      "amount": 1.208011372,
+      "usd": 103.49
+    },
+    {
+      "token": "",
+      "amount": 0.219760867,
+      "usd": 21.08
     },
     {
       "token": "BLZE",
       "amount": 576.27254524,
-      "usd": 0.06
+      "usd": 0.07
     },
     {
       "token": "ET9AeE6e",
@@ -37,17 +42,17 @@
       "usd": 32.36
     },
     {
+      "token": "iEXPcSJ5",
+      "amount": 2424442.398093,
+      "usd": 38.26
+    },
+    {
       "token": "5Y3obR5a",
       "amount": 1.0,
       "usd": 0
-    },
-    {
-      "token": "CRT",
-      "amount": 1.189318443,
-      "usd": 135.84
     }
   ],
-  "lastUpdated": "2026-02-16T21:12:28-08:00",
+  "lastUpdated": "2026-02-17T05:41:22-08:00",
   "trades": [
     {
       "timestamp": "2026-02-16T07:10:51.334Z",
@@ -138,6 +143,24 @@
       "priceImpact": -0.010886200168219371,
       "signature": "4xUxq26uru1sbqoNUZRjJnvLK8XEe5MpUTjsccFur8vxAdd5arot97rdo6o6H5yUEGJQdS7H3w5FreNaY9PmpusA",
       "explorer": "https://solscan.io/tx/4xUxq26uru1sbqoNUZRjJnvLK8XEe5MpUTjsccFur8vxAdd5arot97rdo6o6H5yUEGJQdS7H3w5FreNaY9PmpusA"
+    },
+    {
+      "timestamp": "2026-02-17T05:41:21.700Z",
+      "type": "swap",
+      "from": {
+        "token": "SOL",
+        "amount": 0.25,
+        "mint": "So11111111111111111111111111111111111111112"
+      },
+      "to": {
+        "token": "USDC",
+        "amount": 21.45,
+        "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+      },
+      "usdValue": 21.4503489668597,
+      "priceImpact": -5.025935967638028e-05,
+      "signature": "2awUN4ByQhryUicY4XxgCHfsXHaWX94R71VGsenhoD7uRERgnKyQcray2BpHp8xtVXqCVW4QvbNJQoCCqPyUxaCU",
+      "explorer": "https://solscan.io/tx/2awUN4ByQhryUicY4XxgCHfsXHaWX94R71VGsenhoD7uRERgnKyQcray2BpHp8xtVXqCVW4QvbNJQoCCqPyUxaCU"
     }
   ]
 }
