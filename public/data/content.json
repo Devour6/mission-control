@@ -779,6 +779,30 @@
       "angle": "",
       "status": "pending",
       "feedback": ""
+    },
+    {
+      "id": "rachel-2026-02-17-27",
+      "platform": "linkedin",
+      "author": "Rachel",
+      "authorEmoji": "💼",
+      "batch": "Auto-synced",
+      "date": "2026-02-17",
+      "text": ": GitHub Replaces YAML with Natural Language (MIDDAY)\n\n**Hook:** GitHub just announced Agentic Workflows. Developers can now automate repository tasks using plain Markdown instead of complex YAML configurations. The implications are bigger than you think.\n\n**Body:**\nFor years, CI/CD pipelines have been trapped behind YAML barriers. Complex deployment logic written in configuration files that require specialized knowledge to modify or debug.\n\nGitHub Agentic Workflows changes that equation entirely. AI agents (Copilot, Claude Code, Codex) can now execute repository automation through natural language instructions embedded in Markdown files.\n\nFrom an infrastructure perspective, this represents a fundamental shift: development workflows moving from configuration-as-code to conversation-as-code. The barrier between business logic and technical implementation dissolves.\n\nAt Phase, we see this pattern across our validator infrastructure: complex operational tasks becoming accessible through natural language interfaces. Validator monitoring, staking optimization, and infrastructure management - all moving toward conversational control.\n\nThe broader signal: AI agents aren't just consuming existing tools, they're replacing the interfaces entirely. When your development workflow speaks plain English, who needs DevOps specialists?\n\nWhat complex configurations in your workflow could benefit from natural language control?\n\n**Rationale:** Developer-focused content using major GitHub announcement. Connects to broader AI agents theme while showing technical understanding. Appeals to LinkedIn's professional audience with practical implications for workflow optimization.\n\n---",
+      "angle": "",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "rachel-2026-02-17-28",
+      "platform": "linkedin",
+      "author": "Rachel",
+      "authorEmoji": "💼",
+      "batch": "Auto-synced",
+      "date": "2026-02-17",
+      "text": ": European Crypto Tax Reality Check (MIDDAY)\n\n**Hook:** The Netherlands just proposed 36% annual tax on crypto holdings - even unrealized gains. This isn't just a Dutch problem. It's the future of European crypto taxation.\n\n**Body:**\nWhen governments face fiscal pressure, they target crypto first. The Netherlands' proposal taxes crypto assets at 36% annually based on portfolio value - regardless of whether you sold anything.\n\nThis creates a fundamental impossibility: paying cash taxes on unrealized digital gains. The only resolution is forced liquidation or migration to crypto-backed ETPs that generate reportable income.\n\nEU DAC8 reporting requirements are already live, giving tax authorities full visibility into crypto holdings across member states. The infrastructure for valuation-based taxation is operational.\n\nFrom Phase's validator perspective, this trend accelerates institutional adoption of staking infrastructure. Professional operators generating documentable yield have clear tax treatment. Individual holders facing annual valuation taxes need professional-grade solutions.\n\nThe shift is already visible: $1.66B in Solana RWA represents capital choosing regulatory-compliant onchain structures over self-custody complexity.\n\nEuropean crypto holders face a choice: professional infrastructure with clear tax treatment, or self-custody with increasing compliance risk.\n\nWhat tax developments are reshaping crypto strategies in your region?\n\n**Rationale:** Urgent regulatory development with broad European implications. Connects to Phase's professional infrastructure positioning while highlighting institutional vs. retail divergence. Appeals to LinkedIn's global professional audience dealing with regulatory complexity.",
+      "angle": "",
+      "status": "pending",
+      "feedback": ""
     }
   ]
 }
