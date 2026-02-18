@@ -599,6 +599,42 @@
       "angle": "",
       "status": "pending",
       "feedback": ""
+    },
+    {
+      "id": "kelly-2026-02-17-7",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-17",
+      "text": "**ID:** kelly-2026-02-17-4\n\nA Nasdaq-listed company just adopted SOL as its primary treasury reserve asset.\n\nDeFi Development Corp didn't pick BTC. Didn't pick ETH. Picked SOL.\n\nWhen public companies start denominating their balance sheet in your token, that's a different conversation.",
+      "angle": "** DFDV is a novel institutional signal. Public company treasury adoption is a strong narrative beat. Short, punchy, lets the fact speak for itself.\n\n---",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "kelly-2026-02-17-8",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-17",
+      "text": "**ID:** kelly-2026-02-17-5\n\nSolana just passed Ethereum as the fastest-growing chain for stablecoins. Transaction volume and velocity.\n\nNot L2s. Not appchains. The base layer.\n\nStablecoins are the boring metric nobody watches until it's the only one that matters.",
+      "angle": "** Stablecoin growth is a fresh, data-backed angle. Directly from Motley Fool/intel. Positions Solana without attacking ETH, just stating the data.\n\n---",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "kelly-2026-02-17-9",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-17",
+      "text": "**ID:** kelly-2026-02-17-6\n\nZora just launched \"Attention Markets\" on Solana. You can create a token for any trending topic for 1 SOL.\n\nPrediction markets were the last cycle's unlock. Attention markets might be this one's.",
+      "angle": "** Novel Solana primitive. Short, forward-looking take. Doesn't overstate but plants the idea. Fresh topic nobody else is covering yet.\n\n---\n\n_Pre-submit checks complete. No emdashes. All sentences capitalized. No hashtags. All facts sourced from Dwight's midday intel._",
+      "status": "pending",
+      "feedback": ""
     }
   ]
 }
