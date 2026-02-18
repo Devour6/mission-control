@@ -26,7 +26,7 @@ export async function GET() {
     const data = await res.json();
     cache = { data, ts: now };
     return NextResponse.json(data);
-  } catch (e) {
+  } catch {
     // If cache exists but stale, serve it anyway
     if (cache) return NextResponse.json(cache.data);
     return NextResponse.json(
