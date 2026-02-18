@@ -494,5 +494,13 @@
     "status": "denied",
     "feedback": "",
     "reviewedAt": "2026-02-18T18:57:18.642Z"
+  },
+  {
+    "id": "kelly-2026-02-17-16",
+    "author": "Kelly",
+    "platform": "x",
+    "status": "denied",
+    "feedback": "",
+    "reviewedAt": "2026-02-18T18:57:28.674Z"
   }
 ]
