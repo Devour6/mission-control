@@ -550,5 +550,13 @@
     "status": "denied",
     "feedback": "are these numbers right?",
     "reviewedAt": "2026-02-18T19:06:12.057Z"
+  },
+  {
+    "id": "kelly-2026-02-17-28",
+    "author": "Kelly",
+    "platform": "x",
+    "status": "denied",
+    "feedback": "you need to shill @NetrunnerTax on tweets like this",
+    "reviewedAt": "2026-02-18T19:06:29.300Z"
   }
 ]
