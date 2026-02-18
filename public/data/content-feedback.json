@@ -438,5 +438,13 @@
     "status": "approved",
     "feedback": "",
     "reviewedAt": "2026-02-18T18:44:45.037Z"
+  },
+  {
+    "id": "kelly-2026-02-17-3",
+    "author": "Kelly",
+    "platform": "x",
+    "status": "denied",
+    "feedback": "not a trading account",
+    "reviewedAt": "2026-02-18T18:44:58.017Z"
   }
 ]
