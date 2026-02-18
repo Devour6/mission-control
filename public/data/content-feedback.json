@@ -614,5 +614,13 @@
     "status": "denied",
     "feedback": "",
     "reviewedAt": "2026-02-18T19:31:10.272Z"
+  },
+  {
+    "id": "rachel-2026-02-18-2",
+    "author": "Rachel",
+    "platform": "linkedin",
+    "status": "approved",
+    "feedback": "",
+    "reviewedAt": "2026-02-18T19:31:23.551Z"
   }
 ]
