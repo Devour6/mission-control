@@ -707,8 +707,9 @@
       "date": "2026-02-17",
       "text": ": SOL Capitulation - Historical Context\n\n**Hook:** $202M SOL just moved to exchanges. MVRV hit 0.8 - the same capitulation signal we saw at SOL's $8 bottom in May 2022.\n\n**Body:**\nThe pattern is familiar: sustained outflows, retail panic, MVRV below 1.0. But capitulation signals aren't bearish - they're contrarian buy signals for infrastructure plays.\n\nAt $86, SOL is trading 47% below its 200-day moving average. The last time MVRV hit these levels, SOL bottomed at $8 and ran to $260 over 18 months.\n\nFrom our validator perspective, this creates opportunity. Staking yields increase during price weakness as the validator set consolidates. Our 4-validator operation (3M+ SOL AUM) benefits from reduced competition and higher relative rewards.\n\nThe institutions building on Solana ($1.66B in RWA, Coinbase Agentic Wallets) aren't price-sensitive. They're infrastructure-sensitive. When retail finally capitulates completely, that's when the next cycle begins.\n\n**Rationale:** Data-driven contrarian take on SOL weakness using specific technical indicators. References Phase's validator advantage during consolidation periods. Appeals to LinkedIn's professional audience with measured analysis.",
       "angle": "",
-      "status": "pending",
-      "feedback": ""
+      "status": "denied",
+      "feedback": "Phase doesnt own the validators gojira, nebula, kisetsu, and ded monkes",
+      "resolvedAt": "2026-02-18T18:58:22.487Z"
     },
     {
       "id": "rachel-2026-02-17-12",
