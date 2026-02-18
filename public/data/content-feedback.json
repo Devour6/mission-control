@@ -334,5 +334,13 @@
     "status": "denied",
     "feedback": "firedancer is already out",
     "reviewedAt": "2026-02-18T18:07:05.719Z"
+  },
+  {
+    "id": "rachel-2026-02-16-3",
+    "author": "Rachel",
+    "platform": "linkedin",
+    "status": "denied",
+    "feedback": "we are not exploring how $YIELD can serve as infrastructure. why would u say that",
+    "reviewedAt": "2026-02-18T18:07:35.484Z"
   }
 ]
