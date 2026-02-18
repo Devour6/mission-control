@@ -542,5 +542,13 @@
     "status": "denied",
     "feedback": "has this been fact checked?",
     "reviewedAt": "2026-02-18T18:59:29.875Z"
+  },
+  {
+    "id": "kelly-2026-02-17-27",
+    "author": "Kelly",
+    "platform": "x",
+    "status": "denied",
+    "feedback": "are these numbers right?",
+    "reviewedAt": "2026-02-18T19:06:12.057Z"
   }
 ]
