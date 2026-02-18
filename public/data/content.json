@@ -395,8 +395,9 @@
       "date": "2026-02-16",
       "text": ": Solana Speed Revolution\n\n**Hook:** Solana is about to become 100x faster. Here's what that means for crypto.\n\n**Body:**\nTwo major upgrades are coming to Solana in 2026:\n\nAlpenglow: Consensus overhaul targeting 150ms finality (vs current ~400ms)\nFiredancer: Already testing 1M+ TPS in controlled environments\n\nFor context, Visa processes 1,700 TPS on average. Ethereum does ~15 TPS. Bitcoin does ~7 TPS.\n\nThis isn't just about speed - it's about what becomes possible. Real-time trading, instant settlements, AI agents transacting at machine speed. The entire financial system operating at the speed of thought.\n\nWe're not just witnessing incremental improvements. We're watching the foundation being laid for a completely different type of financial infrastructure.\n\nPhase is positioning our staking infrastructure to take advantage of these performance gains as they roll out.\n\n**Rationale:**\n- Based on Intel #5 (Alpenglow upgrade)\n- Technical but accessible angle\n- Positions Phase for the future without revealing sensitive operational details\n- Contrasts with slower networks to highlight competitive advantage\n- No emdashes, fact-checked numbers\n\n---",
       "angle": "",
-      "status": "pending",
-      "feedback": ""
+      "status": "denied",
+      "feedback": "firedancer is already out",
+      "resolvedAt": "2026-02-18T18:07:05.719Z"
     },
     {
       "id": "rachel-2026-02-16-3",
