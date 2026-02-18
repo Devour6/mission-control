@@ -434,8 +434,9 @@
       "date": "2026-02-16",
       "text": ": Solana Alpenglow Technical Preview\n\n**Hook:** Solana is about to get 100x faster. Two major upgrades - Alpenglow and Firedancer - are positioning the network for real-time finance. Here's what that actually means for the ecosystem.\n\n**Body:** Alpenglow targets ~150ms finality versus current ~400ms, with 18ms block propagation. Firedancer has demonstrated 1M TPS in testing environments. This isn't incremental improvement - it's infrastructure for applications that can't exist today.\n\nReal-time trading, microsecond arbitrage, instant settlement for payments - these become possible when blockchain operates at network speeds rather than consensus delays. As validators, we're preparing our infrastructure for this transition. The performance gap between Solana and other L1s is about to widen dramatically.\n\n**Rationale:** Technical depth without jargon overload. Focuses on infrastructure implications rather than price speculation. Connects to Phase's validator business naturally. Forward-looking positioning.\n\n---",
       "angle": "",
-      "status": "pending",
-      "feedback": ""
+      "status": "denied",
+      "feedback": "firedancer is already live",
+      "resolvedAt": "2026-02-18T18:08:05.835Z"
     },
     {
       "id": "rachel-2026-02-16-6",
