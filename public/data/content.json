@@ -460,8 +460,9 @@
       "date": "2026-02-16",
       "text": "Solana's RWA ecosystem just hit $1.66B. All-time high. Citi is tokenizing on-chain. Spot and futures taker CVD both buy-dominant for 90 days straight. The institutional rails are being built in real time. You're just not paying attention because the price is red.",
       "angle": "** RWA ATH is a fresh data point from today's midday intel. Citi tokenizing adds institutional credibility. CVD data adds depth. Closing line is punchy and contrarian without exaggerating.\n\n---\n\n#",
-      "status": "pending",
-      "feedback": ""
+      "status": "denied",
+      "feedback": "",
+      "resolvedAt": "2026-02-18T18:09:01.905Z"
     },
     {
       "id": "kelly-2026-02-16-8",
