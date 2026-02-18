@@ -499,8 +499,9 @@
       "date": "2026-02-16",
       "text": ": Solana RWA Ecosystem Milestone\n\n**Hook:** Solana's real-world asset ecosystem just hit $1.66B - a new all-time high. When Citi is tokenizing bills of exchange on your blockchain, you know institutional adoption is accelerating beyond the hype.\n\n**Body:** The RWA narrative isn't theoretical anymore. $1.66B in tokenized assets on Solana proves institutional settlement use cases are finding their home. This isn't memecoin speculation - it's banks, trading firms, and asset managers building real infrastructure for traditional finance.\n\nWhat excites me most is the velocity. Spot and futures taker cumulative volume delta has been buy-dominant for 90 consecutive days. Sustained institutional demand rarely reverses quickly. As validators processing this institutional activity, we see the infrastructure requirements firsthand - enterprise-grade uptime, regulatory compliance, institutional SLAs.\n\n**Rationale:** Strong data hook ($1.66B ATH, Citi example). Separates serious use cases from speculation. Connects to Phase's validator positioning naturally. Shows institutional legitimacy without overpromising.\n\n---",
       "angle": "",
-      "status": "pending",
-      "feedback": ""
+      "status": "denied",
+      "feedback": "",
+      "resolvedAt": "2026-02-18T18:09:15.558Z"
     },
     {
       "id": "rachel-2026-02-16-11",
