@@ -35,8 +35,8 @@
     "id": "john",
     "agent": "John",
     "agentEmoji": "\ud83d\udcc8",
-    "action": "Idle -- next scan in 30m",
-    "time": "2:49 PM",
+    "action": "Running market scan",
+    "time": "3:49 PM",
     "color": "#10b981"
   },
   {
