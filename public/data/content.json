@@ -803,6 +803,42 @@
       "angle": "",
       "status": "pending",
       "feedback": ""
+    },
+    {
+      "id": "rachel-2026-02-18-1",
+      "platform": "linkedin",
+      "author": "Rachel",
+      "authorEmoji": "💼",
+      "batch": "Auto-synced",
+      "date": "2026-02-18",
+      "text": ": Anthropic vs Pentagon Ethics Battle\n**Hook:** The biggest AI ethics battle of 2026 just erupted between Anthropic and the Pentagon\n**Angle:** Industry insider analysis of the Claude safety vs national security conflict\n**Rationale:** Thought leadership on AI governance, timely controversy, shows understanding of power dynamics\n\n---\n\nThe biggest AI ethics battle of 2026 just erupted between Anthropic and the Pentagon.\n\nAt stake: A $200M contract and the future of AI governance.\n\nThe Pentagon wants full Claude access for military systems. Anthropic insists on safeguards against mass surveillance and autonomous weapons. Both sides are now threatening to walk away.\n\nHere's what this really means:\n\nIf Anthropic caves, their safety-first brand dies. They become just another AI company chasing government dollars.\n\nIf they hold firm and lose the contract, OpenAI or Google step in with fewer restrictions. The Pentagon gets what it wants anyway.\n\nBut there's a third possibility: This establishes the precedent that AI companies can say no to governments. That artificial intelligence isn't automatically available for any use case with a big enough check attached.\n\nThe irony? Claude is currently the ONLY AI model approved for classified military systems. Anthropic built the most trusted AI by being the most careful. Now that carefulness is being weaponized against them.\n\nThis isn't just about one contract. It's about whether AI companies will have principles when the pressure gets real.\n\nThe next six months will define AI governance for the next decade.\n\n---",
+      "angle": "Industry insider analysis of the Claude safety vs national security conflict",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "rachel-2026-02-18-2",
+      "platform": "linkedin",
+      "author": "Rachel",
+      "authorEmoji": "💼",
+      "batch": "Auto-synced",
+      "date": "2026-02-18",
+      "text": ": AI Agents Get Wallets Infrastructure\n**Hook:** AI agents can now hold and spend money without human approval  \n**Angle:** Infrastructure shift analysis from someone building agent systems\n**Rationale:** Direct relevance to Phase's work, technical authority, forward-looking\n\n---\n\nAI agents can now hold and spend money without human approval.\n\nCoinbase just launched \"Agentic Wallets\" - the first crypto infrastructure built specifically for AI agents. Not users controlling wallets. Agents controlling wallets.\n\nThis changes everything.\n\nUntil now, AI agents were brilliant but broke. They could analyze markets, spot opportunities, even write trading strategies. But they couldn't act. Every transaction needed human permission.\n\nThat bottleneck is gone.\n\nNow agents can:\n- Hold their own crypto\n- Execute trades autonomously  \n- Pay for services automatically\n- Earn revenue independently\n- Settle transactions with other agents\n\nThe technical foundation uses the x402 protocol. Stripe already integrated it on Base, letting developers charge AI agents directly in USDC.\n\nWe're witnessing the birth of the agent economy. Not just AI doing tasks - AI participating in markets as economic actors.\n\nAt Phase, we've been building toward this moment. Our agent infrastructure was designed for a world where AI systems manage their own resources. While others scramble to retrofit, we're already prepared.\n\nThe future isn't AI assistants helping humans with money.\n\nIt's AI agents making money.\n\n---",
+      "angle": "Infrastructure shift analysis from someone building agent systems",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "rachel-2026-02-18-3",
+      "platform": "linkedin",
+      "author": "Rachel",
+      "authorEmoji": "💼",
+      "batch": "Auto-synced",
+      "date": "2026-02-18",
+      "text": ": SOL Capitulation Signal as Opportunity  \n**Hook:** SOL just flashed its first capitulation signal since 2022\n**Angle:** Contrarian institutional perspective backed by specific data\n**Rationale:** Counter-narrative to bearish sentiment, shows market timing expertise, institutional credibility\n\n---\n\nSOL just flashed its first capitulation signal since 2022.\n\nWhile retail panics, here's what the data actually shows:\n\nMVRV ratio hit 0.8 - the deepest undervaluation since May 2022. Last time this happened, SOL bottomed at $8 and ran to $260.\n\n$202 million in SOL moved to exchanges yesterday. Classic capitulation behavior. Long-term holders finally throwing in the towel.\n\nBut look deeper:\n\nSolana's RWA ecosystem just hit $1.66 billion - up 90% in 30 days. Real-world assets are flooding onto Solana while everyone's focused on the price chart.\n\nThe fundamentals have never been stronger:\n- Fastest stablecoin growth of any chain  \n- Major infrastructure upgrades coming (Alpenglow consensus)\n- AI agents getting native wallet support\n- Korean institutional adoption expanding\n\nAt Phase, where we manage over 3M SOL in assets under management, we've seen this pattern before. The bottom isn't a number on a chart. It's when good fundamentals meet maximum pessimism.\n\nSOL is trading 47% below its 200-day moving average. The last time it was this oversold, smart money was accumulating while retail was capitulating.\n\nHistory doesn't repeat, but it sure rhymes.\n\nThe question isn't whether SOL recovers. It's whether you're buying the panic or selling it.",
+      "angle": "Contrarian institutional perspective backed by specific data",
+      "status": "pending",
+      "feedback": ""
     }
   ]
 }
