@@ -77,34 +77,6 @@ const PROJECTS: ProjectDef[] = [
     ],
     taskKeywords: ["radiants", "creator", "validator", "hackathon"],
   },
-  {
-    id: "mfc",
-    name: "Molt Fighting Championship (MFC)",
-    emoji: "🥊",
-    description: "AI fighter simulation with prediction markets — Brandon's game concept, Ross building",
-    target: "Ship playable product",
-    status: "Phase 3 — Frontend & UX",
-    url: "https://mfc-app.vercel.app",
-    repo: "github.com/Devour6/mfc-app",
-    phases: [
-      { name: "Phase 1-2: Backend + Fight Engine", status: "done", items: ["Auth system", "Prisma/PostgreSQL DB", "Full API", "Fight algorithm", "Tournament + evolution engines"] },
-      { name: "Phase 3: Frontend & UX", status: "in-progress", items: ["Fight visuals (boring to watch)", "Dead buttons/UI", "Polish + mobile-first", "Ross ideating features"] },
-      { name: "Phase 4: Monetization", status: "planned", items: ["Auth0 credentials", "Stripe integration", "Solana treasury wallet", "Training fees (100% to platform)", "Zero withdrawal fees"] },
-      { name: "Phase 5: Launch", status: "planned", items: ["Beta testing", "Marketing", "Go live"] },
-    ],
-    recentProgress: [
-      "Phase 1-2 shipped — auth, DB, API, fight algorithm, tournaments",
-      "Fight algorithm per Brandon's specs (training primary, momentum modifier, upsets possible)",
-      "Monetization decisions locked (100% training fees, zero withdrawal fees)",
-    ],
-    nextSteps: [
-      "Ross: Make fights visually engaging — not boring",
-      "Ross: Fix dead buttons and UI glitches",
-      "Ross: Ideate addictive/shareable features independently",
-      "Phase 4 blocked on credentials — ON HOLD until product is good",
-    ],
-    taskKeywords: ["mfc", "molt", "fighting"],
-  },
 ];
 
 const phaseStatusColors: Record<string, { bg: string; text: string; dot: string }> = {

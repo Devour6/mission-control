@@ -25,10 +25,8 @@ interface CoinDisplayProps {
 }
 
 // --- API Configuration ---
-// Uses our local Price Aggregator ONLY. No paid CoinGecko fallback.
-// In prod, set NEXT_PUBLIC_PRICE_API_URL env var to the aggregator's public URL.
-const AGGREGATOR_URL = process.env.NEXT_PUBLIC_PRICE_API_URL || "http://localhost:3001";
-const PRICE_ENDPOINT = `${AGGREGATOR_URL}/api/v3/simple/price?ids=solana,bitcoin,ethereum&vs_currencies=usd&include_24hr_change=true`;
+// Uses our own Next.js API route which proxies to CoinGecko Pro.
+const PRICE_ENDPOINT = "/api/prices";
 
 // --- Fetcher ---
 const fetcher = async (): Promise<PriceData> => {
