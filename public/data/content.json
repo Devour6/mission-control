@@ -915,8 +915,9 @@
       "date": "2026-02-18",
       "text": ": AI Agents Get Wallets Infrastructure [POLISHED]\n**Hook:** AI agents can now hold and spend money without human approval  \n**Angle:** Infrastructure shift analysis from someone building agent systems\n**Rationale:** Direct relevance to Phase's work, technical authority, forward-looking\n\n---\n\nAI agents can now hold and spend money without human approval.\n\nCoinbase just launched \"Agentic Wallets\" - the first crypto infrastructure built specifically for AI agents. Not users controlling wallets. Agents controlling wallets.\n\nThis changes everything.\n\nUntil now, AI agents were brilliant but broke. They could analyze markets, spot opportunities, even write trading strategies. But they couldn't execute. Every transaction needed human permission.\n\nThat bottleneck is gone.\n\nThe technical architecture is elegant:\n- Agents receive their own wallet addresses on Base\n- x402 protocol enables direct AI-to-API payments in USDC\n- Smart contracts enforce spending limits and logic validation\n- Stripe's agent billing SDK processes micropayments at scale\n\nReal use cases are already live:\n- Trading bots managing 8-figure portfolios autonomously\n- Content agents paying for data feeds and compute resources\n- Research agents subscribing to premium APIs and databases\n\nAt Phase, we've been architecting for this moment. Our $YIELD protocol infrastructure was designed for autonomous agent participation in Solana DeFi. While competitors scramble to retrofit human-centric systems, we're already prepared for agent-native financial services.\n\nThe economic implications are staggering. When agents can earn, spend, and invest independently, they become market participants rather than just market analyzers.\n\nThe future isn't AI assistants helping humans with money.\n\nIt's AI agents making money.\n\n---",
       "angle": "Infrastructure shift analysis from someone building agent systems",
-      "status": "pending",
-      "feedback": ""
+      "status": "denied",
+      "feedback": "This is no longer news",
+      "resolvedAt": "2026-02-19T18:36:02.766Z"
     },
     {
       "id": "rachel-2026-02-18-11",
