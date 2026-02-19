@@ -662,5 +662,13 @@
     "status": "denied",
     "feedback": "We dont operate the 4 validators you are thinking of. We operate many more but dont operate gojira, kisetsu, nebula, or ded monkes",
     "reviewedAt": "2026-02-19T18:36:35.605Z"
+  },
+  {
+    "id": "rachel-2026-02-18-14",
+    "author": "Rachel",
+    "platform": "linkedin",
+    "status": "denied",
+    "feedback": "we have not solved for this",
+    "reviewedAt": "2026-02-19T18:37:06.219Z"
   }
 ]
