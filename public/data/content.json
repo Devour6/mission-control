@@ -941,8 +941,9 @@
       "date": "2026-02-18",
       "text": ": Validator Economics Under New Tax Regime [FINAL POLISH]\n**Hook:** Running Solana validators just became a tax compliance nightmare\n**Angle:** First-person operational experience with new reporting requirements\n**Rationale:** Highly specific expertise, affects institutions directly, regulatory reality\n\n---\n\nRunning Solana validators just became a tax compliance nightmare.\n\nForm 1099-DA went live this week, and suddenly every stake/unstake transaction requires detailed cost basis reporting. For validator operators managing thousands of delegations, this is chaos.\n\nHere's what changed overnight:\n\n**Before:** Validator commissions were straightforward income. Staking rewards had gray area treatment. Simple math, simple reporting.\n\n**Now:** Every epoch requires documentation:\n- Commission earned (taxable income)\n- Validator voting fees (business deduction) \n- Jito MEV rewards (separate income category)\n- Staking compensations (potential like-kind treatment)\n- Vote account rent (operational expense)\n\nThe operational burden is staggering. Our 4 validators generate 1,460 taxable events per year (365 epochs × 4 validators). Each requiring cost basis calculations, USD conversion rates, and proper categorization.\n\nPhase solved this by building compliance into our infrastructure from day one. Every epoch automatically logged, every transaction categorized, every reward calculated at the precise block timestamp.\n\nThe result: While competitors scramble with spreadsheets and panic, our tax reporting is automated and audit-ready.\n\nBut here's the bigger picture: This compliance burden will force smaller validators out. Only professionally managed operations can handle the reporting requirements at scale.\n\nValidator consolidation isn't just about MEV efficiency anymore. It's about regulatory survival.\n\nThe age of hobbyist validators is ending. Professional infrastructure wins.",
       "angle": "First-person operational experience with new reporting requirements",
-      "status": "pending",
-      "feedback": ""
+      "status": "denied",
+      "feedback": "we have not solved for this",
+      "resolvedAt": "2026-02-19T18:37:06.219Z"
     },
     {
       "id": "rachel-2026-02-19-1",
