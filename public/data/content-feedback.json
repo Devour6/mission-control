@@ -702,5 +702,13 @@
     "status": "denied",
     "feedback": "we dont offer this",
     "reviewedAt": "2026-02-20T05:10:11.233Z"
+  },
+  {
+    "id": "rachel-2026-02-19-8",
+    "author": "Rachel",
+    "platform": "linkedin",
+    "status": "denied",
+    "feedback": "this has nothing to do with validators and ai",
+    "reviewedAt": "2026-02-20T05:10:39.069Z"
   }
 ]
