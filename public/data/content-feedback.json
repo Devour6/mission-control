@@ -694,5 +694,13 @@
     "status": "denied",
     "feedback": "some of this isnt news. come one",
     "reviewedAt": "2026-02-19T18:39:42.151Z"
+  },
+  {
+    "id": "rachel-2026-02-19-7",
+    "author": "Rachel",
+    "platform": "linkedin",
+    "status": "denied",
+    "feedback": "we dont offer this",
+    "reviewedAt": "2026-02-20T05:10:11.233Z"
   }
 ]
