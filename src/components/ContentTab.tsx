@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { ContentData } from "@/lib/types";
 import { useData, RefreshIntervals } from "@/hooks/useData";
 
@@ -287,6 +288,20 @@ export default function ContentTab() {
                         )}
                       </div>
 
+                      {/* Image (if exists) */}
+                      {draft.imageUrl && (
+                        <div className="bg-[#242836] rounded-lg p-3 mb-3">
+                          <Image
+                            src={draft.imageUrl}
+                            alt={`Visual for ${draft.platform} post by ${draft.author}`}
+                            width={400}
+                            height={192}
+                            className="w-full h-48 object-cover rounded-md"
+                          />
+                        </div>
+                      )}
+
+                      {/* Text content */}
                       <div className="bg-[#242836] rounded-lg p-3 mb-3">
                         <p className="text-sm text-[#e4e6ed] whitespace-pre-wrap">{draft.text}</p>
                       </div>

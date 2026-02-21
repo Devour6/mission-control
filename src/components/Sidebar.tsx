@@ -11,7 +11,6 @@ const tabs = [
   { id: "office", label: "Office", icon: "🏢" },
   { id: "tasks", label: "Tasks", icon: "📋" },
   { id: "content", label: "Content", icon: "📝" },
-  { id: "visuals", label: "Visuals", icon: "🎨" },
   { id: "standups", label: "Standups", icon: "📝" },
   { id: "projects", label: "Projects", icon: "🚀" },
   { id: "docs", label: "Docs", icon: "📄" },
