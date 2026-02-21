@@ -5,12 +5,32 @@
       "docs": [
         {
           "id": "d-21-val",
-          "title": "Validator Income Report — Epoch 929 (Feb 2026)",
+          "title": "Validator Income Report \u2014 Epoch 929 (Feb 2026)",
           "author": "George",
-          "authorEmoji": "🦾",
+          "authorEmoji": "\ud83e\uddbe",
           "type": "report",
           "description": "Real onchain validator income data from SVT.one for all 4 validators. Epoch 929. Personal account.",
           "url": "https://docs.google.com/document/d/1dWciHTSdqZpo7KPzG-U6sWxZLF0R0WRM-RCFepO2z1A/edit",
+          "account": "personal"
+        },
+        {
+          "id": "d-21-house",
+          "title": "House Savings Tracker",
+          "author": "Pam",
+          "authorEmoji": "\ud83d\udccb",
+          "type": "tracker",
+          "description": "Month-by-month savings timeline to $180K down payment on Austin home. Updated with accurate 10-epoch validator income data.",
+          "url": "https://docs.google.com/spreadsheets/d/1eqZkpScYyJ55w8RlnkE9a7vD9P7gEZbHEb7cOF2w3SQ/edit",
+          "account": "personal"
+        },
+        {
+          "id": "d-21-sol",
+          "title": "SOL Price Scenarios \u2014 House Savings Impact",
+          "author": "Pam",
+          "authorEmoji": "\ud83d\udccb",
+          "type": "analysis",
+          "description": "How SOL price affects validator income and time to $180K down payment. Scenarios from $50 to $300 SOL.",
+          "url": "https://docs.google.com/spreadsheets/d/1IbtWK4p462mZXetdEZ_bpQjYtCOnbPAXEZ7bODkyNiw/edit",
           "account": "personal"
         }
       ]
@@ -20,9 +40,9 @@
       "docs": [
         {
           "id": "d-19-1",
-          "title": "CODE Pool — Core Open-source Developer Ecosystem Pool",
+          "title": "CODE Pool \u2014 Core Open-source Developer Ecosystem Pool",
           "author": "Dwight",
-          "authorEmoji": "🔍",
+          "authorEmoji": "\ud83d\udd0d",
           "type": "analysis",
           "description": "Analysis of CODE Pool model for open-source developer ecosystem on Solana",
           "url": "https://docs.google.com/document/d/1Wr9si1y7rk8j9G8r6JEYlSRBHBmFrEO5UDlGUe4NVFY/edit"
@@ -36,7 +56,7 @@
           "id": "d-16-1",
           "title": "Expense Optimization Analysis - February 2026",
           "author": "George",
-          "authorEmoji": "🦾",
+          "authorEmoji": "\ud83e\uddbe",
           "type": "analysis",
           "description": "Comprehensive expense optimization analysis identifying $2,847/month ($34,164/year) in savings opportunities. Covers cloud infrastructure, AI costs, SaaS subscriptions, and business operations with actionable implementation plans.",
           "url": "https://docs.google.com/document/d/1Y-Ii4ir1GYLCtFS4yuETHXyvyo-EawOJbvNzM3kYxZ4/edit"
@@ -48,9 +68,9 @@
       "docs": [
         {
           "id": "d-15-1",
-          "title": "SOL Treasury Liquidation Risk — Feb 2026",
+          "title": "SOL Treasury Liquidation Risk \u2014 Feb 2026",
           "author": "Dwight",
-          "authorEmoji": "🔍",
+          "authorEmoji": "\ud83d\udd0d",
           "type": "intel",
           "description": "Risk analysis of ~11M SOL held underwater by public companies (Forward, DeFi Dev Corp, Sharps). Scenario modeling for forced liquidation impact on SOL price and Phase Delegation economics.",
           "url": "https://docs.google.com/document/d/1mGJxIwZXCQNDkTpKcM_yxrfG_hF_VusgEtvVYuM5fNE/edit"
