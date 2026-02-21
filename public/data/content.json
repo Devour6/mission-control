@@ -1200,6 +1200,66 @@
       "angle": "** Regulatory clarity creating builder confidence without specific legislation references",
       "status": "pending",
       "feedback": ""
+    },
+    {
+      "id": "rachel-2026-02-21-1",
+      "platform": "linkedin",
+      "author": "Rachel",
+      "authorEmoji": "💼",
+      "batch": "Auto-synced",
+      "date": "2026-02-21",
+      "text": ": Anthropic vs Pentagon\n*Angle: AI ethics battle positioning Brandon as principled leader*\n\nAnthropic just told the Pentagon \"no\" on AI safeguards.\n$200 million contract at stake.\n\nHere's why this matters for every CEO building with AI:\n\nThe Pentagon wants full access to Claude within legal bounds. Anthropic wants guardrails against mass surveillance and autonomous weapons. Claude is currently the ONLY AI on military classified systems.\n\nThis isn't just about defense contracts. It's about the future of AI governance.\n\n**Two paths forward:**\n1️⃣ AI companies cave to institutional pressure, erode safety standards\n2️⃣ AI companies hold the line, force institutions to accept ethical boundaries\n\nAt Phase, we run on Claude infrastructure. We chose Anthropic because they've consistently prioritized responsible AI development over market dominance.\n\nThe companies that win long-term won't be the ones that say \"yes\" to everything. They'll be the ones that build trust through principled decisions.\n\nEven when it costs $200 million.\n\nWhat's your take: Should AI companies compromise on ethics for enterprise deals?\n\n---",
+      "angle": "",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "rachel-2026-02-21-2",
+      "platform": "linkedin",
+      "author": "Rachel",
+      "authorEmoji": "💼",
+      "batch": "Auto-synced",
+      "date": "2026-02-21",
+      "text": ": $690B AI Infrastructure Wave\n*Angle: Infrastructure capex = downstream opportunity for Phase*\n\n$690 billion is being poured into AI infrastructure this year.\nThat's not a typo.\n\nAmazon: $200B. Google: $185B. Meta: $135B. Microsoft: $120B. Oracle: $50B.\n\nThis isn't just cloud expansion. This is the foundation for the next decade of computing.\n\n**What this means for builders:**\n• Every major enterprise will need AI integration by 2027\n• Infrastructure demand will eclipse current cloud capacity\n• The tooling layer (what we're building at Phase) becomes critical\n\nWhile crypto markets consolidate, the AI infrastructure buildout is creating unprecedented downstream demand.\n\nSmart money follows the infrastructure spend. The companies building picks and shovels for this AI gold rush will capture outsized returns.\n\nPhase is positioned at the intersection of AI and blockchain infrastructure. Our validator network already supports autonomous agents, and with new primitives like Coinbase's Agentic Wallets, we're seeing the convergence accelerate.\n\nThe next bull run won't be driven by speculation.\nIt'll be driven by infrastructure demand.\n\nAre you building infrastructure or consuming it?\n\n---",
+      "angle": "",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "rachel-2026-02-21-3",
+      "platform": "linkedin",
+      "author": "Rachel",
+      "authorEmoji": "💼",
+      "batch": "Auto-synced",
+      "date": "2026-02-21",
+      "text": ": AI Agents Get Wallets\n*Angle: Agent economy infrastructure - Brandon ahead of the curve*\n\nAI agents now have their own wallets.\nThis changes everything.\n\nCoinbase just launched \"Agentic Wallets\" - the first wallet infrastructure built specifically for AI agents. They can autonomously hold, spend, trade, and earn crypto without human intervention.\n\nStripe followed with x402 payments on Base, letting developers charge AI agents directly in USDC.\n\n**The stack is forming:**\n🏗️ Wallet infrastructure (Coinbase)\n💳 Payment rails (Stripe + USDC)\n🤖 Autonomous execution (AI agents)\n\nWithin 12 months, you'll see AI agents that:\n• Manage their own treasuries\n• Pay for compute and data autonomously\n• Trade based on programmatic strategies\n• Earn revenue from services they provide\n\nAt Phase, we're already seeing early versions on Solana. Our validator infrastructure is processing transactions from autonomous systems, not just human traders.\n\nThe agent economy isn't theoretical anymore. It's being built right now.\n\nThe question isn't whether this will happen. It's whether you'll be ready when it does.\n\nHow do you think autonomous agents will change your industry?\n\n---",
+      "angle": "",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "rachel-2026-02-21-4",
+      "platform": "linkedin",
+      "author": "Rachel",
+      "authorEmoji": "💼",
+      "batch": "Auto-synced",
+      "date": "2026-02-21",
+      "text": ": SOL Capitulation Signal\n*Angle: Contrarian take during market weakness - builder mentality*\n\n$202 million in SOL just moved to exchanges.\nClassic capitulation signal.\n\nMVRV ratio hit 0.8 - the deepest undervaluation since May 2022. SOL dropped below $81, testing major support levels.\n\nHere's what most people miss about capitulation:\n\n**It's not bearish. It's reset.**\n\nWhile retail panics, builders keep building:\n• Solana RWAs just hit $1.66B ATH (90% growth in 30 days)\n• Government bonds and private loans going onchain\n• Major institutions still allocating despite price weakness\n\nAt Phase, our validator performance hasn't changed. Network fundamentals remain strong. The infrastructure we've built over the past 18 months is processing more transactions than ever.\n\nPrice volatility creates opportunity for those with conviction and capital.\n\n**Two scenarios from here:**\n1️⃣ Further capitulation to $67 support - more accumulation opportunity\n2️⃣ Bounce from oversold levels - early reversal signal\n\nEither way, the builders who stay focused during maximum pessimism will capture the most upside when sentiment shifts.\n\nMarket cycles reward patience and punish panic.\n\nWhat's your strategy during capitulation phases?\n\n---",
+      "angle": "",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "rachel-2026-02-21-5",
+      "platform": "linkedin",
+      "author": "Rachel",
+      "authorEmoji": "💼",
+      "batch": "Auto-synced",
+      "date": "2026-02-21",
+      "text": ": IRS 1099-DA Enforcement\n*Angle: Tax compliance + Netrunner positioning*\n\nThe IRS just got your Coinbase data.\nThe crypto tax reckoning is officially here.\n\nForm 1099-DA went live this week. Exchanges are now reporting your cost basis and proceeds directly to the IRS. This isn't the honor system anymore - they have the data.\n\n**What changed:**\n❌ Before: Self-reported crypto gains/losses\n✅ Now: Exchange-reported transactions to IRS\n\nFor Solana validators and stakers, this creates complexity:\n• Staking rewards taxed as ordinary income\n• Validator commissions tracked per epoch\n• LST conversions potentially taxable events\n\nAt Phase, we built Netrunner Tax specifically for this moment. While others scramble to calculate basis, our users have automated compliance built into their Solana operations.\n\nThe enforcement era has begun. The projects that survive will be the ones that made compliance a feature, not an afterthought.\n\n**Two types of crypto companies in 2026:**\n1️⃣ Those built for regulatory clarity\n2️⃣ Those hoping regulators look the other way\n\nWhich category does your operation fall into?\n\nLearn more about Solana tax compliance: @NetrunnerTax",
+      "angle": "",
+      "status": "pending",
+      "feedback": ""
     }
   ]
 }
