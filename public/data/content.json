@@ -1139,8 +1139,9 @@
       "date": "2026-02-20",
       "text": "(Batch 1 - Morning)\n**ID:** kelly-2026-02-20-4\n\nCoinGecko just published a full report on AI agent payment infrastructure. Their thesis: the payer is shifting from humans to machines.\n\nEvery major crypto company is racing to be the rails for agent-to-agent commerce. This isn't a niche anymore. It's the next payments stack.\n\nIf you're building in crypto and not thinking about agent payments, you're building for the last cycle.",
       "angle": "** CoinGecko report published today validates the AI x crypto thesis at a mainstream research level. Different from the MCP/x402 angles because this is about industry consensus forming, not individual product launches. Forward-looking builder take.\n\n---\n\n_Pre-submit checks complete. All formatting rules followed. All facts sourced and verified._",
-      "status": "pending",
-      "feedback": ""
+      "status": "denied",
+      "feedback": "",
+      "resolvedAt": "2026-02-21T09:59:36.299Z"
     }
   ]
 }
