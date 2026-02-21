@@ -153,6 +153,23 @@ export interface ContentData {
   posted: PostedContent[];
 }
 
+// Visuals
+export interface Visual {
+  id: string;
+  agent: "Kelly" | "Rachel";
+  platform: "x" | "linkedin";
+  imageUrl: string;
+  draftText: string;
+  status: "pending" | "approved" | "rejected";
+  createdAt: string;
+  resolvedAt?: string;
+  feedback?: string;
+}
+
+export interface VisualsData {
+  visuals: Visual[];
+}
+
 // Council
 export interface CouncilVote {
   member: string;
