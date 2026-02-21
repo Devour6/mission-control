@@ -1,5 +1,5 @@
 export type Assignee = "Brandon" | "George";
-export type TaskStatus = "todo" | "inProgress" | "completed";
+export type TaskStatus = "todo" | "inProgress" | "completed" | "cancelled";
 export type EventType = "brandon" | "george" | "shared" | "phase" | "radiants" | "personal" | "work" | "meeting";
 
 export interface MemoryEntry {

@@ -98,13 +98,26 @@ export default function ProjectsTab() {
 
   if (!mounted) return null;
 
+  // Assign each task to the MOST SPECIFIC matching project (last in list wins)
+  // This way "Phase Delegation ... validator" goes to Phase (not Personal Life)
+  const taskProjectMap = new Map<string, string>();
+  if (tasks) {
+    for (const task of tasks) {
+      if (task.status === "cancelled") continue;
+      for (const project of PROJECTS) {
+        const matches = project.taskKeywords.some(kw =>
+          task.title.toLowerCase().includes(kw) ||
+          task.description?.toLowerCase().includes(kw)
+        );
+        if (matches) taskProjectMap.set(task.id, project.id); // last match wins
+      }
+    }
+  }
+
   const getProjectTasks = (project: ProjectDef) => {
     if (!tasks) return [];
     return tasks.filter(task =>
-      project.taskKeywords.some(kw =>
-        task.title.toLowerCase().includes(kw) ||
-        task.description?.toLowerCase().includes(kw)
-      )
+      task.status !== "cancelled" && taskProjectMap.get(task.id) === project.id
     );
   };
 
