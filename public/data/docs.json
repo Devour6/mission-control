@@ -1,6 +1,21 @@
 {
   "days": [
     {
+      "date": "2026-02-21",
+      "docs": [
+        {
+          "id": "d-21-val",
+          "title": "Validator Income Report — Epoch 929 (Feb 2026)",
+          "author": "George",
+          "authorEmoji": "🦾",
+          "type": "report",
+          "description": "Real onchain validator income data from SVT.one for all 4 validators. Epoch 929. Personal account.",
+          "url": "https://docs.google.com/document/d/1dWciHTSdqZpo7KPzG-U6sWxZLF0R0WRM-RCFepO2z1A/edit",
+          "account": "personal"
+        }
+      ]
+    },
+    {
       "date": "2026-02-19",
       "docs": [
         {
