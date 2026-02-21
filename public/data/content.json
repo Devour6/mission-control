@@ -1266,8 +1266,9 @@
       "date": "2026-02-21",
       "text": ": IRS 1099-DA Enforcement\n*Angle: Tax compliance + Netrunner positioning*\n\nThe IRS just got your Coinbase data.\nThe crypto tax reckoning is officially here.\n\nForm 1099-DA went live this week. Exchanges are now reporting your cost basis and proceeds directly to the IRS. This isn't the honor system anymore - they have the data.\n\n**What changed:**\n❌ Before: Self-reported crypto gains/losses\n✅ Now: Exchange-reported transactions to IRS\n\nFor Solana validators and stakers, this creates complexity:\n• Staking rewards taxed as ordinary income\n• Validator commissions tracked per epoch\n• LST conversions potentially taxable events\n\nAt Phase, we built Netrunner Tax specifically for this moment. While others scramble to calculate basis, our users have automated compliance built into their Solana operations.\n\nThe enforcement era has begun. The projects that survive will be the ones that made compliance a feature, not an afterthought.\n\n**Two types of crypto companies in 2026:**\n1️⃣ Those built for regulatory clarity\n2️⃣ Those hoping regulators look the other way\n\nWhich category does your operation fall into?\n\nLearn more about Solana tax compliance: @NetrunnerTax",
       "angle": "",
-      "status": "pending",
-      "feedback": ""
+      "status": "denied",
+      "feedback": "this is perfect but the handle @netrunnertax doesnt exist on linkedin, only on x",
+      "resolvedAt": "2026-02-21T23:01:19.909Z"
     },
     {
       "id": "rachel-2026-02-21-6",
