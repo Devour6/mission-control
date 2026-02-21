@@ -36,15 +36,6 @@
     "type": "phase"
   },
   {
-    "id": "g1",
-    "title": "George: Autonomous Work",
-    "date": "2026-02-13",
-    "startTime": "10:00",
-    "endTime": "17:00",
-    "assignee": "george",
-    "type": "work"
-  },
-  {
     "id": "r3",
     "title": "Rad Lead",
     "date": "2026-02-16",
@@ -90,15 +81,6 @@
     "type": "phase"
   },
   {
-    "id": "g2",
-    "title": "George: Autonomous Work",
-    "date": "2026-02-16",
-    "startTime": "10:00",
-    "endTime": "17:00",
-    "assignee": "george",
-    "type": "work"
-  },
-  {
     "id": "r5",
     "title": "Rad Lead",
     "date": "2026-02-17",
@@ -135,15 +117,6 @@
     "type": "phase"
   },
   {
-    "id": "g3",
-    "title": "George: Autonomous Work",
-    "date": "2026-02-17",
-    "startTime": "10:00",
-    "endTime": "17:00",
-    "assignee": "george",
-    "type": "work"
-  },
-  {
     "id": "p9",
     "title": "S3B x Devour Weekly Sync",
     "date": "2026-02-18",
@@ -171,15 +144,6 @@
     "type": "phase"
   },
   {
-    "id": "g4",
-    "title": "George: Autonomous Work",
-    "date": "2026-02-18",
-    "startTime": "10:00",
-    "endTime": "17:00",
-    "assignee": "george",
-    "type": "work"
-  },
-  {
     "id": "p12",
     "title": "Phase Weekly All-Hands",
     "date": "2026-02-19",
@@ -198,15 +162,6 @@
     "type": "phase"
   },
   {
-    "id": "g5",
-    "title": "George: Autonomous Work",
-    "date": "2026-02-19",
-    "startTime": "10:00",
-    "endTime": "17:00",
-    "assignee": "george",
-    "type": "work"
-  },
-  {
     "id": "r7",
     "title": "Rad Lead Call",
     "date": "2026-02-19",
@@ -223,15 +178,6 @@
     "endTime": "08:30",
     "assignee": "brandon",
     "type": "phase"
-  },
-  {
-    "id": "g6",
-    "title": "George: Autonomous Work",
-    "date": "2026-02-20",
-    "startTime": "10:00",
-    "endTime": "17:00",
-    "assignee": "george",
-    "type": "work"
   },
   {
     "id": "r8",
@@ -288,15 +234,6 @@
     "type": "phase"
   },
   {
-    "id": "g7",
-    "title": "George: Autonomous Work",
-    "date": "2026-02-23",
-    "startTime": "10:00",
-    "endTime": "17:00",
-    "assignee": "george",
-    "type": "work"
-  },
-  {
     "id": "r10",
     "title": "Rad Lead",
     "date": "2026-02-24",
@@ -322,15 +259,6 @@
     "endTime": "14:30",
     "assignee": "brandon",
     "type": "phase"
-  },
-  {
-    "id": "g8",
-    "title": "George: Autonomous Work",
-    "date": "2026-02-24",
-    "startTime": "10:00",
-    "endTime": "17:00",
-    "assignee": "george",
-    "type": "work"
   },
   {
     "id": "per1",
@@ -378,15 +306,6 @@
     "type": "phase"
   },
   {
-    "id": "g9",
-    "title": "George: Autonomous Work",
-    "date": "2026-02-25",
-    "startTime": "10:00",
-    "endTime": "17:00",
-    "assignee": "george",
-    "type": "work"
-  },
-  {
     "id": "p24",
     "title": "Solana Validator Community Call",
     "date": "2026-02-26",
@@ -423,15 +342,6 @@
     "type": "radiants"
   },
   {
-    "id": "g10",
-    "title": "George: Autonomous Work",
-    "date": "2026-02-26",
-    "startTime": "10:00",
-    "endTime": "17:00",
-    "assignee": "george",
-    "type": "work"
-  },
-  {
     "id": "p27",
     "title": "Weekly Sync",
     "date": "2026-02-27",
@@ -439,15 +349,6 @@
     "endTime": "08:30",
     "assignee": "brandon",
     "type": "phase"
-  },
-  {
-    "id": "g11",
-    "title": "George: Autonomous Work",
-    "date": "2026-02-27",
-    "startTime": "10:00",
-    "endTime": "17:00",
-    "assignee": "george",
-    "type": "work"
   },
   {
     "id": "r13",
@@ -513,15 +414,6 @@
     "type": "phase"
   },
   {
-    "id": "g12",
-    "title": "George: Autonomous Work",
-    "date": "2026-03-02",
-    "startTime": "10:00",
-    "endTime": "17:00",
-    "assignee": "george",
-    "type": "work"
-  },
-  {
     "id": "r15",
     "title": "Rad Lead",
     "date": "2026-03-03",
@@ -547,15 +439,6 @@
     "endTime": "14:30",
     "assignee": "brandon",
     "type": "phase"
-  },
-  {
-    "id": "g13",
-    "title": "George: Autonomous Work",
-    "date": "2026-03-03",
-    "startTime": "10:00",
-    "endTime": "17:00",
-    "assignee": "george",
-    "type": "work"
   },
   {
     "id": "per4",
@@ -603,15 +486,6 @@
     "type": "phase"
   },
   {
-    "id": "g14",
-    "title": "George: Autonomous Work",
-    "date": "2026-03-04",
-    "startTime": "10:00",
-    "endTime": "17:00",
-    "assignee": "george",
-    "type": "work"
-  },
-  {
     "id": "p35",
     "title": "Phase Weekly All-Hands",
     "date": "2026-03-05",
@@ -639,15 +513,6 @@
     "type": "radiants"
   },
   {
-    "id": "g15",
-    "title": "George: Autonomous Work",
-    "date": "2026-03-05",
-    "startTime": "10:00",
-    "endTime": "17:00",
-    "assignee": "george",
-    "type": "work"
-  },
-  {
     "id": "p37",
     "title": "Weekly Sync",
     "date": "2026-03-06",
@@ -655,15 +520,6 @@
     "endTime": "08:30",
     "assignee": "brandon",
     "type": "phase"
-  },
-  {
-    "id": "g16",
-    "title": "George: Autonomous Work",
-    "date": "2026-03-06",
-    "startTime": "10:00",
-    "endTime": "17:00",
-    "assignee": "george",
-    "type": "work"
   },
   {
     "id": "r19",
@@ -709,14 +565,5 @@
     "endTime": "15:00",
     "assignee": "brandon",
     "type": "phase"
-  },
-  {
-    "id": "g17",
-    "title": "George: Autonomous Work",
-    "date": "2026-03-09",
-    "startTime": "10:00",
-    "endTime": "17:00",
-    "assignee": "george",
-    "type": "work"
   }
 ]

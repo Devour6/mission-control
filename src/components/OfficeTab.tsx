@@ -195,6 +195,13 @@ export default function OfficeTab() {
           <p className="text-xs md:text-sm text-[#8b8fa3] mt-1">
             {onlineCount} of {activeMembers.length} agents active
           </p>
+          <div className="mt-2 text-[10px] text-[#8b8fa3] flex flex-wrap gap-x-3 gap-y-1">
+            <span className="text-[#555]">Standups:</span>
+            <span>🌅 7:45 AM</span>
+            <span>🌤️ 4:00 PM</span>
+            <span>🌙 11:00 PM</span>
+            <span className="text-[#555] ml-1">All times PST</span>
+          </div>
         </div>
 
         {/* Agent cards grid */}
