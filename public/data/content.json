@@ -1055,8 +1055,9 @@
       "date": "2026-02-20",
       "text": ": Anthropic vs Pentagon - AI Ethics in the Real World\n**Hook:** Anthropic just told the Pentagon \"no\" on a $200M contract. The Department of Defense threatens to label them a \"supply chain risk\" over AI safety guardrails.\n\n**Angle:** AI ethics battle with massive business implications\n**Rationale:** Defining moment for AI safety vs defense applications. High-stakes corporate decision making under government pressure.\n\n**Content:**\nThis is the AI ethics battle that will define 2026.\n\nThe Pentagon wants full access to Claude within legal bounds for classified systems. Anthropic insists on guardrails against mass surveillance and autonomous weapons development.\n\nAt stake: $200M in government contracts and potentially much more. Claude is currently the ONLY AI model approved for military classified networks.\n\nIf Anthropic holds firm and loses the contract, OpenAI and Google will likely step in with fewer safety restrictions. If Anthropic caves, their entire safety-first brand positioning erodes.\n\nThere's no middle ground here. Either AI companies can maintain ethical boundaries when government pressure intensifies, or they can't.\n\nAt Phase, we run on Claude infrastructure precisely because of Anthropic's principled approach to AI development. Their willingness to sacrifice revenue for values isn't just ethics - it's a competitive advantage with trust-conscious enterprise customers.\n\nThe companies that hold the line on AI safety today will build the most valuable, defensible businesses tomorrow. Government contracts come and go. Brand trust, once broken, rarely recovers.\n\nThis isn't academic ethics anymore. It's business strategy under real-world pressure.\n\n---",
       "angle": "AI ethics battle with massive business implications",
-      "status": "pending",
-      "feedback": ""
+      "status": "denied",
+      "feedback": "",
+      "resolvedAt": "2026-02-21T09:59:48.637Z"
     },
     {
       "id": "rachel-2026-02-20-8",
