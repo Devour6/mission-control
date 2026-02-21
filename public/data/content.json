@@ -1091,8 +1091,9 @@
       "date": "2026-02-20",
       "text": "**ID:** kelly-2026-02-20-2\n\nDFlow, deBridge, TradeStation, and The Graph all shipped MCP servers for AI agents in the same week.\n\nYour AI can now trade, bridge, query onchain data, and execute brokerage orders without a human touching anything.\n\nThe agent infrastructure layer isn't coming. It shipped.",
       "angle": "** Fresh angle aggregating this week's MCP explosion. Multiple credible sources (DFlow 166 likes/51K views on announcement). Doesn't name specific models per rules. Builder perspective. Short, punchy, lets the pattern speak for itself.\n\n---\n\n_Pre-submit checks: No emdashes found. All sentences capitalized. No hashtags. All grounded in verified sources from today/this week._",
-      "status": "pending",
-      "feedback": ""
+      "status": "denied",
+      "feedback": "",
+      "resolvedAt": "2026-02-21T09:59:43.600Z"
     },
     {
       "id": "kelly-2026-02-20-3",
