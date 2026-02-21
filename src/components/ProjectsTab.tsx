@@ -112,6 +112,14 @@ export default function ProjectsTab() {
 
   return (
     <div className="max-w-4xl mx-auto">
+      {/* Mission Statement */}
+      <div className="mb-6 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 border border-indigo-500/20 rounded-xl p-5">
+        <div className="text-[10px] uppercase tracking-widest text-indigo-400/60 mb-2">Our Mission</div>
+        <p className="text-sm md:text-base text-[#e4e6ed] font-medium leading-relaxed">
+          Be Brandon&apos;s unfair advantage — an always-on operation that saves him time and money, enhances every aspect of his life, and 5x&apos;s Phase and Radiants revenue through relentless ideas, automation, and execution.
+        </p>
+      </div>
+
       <h2 className="text-xl md:text-2xl font-bold mb-6">🚀 Active Projects</h2>
 
       <div className="space-y-4">
