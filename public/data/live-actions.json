@@ -54,5 +54,14 @@
     "action": "Queued \u2014 house savings tracker",
     "time": "7:50 AM",
     "color": "#f472b6"
+  },
+  {
+    "id": "stanley",
+    "agent": "Stanley",
+    "agentEmoji": "\ud83d\udd0d",
+    "action": "Reviewed & merged PR #1 on code-factory-test",
+    "time": "2:00 AM",
+    "timestamp": "2026-02-21T10:00:00Z",
+    "color": "#8b5cf6"
   }
 ]

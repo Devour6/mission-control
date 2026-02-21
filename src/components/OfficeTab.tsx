@@ -12,6 +12,7 @@ interface LiveAction {
   agentEmoji: string;
   action: string;
   time: string;
+  timestamp?: string; // ISO 8601 — used for accurate health status
   color: string;
 }
 
@@ -23,25 +24,38 @@ interface TeamMember {
 }
 
 // --- Health Status Helper ---
-function getHealthStatus(timeStr: string): "green" | "yellow" | "red" {
+function getHealthStatus(timeStr: string, timestamp?: string): "green" | "yellow" | "red" {
   try {
-    const match = timeStr.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
-    if (!match) return "red";
+    let actionTime: Date;
 
-    const hours = parseInt(match[1]);
-    const minutes = parseInt(match[2]);
-    const period = match[3].toUpperCase();
+    // Prefer ISO timestamp if available (includes date)
+    if (timestamp) {
+      actionTime = new Date(timestamp);
+      if (isNaN(actionTime.getTime())) return "red";
+    } else {
+      // Fallback: parse "11:56 AM" format (assumes today — may be inaccurate)
+      const match = timeStr.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
+      if (!match) return "red";
 
-    let h24 = hours;
-    if (period === "PM" && h24 !== 12) h24 += 12;
-    if (period === "AM" && h24 === 12) h24 = 0;
+      const hours = parseInt(match[1]);
+      const minutes = parseInt(match[2]);
+      const period = match[3].toUpperCase();
 
-    const actionTime = new Date();
-    actionTime.setHours(h24, minutes, 0, 0);
+      let h24 = hours;
+      if (period === "PM" && h24 !== 12) h24 += 12;
+      if (period === "AM" && h24 === 12) h24 = 0;
+
+      actionTime = new Date();
+      actionTime.setHours(h24, minutes, 0, 0);
+
+      // If computed time is in the future, it was probably yesterday
+      if (actionTime.getTime() > Date.now()) {
+        actionTime.setDate(actionTime.getDate() - 1);
+      }
+    }
 
     const now = new Date();
-    const diffMs = now.getTime() - actionTime.getTime();
-    const diffHours = diffMs / (1000 * 60 * 60);
+    const diffHours = (now.getTime() - actionTime.getTime()) / (1000 * 60 * 60);
 
     if (diffHours < 4) return "green";
     if (diffHours < 12) return "yellow";
@@ -71,7 +85,7 @@ function AgentCard({
   member: TeamMember;
   action: LiveAction | undefined;
 }) {
-  const health = action ? getHealthStatus(action.time) : "red";
+  const health = action ? getHealthStatus(action.time, action.timestamp) : "red";
   const borderColor = action?.color || "#6b7280";
 
   return (
@@ -168,7 +182,7 @@ export default function OfficeTab() {
   const activeMembers = members.filter((m) => m.status === "active");
   const actionMap = new Map(liveActions.map((a) => [a.agent, a]));
   const onlineCount = liveActions.filter(
-    (a) => getHealthStatus(a.time) === "green"
+    (a) => getHealthStatus(a.time, a.timestamp) === "green"
   ).length;
 
   return (
@@ -221,7 +235,7 @@ export default function OfficeTab() {
               ) : (
                 <div className="divide-y divide-[#2e3345]">
                   {liveActions.map((a) => {
-                    const health = getHealthStatus(a.time);
+                    const health = getHealthStatus(a.time, a.timestamp);
                     return (
                       <div
                         key={a.id}
