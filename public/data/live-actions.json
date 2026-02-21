@@ -20,9 +20,10 @@
     "id": "kelly",
     "agent": "Kelly",
     "agentEmoji": "\ud83d\udc26",
-    "action": "Idle \u2014 next batch 1:30 PM",
-    "time": "5:32 PM",
-    "color": "#ec4899"
+    "action": "Writing X drafts",
+    "time": "9:45 AM",
+    "color": "#ec4899",
+    "timestamp": "2026-02-21T17:45:51Z"
   },
   {
     "id": "rachel",
