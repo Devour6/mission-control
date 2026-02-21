@@ -32,6 +32,16 @@
           "description": "How SOL price affects validator income and time to $180K down payment. Scenarios from $50 to $300 SOL.",
           "url": "https://docs.google.com/spreadsheets/d/1IbtWK4p462mZXetdEZ_bpQjYtCOnbPAXEZ7bODkyNiw/edit",
           "account": "personal"
+        },
+        {
+          "id": "d-21-meetprep",
+          "title": "Monday Meeting Prep \u2014 Feb 23, 2026",
+          "author": "Ross",
+          "authorEmoji": "\u2699\ufe0f",
+          "type": "brief",
+          "description": "Prep doc for Brandon's 8 Monday meetings with agenda, talking points, and action items",
+          "url": "https://docs.google.com/document/d/19B_cEnKXzZyaSEk08gi8dWqVzIiROj0b8OBY8b3Lkaw/edit",
+          "account": "phase"
         }
       ]
     },
