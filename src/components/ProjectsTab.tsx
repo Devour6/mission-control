@@ -33,11 +33,11 @@ const PROJECTS: ProjectDef[] = [
       "John running 30m portfolio scans with auto-execute authority",
     ],
     nextSteps: [
-      "Continue validator income optimization",
+      "Continue personal income optimization",
       "Explore additional subscription consolidations",
       "Monitor John's trading P&L toward house savings acceleration",
     ],
-    taskKeywords: ["cancel", "subscription", "domain", "workspace", "quicknode", "replit", "suno", "lovable", "borrowed light", "expense", "savings"],
+    taskKeywords: ["cancel", "subscription", "domain", "workspace", "quicknode", "replit", "suno", "lovable", "borrowed light", "expense", "savings", "validator", "house"],
   },
   {
     id: "phase",
@@ -63,19 +63,17 @@ const PROJECTS: ProjectDef[] = [
     id: "radiants",
     name: "Radiants",
     emoji: "⭐",
-    description: "Revenue toward $2M goal — creator cadre growth, Solana mobile hackathons, validator operations",
+    description: "Revenue toward $2M goal — creator cadre growth, Solana mobile hackathons",
     target: "$2M revenue",
     recentProgress: [
-      "Validator operations stabilized — 100% block production, <0.35% skip rates",
-      "~6.66 SOL/day ($580) across 4 validators",
       "Creator cadre engagement strategies in development",
     ],
     nextSteps: [
       "Launch creator cadre growth initiatives",
       "Plan Solana mobile hackathon participation",
-      "Optimize validator operations for maximum revenue",
+      "Grow creator cadre membership and engagement",
     ],
-    taskKeywords: ["radiants", "creator", "validator", "hackathon"],
+    taskKeywords: ["radiants", "creator", "hackathon"],
   },
 ];
 
