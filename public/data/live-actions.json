@@ -36,8 +36,9 @@
     "agent": "John",
     "agentEmoji": "\ud83d\udcc8",
     "action": "Running market scan",
-    "time": "2:10 AM",
-    "color": "#10b981"
+    "time": "3:40 AM",
+    "color": "#10b981",
+    "timestamp": "2026-02-21T11:40:30Z"
   },
   {
     "id": "ross",
