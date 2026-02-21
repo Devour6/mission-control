@@ -1,48 +1,95 @@
 {
-  "org": {
-    "director": {
-      "name": "Brandon",
-      "title": "Director",
-      "emoji": "👑"
-    },
-    "chiefOfStaff": {
-      "name": "George",
-      "title": "Chief of Staff",
-      "emoji": "🦾",
-      "reportsTo": "Brandon"
-    },
-    "divisions": {
-      "research": {
-        "name": "Research Division",
-        "members": [
-          {"name": "Dwight", "title": "Research Lead", "emoji": "🔍", "model": "Sonnet 4", "status": "active"}
-        ]
-      },
-      "financial": {
-        "name": "Financial Division",
-        "members": [
-          {"name": "John", "title": "Portfolio Strategist", "emoji": "📈", "model": "OpenAI o4-mini", "status": "active"}
-        ]
-      },
-      "content": {
-        "name": "Content Division",
-        "members": [
-          {"name": "Kelly", "title": "X Content Lead", "emoji": "🐦", "model": "Sonnet 4", "status": "active"},
-          {"name": "Rachel", "title": "LinkedIn Content Lead", "emoji": "💼", "model": "Sonnet 4", "status": "active"}
-        ]
-      },
-      "engineering": {
-        "name": "Engineering Dept",
-        "members": [
-          {"name": "Ross", "title": "Engineering Lead", "emoji": "⚙️", "model": "Sonnet 4 + Codex CLI", "status": "active"}
-        ]
-      },
-      "personalAssistant": {
-        "name": "Personal Assistant",
-        "members": [
-          {"name": "Pam", "title": "Personal Assistant + CRM", "emoji": "📋", "model": "Sonnet 4", "status": "active"}
-        ]
-      }
+    "org": {
+        "director": {
+            "name": "Brandon",
+            "title": "Director",
+            "emoji": "👑"
+        },
+        "chiefOfStaff": {
+            "name": "George",
+            "title": "Chief of Staff",
+            "emoji": "🦾",
+            "model": "Opus",
+            "reportsTo": "Brandon"
+        },
+        "divisions": {
+            "research": {
+                "name": "Research Division",
+                "members": [
+                    {
+                        "name": "Dwight",
+                        "title": "Research Lead",
+                        "emoji": "🔍",
+                        "model": "Sonnet 4",
+                        "status": "active"
+                    }
+                ]
+            },
+            "financial": {
+                "name": "Financial Division",
+                "members": [
+                    {
+                        "name": "John",
+                        "title": "Portfolio Strategist",
+                        "emoji": "📈",
+                        "model": "OpenAI o4-mini",
+                        "status": "active"
+                    }
+                ]
+            },
+            "content": {
+                "name": "Content Division",
+                "members": [
+                    {
+                        "name": "Kelly",
+                        "title": "X Content Lead",
+                        "emoji": "🐦",
+                        "model": "Sonnet 4",
+                        "status": "active"
+                    },
+                    {
+                        "name": "Rachel",
+                        "title": "LinkedIn Content Lead",
+                        "emoji": "💼",
+                        "model": "Sonnet 4",
+                        "status": "active"
+                    }
+                ]
+            },
+            "engineering": {
+                "name": "Engineering Dept",
+                "desc": "Code Factory: Ross writes, Stanley reviews",
+                "members": [
+                    {
+                        "name": "Ross",
+                        "title": "Engineer (Writer)",
+                        "emoji": "⚙️",
+                        "model": "Sonnet 4",
+                        "status": "active",
+                        "note": "Write-only. Never reviews own code."
+                    },
+                    {
+                        "name": "Stanley",
+                        "title": "Code Reviewer",
+                        "emoji": "🔍",
+                        "model": "OpenAI o4-mini",
+                        "status": "active",
+                        "note": "Review-only. Two-stage: spec compliance + code quality."
+                    }
+                ]
+            },
+            "personalAssistant": {
+                "name": "Personal Assistant",
+                "members": [
+                    {
+                        "name": "Pam",
+                        "title": "Personal Assistant + CRM",
+                        "emoji": "📋",
+                        "model": "Opus",
+                        "status": "active"
+                    }
+                ]
+            }
+        }
     }
-  }
 }
