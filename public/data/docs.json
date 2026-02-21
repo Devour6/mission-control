@@ -42,6 +42,16 @@
           "description": "Prep doc for Brandon's 8 Monday meetings with agenda, talking points, and action items",
           "url": "https://docs.google.com/document/d/19B_cEnKXzZyaSEk08gi8dWqVzIiROj0b8OBY8b3Lkaw/edit",
           "account": "phase"
+        },
+        {
+          "id": "d-503720fb",
+          "title": "AI Agent Creator Tools \u2014 Opportunity Brief",
+          "author": "George",
+          "authorEmoji": "\ud83e\uddbe",
+          "type": "analysis",
+          "description": "Coinbase Agentic Wallets + Stripe payments opportunity for Radiants creator-focused agent tooling on Solana",
+          "url": "https://docs.google.com/document/d/1Gclonm16NRwN2nBVjalnKrxLx1dGYmXCJPCltiliUB4/edit",
+          "account": "radiants"
         }
       ]
     },
