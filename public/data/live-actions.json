@@ -35,10 +35,10 @@
     "id": "john",
     "agent": "John",
     "agentEmoji": "\ud83d\udcc8",
-    "action": "Running market scan",
-    "time": "9:41 AM",
+    "action": "Idle \u2014 fixing API key, next scan in 30m",
+    "time": "9:42 AM",
     "color": "#10b981",
-    "timestamp": "2026-02-21T17:41:08Z"
+    "timestamp": "2026-02-21T17:42:00Z"
   },
   {
     "id": "ross",
