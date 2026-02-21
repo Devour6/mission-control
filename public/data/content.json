@@ -1069,6 +1069,30 @@
       "angle": "Unprecedented infrastructure investment scale and implications",
       "status": "pending",
       "feedback": ""
+    },
+    {
+      "id": "kelly-2026-02-20-1",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-20",
+      "text": "**ID:** kelly-2026-02-20-1\n\nThe White House sat down with Coinbase, Ripple, and a16z today to finalize stablecoin legislation. Draft text on the table. March 1 deadline.\n\nThis isn't a hearing. This isn't a framework. This is a bill getting written in real time with the biggest players in the room.\n\nCrypto regulation just went from \"someday\" to \"next week.\"",
+      "angle": "** Breaking news from today. White House-led meeting with draft legislation and a hard deadline. Builder/founder perspective. No hedging, no price targets, no trading signals. Factual and forward-looking.\n\n---",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "kelly-2026-02-20-2",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-20",
+      "text": "**ID:** kelly-2026-02-20-2\n\nDFlow, deBridge, TradeStation, and The Graph all shipped MCP servers for AI agents in the same week.\n\nYour AI can now trade, bridge, query onchain data, and execute brokerage orders without a human touching anything.\n\nThe agent infrastructure layer isn't coming. It shipped.",
+      "angle": "** Fresh angle aggregating this week's MCP explosion. Multiple credible sources (DFlow 166 likes/51K views on announcement). Doesn't name specific models per rules. Builder perspective. Short, punchy, lets the pattern speak for itself.\n\n---\n\n_Pre-submit checks: No emdashes found. All sentences capitalized. No hashtags. All grounded in verified sources from today/this week._",
+      "status": "pending",
+      "feedback": ""
     }
   ]
 }
