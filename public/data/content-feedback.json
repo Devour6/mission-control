@@ -910,5 +910,13 @@
     "status": "approved",
     "feedback": "",
     "reviewedAt": "2026-02-21T23:02:11.865Z"
+  },
+  {
+    "id": "kelly-2026-02-21-14",
+    "author": "Kelly",
+    "platform": "x",
+    "status": "denied",
+    "feedback": "fact check this",
+    "reviewedAt": "2026-02-21T23:02:35.043Z"
   }
 ]
