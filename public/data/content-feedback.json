@@ -862,5 +862,13 @@
     "status": "denied",
     "feedback": "fact check this",
     "reviewedAt": "2026-02-21T23:00:45.062Z"
+  },
+  {
+    "id": "rachel-2026-02-21-5",
+    "author": "Rachel",
+    "platform": "linkedin",
+    "status": "denied",
+    "feedback": "this is perfect but the handle @netrunnertax doesnt exist on linkedin, only on x",
+    "reviewedAt": "2026-02-21T23:01:19.909Z"
   }
 ]
