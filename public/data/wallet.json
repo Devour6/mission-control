@@ -7,57 +7,22 @@
   },
   "monthlyTarget": 7.5,
   "currentBalance": {
-    "sol": 1.208021372,
-    "usd": 319.6
+    "sol": 1.205949915,
+    "usd": 238.97
   },
   "holdings": [
     {
       "token": "SOL",
-      "amount": 1.208021372,
-      "usd": 104.19
-    },
-    {
-      "token": "",
-      "amount": 0.219760867,
-      "usd": 20.7
-    },
-    {
-      "token": "BLZE",
-      "amount": 576.27254524,
-      "usd": 0.06
-    },
-    {
-      "token": "ET9AeE6e",
-      "amount": 1.0,
-      "usd": 0
-    },
-    {
-      "token": "FHqVxcq9",
-      "amount": 1.0,
-      "usd": 0
-    },
-    {
-      "token": "USDC",
-      "amount": 53.814727,
-      "usd": 53.81
-    },
-    {
-      "token": "iEXPcSJ5",
-      "amount": 2424442.398093,
-      "usd": 4.99
-    },
-    {
-      "token": "5Y3obR5a",
-      "amount": 1.0,
-      "usd": 0
+      "amount": 1.205949915,
+      "usd": 103.08
     },
     {
       "token": "CRT",
       "amount": 1.189,
-      "usd": 135.85
+      "usd": 135.89
     }
   ],
-  "lastUpdated": "2026-02-21T17:55:26-08:00",
+  "lastUpdated": "2026-02-21T23:05:13-08:00",
   "trades": [
     {
       "timestamp": "2026-02-16T07:10:51.334Z",
@@ -166,6 +131,24 @@
       "priceImpact": -5.025935967638028e-05,
       "signature": "2awUN4ByQhryUicY4XxgCHfsXHaWX94R71VGsenhoD7uRERgnKyQcray2BpHp8xtVXqCVW4QvbNJQoCCqPyUxaCU",
       "explorer": "https://solscan.io/tx/2awUN4ByQhryUicY4XxgCHfsXHaWX94R71VGsenhoD7uRERgnKyQcray2BpHp8xtVXqCVW4QvbNJQoCCqPyUxaCU"
+    },
+    {
+      "timestamp": "2026-02-21T23:05:12.404Z",
+      "type": "swap",
+      "from": {
+        "token": "USDC",
+        "amount": 13.45,
+        "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+      },
+      "to": {
+        "token": "xSOL",
+        "amount": 0.1618,
+        "mint": "4sWNB8zGWHkh6UnmwiEtzNxL4XrN7uK9tosbESbJFfVs"
+      },
+      "usdValue": 13.45225519836521,
+      "priceImpact": 0.02216416460424571,
+      "signature": "ycXVEdh4RMBGadDyCPn4o2tzRtN2cPkhJEgshR4jVBrWXQkMv997hyM5KfYm5qthm2CVD5taj3itKdRogpXyK8g",
+      "explorer": "https://solscan.io/tx/ycXVEdh4RMBGadDyCPn4o2tzRtN2cPkhJEgshR4jVBrWXQkMv997hyM5KfYm5qthm2CVD5taj3itKdRogpXyK8g"
     }
   ]
 }
