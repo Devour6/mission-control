@@ -1,126 +1,16 @@
 {
   "days": [
     {
-      "date": "2026-02-21",
-      "docs": [
-        {
-          "id": "d-21-1",
-          "title": "Solana Validator Weekly Income Analysis \u2014 Epochs 925-929",
-          "author": "George",
-          "authorEmoji": "\ud83e\uddbe",
-          "type": "report",
-          "description": "Weekly validator income analysis across 4 validators covering epochs 925-929 (Feb 11-21, 2026)",
-          "url": "https://docs.google.com/document/d/1cFGhgrX0u5n-V4H3tGu0-BD6TUtJxZkQrs0pGjjzOC0/edit"
-        },
-        {
-          "id": "d-21-2",
-          "title": "Solana Ecosystem Weekly Digest \u2014 Week of Feb 20",
-          "author": "Dwight",
-          "authorEmoji": "\ud83d\udd0d",
-          "type": "intel",
-          "description": "Weekly ecosystem digest covering Solana developments, market movements, and competitive landscape",
-          "url": "https://docs.google.com/document/d/1nyVXBhUkjAZBRM_3FJs9OXR18ESgpGmlI9amstNJH8o/edit"
-        },
-        {
-          "id": "d-21-3",
-          "title": "AI Infrastructure Competitive Update",
-          "author": "Dwight",
-          "authorEmoji": "\ud83d\udd0d",
-          "type": "intel",
-          "description": "Competitive analysis of AI infrastructure landscape \u2014 Feb 20, 2026",
-          "url": "https://docs.google.com/document/d/1NUdAl3e9uvoSgA50bd29VisCAG-hG-f6jcwydVEACUs/edit"
-        }
-      ]
-    },
-    {
-      "date": "2026-02-20",
-      "docs": [
-        {
-          "id": "d-20-1",
-          "title": "Solana Validator Performance Report \u2014 Feb 20",
-          "author": "George",
-          "authorEmoji": "\ud83e\uddbe",
-          "type": "report",
-          "description": "Daily validator performance report with leader slots, skip rates, and rewards",
-          "url": "https://docs.google.com/document/d/1CRGYKtq7MI-4m7_wAlH6KCDZQUROniItJpMrgLBsgOM/edit"
-        },
-        {
-          "id": "d-20-2",
-          "title": "AI Agent Infrastructure Competitive Landscape",
-          "author": "Dwight",
-          "authorEmoji": "\ud83d\udd0d",
-          "type": "intel",
-          "description": "Comprehensive competitive landscape analysis for AI agent infrastructure \u2014 Feb 2026",
-          "url": "https://docs.google.com/document/d/1UJY0J74KrzDYgoLzX85w8WRiqqu3Mtzjqzw56u00i-A/edit"
-        }
-      ]
-    },
-    {
       "date": "2026-02-19",
       "docs": [
         {
           "id": "d-19-1",
-          "title": "CODE Pool \u2014 Core Open-source Developer Ecosystem Pool",
+          "title": "CODE Pool — Core Open-source Developer Ecosystem Pool",
           "author": "Dwight",
-          "authorEmoji": "\ud83d\udd0d",
+          "authorEmoji": "🔍",
           "type": "analysis",
           "description": "Analysis of CODE Pool model for open-source developer ecosystem on Solana",
           "url": "https://docs.google.com/document/d/1Wr9si1y7rk8j9G8r6JEYlSRBHBmFrEO5UDlGUe4NVFY/edit"
-        }
-      ]
-    },
-    {
-      "date": "2026-02-18",
-      "docs": [
-        {
-          "id": "d-18-1",
-          "title": "Crypto Tax Compliance Alert \u2014 IRS 1099-DA",
-          "author": "Dwight",
-          "authorEmoji": "\ud83d\udd0d",
-          "type": "intel",
-          "description": "Alert on IRS 1099-DA implementation and crypto tax compliance requirements",
-          "url": "https://docs.google.com/document/d/1IpmYoQG_PYJ6tDok8OO2rYo4QBgt0kpIdOE3_6kZM24/edit"
-        },
-        {
-          "id": "d-18-2",
-          "title": "Solana Validator Performance Analysis \u2014 Feb 17",
-          "author": "George",
-          "authorEmoji": "\ud83e\uddbe",
-          "type": "report",
-          "description": "Validator performance analysis with real SVT data for all 4 validators",
-          "url": "https://docs.google.com/document/d/1tEzUkF1Y9avgeK7h4aMj01TtdYMYvUYY_cbO90e5J_0/edit"
-        },
-        {
-          "id": "d-18-3",
-          "title": "Radiants Revenue Model \u2014 Financial Projections",
-          "author": "Dwight",
-          "authorEmoji": "\ud83d\udd0d",
-          "type": "analysis",
-          "description": "Comprehensive financial projections for Radiants revenue model",
-          "url": "https://docs.google.com/document/d/1bCr-A4pLEx3dL13XVTCY4abYbhLXv_bspnooBeNhctU/edit"
-        }
-      ]
-    },
-    {
-      "date": "2026-02-17",
-      "docs": [
-        {
-          "id": "d-17-1",
-          "title": "Radiants Creator Revenue Pricing Matrix",
-          "author": "George",
-          "authorEmoji": "\ud83e\uddbe",
-          "type": "analysis",
-          "description": "Final pricing matrix for Radiants creator revenue tiers and models",
-          "url": "https://docs.google.com/document/d/1MJFIo3XcSdDsufCySNP7mqSBLt2fMtKgeeBRwmVNcwA/edit"
-        },
-        {
-          "id": "d-17-2",
-          "title": "Austin House Savings Tracker",
-          "author": "Pam",
-          "authorEmoji": "\ud83d\udccb",
-          "type": "report",
-          "description": "Savings tracker toward $900k Austin house goal with income/expense projections",
-          "url": "https://docs.google.com/document/d/1c47oz6KMevSsvZlL-stEulyxj3IjB8xKKmcFupyF6tg/edit"
         }
       ]
     },
@@ -131,7 +21,7 @@
           "id": "d-16-1",
           "title": "Expense Optimization Analysis - February 2026",
           "author": "George",
-          "authorEmoji": "\ud83e\uddbe",
+          "authorEmoji": "🦾",
           "type": "analysis",
           "description": "Comprehensive expense optimization analysis identifying $2,847/month ($34,164/year) in savings opportunities. Covers cloud infrastructure, AI costs, SaaS subscriptions, and business operations with actionable implementation plans.",
           "url": "https://docs.google.com/document/d/1Y-Ii4ir1GYLCtFS4yuETHXyvyo-EawOJbvNzM3kYxZ4/edit"
@@ -143,153 +33,12 @@
       "docs": [
         {
           "id": "d-15-1",
-          "title": "SOL Treasury Liquidation Risk \u2014 Feb 2026",
+          "title": "SOL Treasury Liquidation Risk — Feb 2026",
           "author": "Dwight",
-          "authorEmoji": "\ud83d\udd0d",
+          "authorEmoji": "🔍",
           "type": "intel",
           "description": "Risk analysis of ~11M SOL held underwater by public companies (Forward, DeFi Dev Corp, Sharps). Scenario modeling for forced liquidation impact on SOL price and Phase Delegation economics.",
           "url": "https://docs.google.com/document/d/1mGJxIwZXCQNDkTpKcM_yxrfG_hF_VusgEtvVYuM5fNE/edit"
-        }
-      ]
-    },
-    {
-      "date": "2026-02-14",
-      "docs": [
-        {
-          "id": "d-14-1",
-          "title": "Validator Income Optimization Model",
-          "author": "John",
-          "authorEmoji": "\ud83d\udcc8",
-          "type": "analysis",
-          "description": "Analysis of income optimization levers for Brandon's 4 validators. Commission strategy, stake growth, block production efficiency. NOTE: MEV commission increase rejected \u2014 would lose stake.",
-          "url": "https://docs.google.com/document/d/1n46o7UIJ7kmQNqrPa-LlAcAjFBRZhLSlSNYhbQk2csk/edit"
-        },
-        {
-          "id": "d-14-2",
-          "title": "DCA Strategy Optimization for SOL",
-          "author": "John",
-          "authorEmoji": "\ud83d\udcc8",
-          "type": "analysis",
-          "description": "Dollar-cost averaging strategy for SOL accumulation, calibrated to current market conditions and house savings timeline.",
-          "url": "https://docs.google.com/document/d/1_6jtAQCOa2nwGVuhPZCecMm9kMnSlsWqZZaxYBvWoT0/edit"
-        },
-        {
-          "id": "d-14-3",
-          "title": "Content Approval Workflow (Engineering)",
-          "author": "Ross",
-          "authorEmoji": "\u2699\ufe0f",
-          "type": "engineering",
-          "description": "Built automated content approval system in Mission Control \u2014 batch approve/deny, inline editing, feedback loop to Kelly/Rachel.",
-          "url": "https://docs.google.com/document/d/1j6pC3f2pEgVKn3XCcJuESI9PgtgxanmTPcsnYVb2joU/edit"
-        },
-        {
-          "id": "d-14-4",
-          "title": "Expense Categories & Optimization",
-          "author": "Pam",
-          "authorEmoji": "\ud83d\udccb",
-          "type": "report",
-          "description": "Detailed breakdown of Brandon's $3,634/mo expenses with optimization opportunities \u2014 subscriptions, API costs, alternatives.",
-          "url": "https://docs.google.com/document/d/1ju3Mp-xNCbcyEnsmgDA_KIf8J972NqVxrke3GHTVWJE/edit"
-        },
-        {
-          "id": "d-14-5",
-          "title": "House Savings Dashboard",
-          "author": "Pam",
-          "authorEmoji": "\ud83d\udccb",
-          "type": "report",
-          "description": "Austin house purchase tracker \u2014 $180K down payment goal, current savings rate, projected timeline based on validator income + salary.",
-          "url": "https://docs.google.com/document/d/1hCj9O0Eq2R85-wlvokqw2zaiZrMeeqDsArjj__VZjSk/edit"
-        },
-        {
-          "id": "d-14-6",
-          "title": "SVT.one Validator Income Report",
-          "author": "George",
-          "authorEmoji": "\ud83e\uddbe",
-          "type": "report",
-          "description": "Real onchain validator income data from SVT.one API. Epochs 923-925: Brandon earned 46.85 SOL (~$4,087). 24h run rate: 6.66 SOL ($586). Annualized: ~$214K.",
-          "url": "https://docs.google.com/document/d/12-na8Wd3mPVCtlKFyyKizcHrTHl7EArJK73I_FimEVI/edit"
-        }
-      ]
-    },
-    {
-      "date": "2026-02-13",
-      "docs": [
-        {
-          "id": "d-1",
-          "title": "DAILY-INTEL.md",
-          "author": "Dwight",
-          "authorEmoji": "\ud83d\udd0d",
-          "type": "intel",
-          "description": "Daily research intel \u2014 market data, Solana ecosystem, AI news, competitor activity"
-        },
-        {
-          "id": "d-6",
-          "title": "Validator Performance Audit",
-          "author": "George",
-          "authorEmoji": "\ud83e\uddbe",
-          "type": "report",
-          "description": "Current metrics for Ded Monkes, Gojira, Nebula, Kisetsu \u2014 skip rates, credits, stake, commission comparison",
-          "url": "https://drive.google.com/file/d/1PMvuwQeqrsOvHQ1lYlGSwefb8q3KGkFj/view"
-        },
-        {
-          "id": "d-7",
-          "title": "Netrunner Competitor Analysis",
-          "author": "George",
-          "authorEmoji": "\ud83e\uddbe",
-          "type": "analysis",
-          "description": "Top 5 Solana tax tools \u2014 features, pricing, UX. Growth gaps Netrunner can exploit",
-          "url": "https://docs.google.com/document/d/1Ukbd6Elh6C3Eh-WrEcA5XMMuzZn5SA0L/edit"
-        },
-        {
-          "id": "d-8",
-          "title": "Phase $1.4M \u2192 $10M Revenue Path",
-          "author": "George",
-          "authorEmoji": "\ud83e\uddbe",
-          "type": "analysis",
-          "description": "Growth framework with specific levers \u2014 staking expansion, Netrunner monetization, Phase Delegation scaling",
-          "url": "https://docs.google.com/document/d/13CznJnlKoLGIiisxN0q7I5WEtruZ59_XEfG5T7Uj_tU/edit"
-        },
-        {
-          "id": "d-9",
-          "title": "Monthly Expense Optimization",
-          "author": "George",
-          "authorEmoji": "\ud83e\uddbe",
-          "type": "report",
-          "description": "Review of $3,634/mo spend \u2014 subscriptions replaceable with self-built tools, cheaper alternatives identified",
-          "url": "https://docs.google.com/document/d/1GVnD9XnQc0UWgQoE7LgTHxxY-9M758HLr3abMwLFxkI/edit"
-        },
-        {
-          "id": "d-10",
-          "title": "Bear Market Stacking Playbook",
-          "author": "George",
-          "authorEmoji": "\ud83e\uddbe",
-          "type": "analysis",
-          "description": "Historical DCA strategies for SOL/BTC/ETH, framework for John to execute",
-          "url": "https://docs.google.com/document/d/1KT428azzQKs7ReE9Vk1EnODrI4-2FseAmtb7Db4g2r0/edit"
-        },
-        {
-          "id": "d-11",
-          "title": "John Portfolio Targets",
-          "author": "George",
-          "authorEmoji": "\ud83e\uddbe",
-          "type": "memo",
-          "description": "Brandon's target holdings, DCA schedule, validator positions, trading rules"
-        },
-        {
-          "id": "d-12",
-          "title": "Agent Team Architecture",
-          "author": "George",
-          "authorEmoji": "\ud83e\uddbe",
-          "type": "memo",
-          "description": "Full org structure, routing logic, security posture, implementation phases for the 6-agent squad"
-        },
-        {
-          "id": "d-14",
-          "title": "Phase Products Research",
-          "author": "George",
-          "authorEmoji": "\ud83e\uddbe",
-          "type": "analysis",
-          "description": "phaseSOL, pdSOL, Phase Delegation \u2014 APY, TVL, pool stats, product comparison"
         }
       ]
     }
