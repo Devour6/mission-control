@@ -1296,6 +1296,42 @@
       "angle": "Market dynamics analysis - retail vs institutional divergence in Bitcoin, building credibility through market analysis",
       "status": "pending",
       "feedback": ""
+    },
+    {
+      "id": "kelly-2026-02-21-12",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-21",
+      "text": "50% of crypto holders are panicking about the new IRS Form 1099-DA.\n\nExchanges now report all your transactions but not your cost basis. If you can't prove what you paid, the IRS assumes $0.\n\nGood time to check out @NetrunnerTax.",
+      "angle": "** Fresh crypto tax enforcement angle from today's intel, mentions @NetrunnerTax per feedback rules",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "kelly-2026-02-21-13",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-21",
+      "text": "We crossed another AI threshold this week.\n\nThe latest coding models are now contributing to their own development. Not just generating code, but actually improving the systems that created them.\n\nWe're accelerating into recursive intelligence.",
+      "angle": "** AI coding capability leap from GPT-5.3-Codex launch today, doesn't name specific models per rules",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "kelly-2026-02-21-14",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-21",
+      "text": "CME is going 24/7 crypto trading on May 29.\n\nThat means no more Monday morning gaps. No more Sunday night dumps. No more \"institutions are closed\" excuses.\n\nCrypto markets about to get more efficient whether traders like it or not.",
+      "angle": "** CME 24/7 trading eliminating weekend dump patterns, structural market evolution",
+      "status": "pending",
+      "feedback": ""
     }
   ]
 }
