@@ -1214,8 +1214,9 @@
       "date": "2026-02-21",
       "text": ": Anthropic vs Pentagon\n*Angle: AI ethics battle positioning Brandon as principled leader*\n\nAnthropic just told the Pentagon \"no\" on AI safeguards.\n$200 million contract at stake.\n\nHere's why this matters for every CEO building with AI:\n\nThe Pentagon wants full access to Claude within legal bounds. Anthropic wants guardrails against mass surveillance and autonomous weapons. Claude is currently the ONLY AI on military classified systems.\n\nThis isn't just about defense contracts. It's about the future of AI governance.\n\n**Two paths forward:**\n1️⃣ AI companies cave to institutional pressure, erode safety standards\n2️⃣ AI companies hold the line, force institutions to accept ethical boundaries\n\nAt Phase, we run on Claude infrastructure. We chose Anthropic because they've consistently prioritized responsible AI development over market dominance.\n\nThe companies that win long-term won't be the ones that say \"yes\" to everything. They'll be the ones that build trust through principled decisions.\n\nEven when it costs $200 million.\n\nWhat's your take: Should AI companies compromise on ethics for enterprise deals?\n\n---",
       "angle": "",
-      "status": "pending",
-      "feedback": ""
+      "status": "denied",
+      "feedback": "dont choose a single ai company. the future is multi faceted",
+      "resolvedAt": "2026-02-21T22:59:24.955Z"
     },
     {
       "id": "rachel-2026-02-21-2",
