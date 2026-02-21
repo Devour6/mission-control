@@ -12,23 +12,28 @@ const columns: { id: TaskStatus; label: string }[] = [
 
 type TimeView = "board" | "daily" | "weekly" | "monthly";
 
-function getDateRange(view: TimeView): { start: Date; end: Date; label: string } {
+function getDateRange(view: TimeView, offset: number = 0): { start: Date; end: Date; label: string; isToday: boolean } {
   const now = new Date();
   const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
   if (view === "daily") {
-    const end = new Date(today); end.setDate(end.getDate() + 1);
-    return { start: today, end, label: `Today — ${today.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" })}` };
+    const start = new Date(today); start.setDate(start.getDate() + offset);
+    const end = new Date(start); end.setDate(end.getDate() + 1);
+    const isToday = offset === 0;
+    const dayLabel = isToday ? "Today" : start.toLocaleDateString("en-US", { weekday: "long" });
+    return { start, end, isToday, label: `${dayLabel} — ${start.toLocaleDateString("en-US", { weekday: isToday ? "long" : undefined, month: "long", day: "numeric" })}` };
   }
   if (view === "weekly") {
     const day = today.getDay();
-    const start = new Date(today); start.setDate(start.getDate() - day);
+    const start = new Date(today); start.setDate(start.getDate() - day + (offset * 7));
     const end = new Date(start); end.setDate(end.getDate() + 7);
-    return { start, end, label: `Week of ${start.toLocaleDateString("en-US", { month: "short", day: "numeric" })} — ${new Date(end.getTime() - 86400000).toLocaleDateString("en-US", { month: "short", day: "numeric" })}` };
+    const isToday = offset === 0;
+    return { start, end, isToday, label: `Week of ${start.toLocaleDateString("en-US", { month: "short", day: "numeric" })} — ${new Date(end.getTime() - 86400000).toLocaleDateString("en-US", { month: "short", day: "numeric" })}` };
   }
   // monthly
-  const start = new Date(now.getFullYear(), now.getMonth(), 1);
-  const end = new Date(now.getFullYear(), now.getMonth() + 1, 1);
-  return { start, end, label: now.toLocaleDateString("en-US", { month: "long", year: "numeric" }) };
+  const start = new Date(now.getFullYear(), now.getMonth() + offset, 1);
+  const end = new Date(now.getFullYear(), now.getMonth() + offset + 1, 1);
+  const isToday = offset === 0;
+  return { start, end, isToday, label: start.toLocaleDateString("en-US", { month: "long", year: "numeric" }) };
 }
 
 function isInRange(dateStr: string, start: Date, end: Date): boolean {
@@ -41,6 +46,7 @@ export default function TasksTab() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [filter, setFilter] = useState<"all" | Assignee>("all");
   const [timeView, setTimeView] = useState<TimeView>("daily");
+  const [timeOffset, setTimeOffset] = useState(0);
   const [mounted, setMounted] = useState(false);
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
 
@@ -51,10 +57,13 @@ export default function TasksTab() {
 
   const filtered = tasks.filter((t) => filter === "all" || t.assignee === filter);
 
+  // Reset offset when switching views
+  const handleTimeViewChange = (v: TimeView) => { setTimeView(v); setTimeOffset(0); };
+
   // Apply date filter for non-"All" views
   const visibleTasks = timeView === "board"
     ? filtered
-    : (() => { const r = getDateRange(timeView); return filtered.filter((t) => isInRange(t.dueDate, r.start, r.end)); })();
+    : (() => { const r = getDateRange(timeView, timeOffset); return filtered.filter((t) => isInRange(t.dueDate, r.start, r.end)); })();
 
   if (!mounted) return null;
 
@@ -74,7 +83,7 @@ export default function TasksTab() {
       {/* Time view toggle */}
       <div className="flex flex-wrap gap-1 bg-[#1a1d27] border border-[#2e3345] rounded-lg p-1 mb-6 w-full sm:w-fit">
         {([["daily", "Daily"], ["weekly", "Weekly"], ["monthly", "Monthly"], ["board", "All"]] as const).map(([v, label]) => (
-          <button key={v} onClick={() => setTimeView(v)} className={`flex-1 sm:flex-none px-4 py-2 rounded-md text-xs font-medium transition-colors min-h-[44px] ${timeView === v ? "bg-indigo-500/20 text-indigo-400" : "text-[#8b8fa3] hover:text-[#e4e6ed]"}`}>
+          <button key={v} onClick={() => handleTimeViewChange(v)} className={`flex-1 sm:flex-none px-4 py-2 rounded-md text-xs font-medium transition-colors min-h-[44px] ${timeView === v ? "bg-indigo-500/20 text-indigo-400" : "text-[#8b8fa3] hover:text-[#e4e6ed]"}`}>
             {label}
           </button>
         ))}
@@ -83,7 +92,14 @@ export default function TasksTab() {
       {/* Date range label + progress for filtered views */}
       {timeView !== "board" && (
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-sm font-semibold text-[#e4e6ed]">{getDateRange(timeView).label}</h3>
+          <div className="flex items-center gap-3">
+            <button onClick={() => setTimeOffset(o => o - 1)} className="w-8 h-8 rounded-lg bg-[#242836] hover:bg-[#2e3345] border border-[#2e3345] flex items-center justify-center text-[#8b8fa3] hover:text-[#e4e6ed] transition-colors text-sm">←</button>
+            <h3 className="text-sm font-semibold text-[#e4e6ed]">{getDateRange(timeView, timeOffset).label}</h3>
+            <button onClick={() => setTimeOffset(o => o + 1)} className="w-8 h-8 rounded-lg bg-[#242836] hover:bg-[#2e3345] border border-[#2e3345] flex items-center justify-center text-[#8b8fa3] hover:text-[#e4e6ed] transition-colors text-sm">→</button>
+            {timeOffset !== 0 && (
+              <button onClick={() => setTimeOffset(0)} className="px-2 py-1 rounded text-[10px] text-indigo-400 hover:bg-indigo-500/10 transition-colors">Today</button>
+            )}
+          </div>
           {(() => { const done = visibleTasks.filter((t) => t.status === "completed").length; return (
             <div className="flex items-center gap-3 text-xs">
               <span className="text-emerald-400">{done} done</span>

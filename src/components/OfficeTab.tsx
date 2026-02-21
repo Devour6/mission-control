@@ -189,6 +189,7 @@ export default function OfficeTab() {
     <div className="flex flex-col xl:flex-row gap-6 max-w-7xl mx-auto">
       {/* Main content */}
       <div className="flex-1 min-w-0">
+
         <div className="mb-5">
           <h2 className="text-xl md:text-2xl font-bold">🏢 The Office</h2>
           <p className="text-xs md:text-sm text-[#8b8fa3] mt-1">
@@ -208,76 +209,10 @@ export default function OfficeTab() {
         </div>
       </div>
 
-      {/* Right Sidebar — Price Widget + Live Actions */}
+      {/* Right Sidebar — Price Widget only */}
       <div className="w-full xl:w-64 shrink-0">
-        <div className="space-y-6">
-          {/* Price Widget */}
-          <div className="xl:sticky xl:top-8">
-            <PriceWidget />
-          </div>
-
-          {/* Live Actions Feed */}
-          <div className="bg-[#1a1d27] border border-[#2e3345] rounded-xl overflow-hidden xl:sticky xl:top-[calc(2rem+280px)]">
-            <div className="px-3 py-2.5 border-b border-[#2e3345] flex items-center gap-2">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500" />
-              </span>
-              <h3 className="text-xs font-semibold text-[#e4e6ed]">
-                Live Actions
-              </h3>
-            </div>
-            <div className="max-h-[250px] xl:max-h-[500px] overflow-y-auto">
-              {liveActions.length === 0 ? (
-                <div className="p-3 text-center text-xs text-[#8b8fa3]">
-                  No recent activity
-                </div>
-              ) : (
-                <div className="divide-y divide-[#2e3345]">
-                  {liveActions.map((a) => {
-                    const health = getHealthStatus(a.time, a.timestamp);
-                    return (
-                      <div
-                        key={a.id}
-                        className="px-3 py-2.5 hover:bg-[#242836] transition-colors"
-                      >
-                        <div className="flex items-start gap-2">
-                          <span className="text-sm mt-0.5">{a.agentEmoji}</span>
-                          <div className="flex-1 min-w-0">
-                            <div className="flex items-center gap-2">
-                              <p className="text-xs text-[#e4e6ed] break-words">
-                                <span
-                                  className="font-semibold"
-                                  style={{ color: a.color }}
-                                >
-                                  {a.agent}
-                                </span>
-                                {" — "}
-                                {a.action}
-                              </p>
-                              <div
-                                className={`w-2 h-2 rounded-full ${healthDotColor[health]} shrink-0`}
-                                title={
-                                  health === "green"
-                                    ? "Active (< 4h)"
-                                    : health === "yellow"
-                                    ? "Stale (4-12h)"
-                                    : "Offline (> 12h)"
-                                }
-                              />
-                            </div>
-                            <p className="text-[10px] text-[#8b8fa3] mt-0.5">
-                              {a.time}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
-          </div>
+        <div className="xl:sticky xl:top-8">
+          <PriceWidget />
         </div>
       </div>
     </div>

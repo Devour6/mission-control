@@ -54,11 +54,14 @@ export default function StandupHistoryTab() {
     const loadData = async () => {
       setIsLoading(true);
       try {
-        const [standups, council] = await Promise.all([
-          fetchData<StandupOutcome[]>("outcomes-standups.json").catch(() => []),
+        const [standupsRaw, standupsFallback, council] = await Promise.all([
+          fetchData<{ standups: StandupOutcome[] }>("outcomes-standups.json").catch(() => null),
+          fetchData<StandupOutcome[]>("standups.json").catch(() => []),
           fetchData<CouncilData>("council.json").catch(() => ({ decisions: [] })),
         ]);
-        setData({ standups, decisions: council.decisions });
+        // outcomes-standups.json is { lastUpdate, standups: [...] }, standups.json is [...]
+        const standups = standupsRaw?.standups || standupsFallback || [];
+        setData({ standups: Array.isArray(standups) ? standups : [], decisions: council.decisions });
       } catch (error) {
         console.error("Failed to load data:", error);
       } finally {
