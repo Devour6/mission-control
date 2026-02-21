@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 
-const COINGECKO_API_KEY = process.env.COINGECKO_API_KEY || "";
-const COINGECKO_URL =
-  "https://pro-api.coingecko.com/api/v3/simple/price?ids=solana,bitcoin,ethereum&vs_currencies=usd&include_24hr_change=true";
+// Uses our local price aggregator (port 3001) — CoinGecko Pro replacement
+const PRICE_AGGREGATOR_URL =
+  "http://localhost:3001/api/v3/simple/price?ids=solana,bitcoin,ethereum&vs_currencies=usd&include_24hr_change=true";
 
 let cache: { data: unknown; ts: number } | null = null;
 const CACHE_TTL = 30_000; // 30 seconds
@@ -14,15 +14,14 @@ export async function GET() {
   }
 
   try {
-    const res = await fetch(COINGECKO_URL, {
+    const res = await fetch(PRICE_AGGREGATOR_URL, {
       headers: {
         Accept: "application/json",
-        "x-cg-pro-api-key": COINGECKO_API_KEY,
       },
       signal: AbortSignal.timeout(5000),
     });
 
-    if (!res.ok) throw new Error(`CoinGecko ${res.status}`);
+    if (!res.ok) throw new Error(`Price Aggregator ${res.status}`);
     const data = await res.json();
     cache = { data, ts: now };
     return NextResponse.json(data);
