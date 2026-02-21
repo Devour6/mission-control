@@ -33,7 +33,7 @@
   },
   {
     "id": "g-t17",
-    "title": "Phase Delegation Site — Real-time validator performance dashboards",
+    "title": "Phase Delegation Site \u2014 Real-time validator performance dashboards",
     "description": "Add live validator performance dashboards using SVT data. Show per-validator epoch performance, leader slots, rewards. Delegators want transparency.",
     "assignee": "Ross",
     "status": "todo",
@@ -41,8 +41,8 @@
   },
   {
     "id": "g-t18",
-    "title": "Reddit Pain Point Finder — Product Brief + Prototype",
-    "description": "Cancelled — $200K MVP estimate too expensive",
+    "title": "Reddit Pain Point Finder \u2014 Product Brief + Prototype",
+    "description": "Cancelled \u2014 $200K MVP estimate too expensive",
     "assignee": "Dwight",
     "status": "cancelled",
     "createdAt": "2026-02-17T16:00:00.000Z"
@@ -85,7 +85,7 @@
   },
   {
     "id": "r-t1",
-    "title": "Mission Control audit — all tabs, data accuracy, mobile layout",
+    "title": "Mission Control audit \u2014 all tabs, data accuracy, mobile layout",
     "assignee": "Ross",
     "status": "in_progress",
     "createdAt": "2026-02-13T21:43:00.000Z"
@@ -127,7 +127,7 @@
   },
   {
     "id": "r-t2",
-    "title": "Mission Control — Wire in Price Aggregator as live feed widget",
+    "title": "Mission Control \u2014 Wire in Price Aggregator as live feed widget",
     "description": "Use localhost:3001 price aggregator as a live price feed widget in MC dashboard. We built it, we should eat our own cooking.",
     "assignee": "Ross",
     "status": "in_progress",
@@ -150,5 +150,13 @@
     "dueDate": "2026-02-17",
     "status": "todo",
     "createdAt": "2026-02-17T00:00:00.000Z"
+  },
+  {
+    "id": "b-t21",
+    "title": "Follow up with Summ",
+    "assignee": "Brandon",
+    "dueDate": "2026-02-24",
+    "status": "todo",
+    "createdAt": "2026-02-21T00:00:00.000Z"
   }
 ]
