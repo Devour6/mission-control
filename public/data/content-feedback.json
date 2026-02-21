@@ -838,5 +838,13 @@
     "status": "denied",
     "feedback": "dont choose a single ai company. the future is multi faceted",
     "reviewedAt": "2026-02-21T22:59:24.955Z"
+  },
+  {
+    "id": "rachel-2026-02-21-2",
+    "author": "Rachel",
+    "platform": "linkedin",
+    "status": "denied",
+    "feedback": "are we sure these are accurate numbers? and validators DO NOT use ai",
+    "reviewedAt": "2026-02-21T23:00:03.683Z"
   }
 ]
