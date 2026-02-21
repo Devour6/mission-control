@@ -29,9 +29,10 @@
     "id": "rachel",
     "agent": "Rachel",
     "agentEmoji": "\ud83d\udcbc",
-    "action": "Idle \u2014 next batch 5:00 PM",
-    "time": "1:31 PM",
-    "color": "#3b82f6"
+    "action": "Writing LinkedIn drafts",
+    "time": "9:45 AM",
+    "color": "#3b82f6",
+    "timestamp": "2026-02-21T17:45:52Z"
   },
   {
     "id": "john",
