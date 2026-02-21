@@ -174,5 +174,37 @@
     "dueDate": "2026-02-21",
     "status": "done",
     "createdAt": "2026-02-21T00:00:00.000Z"
+  },
+  {
+    "id": "g-t20",
+    "title": "Compare Price Aggregator vs CoinGecko Pro",
+    "assignee": "George",
+    "dueDate": "2026-02-21",
+    "status": "todo",
+    "createdAt": "2026-02-16T00:00:00.000Z"
+  },
+  {
+    "id": "g-t21",
+    "title": "Set up per-channel model overrides (Opus DMs, Sonnet groups)",
+    "assignee": "George",
+    "dueDate": "2026-02-21",
+    "status": "todo",
+    "createdAt": "2026-02-21T00:00:00.000Z"
+  },
+  {
+    "id": "g-t22",
+    "title": "Set up Gemini 3.1 for Kelly/Rachel visual generation",
+    "assignee": "George",
+    "dueDate": "2026-02-21",
+    "status": "todo",
+    "createdAt": "2026-02-21T00:00:00.000Z"
+  },
+  {
+    "id": "g-t23",
+    "title": "Configure subagent spawn depth = 2",
+    "assignee": "George",
+    "dueDate": "2026-02-21",
+    "status": "todo",
+    "createdAt": "2026-02-21T00:00:00.000Z"
   }
 ]
