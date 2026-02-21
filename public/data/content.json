@@ -1162,8 +1162,9 @@
       "date": "2026-02-21",
       "text": "The most underreported story in crypto right now is how fast AI agents are becoming economic actors.\n\nSix months ago they could barely hold a conversation. Today they're autonomously managing wallets, executing trades, and paying for services.\n\nWe're not ready for what comes next.",
       "angle": "Meta-commentary on AI agent payment infrastructure maturation",
-      "status": "pending",
-      "createdAt": "2026-02-21T15:00:00Z"
+      "status": "approved",
+      "createdAt": "2026-02-21T15:00:00Z",
+      "resolvedAt": "2026-02-21T22:58:41.585Z"
     },
     {
       "id": "kelly-2026-02-21-2",
