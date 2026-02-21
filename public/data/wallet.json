@@ -8,13 +8,13 @@
   "monthlyTarget": 7.5,
   "currentBalance": {
     "sol": 1.208021372,
-    "usd": 318.4
+    "usd": 319.6
   },
   "holdings": [
     {
       "token": "SOL",
       "amount": 1.208021372,
-      "usd": 102.85
+      "usd": 104.19
     },
     {
       "token": "",
@@ -54,10 +54,10 @@
     {
       "token": "CRT",
       "amount": 1.189,
-      "usd": 135.99
+      "usd": 135.85
     }
   ],
-  "lastUpdated": "2026-02-21T11:05:15-08:00",
+  "lastUpdated": "2026-02-21T17:55:26-08:00",
   "trades": [
     {
       "timestamp": "2026-02-16T07:10:51.334Z",
