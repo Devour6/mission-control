@@ -7,19 +7,19 @@
   },
   "monthlyTarget": 7.5,
   "currentBalance": {
-    "sol": 0.584777062,
-    "usd": 517.16
+    "sol": 0.50477155,
+    "usd": 510.45
   },
   "holdings": [
     {
       "token": "SOL",
-      "amount": 0.584777062,
-      "usd": 49.85
+      "amount": 0.50477155,
+      "usd": 43.09
     },
     {
       "token": "",
       "amount": 0.410151332,
-      "usd": 39.81
+      "usd": 39.87
     },
     {
       "token": "BLZE",
@@ -33,8 +33,8 @@
     },
     {
       "token": "zBTC",
-      "amount": 0.0020407,
-      "usd": 138.3
+      "amount": 0.00260039,
+      "usd": 176.25
     },
     {
       "token": "FHqVxcq9",
@@ -43,13 +43,13 @@
     },
     {
       "token": "USDC",
-      "amount": 38.774677,
-      "usd": 38.77
+      "amount": 0.774677,
+      "usd": 0.77
     },
     {
       "token": "JLP",
       "amount": 3.644889,
-      "usd": 13.44
+      "usd": 13.43
     },
     {
       "token": "5Y3obR5a",
@@ -59,20 +59,20 @@
     {
       "token": "wETH",
       "amount": 0.04432292,
-      "usd": 87.59
+      "usd": 87.61
     },
     {
       "token": "xSOL",
       "amount": 161.750427,
-      "usd": 13.34
+      "usd": 13.47
     },
     {
       "token": "CRT",
       "amount": 1.189,
-      "usd": 136.0
+      "usd": 135.9
     }
   ],
-  "lastUpdated": "2026-02-22T07:13:12-08:00",
+  "lastUpdated": "2026-02-22T07:41:21-08:00",
   "trades": [
     {
       "timestamp": "2026-02-16T07:10:51.334Z",
@@ -397,6 +397,24 @@
       "priceImpact": -0.0012235620290149828,
       "signature": "3PkvetKWTCjUgbG3WeHRT1gnGFk5cZVA2LDVn2vPqPtR8cYx2RWrNmM1QomuqdAtrEtuUihbFcn9rwoPK2zZiHVa",
       "explorer": "https://solscan.io/tx/3PkvetKWTCjUgbG3WeHRT1gnGFk5cZVA2LDVn2vPqPtR8cYx2RWrNmM1QomuqdAtrEtuUihbFcn9rwoPK2zZiHVa"
+    },
+    {
+      "timestamp": "2026-02-22T07:41:20.109Z",
+      "type": "swap",
+      "from": {
+        "token": "SOL",
+        "amount": 0.08,
+        "mint": "So11111111111111111111111111111111111111112"
+      },
+      "to": {
+        "token": "$YIELD",
+        "amount": 0.0703,
+        "mint": "phaseZSfPxTDBpiVb96H4XFSD8xHeHxZre5HerehBJG"
+      },
+      "usdValue": 6.835218093461435,
+      "priceImpact": -0.0023205577312510346,
+      "signature": "3jKQfdTsyJBQSPsWk4kUJ4QotNiv6LNQM97EqgvcMTvnjE599pxDoTSKisXiBJS8avStamCSkoinw8rv4c5pt1dy",
+      "explorer": "https://solscan.io/tx/3jKQfdTsyJBQSPsWk4kUJ4QotNiv6LNQM97EqgvcMTvnjE599pxDoTSKisXiBJS8avStamCSkoinw8rv4c5pt1dy"
     }
   ]
 }
