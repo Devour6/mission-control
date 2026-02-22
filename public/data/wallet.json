@@ -7,14 +7,14 @@
   },
   "monthlyTarget": 7.5,
   "currentBalance": {
-    "sol": 1.257913595,
-    "usd": 502.97
+    "sol": 1.257898865,
+    "usd": 452.95
   },
   "holdings": [
     {
       "token": "SOL",
-      "amount": 1.257913595,
-      "usd": 107.05
+      "amount": 1.257898865,
+      "usd": 107.03
     },
     {
       "token": "",
@@ -38,8 +38,8 @@
     },
     {
       "token": "USDC",
-      "amount": 199.0,
-      "usd": 199.0
+      "amount": 149.0,
+      "usd": 149.0
     },
     {
       "token": "JLP",
@@ -67,7 +67,7 @@
       "usd": 135.89
     }
   ],
-  "lastUpdated": "2026-02-22T05:08:10-08:00",
+  "lastUpdated": "2026-02-22T05:09:09-08:00",
   "trades": [
     {
       "timestamp": "2026-02-16T07:10:51.334Z",
@@ -266,6 +266,24 @@
       "priceImpact": -0.0028048357258777298,
       "signature": "vZwefG3cZYpv1Lu3aFbnXZFrpy99XAmBtSVgqH7KPMHYSfbEx9jrFDLE2HTkEs1nm55stqfAokhxVVmJT9AB7cY",
       "explorer": "https://solscan.io/tx/vZwefG3cZYpv1Lu3aFbnXZFrpy99XAmBtSVgqH7KPMHYSfbEx9jrFDLE2HTkEs1nm55stqfAokhxVVmJT9AB7cY"
+    },
+    {
+      "timestamp": "2026-02-22T05:09:08.605Z",
+      "type": "swap",
+      "from": {
+        "token": "USDC",
+        "amount": 75,
+        "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+      },
+      "to": {
+        "token": "zBTC",
+        "amount": 0.0001,
+        "mint": "zBTCug3er3tLyffELcvDNrKkCymbPWysGcWihESYfLg"
+      },
+      "usdValue": 74.99923100606667,
+      "priceImpact": 0.00021632120793872237,
+      "signature": "5MDQfotuNFHu7D1PeWovSgtJmYcwrXj3JM65rf6Ze637YwjdrYNNCY6MQRQQg4ekn1VPnG1VhYrE9UaWtGvt8YJq",
+      "explorer": "https://solscan.io/tx/5MDQfotuNFHu7D1PeWovSgtJmYcwrXj3JM65rf6Ze637YwjdrYNNCY6MQRQQg4ekn1VPnG1VhYrE9UaWtGvt8YJq"
     }
   ]
 }
