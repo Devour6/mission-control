@@ -8,13 +8,13 @@
   "monthlyTarget": 7.5,
   "currentBalance": {
     "sol": 1.257898865,
-    "usd": 452.95
+    "usd": 516.42
   },
   "holdings": [
     {
       "token": "SOL",
       "amount": 1.257898865,
-      "usd": 107.03
+      "usd": 107.02
     },
     {
       "token": "",
@@ -32,14 +32,19 @@
       "usd": 0
     },
     {
+      "token": "zBTC",
+      "amount": 0.0020407,
+      "usd": 138.46
+    },
+    {
       "token": "FHqVxcq9",
       "amount": 1.0,
       "usd": 0
     },
     {
       "token": "USDC",
-      "amount": 149.0,
-      "usd": 149.0
+      "amount": 74.0,
+      "usd": 74.0
     },
     {
       "token": "JLP",
@@ -54,7 +59,7 @@
     {
       "token": "wETH",
       "amount": 0.00682531,
-      "usd": 13.46
+      "usd": 13.48
     },
     {
       "token": "xSOL",
@@ -67,7 +72,7 @@
       "usd": 135.89
     }
   ],
-  "lastUpdated": "2026-02-22T05:09:09-08:00",
+  "lastUpdated": "2026-02-22T05:10:15-08:00",
   "trades": [
     {
       "timestamp": "2026-02-16T07:10:51.334Z",
@@ -284,6 +289,24 @@
       "priceImpact": 0.00021632120793872237,
       "signature": "5MDQfotuNFHu7D1PeWovSgtJmYcwrXj3JM65rf6Ze637YwjdrYNNCY6MQRQQg4ekn1VPnG1VhYrE9UaWtGvt8YJq",
       "explorer": "https://solscan.io/tx/5MDQfotuNFHu7D1PeWovSgtJmYcwrXj3JM65rf6Ze637YwjdrYNNCY6MQRQQg4ekn1VPnG1VhYrE9UaWtGvt8YJq"
+    },
+    {
+      "timestamp": "2026-02-22T05:10:14.070Z",
+      "type": "swap",
+      "from": {
+        "token": "USDC",
+        "amount": 74,
+        "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+      },
+      "to": {
+        "token": "wETH",
+        "amount": 0.0037,
+        "mint": "7vfCXTUXx5WJV5JADk17DUJ4ksgau7utNKj4b963voxs"
+      },
+      "usdValue": 73.99397548352917,
+      "priceImpact": 0.000862411244033418,
+      "signature": "3HRpTFNm3F9RXDcVx8a78MEPGeG1VvyVgcLHTof5X2C2JwrgA5eiMcDhMRfp8AjBi36pUa2JZsu33dYSKLx4EX7U",
+      "explorer": "https://solscan.io/tx/3HRpTFNm3F9RXDcVx8a78MEPGeG1VvyVgcLHTof5X2C2JwrgA5eiMcDhMRfp8AjBi36pUa2JZsu33dYSKLx4EX7U"
     }
   ]
 }
