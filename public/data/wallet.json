@@ -8,13 +8,13 @@
   "monthlyTarget": 7.5,
   "currentBalance": {
     "sol": 1.257898869,
-    "usd": 516.24
+    "usd": 515.71
   },
   "holdings": [
     {
       "token": "SOL",
       "amount": 1.257898869,
-      "usd": 106.91
+      "usd": 106.86
     },
     {
       "token": "",
@@ -34,7 +34,7 @@
     {
       "token": "zBTC",
       "amount": 0.0020407,
-      "usd": 138.46
+      "usd": 138.04
     },
     {
       "token": "FHqVxcq9",
@@ -54,7 +54,7 @@
     {
       "token": "wETH",
       "amount": 0.04432292,
-      "usd": 87.41
+      "usd": 87.35
     },
     {
       "token": "xSOL",
@@ -67,7 +67,7 @@
       "usd": 135.89
     }
   ],
-  "lastUpdated": "2026-02-22T05:14:25-08:00",
+  "lastUpdated": "2026-02-22T05:20:43-08:00",
   "trades": [
     {
       "timestamp": "2026-02-16T07:10:51.334Z",
