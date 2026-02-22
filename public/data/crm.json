@@ -4678,5 +4678,39 @@
     "touchCount": 1,
     "lastTouch": "2026-02-18",
     "firstSeen": "2026-02-18"
+  },
+  {
+    "id": "29d6bc49-6cb7-4af7-99da-189d2823f343",
+    "name": "Casson Trenor",
+    "email": "trenor@gmail.com",
+    "emails": [
+      "trenor@gmail.com"
+    ],
+    "company": "Somos Axolotl",
+    "role": "Founder / Director",
+    "category": "partner",
+    "relationship": "strong",
+    "lastContact": "2026-02-21",
+    "source": "phase-inbox",
+    "notes": "Founder of Somos Axolotl nonprofit. Invited Brandon to join inaugural Board of Directors. Met at Mexico City event. Validator-funded nonprofit model aligned with Phase.",
+    "tags": [
+      "solana",
+      "nonprofit",
+      "board",
+      "mexico-city"
+    ],
+    "qualityScore": 5,
+    "touchCount": 1,
+    "firstSeen": "2026-02-21T00:00:00Z",
+    "lastTouch": "2026-02-21T00:00:00Z",
+    "interactions": [
+      {
+        "date": "2026-02-21",
+        "type": "email",
+        "direction": "inbound",
+        "subject": "An invitation from Somos Axolotl",
+        "summary": "Casson invited Brandon to join Somos Axolotl inaugural Board of Directors. Brandon replied expressing strong interest, asked to hop on a call to discuss details before formally accepting."
+      }
+    ]
   }
 ]
