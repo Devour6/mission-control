@@ -52,6 +52,16 @@
           "description": "Coinbase Agentic Wallets + Stripe payments opportunity for Radiants creator-focused agent tooling on Solana",
           "url": "https://docs.google.com/document/d/1Gclonm16NRwN2nBVjalnKrxLx1dGYmXCJPCltiliUB4/edit",
           "account": "radiants"
+        },
+        {
+          "id": "d-ce765cf0",
+          "title": "Price Data Comparison \u2014 CoinGecko vs Alternatives",
+          "author": "George",
+          "authorEmoji": "\ud83e\uddbe",
+          "type": "analysis",
+          "description": "Comparison of CoinGecko Free vs Pro vs Jupiter API vs local aggregator for price data",
+          "url": "https://docs.google.com/document/d/1KY72QxdbXe8TaTJLBFVjHe3uXatn8xqC0dAff4QSJLY/edit",
+          "account": "personal"
         }
       ]
     },
