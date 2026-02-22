@@ -62,6 +62,16 @@
           "description": "Comparison of CoinGecko Free vs Pro vs Jupiter API vs local aggregator for price data",
           "url": "https://docs.google.com/document/d/1KY72QxdbXe8TaTJLBFVjHe3uXatn8xqC0dAff4QSJLY/edit",
           "account": "personal"
+        },
+        {
+          "id": "d-35339e0a",
+          "title": "Polymarket 5-Minute Markets Bot \u2014 Product Outline",
+          "author": "Dwight",
+          "authorEmoji": "\ud83d\udd75\ufe0f",
+          "type": "research",
+          "description": "Product outline for automated Polymarket 5-min prediction market bot",
+          "url": "https://docs.google.com/document/d/1xHBzQ2-kBYVre4E_dZaNO-LyPxuyCrhnRgkkMGlgy9g/edit",
+          "account": "personal"
         }
       ]
     },
