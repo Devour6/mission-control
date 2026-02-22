@@ -7,19 +7,19 @@
   },
   "monthlyTarget": 7.5,
   "currentBalance": {
-    "sol": 1.257898869,
-    "usd": 515.76
+    "sol": 0.757893088,
+    "usd": 473.67
   },
   "holdings": [
     {
       "token": "SOL",
-      "amount": 1.257898869,
-      "usd": 106.87
+      "amount": 0.757893088,
+      "usd": 64.47
     },
     {
       "token": "",
       "amount": 0.219760867,
-      "usd": 20.7
+      "usd": 21.29
     },
     {
       "token": "BLZE",
@@ -34,7 +34,7 @@
     {
       "token": "zBTC",
       "amount": 0.0020407,
-      "usd": 138.04
+      "usd": 137.54
     },
     {
       "token": "FHqVxcq9",
@@ -44,7 +44,7 @@
     {
       "token": "JLP",
       "amount": 3.644889,
-      "usd": 13.42
+      "usd": 13.44
     },
     {
       "token": "5Y3obR5a",
@@ -54,20 +54,20 @@
     {
       "token": "wETH",
       "amount": 0.04432292,
-      "usd": 87.39
+      "usd": 87.53
     },
     {
       "token": "xSOL",
       "amount": 161.750427,
-      "usd": 13.39
+      "usd": 13.34
     },
     {
       "token": "CRT",
       "amount": 1.189,
-      "usd": 135.89
+      "usd": 136.0
     }
   ],
-  "lastUpdated": "2026-02-22T05:35:54-08:00",
+  "lastUpdated": "2026-02-22T06:11:24-08:00",
   "trades": [
     {
       "timestamp": "2026-02-16T07:10:51.334Z",
@@ -302,6 +302,24 @@
       "priceImpact": 0.000862411244033418,
       "signature": "3HRpTFNm3F9RXDcVx8a78MEPGeG1VvyVgcLHTof5X2C2JwrgA5eiMcDhMRfp8AjBi36pUa2JZsu33dYSKLx4EX7U",
       "explorer": "https://solscan.io/tx/3HRpTFNm3F9RXDcVx8a78MEPGeG1VvyVgcLHTof5X2C2JwrgA5eiMcDhMRfp8AjBi36pUa2JZsu33dYSKLx4EX7U"
+    },
+    {
+      "timestamp": "2026-02-22T06:11:23.197Z",
+      "type": "swap",
+      "from": {
+        "token": "SOL",
+        "amount": 0.5,
+        "mint": "So11111111111111111111111111111111111111112"
+      },
+      "to": {
+        "token": "$YIELD",
+        "amount": 0.4391,
+        "mint": "phaseZSfPxTDBpiVb96H4XFSD8xHeHxZre5HerehBJG"
+      },
+      "usdValue": 42.5159476258288,
+      "priceImpact": -0.027305129104776685,
+      "signature": "4nXRKg99toaRzAbopmWPmYVHY4z6UdsPbswFhmmbHeb3rKwke7KEhmefvcyi9mfr2Qwe7mWvAZgbLpty9JMJkPic",
+      "explorer": "https://solscan.io/tx/4nXRKg99toaRzAbopmWPmYVHY4z6UdsPbswFhmmbHeb3rKwke7KEhmefvcyi9mfr2Qwe7mWvAZgbLpty9JMJkPic"
     }
   ]
 }
