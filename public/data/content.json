@@ -1347,6 +1347,66 @@
       "status": "denied",
       "feedback": "fact check this",
       "resolvedAt": "2026-02-21T23:02:35.043Z"
+    },
+    {
+      "id": "kelly-2026-02-21-22",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-21",
+      "text": "Small Bitcoin holders increased their holdings 2.5% since the October ATH.\n\nLarge holders reduced theirs by 0.8% over the same period.\n\nSmart money is taking profits. Retail is buying the dip. That's exactly what bottom formation looks like.",
+      "angle": "** Small holders accumulating vs whales trimming signals bottom formation",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "kelly-2026-02-21-23",
+      "platform": "x",
+      "author": "Kelly",
+      "authorEmoji": "🐦",
+      "batch": "Auto-synced",
+      "date": "2026-02-21",
+      "text": "Anthropic just raised $30B at a $380B valuation.\n\nOpenAI raised $6.6B at $157B just months ago.\n\nThe AI arms race isn't about who builds the best model anymore. It's about who can afford to keep building when training runs cost $100M+.",
+      "angle": "** Anthropic vs OpenAI funding arms race intensifying with $30B raise",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "rachel-2026-02-21-12",
+      "platform": "linkedin",
+      "author": "Rachel",
+      "authorEmoji": "💼",
+      "batch": "Auto-synced",
+      "date": "2026-02-21",
+      "text": "CME just announced 24/7 crypto trading starting May 29.\n\nThis is bigger than it sounds.\n\nFor years, crypto's \"always on\" market created a structural problem: traditional finance shut down at 4pm Friday, and crypto kept moving. The result was predictable weekend dumps, CME gaps on Monday opens, and institutional traders flying blind for 60+ hours every week.\n\nThat's about to end.",
+      "angle": "CME 24/7 crypto trading as market structure evolution - institutional infrastructure maturing",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "rachel-2026-02-21-13",
+      "platform": "linkedin",
+      "author": "Rachel",
+      "authorEmoji": "💼",
+      "batch": "Auto-synced",
+      "date": "2026-02-21",
+      "text": "50% of crypto holders are now afraid of the IRS.\n\nNot because they're doing anything wrong. Because the new Form 1099-DA just made crypto taxes exponentially more confusing.\n\nHere's the problem: exchanges now auto-report all your crypto transactions to the IRS. But they only report proceeds. Not your cost basis. Not your holding period. Not the transfer you made between your own wallets that isn't a taxable event.\n\nSo the IRS gets a number. You get the burden of proving what that number actually means.",
+      "angle": "IRS 1099-DA creating compliance complexity and opportunity - founder perspective on crypto tax infrastructure",
+      "status": "pending",
+      "feedback": ""
+    },
+    {
+      "id": "rachel-2026-02-21-14",
+      "platform": "linkedin",
+      "author": "Rachel",
+      "authorEmoji": "💼",
+      "batch": "Auto-synced",
+      "date": "2026-02-21",
+      "text": "OpenAI just dropped GPT-5.3-Codex. It scored 56.8% on SWE-Bench Pro and 77.3% on Terminal-Bench 2.0.\n\nFor non-technical folks: this model can autonomously fix real software bugs and run complex terminal operations better than any AI before it. 25% faster than its predecessor.\n\nHere's what I'm watching as a founder building in crypto:",
+      "angle": "OpenAI GPT-5.3 Codex and the acceleration of AI-driven development - what it means for crypto builders",
+      "status": "pending",
+      "feedback": ""
     }
   ]
 }
