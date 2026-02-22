@@ -82,6 +82,16 @@
           "description": "Product outline for Solana cross-DEX arbitrage bot",
           "url": "https://docs.google.com/document/d/1yAo2fpUmSIYgZU4atBHHqwCisbpd0q-yEq2UXM2PhVU/edit",
           "account": "personal"
+        },
+        {
+          "id": "d-62141b0e",
+          "title": "Business Ideas Pipeline",
+          "author": "George",
+          "authorEmoji": "\ud83d\udca1",
+          "type": "sheet",
+          "description": "Intel-driven business ideas pipeline",
+          "url": "https://docs.google.com/spreadsheets/d/1W6mtbjEdjSCD5wbzLLNxKRWYuM-SU3AqCMek_-IcuM8/edit",
+          "account": "brandon@phaselabs.io"
         }
       ]
     },
