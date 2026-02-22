@@ -8,7 +8,7 @@
   "monthlyTarget": 7.5,
   "currentBalance": {
     "sol": 1.257898869,
-    "usd": 515.79
+    "usd": 515.76
   },
   "holdings": [
     {
@@ -54,7 +54,7 @@
     {
       "token": "wETH",
       "amount": 0.04432292,
-      "usd": 87.42
+      "usd": 87.39
     },
     {
       "token": "xSOL",
@@ -67,7 +67,7 @@
       "usd": 135.89
     }
   ],
-  "lastUpdated": "2026-02-22T05:30:32-08:00",
+  "lastUpdated": "2026-02-22T05:35:54-08:00",
   "trades": [
     {
       "timestamp": "2026-02-16T07:10:51.334Z",
