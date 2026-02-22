@@ -1,6 +1,43 @@
 {
-  "lastUpdate": "2026-02-18T23:00:00-08:00",
+  "lastUpdate": "2026-02-21T21:12:00-08:00",
   "standups": [
+    {
+      "id": "standup-2026-02-21-latenight",
+      "date": "2026-02-21",
+      "time": "9:12 PM",
+      "type": "latenight",
+      "grade": "B+",
+      "summary": "6 verified Google Docs/Sheets — strongest deliverable day. Code Factory pipeline validated. Doc/task automation deployed. All 16 crons fixed. Rough morning (config break, date errors, final warnings) but recovered hard.",
+      "deliverables": {
+        "total": 6,
+        "googleDocs": 4,
+        "sheets": 2,
+        "deployments": 0,
+        "contentDrafts": 2,
+        "flag": "EXCEEDS TARGET (300%)"
+      },
+      "qualityCheck": [
+        {"agent": "Stanley", "grade": "A", "summary": "Code Factory review pipeline working. Auto-reviewed and merged PR #1 cleanly."},
+        {"agent": "Pam", "grade": "A-", "summary": "Both sheets verified with real content. Initial data needed correction but final output solid."}
+      ],
+      "spawns": [
+        {"agent": "Dwight", "task": "Polymarket 5-Minute Markets Bot — Product Outline", "account": "2brandon.ninja@gmail.com", "runId": "7de6b315-1019-4307-888f-6f6156df5a80"},
+        {"agent": "Ross", "task": "Solana Cross-DEX Arbitrage Bot — Product Outline", "account": "2brandon.ninja@gmail.com", "runId": "c573e9c0-b3cb-44a0-8b2a-279eade8b7ec"}
+      ],
+      "deliverableDetails": [
+        {"type": "googleDoc", "title": "Validator Income Report — Epoch 929", "docId": "1dWciHTSdqZpo7KPzG-U6sWxZLF0R0WRM-RCFepO2z1A", "account": "2brandon.ninja@gmail.com"},
+        {"type": "sheet", "title": "House Savings Tracker", "docId": "1eqZkpScYyJ55w8RlnkE9a7vD9P7gEZbHEb7cOF2w3SQ", "account": "2brandon.ninja@gmail.com"},
+        {"type": "sheet", "title": "SOL Price Scenarios", "docId": "1IbtWK4p462mZXetdEZ_bpQjYtCOnbPAXEZ7bODkyNiw", "account": "2brandon.ninja@gmail.com"},
+        {"type": "googleDoc", "title": "Monday Meeting Prep — Feb 23", "docId": "19B_cEnKXzZyaSEk08gi8dWqVzIiROj0b8OBY8b3Lkaw", "account": "brandon@phaselabs.io"},
+        {"type": "googleDoc", "title": "AI Agent Creator Tools — Opportunity Brief", "docId": "1Gclonm16NRwN2nBVjalnKrxLx1dGYmXCJPCltiliUB4", "account": "devour@radiant.nexus"},
+        {"type": "googleDoc", "title": "Validator Stake Growth & Economics Analysis", "docId": "14BnajOInjA7QcrV0LPEhgb0Z1s7oo8xTQsCl_2OoMPg", "account": "2brandon.ninja@gmail.com"}
+      ],
+      "flags": [
+        "Multiple final warnings from Brandon — date errors, stale API keys, validator math",
+        "Broke openclaw.json causing 20 min downtime",
+        "Infrastructure now stable: crons, doc automation, task sync all working"
+      ]
+    },
     {
       "id": "standup-2026-02-18-latenight",
       "date": "2026-02-18",
