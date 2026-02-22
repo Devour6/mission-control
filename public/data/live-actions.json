@@ -11,10 +11,10 @@
     "id": "dwight",
     "agent": "Dwight",
     "agentEmoji": "\ud83d\udd0d",
-    "action": "Idle \u2014 next sweep tomorrow 7:30 AM",
-    "time": "9:31 PM",
+    "action": "Running evening sweep (cron error)",
+    "time": "9:32 PM",
     "color": "#a855f7",
-    "timestamp": "2026-02-22T05:31:02Z"
+    "timestamp": "2026-02-22T05:32:07Z"
   },
   {
     "id": "kelly",
