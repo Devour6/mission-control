@@ -92,6 +92,16 @@
           "description": "Intel-driven business ideas pipeline",
           "url": "https://docs.google.com/spreadsheets/d/1W6mtbjEdjSCD5wbzLLNxKRWYuM-SU3AqCMek_-IcuM8/edit",
           "account": "brandon@phaselabs.io"
+        },
+        {
+          "id": "d-21f1a6dc",
+          "title": "February 2026 Revenue Brief",
+          "author": "George",
+          "authorEmoji": "\ud83d\udcca",
+          "type": "doc",
+          "description": "Monthly revenue analysis - Phase + validators with real SVT data",
+          "url": "https://docs.google.com/document/d/1CzOn9B4AFExEsDp47k6TKrJ1hObU1gwti2UHfpzenpg/edit",
+          "account": "brandon@phaselabs.io"
         }
       ]
     },
