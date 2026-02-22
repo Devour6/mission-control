@@ -7,17 +7,67 @@
   },
   "monthlyTarget": 7.5,
   "currentBalance": {
-    "sol": 1.201761938,
-    "usd": 102.15
+    "sol": 1.199599463,
+    "usd": 303.75
   },
   "holdings": [
     {
       "token": "SOL",
-      "amount": 1.201761938,
-      "usd": 102.15
+      "amount": 1.199599463,
+      "usd": 101.85
+    },
+    {
+      "token": "",
+      "amount": 0.219760867,
+      "usd": 20.7
+    },
+    {
+      "token": "BLZE",
+      "amount": 576.27254524,
+      "usd": 0.06
+    },
+    {
+      "token": "ET9AeE6e",
+      "amount": 1.0,
+      "usd": 0
+    },
+    {
+      "token": "FHqVxcq9",
+      "amount": 1.0,
+      "usd": 0
+    },
+    {
+      "token": "USDC",
+      "amount": 13.453681,
+      "usd": 13.45
+    },
+    {
+      "token": "JLP",
+      "amount": 3.644889,
+      "usd": 13.41
+    },
+    {
+      "token": "iEXPcSJ5",
+      "amount": 2424442.398093,
+      "usd": 4.99
+    },
+    {
+      "token": "5Y3obR5a",
+      "amount": 1.0,
+      "usd": 0
+    },
+    {
+      "token": "xSOL",
+      "amount": 161.750427,
+      "usd": 13.39
+    },
+    {
+      "token": "CRT",
+      "amount": 1.189,
+      "usd": 135.9
     }
   ],
-  "lastUpdated": "2026-02-21T23:05:52-08:00",
+  "lastUpdated": "2026-02-22T00:29:58-08:00",
   "trades": [
     {
       "timestamp": "2026-02-16T07:10:51.334Z",
@@ -180,6 +230,24 @@
       "priceImpact": 0.0003507785343204043,
       "signature": "2RkbTLB9osDdXngZPFT9GvhTyEAAjW2h9vC56Z8WTqxqAcEa1mGQ4C3Jm1jgXWvz8ERn7XNv5B2ZpuAyDdDB8pdB",
       "explorer": "https://solscan.io/tx/2RkbTLB9osDdXngZPFT9GvhTyEAAjW2h9vC56Z8WTqxqAcEa1mGQ4C3Jm1jgXWvz8ERn7XNv5B2ZpuAyDdDB8pdB"
+    },
+    {
+      "timestamp": "2026-02-22T00:29:57.254Z",
+      "type": "swap",
+      "from": {
+        "token": "USDC",
+        "amount": 13.45,
+        "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+      },
+      "to": {
+        "token": "wETH",
+        "amount": 0.0007,
+        "mint": "7vfCXTUXx5WJV5JADk17DUJ4ksgau7utNKj4b963voxs"
+      },
+      "usdValue": 13.453490418737534,
+      "priceImpact": -0.00103014258716705,
+      "signature": "Epeaa7wTZRU45tBJvnBWNnSSi9tme7h7TLQPF6DaZZWzQecQcVEFhC6bCBzoWKGg7WzjxHkvoKGHTAHm8Fseiq2",
+      "explorer": "https://solscan.io/tx/Epeaa7wTZRU45tBJvnBWNnSSi9tme7h7TLQPF6DaZZWzQecQcVEFhC6bCBzoWKGg7WzjxHkvoKGHTAHm8Fseiq2"
     }
   ]
 }
