@@ -7,19 +7,19 @@
   },
   "monthlyTarget": 7.5,
   "currentBalance": {
-    "sol": 0.584783715,
-    "usd": 517.28
+    "sol": 0.584777062,
+    "usd": 517.16
   },
   "holdings": [
     {
       "token": "SOL",
-      "amount": 0.584783715,
+      "amount": 0.584777062,
       "usd": 49.85
     },
     {
       "token": "",
-      "amount": 0.810151332,
-      "usd": 78.64
+      "amount": 0.410151332,
+      "usd": 39.81
     },
     {
       "token": "BLZE",
@@ -34,7 +34,7 @@
     {
       "token": "zBTC",
       "amount": 0.0020407,
-      "usd": 138.38
+      "usd": 138.3
     },
     {
       "token": "FHqVxcq9",
@@ -42,9 +42,14 @@
       "usd": 0
     },
     {
+      "token": "USDC",
+      "amount": 38.774677,
+      "usd": 38.77
+    },
+    {
       "token": "JLP",
       "amount": 3.644889,
-      "usd": 13.43
+      "usd": 13.44
     },
     {
       "token": "5Y3obR5a",
@@ -54,7 +59,7 @@
     {
       "token": "wETH",
       "amount": 0.04432292,
-      "usd": 87.58
+      "usd": 87.59
     },
     {
       "token": "xSOL",
@@ -67,7 +72,7 @@
       "usd": 136.0
     }
   ],
-  "lastUpdated": "2026-02-22T07:12:14-08:00",
+  "lastUpdated": "2026-02-22T07:13:12-08:00",
   "trades": [
     {
       "timestamp": "2026-02-16T07:10:51.334Z",
@@ -374,6 +379,24 @@
       "priceImpact": -0.0010140466048799313,
       "signature": "SWPu3bz6dtXXCSjRLstZhNyyBgxBLnBat3rVzRNcRK3CDArhR4HdRmRuiEpjoFj5LP6ooTjWga7ayQsTagox9SZ",
       "explorer": "https://solscan.io/tx/SWPu3bz6dtXXCSjRLstZhNyyBgxBLnBat3rVzRNcRK3CDArhR4HdRmRuiEpjoFj5LP6ooTjWga7ayQsTagox9SZ"
+    },
+    {
+      "timestamp": "2026-02-22T07:13:11.205Z",
+      "type": "swap",
+      "from": {
+        "token": "USDC",
+        "amount": 38,
+        "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+      },
+      "to": {
+        "token": "zBTC",
+        "amount": 0.0001,
+        "mint": "zBTCug3er3tLyffELcvDNrKkCymbPWysGcWihESYfLg"
+      },
+      "usdValue": 37.99861595206833,
+      "priceImpact": -0.0012235620290149828,
+      "signature": "3PkvetKWTCjUgbG3WeHRT1gnGFk5cZVA2LDVn2vPqPtR8cYx2RWrNmM1QomuqdAtrEtuUihbFcn9rwoPK2zZiHVa",
+      "explorer": "https://solscan.io/tx/3PkvetKWTCjUgbG3WeHRT1gnGFk5cZVA2LDVn2vPqPtR8cYx2RWrNmM1QomuqdAtrEtuUihbFcn9rwoPK2zZiHVa"
     }
   ]
 }
