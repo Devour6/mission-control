@@ -102,6 +102,16 @@
           "description": "Monthly revenue analysis - Phase + validators with real SVT data",
           "url": "https://docs.google.com/document/d/1CzOn9B4AFExEsDp47k6TKrJ1hObU1gwti2UHfpzenpg/edit",
           "account": "brandon@phaselabs.io"
+        },
+        {
+          "id": "d-890ba8c2",
+          "title": "Price Data Comparison \u2014 CoinGecko vs Alternatives",
+          "author": "George",
+          "authorEmoji": "\ud83d\udcca",
+          "type": "report",
+          "description": "Comparison of price data providers for trading and reporting",
+          "url": "https://docs.google.com/document/d/1oC9SHIX4XHxeYBIogVnWNkCLkJn6koyh33vX7p0SDyU/edit",
+          "account": "personal"
         }
       ]
     },
