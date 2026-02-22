@@ -222,5 +222,13 @@
     "dueDate": "2026-02-22",
     "status": "todo",
     "createdAt": "2026-02-21T00:00:00.000Z"
+  },
+  {
+    "id": "3nrxk8",
+    "title": "Get Google Gemini API key for Kelly/Rachel visual generation",
+    "assignee": "Brandon",
+    "status": "personal",
+    "createdAt": "2026-02-22T02:07:39.000Z",
+    "dueDate": "high"
   }
 ]
