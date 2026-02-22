@@ -206,5 +206,21 @@
     "dueDate": "2026-02-21",
     "status": "todo",
     "createdAt": "2026-02-21T00:00:00.000Z"
+  },
+  {
+    "id": "g-t24",
+    "title": "Product Outline: Polymarket 5-Minute Markets Bot",
+    "assignee": "George",
+    "dueDate": "2026-02-22",
+    "status": "todo",
+    "createdAt": "2026-02-21T00:00:00.000Z"
+  },
+  {
+    "id": "g-t25",
+    "title": "Product Outline: Solana Arbitrage Bot",
+    "assignee": "George",
+    "dueDate": "2026-02-22",
+    "status": "todo",
+    "createdAt": "2026-02-21T00:00:00.000Z"
   }
 ]
