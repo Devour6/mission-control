@@ -112,6 +112,16 @@
           "description": "Comparison of price data providers for trading and reporting",
           "url": "https://docs.google.com/document/d/1oC9SHIX4XHxeYBIogVnWNkCLkJn6koyh33vX7p0SDyU/edit",
           "account": "personal"
+        },
+        {
+          "id": "d-ba440923",
+          "title": "Product Outline: Polymarket 5-Min Markets Bot",
+          "author": "George",
+          "authorEmoji": "\ud83c\udfb2",
+          "type": "report",
+          "description": "Product brief for fast-resolution prediction markets bot",
+          "url": "https://docs.google.com/document/d/148QXJes6x-i8ULvt2-xZPU0U7u3mf9yXcfR5cimxW_c/edit",
+          "account": "radiants"
         }
       ]
     },
