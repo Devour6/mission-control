@@ -122,6 +122,16 @@
           "description": "Product brief for fast-resolution prediction markets bot",
           "url": "https://docs.google.com/document/d/148QXJes6x-i8ULvt2-xZPU0U7u3mf9yXcfR5cimxW_c/edit",
           "account": "radiants"
+        },
+        {
+          "id": "d-20d1b101",
+          "title": "Product Outline: Solana DEX Arbitrage Bot",
+          "author": "George",
+          "authorEmoji": "\u26a1",
+          "type": "report",
+          "description": "Product brief for cross-DEX arbitrage bot on Solana",
+          "url": "https://docs.google.com/document/d/1k3JS5fT6mAaDuZhk5sFpdH2L1KB9TtHUdg5i1hD_P1M/edit?usp=drivesdk",
+          "account": "radiants"
         }
       ]
     },
