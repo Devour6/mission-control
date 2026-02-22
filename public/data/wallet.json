@@ -7,19 +7,19 @@
   },
   "monthlyTarget": 7.5,
   "currentBalance": {
-    "sol": 0.757893088,
-    "usd": 473.67
+    "sol": 0.985320213,
+    "usd": 536.65
   },
   "holdings": [
     {
       "token": "SOL",
-      "amount": 0.757893088,
-      "usd": 64.47
+      "amount": 0.985320213,
+      "usd": 83.95
     },
     {
       "token": "",
-      "amount": 0.219760867,
-      "usd": 21.29
+      "amount": 0.658866681,
+      "usd": 63.82
     },
     {
       "token": "BLZE",
@@ -34,7 +34,7 @@
     {
       "token": "zBTC",
       "amount": 0.0020407,
-      "usd": 137.54
+      "usd": 138.47
     },
     {
       "token": "FHqVxcq9",
@@ -54,7 +54,7 @@
     {
       "token": "wETH",
       "amount": 0.04432292,
-      "usd": 87.53
+      "usd": 87.57
     },
     {
       "token": "xSOL",
@@ -67,7 +67,7 @@
       "usd": 136.0
     }
   ],
-  "lastUpdated": "2026-02-22T06:11:24-08:00",
+  "lastUpdated": "2026-02-22T06:41:16-08:00",
   "trades": [
     {
       "timestamp": "2026-02-16T07:10:51.334Z",
@@ -320,6 +320,24 @@
       "priceImpact": -0.027305129104776685,
       "signature": "4nXRKg99toaRzAbopmWPmYVHY4z6UdsPbswFhmmbHeb3rKwke7KEhmefvcyi9mfr2Qwe7mWvAZgbLpty9JMJkPic",
       "explorer": "https://solscan.io/tx/4nXRKg99toaRzAbopmWPmYVHY4z6UdsPbswFhmmbHeb3rKwke7KEhmefvcyi9mfr2Qwe7mWvAZgbLpty9JMJkPic"
+    },
+    {
+      "timestamp": "2026-02-22T06:41:15.659Z",
+      "type": "swap",
+      "from": {
+        "token": "$YIELD",
+        "amount": 0.2,
+        "mint": "phaseZSfPxTDBpiVb96H4XFSD8xHeHxZre5HerehBJG"
+      },
+      "to": {
+        "token": "SOL",
+        "amount": 0.2274,
+        "mint": "So11111111111111111111111111111111111111112"
+      },
+      "usdValue": 19.381884294988534,
+      "priceImpact": 0.00042028573305608497,
+      "signature": "4aca1jXsxwLJ4TRqYRJANP47JXwo7DV9VAN94BFjNGTB7atjUEH26rjamqKwBqZZ5JkoKQUFBEJCoWBWxindjgq2",
+      "explorer": "https://solscan.io/tx/4aca1jXsxwLJ4TRqYRJANP47JXwo7DV9VAN94BFjNGTB7atjUEH26rjamqKwBqZZ5JkoKQUFBEJCoWBWxindjgq2"
     }
   ]
 }
