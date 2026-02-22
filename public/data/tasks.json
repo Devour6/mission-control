@@ -130,7 +130,7 @@
     "title": "Mission Control \u2014 Wire in Price Aggregator as live feed widget",
     "description": "Use localhost:3001 price aggregator as a live price feed widget in MC dashboard. We built it, we should eat our own cooking.",
     "assignee": "Ross",
-    "status": "in_progress",
+    "status": "done",
     "createdAt": "2026-02-17T16:10:00.000Z"
   },
   {
