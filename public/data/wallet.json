@@ -7,19 +7,19 @@
   },
   "monthlyTarget": 7.5,
   "currentBalance": {
-    "sol": 0.585314339,
-    "usd": 483.16
+    "sol": 0.584783715,
+    "usd": 517.28
   },
   "holdings": [
     {
       "token": "SOL",
-      "amount": 0.585314339,
-      "usd": 49.88
+      "amount": 0.584783715,
+      "usd": 49.85
     },
     {
       "token": "",
-      "amount": 0.458866681,
-      "usd": 44.53
+      "amount": 0.810151332,
+      "usd": 78.64
     },
     {
       "token": "BLZE",
@@ -54,7 +54,7 @@
     {
       "token": "wETH",
       "amount": 0.04432292,
-      "usd": 87.54
+      "usd": 87.58
     },
     {
       "token": "xSOL",
@@ -67,7 +67,7 @@
       "usd": 136.0
     }
   ],
-  "lastUpdated": "2026-02-22T07:11:03-08:00",
+  "lastUpdated": "2026-02-22T07:12:14-08:00",
   "trades": [
     {
       "timestamp": "2026-02-16T07:10:51.334Z",
@@ -356,6 +356,24 @@
       "priceImpact": -0.002431647725713722,
       "signature": "4f3b1CB1QX1U9h3tw7ijke63UHE5Ua5S5ZEX5SUGQ2bNVcPHrBLWa8XMLrkCqyrYwZBNuhAXxo3Q5417VkQzGoCH",
       "explorer": "https://solscan.io/tx/4f3b1CB1QX1U9h3tw7ijke63UHE5Ua5S5ZEX5SUGQ2bNVcPHrBLWa8XMLrkCqyrYwZBNuhAXxo3Q5417VkQzGoCH"
+    },
+    {
+      "timestamp": "2026-02-22T07:12:13.029Z",
+      "type": "swap",
+      "from": {
+        "token": "$YIELD",
+        "amount": 0.4,
+        "mint": "phaseZSfPxTDBpiVb96H4XFSD8xHeHxZre5HerehBJG"
+      },
+      "to": {
+        "token": "USDC",
+        "amount": 38.77,
+        "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+      },
+      "usdValue": 38.774436198542965,
+      "priceImpact": -0.0010140466048799313,
+      "signature": "SWPu3bz6dtXXCSjRLstZhNyyBgxBLnBat3rVzRNcRK3CDArhR4HdRmRuiEpjoFj5LP6ooTjWga7ayQsTagox9SZ",
+      "explorer": "https://solscan.io/tx/SWPu3bz6dtXXCSjRLstZhNyyBgxBLnBat3rVzRNcRK3CDArhR4HdRmRuiEpjoFj5LP6ooTjWga7ayQsTagox9SZ"
     }
   ]
 }
